@@ -69,8 +69,12 @@ app.get('/api/example', function(req, res) {
     res.send("Cookies are set");
 });
 
-// Start server
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// Start server (skip listen() under Vercel's serverless runtime)
+if (!process.env.VERCEL) {
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
+
+module.exports = app;

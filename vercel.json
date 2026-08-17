@@ -7,8 +7,9 @@
       "use": "@vercel/node"
     },
     {
-      "src": "Front/public/**/*",
-      "use": "@vercel/static"
+      "src": "Front/client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
     }
   ],
   "routes": [
@@ -18,7 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/Front/public/$1"
+      "dest": "/Front/client/dist/$1"
     }
   ]
 }
