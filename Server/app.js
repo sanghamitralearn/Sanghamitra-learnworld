@@ -17,6 +17,13 @@ const app = express();
 // Load environment variables
 dotenv.config({ path: './.env' });
 
+// Vercel terminates HTTPS and forwards over HTTP internally; without this,
+// Express never sees the connection as secure, so a secure session cookie
+// is silently never set.
+if (process.env.VERCEL) {
+    app.set('trust proxy', 1);
+}
+
 // Middleware setup
 app.use(cors({
     origin: ['http://127.0.0.1:5500','https://sanghamitra-learnworld-mu.vercel.app'], // Replace with your frontend URL
