@@ -19,7 +19,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/Front/client/dist/$1"
+      "dest": "/Front/client/$1"
     }
   ]
 }
