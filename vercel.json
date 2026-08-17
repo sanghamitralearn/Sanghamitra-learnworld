@@ -3,20 +3,12 @@
   "name": "Sanghamitra.learning",
   "builds": [
     {
-      "src": "Server/app.js",
-      "use": "@vercel/node"
-    },
-    {
       "src": "Front/client/package.json",
       "use": "@vercel/static-build",
       "config": { "distDir": "dist" }
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/Server/app.js"
-    },
     {
       "src": "/(assets|img)/(.*)",
       "dest": "/Front/client/$1/$2"

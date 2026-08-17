@@ -39,7 +39,8 @@ app.use(session({
         collectionName: 'sessions'
     }),
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24 // 1 day, you can customize this
+        maxAge: 1000 * 60 * 60 * 24, // 1 day, you can customize this
+        ...(process.env.VERCEL ? { sameSite: 'none', secure: true } : {})
     }
 }));
 
