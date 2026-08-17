@@ -9,7 +9,7 @@ const mathChapterSchema = new mongoose.Schema({
   chapterName: { type: String, required: true },     // "Fractions"
   level: { type: Number, required: true, enum: [1, 2, 3, 4] },
   title: { type: String, required: true },
-  subtitle: { type: String, default: '' },
+  subtitle: { type: String, default: '' },    
   description: { type: String, default: '' },
   clusterNames: { type: Map, of: String, default: {} },
   gateReviewHTML: { type: String, default: '' },
