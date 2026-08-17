@@ -1,0 +1,80 @@
+.auth-page {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('/img/login.jpg');
+  min-height: 100vh;
+}
+
+.auth-page h1 {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 30px;
+  background-color: white;
+  color: #5b9eb2;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-page form,
+.auth-page .form-container {
+  text-align: left;
+  margin: 50px auto;
+  width: 360px;
+  padding: 60px;
+  border-radius: 10px;
+  background-color: rgb(211, 235, 250);
+}
+
+.auth-page label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.auth-page input[type="text"],
+.auth-page input[type="email"],
+.auth-page input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.auth-page button {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.auth-page button:hover {
+  background-color: #0056b3;
+}
+
+.auth-page #message,
+.auth-page .auth-message {
+  margin-top: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.auth-page .hidden {
+  display: none;
+}
+
+.auth-page .show-password-container {
+  display: flex;
+  align-items: center;
+}
+
+.auth-page .show-password-container input[type="password"] {
+  flex: 1;
+}
+
+.auth-page .show-password-container input[type="checkbox"] {
+  margin-left: 10px;
+}

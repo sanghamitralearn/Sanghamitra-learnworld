@@ -1,0 +1,54 @@
+.writing-page {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.writing-page .main-content {
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #5fcf80;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.writing-page .form-control {
+  margin-bottom: 25px;
+}
+
+.writing-page .response-textarea {
+  resize: vertical;
+  height: 200px;
+  min-width: 80px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.writing-page #feedbackResponse {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #0f1113;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+.writing-page #corrections {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #131516;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+.writing-page .correction-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.writing-page .correction-item {
+  margin-bottom: 5px;
+}

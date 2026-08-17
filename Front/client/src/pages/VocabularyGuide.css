@@ -1,0 +1,53 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.guide-content .section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.guide-content h2, .guide-content h3, .guide-content h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.guide-content p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.guide-content .icon {
+  font-size: 1.2rem;
+  margin-right: 5px;
+  color: #007bff; /* Primary color */
+}
+
+.guide-content .icon-intro {
+  color: #28a745; /* Green color for introduction */
+}
+
+.guide-content .icon-def {
+  color: #17a2b8; /* Info color for definition */
+}
+
+.guide-content .icon-imp {
+  color: #ffc107; /* Warning color for importance */
+}
+
+.guide-content .icon-strategy {
+  color: #dc3545; /* Danger color for strategies */
+}
+
+.guide-content .icon-mistake {
+  color: #fd7e14; /* Orange color for mistakes */
+}
+
+.guide-content .icon-conclusion {
+  color: #6f42c1; /* Purple color for conclusion */
+}

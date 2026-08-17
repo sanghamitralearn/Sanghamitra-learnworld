@@ -1,0 +1,125 @@
+/* Shared styles for the vocabulary-content hub and topic word-list pages.
+   Extracted/deduped from the original static pages in
+   Front/public/vocabulary-content/*.html (each had its own near-identical <style> block). */
+
+.vocab-content-page header,
+.vocab-content-page .vocab-header {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.vocab-content-page .container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Hub page category rows */
+.vocab-content-page .category {
+  background: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.vocab-content-page .category h2 {
+  margin: 0 0 10px;
+  color: #333;
+  flex-grow: 1;
+}
+
+.vocab-content-page .category i {
+  font-size: 2rem;
+  margin-right: 20px;
+  color: #4CAF50;
+}
+
+.vocab-content-page .buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.vocab-content-page .buttons a {
+  text-decoration: none;
+  color: white;
+  background: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.vocab-content-page .buttons a:hover {
+  background: #4CAF50;
+}
+
+/* Topic word-list page */
+.vocab-content-page .levels {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.vocab-content-page .levels a {
+  text-decoration: none;
+  color: white;
+  background: #333;
+  padding: 10px 20px;
+  margin: 0 10px 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.vocab-content-page .levels a:hover {
+  background: #4CAF50;
+}
+
+.vocab-content-page .word {
+  background: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.vocab-content-page .word h2 {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.vocab-content-page .phonetics,
+.vocab-content-page .part-of-speech {
+  color: #666;
+  font-style: italic;
+}
+
+.vocab-content-page .definition,
+.vocab-content-page .synonyms,
+.vocab-content-page .antonyms,
+.vocab-content-page .examples {
+  margin: 10px 0;
+}
+
+.vocab-content-page .examples ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.vocab-content-page .synonyms span,
+.vocab-content-page .antonyms span {
+  display: inline-block;
+  background: #eee;
+  padding: 5px;
+  margin: 2px;
+  border-radius: 3px;
+}
+
+.vocab-content-page .not-found {
+  padding: 40px 0;
+  text-align: center;
+  color: #666;
+}

@@ -1,0 +1,43 @@
+.admin-dashboard .stat-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-dashboard .stat-card {
+  flex: 1 1 150px;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.admin-dashboard .stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.admin-dashboard .stat-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.admin-dashboard .chart-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.admin-dashboard .chart-container {
+  position: relative;
+  flex: 1 1 320px;
+  height: 300px;
+}
+
+.admin-dashboard .admin-user-row {
+  cursor: pointer;
+}
+
+.admin-dashboard .admin-user-row:hover {
+  background-color: rgba(13, 110, 253, 0.08);
+}

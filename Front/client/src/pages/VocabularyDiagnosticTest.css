@@ -1,0 +1,124 @@
+.quiz-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: black;
+}
+
+.option.selected {
+  background-color: #5fcf80;
+}
+
+.option:hover {
+  background-color: #e6e6e6;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#next-button, #previous-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #5fcf80;
+  color: rgb(10, 10, 10);
+  transition: background-color 0.3s;
+}
+
+#next-button:hover, #previous-button:hover {
+  background-color: #e6e6e6;
+}
+
+.quiz-diagnostic button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.quiz-diagnostic button:hover {
+  background-color: #525456;
+}
+
+.hidden {
+  display: none;
+}
+
+#comprehensive-analysis {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.analysis-question {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.question-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.correct-icon, .incorrect-icon, .skipped-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 10px;
+  position: relative;
+  color: white;
+}
+
+.correct-icon { background-color: #28a745; }
+.incorrect-icon { background-color: #dc3545; }
+.skipped-icon { background-color: #6c757d; }
+
+.correct-icon::after,
+.incorrect-icon::after,
+.skipped-icon::after {
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-size: 14px;
+}
+
+.correct-icon::after { content: "\2714"; }
+.incorrect-icon::after { content: "\2716"; }
+.skipped-icon::after { content: "\2754"; }
+
+.expandable {
+  margin-top: 10px;
+}

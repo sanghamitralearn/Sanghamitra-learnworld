@@ -1,0 +1,524 @@
+{
+  "meta": {
+    "pageTitle": "Chapter 1 · Level 1 – Bootcamp",
+    "chapterTitle": "Chapter 1 – Number Sense & Place Value",
+    "subtitle": "Level 1 · Core Fluency · Telangana & Cambridge"
+  },
+  "clusterNames": {
+    "PLACE": "Place Value & Expanded Form",
+    "COMP": "Comparing & Ordering Numbers",
+    "ROUND": "Rounding & Estimation",
+    "ROMAN": "Roman Numerals",
+    "NEG": "Negative Numbers in Context",
+    "CONV": "Indian – International System"
+  },
+  "gateReview": [
+    "Indian place value: Ones, Tens, Hundreds, Thousands, Ten-thousands, Lakhs, Ten-lakhs, Crores",
+    "International: Ones, Tens, Hundreds, Thousands, Ten-thousands, Hundred-thousands, Millions",
+    "Roman numerals: I=1, V=5, X=10, L=50, C=100, D=500, M=1000. No symbol repeated more than 3 times.",
+    "Rounding: Look at the digit to the right of the target place. 5 or more → round up.",
+    "Negative numbers: Used for temperature, depth below sea level, bank overdrafts."
+  ],
+  "warmupQuestions": [
+    {
+      "id": "w1", "cluster": "PLACE",
+      "q": "What is the place value of 5 in 2,53,410?",
+      "options": [
+        { "text": "50,000", "correct": true, "fb": "The 5 is in the ten-thousands place (Indian system)." },
+        { "text": "5,000", "correct": false, "fb": "That would be the thousands place." },
+        { "text": "500", "correct": false, "fb": "That's the hundreds place." },
+        { "text": "5,00,000", "correct": false, "fb": "That's the lakhs place." }
+      ],
+      "retry_hint": "Identify the period: 2,53,410 – the 5 is the first digit of the thousands period."
+    },
+    {
+      "id": "w2", "cluster": "COMP",
+      "q": "Which is larger? \\( 4,56,789 \\) or \\( 4,65,789 \\)?",
+      "options": [
+        { "text": "\\( 4,65,789 \\)", "correct": true, "fb": "Compare the ten-thousands place: 6 > 5." },
+        { "text": "\\( 4,56,789 \\)", "correct": false, "fb": "Check the digit after 4: 5 < 6." },
+        { "text": "They are equal", "correct": false, "fb": "They differ in the ten-thousands place." },
+        { "text": "Cannot compare", "correct": false, "fb": "Both have six digits, so we can compare." }
+      ],
+      "retry_hint": "Start from the left and find the first place where the digits are different."
+    },
+    {
+      "id": "w3", "cluster": "ROUND",
+      "q": "Round 3,462 to the nearest 100.",
+      "options": [
+        { "text": "3,500", "correct": true, "fb": "The tens digit is 6 (≥5), so round up the hundreds digit from 4 to 5." },
+        { "text": "3,400", "correct": false, "fb": "That would be rounding down; but the tens digit is 6, which means round up." },
+        { "text": "3,000", "correct": false, "fb": "That's rounding to the nearest 1,000." },
+        { "text": "3,460", "correct": false, "fb": "That's rounding to the nearest 10." }
+      ],
+      "retry_hint": "Look at the tens digit (the digit right after the hundreds place)."
+    },
+    {
+      "id": "w4", "cluster": "ROMAN",
+      "q": "Write 24 in Roman numerals.",
+      "options": [
+        { "text": "XXIV", "correct": true, "fb": "20 (XX) + 4 (IV) = XXIV." },
+        { "text": "XIIV", "correct": false, "fb": "Invalid; 4 is written as IV, not IIV." },
+        { "text": "XXVI", "correct": false, "fb": "XXVI = 26." },
+        { "text": "XIV", "correct": false, "fb": "XIV = 14." }
+      ],
+      "retry_hint": "Break 24 into 20 + 4 and convert each."
+    },
+    {
+      "id": "w5", "cluster": "NEG",
+      "q": "Which temperature is colder: \\( -3^\\circ\\text{C} \\) or \\( -1^\\circ\\text{C} \\)?",
+      "options": [
+        { "text": "\\( -3^\\circ\\text{C} \\)", "correct": true, "fb": "The more negative the number, the colder it is." },
+        { "text": "\\( -1^\\circ\\text{C} \\)", "correct": false, "fb": "-1 is warmer than -3." },
+        { "text": "Both are the same", "correct": false, "fb": "They are different numbers." },
+        { "text": "Cannot say", "correct": false, "fb": "Negative numbers can be compared on a number line." }
+      ],
+      "retry_hint": "Think of a thermometer: the lower down, the colder."
+    },
+    {
+      "id": "w6", "cluster": "CONV",
+      "q": "Write 5,43,210 in the International system.",
+      "options": [
+        { "text": "543,210", "correct": true, "fb": "Indian 5,43,210 = 543 thousand 210." },
+        { "text": "5,432,100", "correct": false, "fb": "You shifted the digits incorrectly." },
+        { "text": "54,32,100", "correct": false, "fb": "That's still Indian grouping." },
+        { "text": "5,43,210 (same)", "correct": false, "fb": "International uses commas every three digits from the right." }
+      ],
+      "retry_hint": "In International, group the digits in sets of three: 543,210."
+    },
+    {
+      "id": "w7", "cluster": "PLACE",
+      "q": "In 8,09,123, what digit is in the thousands place?",
+      "options": [
+        { "text": "9", "correct": true, "fb": "The number is 8 lakh 9 thousand 123, so 9 is in the thousands place." },
+        { "text": "0", "correct": false, "fb": "0 is in the ten-thousands place." },
+        { "text": "8", "correct": false, "fb": "8 is in the lakhs place." },
+        { "text": "1", "correct": false, "fb": "1 is in the hundreds place." }
+      ],
+      "retry_hint": "Read the number: eight lakh nine thousand one hundred twenty-three."
+    },
+    {
+      "id": "w8", "cluster": "COMP",
+      "q": "Arrange these in ascending order: 2,34,567; 2,43,567; 2,33,567.",
+      "options": [
+        { "text": "2,33,567; 2,34,567; 2,43,567", "correct": true, "fb": "Compare the thousands period: 33 < 34 < 43." },
+        { "text": "2,43,567; 2,34,567; 2,33,567", "correct": false, "fb": "That's descending order." },
+        { "text": "2,34,567; 2,33,567; 2,43,567", "correct": false, "fb": "2,33,567 is smaller than 2,34,567." },
+        { "text": "2,33,567; 2,43,567; 2,34,567", "correct": false, "fb": "Check the middle number: 2,34,567 < 2,43,567." }
+      ],
+      "retry_hint": "Ascending means smallest to largest."
+    }
+  ],
+  "diagnosticQuestions": [
+    {
+      "id": "d1", "cluster": "PLACE",
+      "q": "What is the place value of 6 in 16,78,945?",
+      "options": [
+        { "text": "6,00,000 (6 lakhs)", "correct": true, "fb": "The 6 is in the lakhs place: 16,78,945." },
+        { "text": "60,000", "correct": false, "fb": "That would be the ten-thousands place." },
+        { "text": "6,000", "correct": false, "fb": "That would be the thousands place." },
+        { "text": "6,00,00,000", "correct": false, "fb": "That would be crores." }
+      ],
+      "bw": "Remember the Indian place value chart: … Lakhs, Ten-thousands, Thousands, Hundreds, Tens, Ones.",
+      "fw": "Knowing place values helps you read large numbers quickly."
+    },
+    {
+      "id": "d2", "cluster": "COMP",
+      "q": "Which of these numbers is the smallest?",
+      "options": [
+        { "text": "7,89,012", "correct": true, "fb": "Compare: 7,89,012 < 7,89,102 < 7,98,012 < 7,98,102." },
+        { "text": "7,98,012", "correct": false, "fb": "7,98,012 is larger because ten-thousands digit is 9 vs 8 in 7,89,012." },
+        { "text": "7,89,102", "correct": false, "fb": "This is larger than 7,89,012 (102 > 012)." },
+        { "text": "7,98,102", "correct": false, "fb": "This is the largest." }
+      ],
+      "bw": "Start from the leftmost digit; the first digit that is smaller makes the whole number smaller.",
+      "fw": "Ordering numbers is a key skill for data handling."
+    },
+    {
+      "id": "d3", "cluster": "ROUND",
+      "q": "Round 8,734 to the nearest 100.",
+      "options": [
+        { "text": "8,700", "correct": true, "fb": "The tens digit is 3 (<5), so round down." },
+        { "text": "8,800", "correct": false, "fb": "That would need the tens digit to be 5 or more." },
+        { "text": "8,000", "correct": false, "fb": "That's rounding to the nearest thousand." },
+        { "text": "8,730", "correct": false, "fb": "That's rounding to the nearest ten." }
+      ],
+      "bw": "When rounding to the nearest 100, look at the tens digit.",
+      "fw": "Rounding is used in everyday life when estimating prices, distances, etc."
+    },
+    {
+      "id": "d4", "cluster": "ROMAN",
+      "q": "What is LXXIV in Hindu-Arabic numerals?",
+      "options": [
+        { "text": "74", "correct": true, "fb": "L=50, XX=20, IV=4 → 50+20+4=74." },
+        { "text": "54", "correct": false, "fb": "You might have misread L as 50 and IV as 4 but missed the XX." },
+        { "text": "76", "correct": false, "fb": "That would be LXXVI." },
+        { "text": "44", "correct": false, "fb": "That would be XLIV." }
+      ],
+      "bw": "Add the values of the symbols from left to right; if a smaller symbol is before a larger one, subtract.",
+      "fw": "Roman numerals appear in many formal contexts, like clocks and book chapters."
+    },
+    {
+      "id": "d5", "cluster": "NEG",
+      "q": "Which is colder: \\( -2^\\circ\\text{C} \\) or \\( -6^\\circ\\text{C} \\)?",
+      "options": [
+        { "text": "\\( -6^\\circ\\text{C} \\)", "correct": true, "fb": "On a number line, -6 is to the left of -2, so it is smaller (colder)." },
+        { "text": "\\( -2^\\circ\\text{C} \\)", "correct": false, "fb": "-2 is warmer (closer to 0)." },
+        { "text": "Both are the same", "correct": false, "fb": "The numbers are different." },
+        { "text": "Cannot say", "correct": false, "fb": "Negative numbers can be compared easily." }
+      ],
+      "bw": "On a number line, numbers decrease as you go left.",
+      "fw": "Understanding negative numbers helps with money (overdraft) and elevation."
+    },
+    {
+      "id": "d6", "cluster": "CONV",
+      "q": "Write 4,50,000 (Indian) in the International system.",
+      "options": [
+        { "text": "450,000", "correct": true, "fb": "4,50,000 Indian = 4 lakh 50 thousand = 450,000." },
+        { "text": "4,500,000", "correct": false, "fb": "That would be 45 lakh (4.5 million)." },
+        { "text": "45,000", "correct": false, "fb": "You lost a zero." },
+        { "text": "405,000", "correct": false, "fb": "Incorrect grouping of digits." }
+      ],
+      "bw": "1 lakh = 100,000, so 4 lakh = 400,000; 50 thousand = 50,000; total 450,000.",
+      "fw": "International format is used in most global reports."
+    },
+    {
+      "id": "d7", "cluster": "PLACE",
+      "q": "In the International number 2,056,789, what digit is in the hundred-thousands place?",
+      "options": [
+        { "text": "0", "correct": true, "fb": "Millions: 2, hundred-thousands: 0, ten-thousands: 5, thousands: 6." },
+        { "text": "5", "correct": false, "fb": "5 is in the ten-thousands place." },
+        { "text": "2", "correct": false, "fb": "2 is in the millions place." },
+        { "text": "6", "correct": false, "fb": "6 is in the thousands place." }
+      ],
+      "bw": "International place values: ... millions, hundred-thousands, ten-thousands, thousands.",
+      "fw": "Reading large numbers accurately is essential for data analysis."
+    },
+    {
+      "id": "d8", "cluster": "COMP",
+      "q": "Which digit could replace the □ so that 5,4□,321 < 5,45,321 ?",
+      "options": [
+        { "text": "4", "correct": true, "fb": "If □=4, we have 5,44,321, which is less than 5,45,321." },
+        { "text": "5", "correct": false, "fb": "5,45,321 is not less than 5,45,321; they are equal." },
+        { "text": "6", "correct": false, "fb": "5,46,321 is greater than 5,45,321." },
+        { "text": "7", "correct": false, "fb": "Any digit >5 makes it larger." }
+      ],
+      "bw": "Compare from the left; if the first digits are equal, move to the next place.",
+      "fw": "This logic helps you sort numbers in lists and spreadsheets."
+    },
+    {
+      "id": "d9", "cluster": "ROUND",
+      "q": "Round 2,35,671 to the nearest 10,000.",
+      "options": [
+        { "text": "2,40,000", "correct": true, "fb": "The thousands digit is 5, so we round up." },
+        { "text": "2,30,000", "correct": false, "fb": "That would be rounding down; but the thousands digit is 5." },
+        { "text": "2,35,000", "correct": false, "fb": "That's rounding to the nearest 1,000." },
+        { "text": "2,36,000", "correct": false, "fb": "Again, that's to the nearest 1,000." }
+      ],
+      "bw": "Rounding to the nearest 10,000: look at the thousands digit (5 here).",
+      "fw": "Rounding is used to simplify numbers in news headlines and reports."
+    },
+    {
+      "id": "d10", "cluster": "ROMAN",
+      "q": "Write 56 in Roman numerals.",
+      "options": [
+        { "text": "LVI", "correct": true, "fb": "50 (L) + 6 (VI) = LVI." },
+        { "text": "LIV", "correct": false, "fb": "LIV = 54." },
+        { "text": "XLVI", "correct": false, "fb": "XLVI = 46." },
+        { "text": "LXVI", "correct": false, "fb": "LXVI = 66." }
+      ],
+      "bw": "L=50, V=5, I=1. Write the largest symbols first.",
+      "fw": "Roman numerals are still used in movie copyright years and clock faces."
+    },
+    {
+      "id": "d11", "cluster": "NEG",
+      "q": "The temperature is \\( -1^\\circ\\text{C} \\). It rises by \\( 3^\\circ\\text{C} \\). What is the new temperature?",
+      "options": [
+        { "text": "\\( 2^\\circ\\text{C} \\)", "correct": true, "fb": "-1 + 3 = 2." },
+        { "text": "\\( -4^\\circ\\text{C} \\)", "correct": false, "fb": "That would be -1 - 3." },
+        { "text": "\\( 4^\\circ\\text{C} \\)", "correct": false, "fb": "You added 1 + 3 ignoring the negative sign." },
+        { "text": "\\( -2^\\circ\\text{C} \\)", "correct": false, "fb": "Check your addition: -1 + 3 = 2." }
+      ],
+      "bw": "A rise means you add the number to the current temperature.",
+      "fw": "Temperature changes are a daily application of negative numbers."
+    },
+    {
+      "id": "d12", "cluster": "CONV",
+      "q": "Convert 2,300,000 (International) into the Indian system.",
+      "options": [
+        { "text": "23,00,000", "correct": true, "fb": "2,300,000 = 2.3 million = 23 lakh = 23,00,000." },
+        { "text": "2,30,00,000", "correct": false, "fb": "That would be 23 million." },
+        { "text": "230,000", "correct": false, "fb": "That's 230 thousand." },
+        { "text": "2,30,000", "correct": false, "fb": "That's 2.3 lakh (230,000)." }
+      ],
+      "bw": "1 million = 10 lakh, so 2.3 million = 23 lakh.",
+      "fw": "Newspapers in India often use both systems."
+    },
+    {
+      "id": "d13", "cluster": "PLACE",
+      "q": "Write the expanded form of 5,04,320 (Indian system).",
+      "options": [
+        { "text": "\\( 5 \\times 1,00,000 + 4 \\times 1,000 + 3 \\times 100 + 2 \\times 10 \\)", "correct": true, "fb": "5,04,320 = 5 lakhs + 4 thousands + 3 hundreds + 2 tens." },
+        { "text": "\\( 5 \\times 1,00,000 + 4 \\times 10,000 + 3 \\times 100 + 2 \\times 10 \\)", "correct": false, "fb": "The 4 is in the thousands place, not ten-thousands." },
+        { "text": "\\( 5 \\times 10,00,000 + 4 \\times 1,000 + 3 \\times 100 + 2 \\times 10 \\)", "correct": false, "fb": "That would be 50,00,000, which is too big." },
+        { "text": "\\( 5 \\times 1,00,000 + 4 \\times 1,000 + 3 \\times 100 + 2 \\)", "correct": false, "fb": "The last digit 2 is in the tens place, not ones (the number ends in 320)." }
+      ],
+      "bw": "Expanded form shows the value of each digit according to its place.",
+      "fw": "Expanded form helps when learning addition and multiplication algorithms."
+    },
+    {
+      "id": "d14", "cluster": "COMP",
+      "q": "Which statement is true?",
+      "options": [
+        { "text": "\\( 9,87,654 > 9,87,546 \\)", "correct": true, "fb": "Compare the hundreds place: 6 > 5." },
+        { "text": "\\( 9,87,654 < 9,87,546 \\)", "correct": false, "fb": "654 is greater than 546." },
+        { "text": "\\( 9,87,654 = 9,87,546 \\)", "correct": false, "fb": "The numbers are different." },
+        { "text": "Cannot compare", "correct": false, "fb": "They have the same number of digits, so they can be compared." }
+      ],
+      "bw": "Always start from the left and find the first place where digits differ.",
+      "fw": "Comparison symbols >, < are used extensively in maths and coding."
+    },
+    {
+      "id": "d15", "cluster": "ROUND",
+      "q": "Which number will become 5,000 when rounded to the nearest 1,000?",
+      "options": [
+        { "text": "4,501", "correct": true, "fb": "4,501 rounds up to 5,000 because the hundreds digit is 5." },
+        { "text": "4,499", "correct": false, "fb": "4,499 rounds down to 4,000 (hundreds digit 4)." },
+        { "text": "5,500", "correct": false, "fb": "5,500 rounds up to 6,000 (hundreds digit 5)." },
+        { "text": "5,501", "correct": false, "fb": "5,501 rounds to 6,000 (hundreds digit 5)." }
+      ],
+      "bw": "Numbers from 4,500 to 5,499 round to 5,000.",
+      "fw": "Understanding rounding helps with estimating sums and differences."
+    },
+    {
+      "id": "d16", "cluster": "ROMAN",
+      "q": "Which is larger: XL or LX?",
+      "options": [
+        { "text": "LX", "correct": true, "fb": "LX = 60, XL = 40." },
+        { "text": "XL", "correct": false, "fb": "XL = 40, LX = 60, so LX is larger." },
+        { "text": "Both are equal", "correct": false, "fb": "They represent different numbers." },
+        { "text": "Cannot compare", "correct": false, "fb": "Both are valid Roman numerals and can be compared." }
+      ],
+      "bw": "L=50, X=10; XL means 50-10=40, LX means 50+10=60.",
+      "fw": "Comparing Roman numerals is like comparing numbers in any other base."
+    },
+    {
+      "id": "d17", "cluster": "NEG",
+      "q": "A diver is 5 m below sea level (which we write as -5). She goes up 2 m. Where is she now?",
+      "options": [
+        { "text": "-3 m", "correct": true, "fb": "-5 + 2 = -3." },
+        { "text": "3 m above sea level", "correct": false, "fb": "-5 + 2 is still negative." },
+        { "text": "-7 m", "correct": false, "fb": "That would be -5 - 2." },
+        { "text": "7 m below sea level", "correct": false, "fb": "You ignored the sign and added." }
+      ],
+      "bw": "Moving up means adding (becoming less negative).",
+      "fw": "This is the same as calculating bank balances or floors in a building."
+    },
+    {
+      "id": "d18", "cluster": "CONV",
+      "q": "1 million = how many lakhs?",
+      "options": [
+        { "text": "10 lakhs", "correct": true, "fb": "1 million = 1,000,000; 1 lakh = 100,000, so 10 lakhs." },
+        { "text": "100 lakhs", "correct": false, "fb": "That would be 1 crore (10 million)." },
+        { "text": "1 lakh", "correct": false, "fb": "1 lakh = 100,000, which is only one-tenth of a million." },
+        { "text": "5 lakhs", "correct": false, "fb": "That's half a million." }
+      ],
+      "bw": "Remember: 1,000,000 ÷ 100,000 = 10.",
+      "fw": "This conversion is essential for reading international and Indian financial news."
+    },
+    {
+      "id": "d19", "cluster": "PLACE",
+      "q": "How many ten-thousands are there in 4,73,000?",
+      "options": [
+        { "text": "7", "correct": true, "fb": "4,73,000 = 4 lakhs + 7 ten-thousands + 3 thousands." },
+        { "text": "4", "correct": false, "fb": "4 is the number of lakhs." },
+        { "text": "3", "correct": false, "fb": "3 is the number of thousands." },
+        { "text": "0", "correct": false, "fb": "The ten-thousands place is not zero." }
+      ],
+      "bw": "Break the number into periods: lakhs (4), thousands (73), ones (000).",
+      "fw": "Understanding large numbers is vital for topics like population and budgets."
+    },
+    {
+      "id": "d20", "cluster": "COMP",
+      "q": "Arrange in ascending order: 1,23,456; 1,32,456; 1,22,456.",
+      "options": [
+        { "text": "1,22,456; 1,23,456; 1,32,456", "correct": true, "fb": "22 thousand < 23 thousand < 32 thousand." },
+        { "text": "1,32,456; 1,23,456; 1,22,456", "correct": false, "fb": "That's descending." },
+        { "text": "1,23,456; 1,22,456; 1,32,456", "correct": false, "fb": "1,22,456 should come first." },
+        { "text": "1,22,456; 1,32,456; 1,23,456", "correct": false, "fb": "1,23,456 should come before 1,32,456." }
+      ],
+      "bw": "Ascending order means smallest to largest.",
+      "fw": "Sorting data is a fundamental skill in statistics."
+    },
+    {
+      "id": "d21", "cluster": "ROUND",
+      "q": "Round 49,999 to the nearest 100.",
+      "options": [
+        { "text": "50,000", "correct": true, "fb": "The tens digit is 9 (≥5), so we round up the hundreds place from 9 to 10, carrying over to give 50,000." },
+        { "text": "49,000", "correct": false, "fb": "That would be rounding to the nearest 1,000." },
+        { "text": "49,900", "correct": false, "fb": "Incorrect; the tens digit causes the hundreds to round up." },
+        { "text": "50,100", "correct": false, "fb": "Too high." }
+      ],
+      "bw": "When rounding to nearest 100, look at the tens digit. If it's 5 or more, increase the hundreds digit by 1 and change the rest to zeros.",
+      "fw": "Rounding large numbers is common in population estimates."
+    },
+    {
+      "id": "d22", "cluster": "ROMAN",
+      "q": "Convert XXIX to a number.",
+      "options": [
+        { "text": "29", "correct": true, "fb": "XX=20, IX=9 → 29." },
+        { "text": "31", "correct": false, "fb": "That would be XXXI." },
+        { "text": "19", "correct": false, "fb": "XIX = 19." },
+        { "text": "21", "correct": false, "fb": "That would be XXI." }
+      ],
+      "bw": "I before X means subtract: IX = 9.",
+      "fw": "Roman numeral knowledge is useful for history and classic literature references."
+    },
+    {
+      "id": "d23", "cluster": "NEG",
+      "q": "What is 2 more than -4?",
+      "options": [
+        { "text": "-2", "correct": true, "fb": "-4 + 2 = -2." },
+        { "text": "2", "correct": false, "fb": "You forgot the negative sign." },
+        { "text": "-6", "correct": false, "fb": "That would be -4 - 2." },
+        { "text": "6", "correct": false, "fb": "That would be 4 + 2." }
+      ],
+      "bw": "Adding a positive number moves you to the right on a number line.",
+      "fw": "This is the foundation for algebraic addition of integers."
+    },
+    {
+      "id": "d24", "cluster": "CONV",
+      "q": "Which number is written in the International system?",
+      "options": [
+        { "text": "1,234,567", "correct": true, "fb": "International uses commas every three digits: millions, thousands, ones." },
+        { "text": "12,34,567", "correct": false, "fb": "That's the Indian system." },
+        { "text": "1,23,45,678", "correct": false, "fb": "That's also Indian grouping (crores, lakhs)." },
+        { "text": "12345", "correct": false, "fb": "No commas, but if commas were added, it could be either; the presence of commas identifies the system." }
+      ],
+      "bw": "Indian commas: first after hundreds, then after thousands, then after lakhs. International: every three digits.",
+      "fw": "Recognising the system helps when reading foreign or domestic news."
+    }
+  ],
+  "recheckBank": [
+    {
+      "id": "r1", "cluster": "PLACE",
+      "q": "What is the place value of 3 in 43,21,789?",
+      "options": [
+        { "text": "3,00,000 (3 lakhs)", "correct": true, "fb": "The number is 43 lakh 21 thousand 789. The 3 is in the lakhs place." },
+        { "text": "30,000", "correct": false, "fb": "That would be the ten-thousands place." },
+        { "text": "3,000", "correct": false, "fb": "That would be the thousands place." },
+        { "text": "3,00,00,000", "correct": false, "fb": "That would be crores." }
+      ]
+    },
+    {
+      "id": "r2", "cluster": "COMP",
+      "q": "Which is the largest? 6,54,321; 6,45,321; 6,54,312; 6,45,312.",
+      "options": [
+        { "text": "6,54,321", "correct": true, "fb": "Ten-thousands digit 5 > 4; and 321 > 312 in the last comparison." },
+        { "text": "6,45,321", "correct": false, "fb": "4 in ten-thousands is smaller than 5." },
+        { "text": "6,54,312", "correct": false, "fb": "It is almost the same but 312 < 321." },
+        { "text": "6,45,312", "correct": false, "fb": "Smallest among these." }
+      ]
+    },
+    {
+      "id": "r3", "cluster": "ROUND",
+      "q": "Round 5,871 to the nearest 100.",
+      "options": [
+        { "text": "5,900", "correct": true, "fb": "The tens digit is 7 (≥5), so round up the hundreds from 8 to 9." },
+        { "text": "5,800", "correct": false, "fb": "That would be rounding down." },
+        { "text": "6,000", "correct": false, "fb": "That's to the nearest thousand." },
+        { "text": "5,870", "correct": false, "fb": "That's to the nearest ten." }
+      ]
+    },
+    {
+      "id": "r4", "cluster": "ROMAN",
+      "q": "What is XLVIII in Hindu-Arabic numerals?",
+      "options": [
+        { "text": "48", "correct": true, "fb": "XL=40, VIII=8 → 48." },
+        { "text": "58", "correct": false, "fb": "That would be LVIII." },
+        { "text": "42", "correct": false, "fb": "That would be XLII." },
+        { "text": "68", "correct": false, "fb": "That would be LXVIII." }
+      ]
+    },
+    {
+      "id": "r5", "cluster": "NEG",
+      "q": "Which is warmer: \\( -9^\\circ\\text{C} \\) or \\( -4^\\circ\\text{C} \\)?",
+      "options": [
+        { "text": "\\( -4^\\circ\\text{C} \\)", "correct": true, "fb": "-4 is closer to 0 than -9, so it is warmer." },
+        { "text": "\\( -9^\\circ\\text{C} \\)", "correct": false, "fb": "-9 is colder." },
+        { "text": "Both are equal", "correct": false, "fb": "-4 > -9." },
+        { "text": "Cannot say", "correct": false, "fb": "We can easily compare negative numbers." }
+      ]
+    },
+    {
+      "id": "r6", "cluster": "CONV",
+      "q": "Write 7,89,000 (Indian) in the International system.",
+      "options": [
+        { "text": "789,000", "correct": true, "fb": "7 lakh 89 thousand = 789,000." },
+        { "text": "7,890,000", "correct": false, "fb": "That would be 78.9 lakh." },
+        { "text": "78,900", "correct": false, "fb": "Missing a zero." },
+        { "text": "7,089,000", "correct": false, "fb": "Misplaced digits." }
+      ]
+    },
+    {
+      "id": "r7", "cluster": "PLACE",
+      "q": "In the International number 1,604,325, what digit is in the hundred-thousands place?",
+      "options": [
+        { "text": "6", "correct": true, "fb": "Millions: 1, hundred-thousands: 6, ten-thousands: 0, thousands: 4." },
+        { "text": "0", "correct": false, "fb": "0 is in the ten-thousands place." },
+        { "text": "1", "correct": false, "fb": "1 is in the millions place." },
+        { "text": "4", "correct": false, "fb": "4 is in the thousands place." }
+      ]
+    },
+    {
+      "id": "r8", "cluster": "COMP",
+      "q": "Which digit can replace the □ so that 3,2□,987 > 3,24,987 ?",
+      "options": [
+        { "text": "5", "correct": true, "fb": "If □=5, we have 3,25,987 > 3,24,987." },
+        { "text": "4", "correct": false, "fb": "3,24,987 is equal to 3,24,987." },
+        { "text": "3", "correct": false, "fb": "3,23,987 < 3,24,987." },
+        { "text": "2", "correct": false, "fb": "Even smaller." }
+      ]
+    },
+    {
+      "id": "r9", "cluster": "ROUND",
+      "q": "Round 1,56,789 to the nearest 1,000.",
+      "options": [
+        { "text": "1,57,000", "correct": true, "fb": "The hundreds digit is 7 (≥5), so round up the thousands." },
+        { "text": "1,56,000", "correct": false, "fb": "Would need hundreds digit <5." },
+        { "text": "1,60,000", "correct": false, "fb": "That's to the nearest 10,000." },
+        { "text": "2,00,000", "correct": false, "fb": "That's to the nearest lakh." }
+      ]
+    },
+    {
+      "id": "r10", "cluster": "ROMAN",
+      "q": "Write 39 in Roman numerals.",
+      "options": [
+        { "text": "XXXIX", "correct": true, "fb": "30 (XXX) + 9 (IX) = XXXIX." },
+        { "text": "IXL", "correct": false, "fb": "Invalid form; 39 is not written with XL." },
+        { "text": "XXXXIX", "correct": false, "fb": "Four X's in a row is not allowed." },
+        { "text": "XLI", "correct": false, "fb": "XLI = 41." }
+      ]
+    },
+    {
+      "id": "r11", "cluster": "NEG",
+      "q": "The temperature at night was \\( -5^\\circ\\text{C} \\). By afternoon it had risen by \\( 8^\\circ\\text{C} \\). What was the afternoon temperature?",
+      "options": [
+        { "text": "\\( 3^\\circ\\text{C} \\)", "correct": true, "fb": "-5 + 8 = 3." },
+        { "text": "\\( -3^\\circ\\text{C} \\)", "correct": false, "fb": "You subtracted 5-8 incorrectly." },
+        { "text": "\\( 13^\\circ\\text{C} \\)", "correct": false, "fb": "You added 5+8." },
+        { "text": "\\( -13^\\circ\\text{C} \\)", "correct": false, "fb": "You did -5 - 8." }
+      ]
+    },
+    {
+      "id": "r12", "cluster": "CONV",
+      "q": "Convert 650,000 (International) to the Indian system.",
+      "options": [
+        { "text": "6,50,000", "correct": true, "fb": "650,000 = 6.5 lakh = 6,50,000." },
+        { "text": "65,00,000", "correct": false, "fb": "That would be 6.5 million." },
+        { "text": "6,05,000", "correct": false, "fb": "Misplaced digit." },
+        { "text": "60,50,000", "correct": false, "fb": "Incorrect grouping." }
+      ]
+    }
+  ]
+}
