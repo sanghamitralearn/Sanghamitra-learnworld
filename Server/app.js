@@ -19,7 +19,7 @@ dotenv.config({ path: './.env' });
 
 // Middleware setup
 app.use(cors({
-    origin: 'http://127.0.0.1:5500', // Replace with your frontend URL
+    origin: ['http://127.0.0.1:5500','https://sanghamitra-learnworld-mu.vercel.app'], // Replace with your frontend URL
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
