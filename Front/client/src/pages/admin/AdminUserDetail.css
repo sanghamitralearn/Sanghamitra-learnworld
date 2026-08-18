@@ -6,13 +6,17 @@
 }
 
 .admin-user-detail .admin-header-bar {
+  padding: 1.35rem 0;
+  background: linear-gradient(90deg, #5b3bce, #7c5cd6);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(76, 42, 179, 0.25);
+}
+
+.admin-user-detail .admin-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.35rem 1.75rem;
-  background: linear-gradient(90deg, #5b3bce, #7c5cd6);
-  color: #fff;
 }
 
 .admin-user-detail .admin-header-title {

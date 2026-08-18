@@ -79,14 +79,16 @@ export default function AdminDashboard() {
   return (
     <section className="admin-dashboard">
       <div className="admin-header-bar">
-        <div className="admin-header-title">
-          <i className="bi bi-shield-lock-fill"></i>
-          <div>
-            <h2 className="mb-0">Admin Dashboard</h2>
-            <span className="admin-header-subtitle">Monitor student progress across subjects</span>
+        <div className="container admin-header-inner">
+          <div className="admin-header-title">
+            <i className="bi bi-shield-lock-fill"></i>
+            <div>
+              <h2 className="mb-0">Admin Dashboard</h2>
+              <span className="admin-header-subtitle">Monitor student progress across subjects</span>
+            </div>
           </div>
+          <RecentActivityBell />
         </div>
-        <RecentActivityBell />
       </div>
 
       <div className="container mt-4">
@@ -160,8 +162,8 @@ export default function AdminDashboard() {
                   <small className="text-muted">{subject === 'maths' ? 'Maths' : 'English'} — every student&apos;s latest attempt</small>
                 </div>
                 <div className="d-flex align-items-center gap-2">
-                  <span className="badge rounded-pill text-bg-primary">{scoreRows.length} students</span>
-                  <button type="button" className="btn btn-sm btn-outline-secondary" onClick={loadDashboard}>
+                  <span className="badge rounded-pill activity-count-badge">{scoreRows.length} students</span>
+                  <button type="button" className="btn btn-sm refresh-btn" onClick={loadDashboard}>
                     <i className="bi bi-arrow-clockwise me-1"></i>Refresh
                   </button>
                 </div>
@@ -236,7 +238,7 @@ export default function AdminDashboard() {
                           <td>
                             <button
                               type="button"
-                              className="btn btn-sm btn-primary"
+                              className="btn btn-sm view-detail-btn"
                               onClick={() => navigate(`/admin/user-detail?subject=${subject}&email=${encodeURIComponent(doc.email)}`)}
                             >
                               View &rarr;
@@ -247,7 +249,10 @@ export default function AdminDashboard() {
                     })}
                     {scoreRows.length === 0 && (
                       <tr>
-                        <td colSpan={subject === 'maths' ? 7 : 5} className="text-center">No data yet.</td>
+                        <td colSpan={subject === 'maths' ? 7 : 5} className="empty-state-cell">
+                          <i className="bi bi-inbox"></i>
+                          <span>No {subject === 'maths' ? 'attempts' : 'assessments'} recorded yet.</span>
+                        </td>
                       </tr>
                     )}
                   </tbody>

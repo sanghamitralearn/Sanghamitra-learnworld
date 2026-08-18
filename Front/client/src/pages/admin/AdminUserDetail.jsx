@@ -84,14 +84,16 @@ export default function AdminUserDetail() {
   return (
     <section className="admin-user-detail">
       <div className="admin-header-bar">
-        <div className="admin-header-title">
-          <i className="bi bi-person-lines-fill"></i>
-          <div>
-            <h2 className="mb-0">{data?.username || email}</h2>
-            <span className="admin-header-subtitle">{subject === 'maths' ? 'Maths' : 'English'} results &middot; {email}</span>
+        <div className="container admin-header-inner">
+          <div className="admin-header-title">
+            <i className="bi bi-person-lines-fill"></i>
+            <div>
+              <h2 className="mb-0">{data?.username || email}</h2>
+              <span className="admin-header-subtitle">{subject === 'maths' ? 'Maths' : 'English'} results &middot; {email}</span>
+            </div>
           </div>
+          <Link to="/admin" className="btn btn-sm btn-light">&larr; Back to Dashboard</Link>
         </div>
-        <Link to="/admin" className="btn btn-sm btn-light">&larr; Back to Dashboard</Link>
       </div>
 
       <div className="container mt-4">
