@@ -32,18 +32,39 @@ router.get('/questions', authenticate, async (req, res) => {
   }
 });
 
-// Save a completed bootcamp attempt for the signed-in user.
+// Save a bootcamp attempt for the signed-in user. Called as soon as the diagnostic
+// finishes so progress isn't lost if the user never does the recheck.
 router.post('/scores', authenticate, async (req, res) => {
   const { username, email, attempt } = req.body;
   if (!username || !email || !attempt) {
     return res.status(400).json({ error: 'username, email and attempt are required' });
   }
   try {
-    await addOrUpdateMathAttempt(username, email, attempt);
-    res.status(201).json({ message: 'Score saved successfully' });
+    const user = await addOrUpdateMathAttempt(username, email, attempt);
+    const savedAttempt = user.attempts[user.attempts.length - 1];
+    res.status(201).json({ message: 'Score saved successfully', attemptId: savedAttempt._id });
     notifyNewMathAttempt(username, attempt).catch((err) => console.error('Failed to post score notification:', err));
   } catch (err) {
     res.status(500).json({ error: 'Server error, failed to save score' });
+  }
+});
+
+// Update a previously saved attempt with recheck results once the user finishes it.
+router.patch('/scores/:attemptId', authenticate, async (req, res) => {
+  const { email, updates } = req.body;
+  if (!email || !updates) {
+    return res.status(400).json({ error: 'email and updates are required' });
+  }
+  try {
+    const userScores = await MathScore.findOne({ email });
+    if (!userScores) return res.status(404).json({ message: 'User not found' });
+    const attempt = userScores.attempts.id(req.params.attemptId);
+    if (!attempt) return res.status(404).json({ message: 'Attempt not found' });
+    Object.assign(attempt, updates);
+    await userScores.save();
+    res.status(200).json({ message: 'Attempt updated successfully' });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error, failed to update score' });
   }
 });
 

@@ -172,7 +172,9 @@ export default function MathBootcamp() {
   const timerIntervalRef = useRef(null);
   const timerPausedRef = useRef(false);
   const cardRef = useRef(null);
-  const scoreSubmittedRef = useRef(false);
+  const diagnosticSubmitRef = useRef(false);
+  const finalSubmitRef = useRef(false);
+  const savedAttemptIdRef = useRef(null);
 
   // -------------------------------------------------------------
   // Load session + catalog + questions
@@ -432,12 +434,9 @@ export default function MathBootcamp() {
   }, [timed, diagnosticQuestions, answeredMap, phase]);
 
   // -------------------------------------------------------------
-  // Score submission (once, when the final summary is reached)
+  // Score submission
   // -------------------------------------------------------------
-  useEffect(() => {
-    if (phase !== 'final' || scoreSubmittedRef.current || !session) return;
-    scoreSubmittedRef.current = true;
-
+  function buildDiagnosticSummary() {
     const warmupTotal = warmupQuestions.length;
     const warmupCorrect = warmupQuestions.filter((q) => warmupFirstCorrect[q.itemId] === true).length;
 
@@ -455,7 +454,19 @@ export default function MathBootcamp() {
         points_awarded: rec.correct ? q.points : 0
       };
     });
-    const recheckAnswers = recheckItems.map((q) => {
+
+    const diagnosticCorrect = diagAnswers.filter((a) => a.is_correct).length;
+    const diagnosticUnattempted = diagAnswers.filter((a) => a.skipped).length;
+    const correctTimes = diagAnswers.filter((a) => a.is_correct).map((a) => a.time_elapsed);
+    const avgTime = correctTimes.length
+      ? correctTimes.reduce((s, v) => s + v, 0) / correctTimes.length
+      : 0;
+
+    return { warmupCorrect, warmupTotal, diagAnswers, diagnosticCorrect, diagnosticUnattempted, avgTime };
+  }
+
+  function buildRecheckAnswers() {
+    return recheckItems.map((q) => {
       const rec = recheckAnswered[q.itemId];
       return {
         item_id: q.itemId,
@@ -468,15 +479,16 @@ export default function MathBootcamp() {
         points_awarded: rec && rec.correct ? q.points : 0
       };
     });
+  }
 
-    const diagnosticCorrect = diagAnswers.filter((a) => a.is_correct).length;
-    const diagnosticUnattempted = diagAnswers.filter((a) => a.skipped).length;
-    const recheckCorrect = recheckAnswers.filter((a) => a.is_correct).length;
-    const correctTimes = diagAnswers.filter((a) => a.is_correct).map((a) => a.time_elapsed);
-    const avgTime = correctTimes.length
-      ? correctTimes.reduce((s, v) => s + v, 0) / correctTimes.length
-      : 0;
-    const totalScore = [...diagAnswers, ...recheckAnswers].reduce((s, a) => s + a.points_awarded, 0);
+  // Save as soon as the diagnostic finishes, so progress isn't lost if the
+  // user never starts (or never finishes) the recheck.
+  useEffect(() => {
+    if (phase !== 'results' || diagnosticSubmitRef.current || !session) return;
+    diagnosticSubmitRef.current = true;
+
+    const { warmupCorrect, warmupTotal, diagAnswers, diagnosticCorrect, diagnosticUnattempted, avgTime } = buildDiagnosticSummary();
+    const totalScore = diagAnswers.reduce((s, a) => s + a.points_awarded, 0);
 
     const attempt = {
       grade,
@@ -488,17 +500,71 @@ export default function MathBootcamp() {
       diagnostic_correct: diagnosticCorrect,
       diagnostic_total: diagnosticQuestions.length,
       diagnostic_unattempted: diagnosticUnattempted,
-      recheck_correct: recheckCorrect,
-      recheck_total: recheckItems.length,
+      recheck_correct: 0,
+      recheck_total: 0,
       total_score: totalScore,
       avg_time_per_correct: avgTime,
-      answers: [...diagAnswers, ...recheckAnswers]
+      answers: diagAnswers
     };
 
     apiFetch('/math/scores', {
       method: 'POST',
       body: JSON.stringify({ username: session.username, email: session.email, attempt })
-    }).catch(() => {});
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.attemptId) savedAttemptIdRef.current = data.attemptId;
+      })
+      .catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // If the user also completes the recheck, fold those results into the
+  // attempt already saved above (or, if that save never landed, submit in full).
+  useEffect(() => {
+    if (phase !== 'final' || finalSubmitRef.current || !session) return;
+    finalSubmitRef.current = true;
+
+    const { warmupCorrect, warmupTotal, diagAnswers, diagnosticCorrect, diagnosticUnattempted, avgTime } = buildDiagnosticSummary();
+    const recheckAnswers = buildRecheckAnswers();
+    const recheckCorrect = recheckAnswers.filter((a) => a.is_correct).length;
+    const totalScore = [...diagAnswers, ...recheckAnswers].reduce((s, a) => s + a.points_awarded, 0);
+
+    if (savedAttemptIdRef.current) {
+      apiFetch(`/math/scores/${savedAttemptIdRef.current}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          email: session.email,
+          updates: {
+            recheck_correct: recheckCorrect,
+            recheck_total: recheckItems.length,
+            total_score: totalScore,
+            answers: [...diagAnswers, ...recheckAnswers]
+          }
+        })
+      }).catch(() => {});
+    } else {
+      const attempt = {
+        grade,
+        chapter_slug: chapterSlug,
+        chapter_name: meta ? meta.chapterName : chapterSlug,
+        level: levelNum,
+        warmup_correct: warmupCorrect,
+        warmup_total: warmupTotal,
+        diagnostic_correct: diagnosticCorrect,
+        diagnostic_total: diagnosticQuestions.length,
+        diagnostic_unattempted: diagnosticUnattempted,
+        recheck_correct: recheckCorrect,
+        recheck_total: recheckItems.length,
+        total_score: totalScore,
+        avg_time_per_correct: avgTime,
+        answers: [...diagAnswers, ...recheckAnswers]
+      };
+      apiFetch('/math/scores', {
+        method: 'POST',
+        body: JSON.stringify({ username: session.username, email: session.email, attempt })
+      }).catch(() => {});
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
