@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Chart } from 'chart.js/auto';
 import { apiFetch } from '../../api/client';
-import NotificationBar from '../../components/admin/NotificationBar';
+import RecentActivityBell from '../../components/admin/RecentActivityBell';
 import './AdminDashboard.css';
 
 function latestMathAttempt(doc) {
@@ -15,6 +14,28 @@ function latestVocabAssessment(doc) {
   return doc.assessments[doc.assessments.length - 1];
 }
 
+function vocabAssessmentPercent(assessment) {
+  const total = assessment.questions.length;
+  if (total === 0) return null;
+  const correct = assessment.questions.filter((q) => q.is_correct).length;
+  return Math.round((correct / total) * 100);
+}
+
+function pctClass(pct) {
+  if (pct === null) return 'score-pill-muted';
+  if (pct >= 70) return 'score-pill-high';
+  if (pct >= 40) return 'score-pill-mid';
+  return 'score-pill-low';
+}
+
+function ScorePill({ fraction, pct }) {
+  return (
+    <span className={`score-pill ${pctClass(pct)}`}>
+      {fraction}{pct !== null && <span className="score-pill-pct"> ({pct}%)</span>}
+    </span>
+  );
+}
+
 export default function AdminDashboard() {
   const navigate = useNavigate();
   const [subject, setSubject] = useState('maths');
@@ -23,203 +44,220 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const gradeCanvasRef = useRef(null);
-  const gradeChartRef = useRef(null);
-  const passFailCanvasRef = useRef(null);
-  const passFailChartRef = useRef(null);
+  async function loadDashboard() {
+    setLoading(true);
+    try {
+      const [scoresRes, performanceRes] = await Promise.all([
+        apiFetch('/admin/scores'),
+        apiFetch('/admin/exam-performance')
+      ]);
+      if (!scoresRes.ok || !performanceRes.ok) throw new Error('Failed to load admin data');
+      const scoresData = await scoresRes.json();
+      const performanceData = await performanceRes.json();
+      setScores(scoresData);
+      setPerformance(performanceData);
+      setError(null);
+    } catch (err) {
+      console.error('Error loading admin dashboard:', err);
+      setError('Failed to load admin dashboard data.');
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    let cancelled = false;
-
-    async function init() {
-      try {
-        const [scoresRes, performanceRes] = await Promise.all([
-          apiFetch('/admin/scores'),
-          apiFetch('/admin/exam-performance')
-        ]);
-        if (!scoresRes.ok || !performanceRes.ok) throw new Error('Failed to load admin data');
-        const scoresData = await scoresRes.json();
-        const performanceData = await performanceRes.json();
-        if (cancelled) return;
-        setScores(scoresData);
-        setPerformance(performanceData);
-      } catch (err) {
-        console.error('Error loading admin dashboard:', err);
-        if (!cancelled) setError('Failed to load admin dashboard data.');
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    }
-
-    init();
-    return () => {
-      cancelled = true;
-    };
+    loadDashboard();
   }, []);
-
-  useEffect(() => {
-    if (!performance) return;
-
-    passFailChartRef.current?.destroy();
-    const stats = subject === 'maths' ? performance.math : performance.english;
-    const passCount = Math.round((stats.passRate / 100) * stats.count);
-    const failCount = stats.count - passCount;
-
-    passFailChartRef.current = new Chart(passFailCanvasRef.current.getContext('2d'), {
-      type: 'doughnut',
-      data: {
-        labels: ['Pass (≥50%)', 'Fail (<50%)'],
-        datasets: [{
-          data: [passCount, failCount],
-          backgroundColor: ['rgba(75, 192, 128, 0.6)', 'rgba(255, 99, 132, 0.6)']
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    gradeChartRef.current?.destroy();
-    if (subject === 'maths' && performance.math.byGrade) {
-      const grades = Object.keys(performance.math.byGrade).sort();
-      gradeChartRef.current = new Chart(gradeCanvasRef.current.getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: grades,
-          datasets: [{
-            label: 'Average Accuracy % by Grade',
-            data: grades.map((g) => performance.math.byGrade[g].averageAccuracy),
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100 } } }
-      });
-    }
-
-    return () => {
-      passFailChartRef.current?.destroy();
-      gradeChartRef.current?.destroy();
-    };
-  }, [performance, subject]);
 
   const stats = performance ? (subject === 'maths' ? performance.math : performance.english) : null;
   const scoreRows = subject === 'maths' ? scores.math : scores.english;
+  const totalSubmissions = scoreRows.reduce(
+    (sum, doc) => sum + (subject === 'maths' ? doc.attempts.length : doc.assessments.length),
+    0
+  );
 
   return (
-    <section className="container mt-5 admin-dashboard">
-      <h2 className="mb-4">Admin Dashboard</h2>
+    <section className="admin-dashboard">
+      <div className="admin-header-bar">
+        <div className="admin-header-title">
+          <i className="bi bi-shield-lock-fill"></i>
+          <div>
+            <h2 className="mb-0">Admin Dashboard</h2>
+            <span className="admin-header-subtitle">Monitor student progress across subjects</span>
+          </div>
+        </div>
+        <RecentActivityBell />
+      </div>
 
-      <NotificationBar />
+      <div className="container mt-4">
+        {loading && <p>Loading admin data&hellip;</p>}
+        {error && <p className="text-danger">{error}</p>}
 
-      {loading && <p>Loading admin data&hellip;</p>}
-      {error && <p className="text-danger">{error}</p>}
-
-      {!loading && !error && (
-        <>
-          <ul className="nav nav-pills mb-4">
-            <li className="nav-item">
+        {!loading && !error && (
+          <>
+            <div className="subject-switch mb-4">
               <button
                 type="button"
-                className={`nav-link ${subject === 'maths' ? 'active' : ''}`}
+                className={`subject-switch-btn ${subject === 'maths' ? 'active' : ''}`}
                 onClick={() => setSubject('maths')}
               >
-                Maths
+                <i className="bi bi-calculator"></i> Maths
               </button>
-            </li>
-            <li className="nav-item">
               <button
                 type="button"
-                className={`nav-link ${subject === 'english' ? 'active' : ''}`}
+                className={`subject-switch-btn ${subject === 'english' ? 'active' : ''}`}
                 onClick={() => setSubject('english')}
               >
-                English
+                <i className="bi bi-journal-text"></i> English
               </button>
-            </li>
-          </ul>
-
-          <div className="card shadow-sm mb-4">
-            <div className="card-header bg-primary text-white">
-              <h3 className="mb-0">Exam Performance — {subject === 'maths' ? 'Maths' : 'English'}</h3>
             </div>
-            <div className="card-body">
-              {stats && (
-                <div className="stat-card-row mb-4">
-                  <div className="stat-card">
-                    <div className="stat-value">{stats.count}</div>
-                    <div className="stat-label">{subject === 'maths' ? 'Total Attempts' : 'Total Assessments'}</div>
+
+            {stats && (
+              <div className="icon-stat-row mb-4">
+                <div className="icon-stat-card">
+                  <div className="icon-stat-icon icon-stat-icon-blue">
+                    <i className="bi bi-people-fill"></i>
                   </div>
-                  <div className="stat-card">
-                    <div className="stat-value">{stats.averageAccuracy}%</div>
-                    <div className="stat-label">Average Accuracy</div>
-                  </div>
-                  <div className="stat-card">
-                    <div className="stat-value">{stats.averageScore}</div>
-                    <div className="stat-label">Average Score</div>
-                  </div>
-                  <div className="stat-card">
-                    <div className="stat-value">{stats.passRate}%</div>
-                    <div className="stat-label">Pass Rate</div>
+                  <div>
+                    <div className="icon-stat-value">{scoreRows.length}</div>
+                    <div className="icon-stat-label">Total Students</div>
                   </div>
                 </div>
-              )}
-              <div className="chart-row">
-                <div className="chart-container">
-                  <canvas ref={passFailCanvasRef}></canvas>
-                </div>
-                {subject === 'maths' && (
-                  <div className="chart-container">
-                    <canvas ref={gradeCanvasRef}></canvas>
+                <div className="icon-stat-card">
+                  <div className="icon-stat-icon icon-stat-icon-green">
+                    <i className="bi bi-bar-chart-fill"></i>
                   </div>
-                )}
+                  <div>
+                    <div className="icon-stat-value">{stats.averageAccuracy}%</div>
+                    <div className="icon-stat-label">Average Score</div>
+                  </div>
+                </div>
+                <div className="icon-stat-card">
+                  <div className="icon-stat-icon icon-stat-icon-teal">
+                    <i className="bi bi-check2-circle"></i>
+                  </div>
+                  <div>
+                    <div className="icon-stat-value">{stats.passRate}%</div>
+                    <div className="icon-stat-label">Pass Rate</div>
+                  </div>
+                </div>
+                <div className="icon-stat-card">
+                  <div className="icon-stat-icon icon-stat-icon-purple">
+                    <i className="bi bi-journal-check"></i>
+                  </div>
+                  <div>
+                    <div className="icon-stat-value">{totalSubmissions}</div>
+                    <div className="icon-stat-label">Total Submissions</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="card shadow-sm mb-4 exam-activity-card">
+              <div className="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                  <h3 className="mb-0">Recent Exam Activity</h3>
+                  <small className="text-muted">{subject === 'maths' ? 'Maths' : 'English'} — every student&apos;s latest attempt</small>
+                </div>
+                <div className="d-flex align-items-center gap-2">
+                  <span className="badge rounded-pill text-bg-primary">{scoreRows.length} students</span>
+                  <button type="button" className="btn btn-sm btn-outline-secondary" onClick={loadDashboard}>
+                    <i className="bi bi-arrow-clockwise me-1"></i>Refresh
+                  </button>
+                </div>
+              </div>
+              <div className="card-body table-responsive">
+                <table className="table exam-activity-table align-middle">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      {subject === 'maths' ? (
+                        <>
+                          <th>Warmup</th>
+                          <th>Diagnostic</th>
+                          <th>Recheck</th>
+                        </>
+                      ) : (
+                        <th>Score</th>
+                      )}
+                      <th>Total Score</th>
+                      <th>Last Active</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {scoreRows.map((doc) => {
+                      const latest = subject === 'maths' ? latestMathAttempt(doc) : latestVocabAssessment(doc);
+                      return (
+                        <tr key={doc._id}>
+                          <td>
+                            <div className="student-cell-name">{doc.username}</div>
+                            <div className="student-cell-email">{doc.email}</div>
+                          </td>
+                          {subject === 'maths' ? (
+                            <>
+                              <td>
+                                {latest ? (
+                                  <ScorePill
+                                    fraction={`${latest.warmup_correct}/${latest.warmup_total}`}
+                                    pct={latest.warmup_total ? Math.round((latest.warmup_correct / latest.warmup_total) * 100) : null}
+                                  />
+                                ) : '—'}
+                              </td>
+                              <td>
+                                {latest ? (
+                                  <ScorePill
+                                    fraction={`${latest.diagnostic_correct}/${latest.diagnostic_total}`}
+                                    pct={latest.diagnostic_total ? Math.round((latest.diagnostic_correct / latest.diagnostic_total) * 100) : null}
+                                  />
+                                ) : '—'}
+                              </td>
+                              <td>
+                                {latest ? (
+                                  <ScorePill
+                                    fraction={`${latest.recheck_correct}/${latest.recheck_total}`}
+                                    pct={latest.recheck_total ? Math.round((latest.recheck_correct / latest.recheck_total) * 100) : null}
+                                  />
+                                ) : '—'}
+                              </td>
+                            </>
+                          ) : (
+                            <td>
+                              {latest ? (
+                                <ScorePill
+                                  fraction={`${latest.questions.filter((q) => q.is_correct).length}/${latest.questions.length}`}
+                                  pct={vocabAssessmentPercent(latest)}
+                                />
+                              ) : '—'}
+                            </td>
+                          )}
+                          <td>{latest ? latest.total_score : '—'}</td>
+                          <td>{latest ? new Date(latest.date).toLocaleDateString() : '—'}</td>
+                          <td>
+                            <button
+                              type="button"
+                              className="btn btn-sm btn-primary"
+                              onClick={() => navigate(`/admin/user-detail?subject=${subject}&email=${encodeURIComponent(doc.email)}`)}
+                            >
+                              View &rarr;
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                    {scoreRows.length === 0 && (
+                      <tr>
+                        <td colSpan={subject === 'maths' ? 7 : 5} className="text-center">No data yet.</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
               </div>
             </div>
-          </div>
 
-          <div className="card shadow-sm mb-4">
-            <div className="card-header bg-primary text-white">
-              <h3 className="mb-0">User Scores — {subject === 'maths' ? 'Maths' : 'English'}</h3>
-            </div>
-            <div className="card-body table-responsive">
-              <table className="table table-striped">
-                <thead>
-                  <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>{subject === 'maths' ? 'Attempts' : 'Assessments'}</th>
-                    <th>Latest Score</th>
-                    <th>Latest Date</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {scoreRows.map((doc) => {
-                    const latest = subject === 'maths' ? latestMathAttempt(doc) : latestVocabAssessment(doc);
-                    return (
-                      <tr
-                        key={doc._id}
-                        className="admin-user-row"
-                        onClick={() => navigate(`/admin/user-detail?subject=${subject}&email=${encodeURIComponent(doc.email)}`)}
-                      >
-                        <td>{doc.username}</td>
-                        <td>{doc.email}</td>
-                        <td>{subject === 'maths' ? doc.attempts.length : doc.assessments.length}</td>
-                        <td>{latest ? latest.total_score : 'N/A'}</td>
-                        <td>{latest ? new Date(latest.date).toLocaleDateString() : 'N/A'}</td>
-                        <td><span className="btn btn-sm btn-outline-primary">View Details</span></td>
-                      </tr>
-                    );
-                  })}
-                  {scoreRows.length === 0 && (
-                    <tr>
-                      <td colSpan={6} className="text-center">No data yet.</td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </section>
   );
 }

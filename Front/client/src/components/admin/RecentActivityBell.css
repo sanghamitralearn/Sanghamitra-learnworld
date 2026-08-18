@@ -1,0 +1,155 @@
+.recent-activity-bell {
+  position: relative;
+}
+
+.activity-bell-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.activity-bell-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.activity-bell-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #dc3545;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 5px;
+  border-radius: 999px;
+  min-width: 16px;
+  text-align: center;
+}
+
+.activity-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 320px;
+  max-height: 420px;
+  background: #fff;
+  border-radius: 0.6rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  color: #212529;
+}
+
+.activity-panel-header {
+  background: linear-gradient(90deg, #6f42c1, #7c5cd6);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+}
+
+.activity-panel-body {
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+.activity-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.activity-icon {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.activity-icon-maths {
+  background: #e7f1ff;
+  color: #0d6efd;
+}
+
+.activity-icon-english {
+  background: #ffe9df;
+  color: #fd7e14;
+}
+
+.activity-details {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.activity-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.activity-topic {
+  font-size: 0.8rem;
+  color: #495057;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: #adb5bd;
+}
+
+.activity-pct {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  height: fit-content;
+}
+
+.activity-pct-high {
+  background: #d7f5e3;
+  color: #1e7e42;
+}
+
+.activity-pct-mid {
+  background: #ffe9c7;
+  color: #b5690a;
+}
+
+.activity-pct-low {
+  background: #fbdcdf;
+  color: #c62838;
+}
+
+.activity-panel-footer {
+  border: none;
+  border-top: 1px solid #f1f1f1;
+  background: #fff;
+  color: #6f42c1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+.activity-panel-footer:hover {
+  background: #f8f6fd;
+}

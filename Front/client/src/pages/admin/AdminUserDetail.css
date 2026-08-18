@@ -1,4 +1,96 @@
+.admin-user-detail {
+  display: block;
+  background: #f5f6fb;
+  min-height: 60vh;
+  padding-bottom: 2.5rem;
+}
+
+.admin-user-detail .admin-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.35rem 1.75rem;
+  background: linear-gradient(90deg, #5b3bce, #7c5cd6);
+  color: #fff;
+}
+
+.admin-user-detail .admin-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.4rem;
+}
+
+.admin-user-detail .admin-header-title > i {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.admin-user-detail .admin-header-subtitle {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.admin-user-detail .card {
+  border: none;
+  border-radius: 0.85rem;
+}
+
+.admin-user-detail .section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4a4468;
+  margin-bottom: 0.75rem;
+}
+
 .admin-user-detail .chart-container {
   position: relative;
-  height: 300px;
+  height: 280px;
+}
+
+.admin-user-detail .admin-attempts-table th {
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: #6c757d;
+}
+
+.admin-user-detail .admin-attempts-table .clickable-row {
+  cursor: pointer;
+}
+
+.admin-user-detail .admin-attempts-table .clickable-row:hover {
+  background-color: rgba(111, 66, 193, 0.08);
+}
+
+.admin-user-detail .expand-toggle-cell {
+  text-align: center;
+  color: #6f42c1;
+}
+
+.admin-user-detail .breakdown-table {
+  background-color: #fff;
+}
+
+.admin-user-detail .result-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.admin-user-detail .result-pill-correct {
+  background: #d7f5e3;
+  color: #1e7e42;
+}
+
+.admin-user-detail .result-pill-incorrect {
+  background: #fbdcdf;
+  color: #c62838;
 }

@@ -104,6 +104,32 @@ function ReviewModal({ cluster, clusterName, items, answeredMap, shuffledMapRef,
   );
 }
 
+function WarmupReviewList({ items, answeredMap, shuffledMapRef }) {
+  const attempted = items.filter((q) => answeredMap[q.itemId] && !answeredMap[q.itemId].unattempted);
+  if (attempted.length === 0) {
+    return <p>No warm-up questions were attempted yet.</p>;
+  }
+  return (
+    <div className="mb-warmup-review">
+      {attempted.map((item) => {
+        const rec = answeredMap[item.itemId];
+        const shuffled = shuffledMapRef.current[item.itemId] || [];
+        const correctOpt = shuffled.find((o) => o.correct);
+        const chosenOpt = shuffled[rec.chosenIdx];
+        const icon = rec.correct ? '✓' : '✗';
+        return (
+          <div className="mb-review-item" key={item.itemId}>
+            <div className="q">{icon} <span dangerouslySetInnerHTML={{ __html: item.question }} /></div>
+            <div className="your-ans">Your answer: {chosenOpt ? chosenOpt.text : '—'} {!rec.correct && '(incorrect)'}</div>
+            <div className="correct-ans">Correct answer: {correctOpt ? correctOpt.text : '—'}</div>
+            <div className="feedback-detail">{chosenOpt ? chosenOpt.feedback : ''}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ---------------------------------------------------------------------
 // Main engine
 // ---------------------------------------------------------------------
@@ -592,8 +618,21 @@ export default function MathBootcamp() {
               <button className="mb-btn secondary" onClick={() => setShowGateReview((v) => !v)}>
                 I want to review first
               </button>
-              {showGateReview && meta && (
-                <div className="mb-review-card" dangerouslySetInnerHTML={{ __html: meta.gateReviewHTML }} />
+              {showGateReview && (
+                <div className="mb-gate-review-section">
+                  <h3>Your Warm-up Answers</h3>
+                  <WarmupReviewList
+                    items={warmupQuestions}
+                    answeredMap={answeredMap}
+                    shuffledMapRef={shuffledOptionsRef}
+                  />
+                  {meta && (
+                    <>
+                      <h3>Quick Review</h3>
+                      <div className="mb-review-card" dangerouslySetInnerHTML={{ __html: meta.gateReviewHTML }} />
+                    </>
+                  )}
+                </div>
               )}
             </>
           )}
