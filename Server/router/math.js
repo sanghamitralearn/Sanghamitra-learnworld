@@ -37,14 +37,17 @@ router.get('/questions', authenticate, async (req, res) => {
 router.post('/scores', authenticate, async (req, res) => {
   const { username, email, attempt } = req.body;
   if (!username || !email || !attempt) {
+    console.error('[math/scores] rejected: missing username/email/attempt in request body', { username, email, hasAttempt: !!attempt });
     return res.status(400).json({ error: 'username, email and attempt are required' });
   }
   try {
     const user = await addOrUpdateMathAttempt(username, email, attempt);
     const savedAttempt = user.attempts[user.attempts.length - 1];
+    console.log(`[math/scores] saved attempt ${savedAttempt._id} for ${email} (${attempt.chapter_name}, level ${attempt.level})`);
     res.status(201).json({ message: 'Score saved successfully', attemptId: savedAttempt._id });
     notifyNewMathAttempt(username, attempt).catch((err) => console.error('Failed to post score notification:', err));
   } catch (err) {
+    console.error('[math/scores] failed to save score:', err);
     res.status(500).json({ error: 'Server error, failed to save score' });
   }
 });
@@ -62,8 +65,10 @@ router.patch('/scores/:attemptId', authenticate, async (req, res) => {
     if (!attempt) return res.status(404).json({ message: 'Attempt not found' });
     Object.assign(attempt, updates);
     await userScores.save();
+    console.log(`[math/scores] updated attempt ${req.params.attemptId} for ${email} with recheck results`);
     res.status(200).json({ message: 'Attempt updated successfully' });
   } catch (err) {
+    console.error('[math/scores] failed to update score:', err);
     res.status(500).json({ error: 'Server error, failed to update score' });
   }
 });

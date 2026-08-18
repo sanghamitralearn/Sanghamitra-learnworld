@@ -172,6 +172,7 @@ export default function MathBootcamp() {
   const timerIntervalRef = useRef(null);
   const timerPausedRef = useRef(false);
   const cardRef = useRef(null);
+  const warmupSubmitRef = useRef(false);
   const diagnosticSubmitRef = useRef(false);
   const finalSubmitRef = useRef(false);
   const savedAttemptIdRef = useRef(null);
@@ -434,7 +435,8 @@ export default function MathBootcamp() {
   }, [timed, diagnosticQuestions, answeredMap, phase]);
 
   // -------------------------------------------------------------
-  // Score submission
+  // Score submission — checkpointed after warm-up, diagnostic, and recheck,
+  // so progress is never lost even if the user stops partway through.
   // -------------------------------------------------------------
   function buildDiagnosticSummary() {
     const warmupTotal = warmupQuestions.length;
@@ -465,6 +467,24 @@ export default function MathBootcamp() {
     return { warmupCorrect, warmupTotal, diagAnswers, diagnosticCorrect, diagnosticUnattempted, avgTime };
   }
 
+  function buildWarmupAnswers() {
+    return warmupQuestions
+      .filter((q) => answeredMap[q.itemId])
+      .map((q) => {
+        const rec = answeredMap[q.itemId];
+        return {
+          item_id: q.itemId,
+          phase: 'warmup',
+          cluster: q.cluster,
+          chosen_index: rec.chosenIdx,
+          is_correct: !!rec.correct,
+          skipped: false,
+          time_elapsed: 0,
+          points_awarded: 0
+        };
+      });
+  }
+
   function buildRecheckAnswers() {
     return recheckItems.map((q) => {
       const rec = recheckAnswered[q.itemId];
@@ -481,8 +501,85 @@ export default function MathBootcamp() {
     });
   }
 
-  // Save as soon as the diagnostic finishes, so progress isn't lost if the
-  // user never starts (or never finishes) the recheck.
+  // Creates the attempt on first use, then patches that same attempt on every
+  // later checkpoint so a single session never produces duplicate rows.
+  async function saveOrUpdateAttempt(fields) {
+    if (!session) return;
+
+    if (savedAttemptIdRef.current) {
+      try {
+        const res = await apiFetch(`/math/scores/${savedAttemptIdRef.current}`, {
+          method: 'PATCH',
+          body: JSON.stringify({ email: session.email, updates: fields })
+        });
+        if (!res.ok) {
+          console.error('[math bootcamp] failed to update attempt, status', res.status, await res.text().catch(() => ''));
+        } else {
+          console.log('[math bootcamp] attempt updated:', savedAttemptIdRef.current, fields);
+        }
+      } catch (err) {
+        console.error('[math bootcamp] network error updating attempt:', err);
+      }
+      return;
+    }
+
+    const attempt = {
+      grade,
+      chapter_slug: chapterSlug,
+      chapter_name: meta ? meta.chapterName : chapterSlug,
+      level: levelNum,
+      warmup_correct: 0,
+      warmup_total: warmupQuestions.length,
+      diagnostic_correct: 0,
+      diagnostic_total: diagnosticQuestions.length,
+      diagnostic_unattempted: diagnosticQuestions.length,
+      recheck_correct: 0,
+      recheck_total: 0,
+      total_score: 0,
+      avg_time_per_correct: 0,
+      answers: [],
+      ...fields
+    };
+
+    try {
+      const res = await apiFetch('/math/scores', {
+        method: 'POST',
+        body: JSON.stringify({ username: session.username, email: session.email, attempt })
+      });
+      if (!res.ok) {
+        console.error('[math bootcamp] failed to save attempt, status', res.status, await res.text().catch(() => ''));
+        return;
+      }
+      const data = await res.json();
+      if (data?.attemptId) {
+        savedAttemptIdRef.current = data.attemptId;
+        console.log('[math bootcamp] attempt saved:', data.attemptId, fields);
+      }
+    } catch (err) {
+      console.error('[math bootcamp] network error saving attempt:', err);
+    }
+  }
+
+  // Checkpoint 1: warm-up complete (gate screen reached) — saves even if the
+  // user never touches the diagnostic.
+  useEffect(() => {
+    if (phase !== 'gate' || warmupSubmitRef.current || !session) return;
+    warmupSubmitRef.current = true;
+
+    const warmupTotal = warmupQuestions.length;
+    const warmupCorrect = warmupQuestions.filter((q) => warmupFirstCorrect[q.itemId] === true).length;
+
+    saveOrUpdateAttempt({
+      warmup_correct: warmupCorrect,
+      warmup_total: warmupTotal,
+      diagnostic_total: diagnosticQuestions.length,
+      diagnostic_unattempted: diagnosticQuestions.length,
+      answers: buildWarmupAnswers()
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // Checkpoint 2: diagnostic complete (results screen reached).
   useEffect(() => {
     if (phase !== 'results' || diagnosticSubmitRef.current || !session) return;
     diagnosticSubmitRef.current = true;
@@ -490,81 +587,40 @@ export default function MathBootcamp() {
     const { warmupCorrect, warmupTotal, diagAnswers, diagnosticCorrect, diagnosticUnattempted, avgTime } = buildDiagnosticSummary();
     const totalScore = diagAnswers.reduce((s, a) => s + a.points_awarded, 0);
 
-    const attempt = {
-      grade,
-      chapter_slug: chapterSlug,
-      chapter_name: meta ? meta.chapterName : chapterSlug,
-      level: levelNum,
+    saveOrUpdateAttempt({
       warmup_correct: warmupCorrect,
       warmup_total: warmupTotal,
       diagnostic_correct: diagnosticCorrect,
       diagnostic_total: diagnosticQuestions.length,
       diagnostic_unattempted: diagnosticUnattempted,
-      recheck_correct: 0,
-      recheck_total: 0,
       total_score: totalScore,
       avg_time_per_correct: avgTime,
-      answers: diagAnswers
-    };
-
-    apiFetch('/math/scores', {
-      method: 'POST',
-      body: JSON.stringify({ username: session.username, email: session.email, attempt })
-    })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data?.attemptId) savedAttemptIdRef.current = data.attemptId;
-      })
-      .catch(() => {});
+      answers: [...buildWarmupAnswers(), ...diagAnswers]
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
-  // If the user also completes the recheck, fold those results into the
-  // attempt already saved above (or, if that save never landed, submit in full).
+  // Checkpoint 3: recheck complete (final summary reached).
   useEffect(() => {
     if (phase !== 'final' || finalSubmitRef.current || !session) return;
     finalSubmitRef.current = true;
 
-    const { warmupCorrect, warmupTotal, diagAnswers, diagnosticCorrect, diagnosticUnattempted, avgTime } = buildDiagnosticSummary();
+    const { warmupCorrect, warmupTotal, diagAnswers, diagnosticCorrect, diagnosticUnattempted } = buildDiagnosticSummary();
     const recheckAnswers = buildRecheckAnswers();
     const recheckCorrect = recheckAnswers.filter((a) => a.is_correct).length;
     const totalScore = [...diagAnswers, ...recheckAnswers].reduce((s, a) => s + a.points_awarded, 0);
 
-    if (savedAttemptIdRef.current) {
-      apiFetch(`/math/scores/${savedAttemptIdRef.current}`, {
-        method: 'PATCH',
-        body: JSON.stringify({
-          email: session.email,
-          updates: {
-            recheck_correct: recheckCorrect,
-            recheck_total: recheckItems.length,
-            total_score: totalScore,
-            answers: [...diagAnswers, ...recheckAnswers]
-          }
-        })
-      }).catch(() => {});
-    } else {
-      const attempt = {
-        grade,
-        chapter_slug: chapterSlug,
-        chapter_name: meta ? meta.chapterName : chapterSlug,
-        level: levelNum,
-        warmup_correct: warmupCorrect,
-        warmup_total: warmupTotal,
-        diagnostic_correct: diagnosticCorrect,
-        diagnostic_total: diagnosticQuestions.length,
-        diagnostic_unattempted: diagnosticUnattempted,
-        recheck_correct: recheckCorrect,
-        recheck_total: recheckItems.length,
-        total_score: totalScore,
-        avg_time_per_correct: avgTime,
-        answers: [...diagAnswers, ...recheckAnswers]
-      };
-      apiFetch('/math/scores', {
-        method: 'POST',
-        body: JSON.stringify({ username: session.username, email: session.email, attempt })
-      }).catch(() => {});
-    }
+    saveOrUpdateAttempt({
+      warmup_correct: warmupCorrect,
+      warmup_total: warmupTotal,
+      diagnostic_correct: diagnosticCorrect,
+      diagnostic_total: diagnosticQuestions.length,
+      diagnostic_unattempted: diagnosticUnattempted,
+      recheck_correct: recheckCorrect,
+      recheck_total: recheckItems.length,
+      total_score: totalScore,
+      answers: [...buildWarmupAnswers(), ...diagAnswers, ...recheckAnswers]
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
