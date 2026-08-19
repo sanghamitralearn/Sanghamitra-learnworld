@@ -14,6 +14,10 @@
       "dest": "/Front/client/$1/$2"
     },
     {
+      "src": "/api/(.*)",
+      "dest": "https://sanghamitra-learnworld-server.vercel.app/api/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/Front/client/index.html"
     }
