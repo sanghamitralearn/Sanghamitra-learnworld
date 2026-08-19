@@ -742,18 +742,18 @@ export default function MathBootcamp() {
               </button>
               {showGateReview && (
                 <div className="mb-gate-review-section">
-                  <h3>Your Warm-up Answers</h3>
-                  <WarmupReviewList
-                    items={warmupQuestions}
-                    answeredMap={answeredMap}
-                    shuffledMapRef={shuffledOptionsRef}
-                  />
                   {meta && (
                     <>
                       <h3>Quick Review</h3>
                       <div className="mb-review-card" dangerouslySetInnerHTML={{ __html: meta.gateReviewHTML }} />
                     </>
                   )}
+                  <h3>Your Warm-up Answers</h3>
+                  <WarmupReviewList
+                    items={warmupQuestions}
+                    answeredMap={answeredMap}
+                    shuffledMapRef={shuffledOptionsRef}
+                  />
                 </div>
               )}
             </>
