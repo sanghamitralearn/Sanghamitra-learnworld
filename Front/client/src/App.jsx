@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
-import RequireAdmin from './components/RequireAdmin';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -52,10 +51,8 @@ export default function App() {
               <Route path="/math/:grade/:chapterSlug/:level" element={<MathBootcamp />} />
             </Route>
 
-            <Route element={<RequireAdmin />}>
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/admin/user-detail" element={<AdminUserDetail />} />
-            </Route>
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/user-detail" element={<AdminUserDetail />} />
           </Route>
 
           <Route path="/login" element={<Login />} />

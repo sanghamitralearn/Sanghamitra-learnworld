@@ -7,8 +7,6 @@ const User = require('./model/userSchema');
 const authRouter = require('./router/auth');
 const mathRouter = require('./router/math');
 const adminRouter = require('./router/admin');
-const authenticate = require('./middleware/authenticate');
-const requireAdmin = require('./middleware/requireAdmin');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
@@ -65,7 +63,7 @@ mongoose.connect(process.env.DATABASE, {
 // Routes
 app.use('/api', authRouter);
 app.use('/api/math', mathRouter);
-app.use('/api/admin', authenticate, requireAdmin, adminRouter);
+app.use('/api/admin', adminRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World');
