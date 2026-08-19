@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Chart } from 'chart.js/auto';
 import { apiFetch } from '../../api/client';
 import './AdminUserDetail.css';
 
@@ -13,9 +12,6 @@ export default function AdminUserDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
-
-  const trendCanvasRef = useRef(null);
-  const trendChartRef = useRef(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -57,30 +53,6 @@ export default function AdminUserDetail() {
     setExpandedIndex((prev) => (prev === idx ? null : idx));
   }
 
-  useEffect(() => {
-    trendChartRef.current?.destroy();
-    if (!entries?.length) return;
-
-    trendChartRef.current = new Chart(trendCanvasRef.current.getContext('2d'), {
-      type: 'line',
-      data: {
-        labels: entries.map((e) => new Date(e.date).toLocaleDateString()),
-        datasets: [{
-          label: 'Total Score',
-          data: entries.map((e) => e.total_score),
-          borderColor: 'rgba(54, 162, 235, 1)',
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          tension: 0.2
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    return () => {
-      trendChartRef.current?.destroy();
-    };
-  }, [entries]);
-
   return (
     <section className="admin-user-detail">
       <div className="admin-header-bar">
@@ -108,11 +80,6 @@ export default function AdminUserDetail() {
 
             {!loading && !error && entries?.length > 0 && (
               <>
-                <h4 className="section-title">Score Trend</h4>
-                <div className="chart-container mb-4">
-                  <canvas ref={trendCanvasRef}></canvas>
-                </div>
-
                 <div className="d-flex justify-content-between align-items-center mb-2">
                   <h4 className="section-title mb-0">Attempt History</h4>
                   <span className="text-muted small">Click a row to review its questions</span>
