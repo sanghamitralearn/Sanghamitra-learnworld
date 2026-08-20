@@ -47,7 +47,10 @@ export default function AdminUserDetail() {
     setExpandedIndex(null);
   }, [subject, email]);
 
-  const entries = subject === 'maths' ? data?.attempts : data?.assessments;
+  const rawEntries = subject === 'maths' ? data?.attempts : data?.assessments;
+  const entries = rawEntries
+    ? [...rawEntries].sort((a, b) => new Date(b.date) - new Date(a.date))
+    : rawEntries;
 
   function toggleExpand(idx) {
     setExpandedIndex((prev) => (prev === idx ? null : idx));
