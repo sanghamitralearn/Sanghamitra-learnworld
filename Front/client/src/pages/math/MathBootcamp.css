@@ -33,6 +33,12 @@
 .mb-header h2 { margin: 0 0 6px; font-size: 1.55rem; font-weight: 700; letter-spacing: -0.02em; color: var(--mb-primary); }
 .mb-header p { margin: 0; font-size: 0.95rem; color: var(--mb-text-muted); font-weight: 500; }
 
+.mb-back-link {
+  display: inline-flex; align-items: center; gap: 4px; margin-bottom: 12px; font-size: 0.85rem;
+  font-weight: 600; color: var(--mb-text-secondary); text-decoration: none;
+}
+.mb-back-link:hover { color: var(--mb-primary); text-decoration: underline; }
+
 .mb-timer-area { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
 .mb-timer-display { font-size: 1.2rem; font-weight: 700; color: var(--mb-primary); font-variant-numeric: tabular-nums; }
 .mb-timer-display.warning { color: var(--mb-accent); }

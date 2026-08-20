@@ -156,6 +156,7 @@ export default function MathBootcamp() {
   const [recheckItems, setRecheckItems] = useState([]);
   const [recheckIndex, setRecheckIndex] = useState(0);
   const [recheckAnswered, setRecheckAnswered] = useState({});
+  const [recheckSkipped, setRecheckSkipped] = useState(false);
 
   const [showGateReview, setShowGateReview] = useState(false);
   const [reviewCluster, setReviewCluster] = useState(null);
@@ -387,6 +388,16 @@ export default function MathBootcamp() {
   }
 
   function startRecheck() {
+    // Criteria: a strong diagnostic (>=90%) doesn't need a re-check at all.
+    if (diagnosticStats.percent >= 90) {
+      setRecheckSkipped(true);
+      setRecheckItems([]);
+      setRecheckIndex(0);
+      setRecheckAnswered({});
+      setPhase('final');
+      return;
+    }
+
     let items;
     if (timed) {
       const slowZoneIds = new Set();
@@ -399,8 +410,19 @@ export default function MathBootcamp() {
       items = recheckBank.filter((r) => slowZoneIds.has(r.recheckFor));
       if (items.length === 0) items = recheckBank.slice(0, 5);
     } else {
-      items = recheckBank;
+      // Only bring back questions from clusters the student actually got wrong.
+      const wrongClusters = new Set(
+        diagnosticQuestions
+          .filter((q) => {
+            const rec = answeredMap[q.itemId];
+            return rec && !rec.unattempted && !rec.correct;
+          })
+          .map((q) => q.cluster)
+      );
+      items = recheckBank.filter((r) => wrongClusters.has(r.cluster));
+      if (items.length === 0) items = recheckBank.slice(0, 5);
     }
+    setRecheckSkipped(false);
     setRecheckItems(items);
     setRecheckIndex(0);
     setRecheckAnswered({});
@@ -410,6 +432,12 @@ export default function MathBootcamp() {
   // -------------------------------------------------------------
   // Derived stats
   // -------------------------------------------------------------
+  const diagnosticStats = useMemo(() => {
+    const total = diagnosticQuestions.length;
+    const correct = diagnosticQuestions.filter((q) => answeredMap[q.itemId]?.correct).length;
+    return { total, correct, percent: total ? (correct / total) * 100 : 0 };
+  }, [diagnosticQuestions, answeredMap]);
+
   const diagnosticClusterErrors = useMemo(() => {
     const errors = {};
     diagnosticQuestions.forEach((q) => {
@@ -648,6 +676,7 @@ export default function MathBootcamp() {
   return (
     <div className="mb-container">
       <header className="mb-header">
+        <Link className="mb-back-link" to="/math">&larr; Back to Math Hub</Link>
         <h2>{meta ? meta.title : 'Math Bootcamp'} {timed && <>&middot; Level 4</>}</h2>
         <p>{meta ? meta.subtitle : ''}</p>
 
@@ -794,6 +823,7 @@ export default function MathBootcamp() {
           onStartRecheck={startRecheck}
           onRestart={() => setShowRestartModal(true)}
           cardRef={cardRef}
+          diagnosticPercent={diagnosticStats.percent}
         />
       )}
 
@@ -820,6 +850,8 @@ export default function MathBootcamp() {
           diagnosticClusterErrors={diagnosticClusterErrors}
           clusterNames={meta ? meta.clusterNames : {}}
           onRestart={() => setShowRestartModal(true)}
+          recheckSkipped={recheckSkipped}
+          diagnosticPercent={diagnosticStats.percent}
         />
       )}
 
@@ -944,7 +976,8 @@ function RecheckCard({ innerRef, item, index, record, shuffledMapRef, onChoice, 
 // Results screens
 // ---------------------------------------------------------------------
 
-function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, diagnosticClusterErrors, slowZoneItems, meta, showBreakdown, setShowBreakdown, onReviewCluster, onStartRecheck, onRestart, cardRef }) {
+function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, diagnosticClusterErrors, slowZoneItems, meta, showBreakdown, setShowBreakdown, onReviewCluster, onStartRecheck, onRestart, cardRef, diagnosticPercent }) {
+  const recheckNeeded = diagnosticPercent < 90;
   if (timed) {
     let totalCorrect = 0, unattempted = 0, totalTime = 0;
     const correctTimes = [];
@@ -969,6 +1002,7 @@ function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, di
         <p>Average time per correct: <strong>{avg}</strong></p>
         <p>Fastest correct: <strong>{fastest}</strong> | Slowest correct: <strong>{slowest}</strong></p>
         <p>Slow-zone items (incorrect or &gt;90s): <strong>{slowZoneItems.length}</strong></p>
+        <p>Diagnostic score: <strong>{Math.round(diagnosticPercent)}%</strong></p>
         <button className="mb-btn secondary" onClick={() => setShowBreakdown((v) => !v)}>
           {showBreakdown ? 'Hide' : 'Show'} item-by-item breakdown
         </button>
@@ -995,8 +1029,12 @@ function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, di
             </tbody>
           </table>
         )}
-        <p style={{ marginTop: '1rem' }}>Click below for a personalised re-check on your slow and incorrect items.</p>
-        <button className="mb-btn" onClick={onStartRecheck}>Start Personalised Re-check</button>
+        {recheckNeeded ? (
+          <p style={{ marginTop: '1rem' }}>Click below for a personalised re-check on your slow and incorrect items.</p>
+        ) : (
+          <p style={{ marginTop: '1rem' }}>🎉 You scored 90% or higher, so a re-check isn&apos;t necessary.</p>
+        )}
+        <button className="mb-btn" onClick={onStartRecheck}>{recheckNeeded ? 'Start Personalised Re-check' : 'Continue'}</button>
         <p style={{ marginTop: '1rem' }}><button className="mb-btn secondary" onClick={onRestart}>Restart Bootcamp</button></p>
       </div>
     );
@@ -1040,8 +1078,14 @@ function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, di
           })}
         </tbody>
       </table>
-      <p style={{ marginTop: '1rem' }}>Click a cluster name to review your answers.</p>
-      <button className="mb-btn" onClick={onStartRecheck}>Simulate Spaced Re-check</button>
+      <p style={{ marginTop: '1rem' }}>
+        Diagnostic score: <strong>{Math.round(diagnosticPercent)}%</strong>
+        {' '}&middot;{' '}Click a cluster name to review your answers.
+      </p>
+      {!recheckNeeded && (
+        <p>🎉 You scored 90% or higher, so a re-check isn&apos;t necessary.</p>
+      )}
+      <button className="mb-btn" onClick={onStartRecheck}>{recheckNeeded ? 'Simulate Spaced Re-check' : 'Continue'}</button>
       <p style={{ marginTop: '1rem' }}><button className="mb-btn secondary" onClick={onRestart}>Restart Bootcamp</button></p>
     </div>
   );
@@ -1051,13 +1095,23 @@ function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, di
 // Final summary (five-way guard)
 // ---------------------------------------------------------------------
 
-function FinalSummary({ cardRef, recheckItems, recheckAnswered, diagnosticClusterErrors, clusterNames, onRestart }) {
+function FinalSummary({ cardRef, recheckItems, recheckAnswered, diagnosticClusterErrors, clusterNames, onRestart, recheckSkipped, diagnosticPercent }) {
   const correctRecheck = Object.values(recheckAnswered).filter((r) => r.correct).length;
   const totalRecheck = recheckItems.length;
   const attemptedRecheck = Object.keys(recheckAnswered).length;
   const unattemptedRecheck = totalRecheck - attemptedRecheck;
 
   const wrap = (children) => <div className="mb-card" ref={cardRef}>{children}</div>;
+
+  if (recheckSkipped) {
+    return wrap(
+      <>
+        <h2>No Re-check Needed</h2>
+        <p>🎉 You scored <strong>{Math.round(diagnosticPercent)}%</strong> on the diagnostic &mdash; that&apos;s 90% or higher, so a re-check isn&apos;t necessary. Great work!</p>
+        <button className="mb-btn" onClick={onRestart}>Restart Demo</button>
+      </>
+    );
+  }
 
   if (attemptedRecheck === 0) {
     return wrap(

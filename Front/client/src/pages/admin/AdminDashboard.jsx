@@ -21,6 +21,10 @@ function vocabAssessmentPercent(assessment) {
   return Math.round((correct / total) * 100);
 }
 
+function diagnosticPct(latest) {
+  return latest.diagnostic_total ? Math.round((latest.diagnostic_correct / latest.diagnostic_total) * 100) : null;
+}
+
 function pctClass(pct) {
   if (pct === null) return 'score-pill-muted';
   if (pct >= 70) return 'score-pill-high';
@@ -216,10 +220,14 @@ export default function AdminDashboard() {
                               </td>
                               <td>
                                 {latest ? (
-                                  <ScorePill
-                                    fraction={`${latest.recheck_correct}/${latest.recheck_total}`}
-                                    pct={latest.recheck_total ? Math.round((latest.recheck_correct / latest.recheck_total) * 100) : null}
-                                  />
+                                  latest.recheck_total === 0 && diagnosticPct(latest) !== null && diagnosticPct(latest) >= 90 ? (
+                                    <span className="score-pill score-pill-high">Not needed (&ge;90%)</span>
+                                  ) : (
+                                    <ScorePill
+                                      fraction={`${latest.recheck_correct}/${latest.recheck_total}`}
+                                      pct={latest.recheck_total ? Math.round((latest.recheck_correct / latest.recheck_total) * 100) : null}
+                                    />
+                                  )
                                 ) : '—'}
                               </td>
                             </>

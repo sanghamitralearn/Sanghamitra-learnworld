@@ -103,6 +103,8 @@ export default function AdminUserDetail() {
                       </thead>
                       <tbody>
                         {entries.flatMap((a, idx) => {
+                          const diagPct = a.diagnostic_total ? Math.round((a.diagnostic_correct / a.diagnostic_total) * 100) : null;
+                          const recheckNotNeeded = a.recheck_total === 0 && diagPct !== null && diagPct >= 90;
                           const rows = [
                             <tr key={`row-${idx}`} className="clickable-row" onClick={() => toggleExpand(idx)}>
                               <td>{new Date(a.date).toLocaleDateString()}</td>
@@ -110,8 +112,8 @@ export default function AdminUserDetail() {
                               <td>{a.chapter_name}</td>
                               <td>{a.level}</td>
                               <td>{a.warmup_correct}/{a.warmup_total}</td>
-                              <td>{a.diagnostic_correct}/{a.diagnostic_total}</td>
-                              <td>{a.recheck_correct}/{a.recheck_total}</td>
+                              <td>{a.diagnostic_correct}/{a.diagnostic_total}{diagPct !== null && ` (${diagPct}%)`}</td>
+                              <td>{recheckNotNeeded ? 'Not needed (≥90%)' : `${a.recheck_correct}/${a.recheck_total}`}</td>
                               <td>{a.total_score}</td>
                               <td className="expand-toggle-cell">
                                 <i className={`bi ${expandedIndex === idx ? 'bi-chevron-up' : 'bi-chevron-down'}`}></i>
