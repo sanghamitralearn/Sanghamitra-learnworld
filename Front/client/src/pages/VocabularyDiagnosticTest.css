@@ -122,3 +122,13 @@
 .expandable {
   margin-top: 10px;
 }
+
+.retry-banner {
+  background-color: #fff3cd;
+  border: 1px solid #ffe69c;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: #664d03;
+  font-weight: 600;
+  margin-bottom: 15px;
+}

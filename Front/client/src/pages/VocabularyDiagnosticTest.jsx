@@ -35,6 +35,22 @@ function determineVocabularyLevel(correctAnswers, totalQuestions) {
   return determinedLevel;
 }
 
+function buildQuizSet(fullPool, previousQuestions) {
+  if (previousQuestions?.length) {
+    const wrongIds = new Set(
+      previousQuestions.filter((q) => !q.is_correct).map((q) => String(q.question_id))
+    );
+    if (wrongIds.size > 0) {
+      const wrongQuestions = fullPool.filter((q) => wrongIds.has(String(q._id)));
+      if (wrongQuestions.length > 0) {
+        return { picked: wrongQuestions, isRetry: true };
+      }
+    }
+  }
+  const shuffled = [...fullPool].sort(() => 0.5 - Math.random()).slice(0, 20);
+  return { picked: shuffled, isRetry: false };
+}
+
 function AnalysisQuestion({ question, answer, index }) {
   const [expanded, setExpanded] = useState(false);
   const skipped = answer.user_response === 'You did not answer this question.';
@@ -64,10 +80,12 @@ export default function VocabularyDiagnosticTest() {
   const navigate = useNavigate();
   const [session, setSession] = useState(null);
   const [phase, setPhase] = useState('loading'); // loading | quiz | result
+  const [pool, setPool] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState(null);
+  const [isRetry, setIsRetry] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -86,13 +104,26 @@ export default function VocabularyDiagnosticTest() {
           return;
         }
         setSession({ username: data.username, email: data.email });
-        await fetchQuestions();
+        await fetchQuestions(data.email);
       } catch (error) {
         console.error('Error fetching session info:', error);
       }
     }
 
-    async function fetchQuestions() {
+    async function fetchPreviousAssessment(email) {
+      try {
+        const response = await apiFetch(`/vocabscores?email=${encodeURIComponent(email)}`);
+        if (!response.ok) return null;
+        const data = await response.json();
+        const assessments = data?.assessments || [];
+        return assessments.length ? assessments[assessments.length - 1] : null;
+      } catch (error) {
+        console.error('Error fetching previous vocab assessment:', error);
+        return null;
+      }
+    }
+
+    async function fetchQuestions(email) {
       try {
         const response = await apiFetch('/vocab-questions');
         if (!response.ok) {
@@ -101,10 +132,16 @@ export default function VocabularyDiagnosticTest() {
         }
         const data = await response.json();
         if (cancelled) return;
-        const picked = [...data].sort(() => 0.5 - Math.random()).slice(0, 20);
+        setPool(data);
+
+        const previousAssessment = await fetchPreviousAssessment(email);
+        if (cancelled) return;
+
+        const { picked, isRetry: retry } = buildQuizSet(data, previousAssessment?.questions);
         setQuestions(picked);
         setAnswers(new Array(picked.length).fill(null));
         setCurrentIndex(0);
+        setIsRetry(retry);
         setPhase('quiz');
       } catch (error) {
         console.error('Error fetching questions:', error);
@@ -119,18 +156,15 @@ export default function VocabularyDiagnosticTest() {
   }, []);
 
   function restartQuiz() {
+    const previousQuestions = result?.finalAnswers;
     setResult(null);
     setPhase('loading');
-    apiFetch('/vocab-questions')
-      .then((response) => (response.ok ? response.json() : Promise.reject(response)))
-      .then((data) => {
-        const picked = [...data].sort(() => 0.5 - Math.random()).slice(0, 20);
-        setQuestions(picked);
-        setAnswers(new Array(picked.length).fill(null));
-        setCurrentIndex(0);
-        setPhase('quiz');
-      })
-      .catch(() => navigate('/login?redirectPath=%2Fvocabulary-diagnostic-test'));
+    const { picked, isRetry: retry } = buildQuizSet(pool, previousQuestions);
+    setQuestions(picked);
+    setAnswers(new Array(picked.length).fill(null));
+    setCurrentIndex(0);
+    setIsRetry(retry);
+    setPhase('quiz');
   }
 
   function selectOption(optionKey) {
@@ -251,6 +285,11 @@ export default function VocabularyDiagnosticTest() {
           <div className="container quiz-container">
             <div className="row">
               <div className="col-lg-8 mx-auto">
+                {isRetry && (
+                  <p className="retry-banner">
+                    Retake: solving only the {questions.length} question{questions.length === 1 ? '' : 's'} you got wrong last time.
+                  </p>
+                )}
                 <h2 id="question" className="mb-4">{question.question}</h2>
                 <div id="options" className="mb-4">
                   {OPTION_KEYS.map((key) => (
