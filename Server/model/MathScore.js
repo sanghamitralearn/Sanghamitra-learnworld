@@ -7,6 +7,7 @@ const answerSchema = new mongoose.Schema({
   cluster: { type: String, required: true },
   chosen_index: { type: Number, required: true },
   is_correct: { type: Boolean, required: true },
+  misconception_id: { type: String, default: '' },  // set when the chosen option is wrong and tags a known error pattern
   skipped: { type: Boolean, default: false },
   time_elapsed: { type: Number, default: 0 },
   points_awarded: { type: Number, default: 0 }

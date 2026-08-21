@@ -7,6 +7,7 @@ const questionSchema = new mongoose.Schema({
   user_response: { type: String, required: true },
   correct_option: { type: String, required: true },
   is_correct: { type: Boolean, required: true },
+  misconception_id: { type: String, default: '' },  // set when user_response is wrong and tags a known error pattern
   points_awarded: { type: Number, required: true },
   difficulty_level: { type: String, required: true },
   CEFR_level: { type: String, required: true },

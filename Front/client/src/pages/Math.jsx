@@ -5,6 +5,7 @@ import { apiFetch } from '../api/client';
 export default function MathPage() {
   const [catalog, setCatalog] = useState([]);
   const [status, setStatus] = useState('loading'); // loading | ready | error
+  const [openGrades, setOpenGrades] = useState(new Set());
 
   useEffect(() => {
     let cancelled = false;
@@ -65,36 +66,63 @@ export default function MathPage() {
             <p className="text-center">No bootcamp chapters are published yet.</p>
           )}
 
-          {Object.entries(byGrade).map(([gradeKey, gradeData]) => (
-            <div key={gradeKey} className="mb-4">
-              <h3 className="mb-3">{gradeData.gradeLabel}</h3>
-              <div className="row">
-                {Object.entries(gradeData.chapters).map(([chapterSlug, chapterData]) => (
-                  <div key={chapterSlug} className="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
-                    <div className="course-item">
-                      <div className="course-content">
-                        <div className="d-flex justify-content-between align-items-center mb-3">
-                          <button className="category">{chapterData.chapterName}</button>
-                        </div>
-                        <p className="description">{chapterData.description}</p>
-                        <div className="d-flex flex-wrap gap-2">
-                          {chapterData.levels.sort((a, b) => a - b).map((level) => (
-                            <Link
-                              key={level}
-                              to={`/math/${gradeKey}/${chapterSlug}/${level}`}
-                              className="btn btn-sm btn-outline-primary"
-                            >
-                              Level {level}{level === 4 ? ' (Timed)' : ''}
-                            </Link>
+          <div className="row">
+            {Object.entries(byGrade).map(([gradeKey, gradeData]) => {
+              const chapterCount = Object.keys(gradeData.chapters).length;
+              const isOpen = openGrades.has(gradeKey);
+              return (
+                <div key={gradeKey} className="col-lg-6 d-flex align-items-stretch mb-4" data-aos="zoom-in">
+                  <div className="course-item w-100">
+                    <div className="course-content">
+                      <div className="d-flex justify-content-between align-items-center mb-3">
+                        <button className="category">{gradeData.gradeLabel}</button>
+                      </div>
+                      <p className="description">
+                        {chapterCount} chapter{chapterCount === 1 ? '' : 's'} available &mdash; place value, fractions, geometry and more.
+                      </p>
+                      {!isOpen && (
+                        <button
+                          type="button"
+                          className="btn btn-sm btn-primary"
+                          onClick={() => setOpenGrades((current) => new Set(current).add(gradeKey))}
+                        >
+                          View Chapters
+                        </button>
+                      )}
+
+                      {isOpen && (
+                        <div className="row mt-4">
+                          {Object.entries(gradeData.chapters).map(([chapterSlug, chapterData]) => (
+                            <div key={chapterSlug} className="col-md-6 d-flex align-items-stretch mb-3">
+                              <div className="course-item w-100">
+                                <div className="course-content">
+                                  <div className="d-flex justify-content-between align-items-center mb-3">
+                                    <button className="category">{chapterData.chapterName}</button>
+                                  </div>
+                                  <p className="description">{chapterData.description}</p>
+                                  <div className="d-flex flex-wrap gap-2">
+                                    {chapterData.levels.sort((a, b) => a - b).map((level) => (
+                                      <Link
+                                        key={level}
+                                        to={`/math/${gradeKey}/${chapterSlug}/${level}`}
+                                        className="btn btn-sm btn-outline-primary"
+                                      >
+                                        Level {level}{level === 4 ? ' (Timed)' : ''}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           ))}
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          ))}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </>
