@@ -8,6 +8,20 @@ const { accuracyForAttempt, accuracyForAssessment } = require('../utils/scoreSta
 
 // All routes here are mounted behind authenticate + requireAdmin in app.js.
 
+// Seed data writes misconception.rootCause as "Short Label — full explanation".
+// The label is the short mistake-type tag; the explanation after the dash is
+// the plain-language "why" — both shown to tutors alongside the remediation.
+function misconceptionTag(rootCause) {
+    if (!rootCause) return '';
+    const idx = rootCause.indexOf('—');
+    return idx === -1 ? rootCause : rootCause.slice(0, idx).trim();
+}
+function misconceptionExplanation(rootCause) {
+    if (!rootCause) return '';
+    const idx = rootCause.indexOf('—');
+    return idx === -1 ? '' : rootCause.slice(idx + 1).trim();
+}
+
 router.get('/scores', async (req, res) => {
     try {
         const [math, english] = await Promise.all([
@@ -56,6 +70,15 @@ router.get('/scores/math/:email', async (req, res) => {
                         answer.question_text = question.question;
                         answer.chosen_text = question.options?.[answer.chosen_index]?.text ?? null;
                         answer.correct_text = question.options?.find((o) => o.correct)?.text ?? null;
+                        if (!answer.is_correct && answer.misconception_id) {
+                            const misconception = question.misconceptions?.find((m) => m.misconceptionId === answer.misconception_id);
+                            if (misconception) {
+                                answer.mistake_tag = misconceptionTag(misconception.rootCause);
+                                answer.mistake_description = misconception.description || '';
+                                answer.mistake_why = misconceptionExplanation(misconception.rootCause);
+                                answer.mistake_fix = misconception.remediation || '';
+                            }
+                        }
                     }
                 });
             });

@@ -98,3 +98,33 @@
   background: #fbdcdf;
   color: #c62838;
 }
+
+.admin-user-detail .mistake-tag-pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #c62838;
+  background: #fbdcdf;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+}
+
+.admin-user-detail .mistake-detail-cell {
+  min-width: 260px;
+  max-width: 320px;
+}
+
+.admin-user-detail .mistake-description,
+.admin-user-detail .mistake-why,
+.admin-user-detail .mistake-fix {
+  font-size: 0.78rem;
+  color: #6c757d;
+  margin-top: 0.3rem;
+  line-height: 1.35;
+}
+
+.admin-user-detail .mistake-description strong,
+.admin-user-detail .mistake-why strong,
+.admin-user-detail .mistake-fix strong {
+  color: #4a4468;
+}

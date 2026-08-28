@@ -197,6 +197,7 @@ function MathAnswerBreakdown({ answers }) {
           <th>Your Answer</th>
           <th>Correct Answer</th>
           <th>Result</th>
+          <th>Why they got it wrong</th>
           <th>Points</th>
         </tr>
       </thead>
@@ -213,6 +214,21 @@ function MathAnswerBreakdown({ answers }) {
                 <i className={`bi ${ans.is_correct ? 'bi-check-circle-fill' : 'bi-x-circle-fill'}`}></i>
                 {ans.is_correct ? 'Correct' : 'Incorrect'}
               </span>
+            </td>
+            <td className="mistake-detail-cell">
+              {!ans.is_correct && ans.mistake_tag && (
+                <span className="mistake-tag-pill">{ans.mistake_tag}</span>
+              )}
+              {!ans.is_correct && ans.mistake_description && (
+                <div className="mistake-description"><strong>What:</strong> {ans.mistake_description}</div>
+              )}
+              {!ans.is_correct && ans.mistake_why && (
+                <div className="mistake-why"><strong>Why:</strong> {ans.mistake_why}</div>
+              )}
+              {!ans.is_correct && ans.mistake_fix && (
+                <div className="mistake-fix"><strong>Fix:</strong> {ans.mistake_fix}</div>
+              )}
+              {(ans.is_correct || (!ans.mistake_tag && !ans.mistake_description && !ans.mistake_why && !ans.mistake_fix)) && '—'}
             </td>
             <td>{ans.points_awarded}</td>
           </tr>

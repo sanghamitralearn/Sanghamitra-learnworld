@@ -27,6 +27,31 @@ function getShuffled(item, cacheRef) {
 }
 
 // ---------------------------------------------------------------------
+// MathText — the ONE place that typesets LaTeX (\( ... \)). Any question,
+// option, feedback, or explanation text that might contain math must be
+// rendered through this component instead of a plain string/innerHTML.
+//
+// Why this exists: the old approach called typesetMath(cardRef.current)
+// from one shared useEffect on the top-level card, keyed to a hand-maintained
+// list of state dependencies. Any new section (a collapsible review panel, a
+// modal) that wasn't in that list — or that lives outside cardRef entirely,
+// like ReviewModal — silently never got typeset, so its LaTeX showed up as
+// raw "\( ... \)" text. MathText fixes that at the source: each instance
+// watches its own content and typesets itself, so it works no matter where
+// it's mounted or what triggered the re-render.
+function MathText({ html, children, as: Tag = 'span', className }) {
+  const ref = useRef(null);
+  const content = html != null ? html : children;
+  useEffect(() => {
+    typesetMath(ref.current);
+  }, [content]);
+  if (html != null) {
+    return <Tag ref={ref} className={className} dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+  return <Tag ref={ref} className={className}>{children}</Tag>;
+}
+
+// ---------------------------------------------------------------------
 // Small presentational pieces
 // ---------------------------------------------------------------------
 
@@ -57,7 +82,9 @@ function OptionButton({ text, state, onClick, disabled }) {
   let cls = 'mb-option-btn';
   if (state) cls += ` ${state}`;
   return (
-    <button className={cls} onClick={onClick} disabled={disabled} dangerouslySetInnerHTML={{ __html: text }} />
+    <button className={cls} onClick={onClick} disabled={disabled}>
+      <MathText html={text} />
+    </button>
   );
 }
 
@@ -76,56 +103,181 @@ function RestartModal({ onCancel, onConfirm }) {
   );
 }
 
+// The misconceptions[] seed data is written as "Short Label — full explanation".
+// The label is the short, specific mistake-type tag for the review card;
+// the explanation after the dash is the plain-language "why" for that tag.
+function misconceptionTag(rootCause) {
+  if (!rootCause) return '';
+  const idx = rootCause.indexOf('—');
+  return idx === -1 ? rootCause : rootCause.slice(0, idx).trim();
+}
+function misconceptionExplanation(rootCause) {
+  if (!rootCause) return '';
+  const idx = rootCause.indexOf('—');
+  return idx === -1 ? '' : rootCause.slice(idx + 1).trim();
+}
+
+// The detail block shown under a wrong answer: what kind of mistake it was,
+// why it felt right at the time, and what to do differently — pulled straight
+// from the matching misconceptions[] entry so it's specific to *this* wrong option.
+function MistakeInsight({ item, chosenOpt }) {
+  if (!chosenOpt || !chosenOpt.misconceptionId) return null;
+  const misconception = (item.misconceptions || []).find((m) => m.misconceptionId === chosenOpt.misconceptionId);
+  if (!misconception) return null;
+  const tag = misconceptionTag(misconception.rootCause);
+  const description = misconception.description || '';
+  const why = misconceptionExplanation(misconception.rootCause);
+  const fix = misconception.remediation || '';
+  if (!tag && !description && !why && !fix) return null;
+  return (
+    <div className="mb-mistake-insight">
+      {tag && <span className="mistake-tag">{tag}</span>}
+      {description && <div className="mistake-description"><strong>What happened:</strong> <MathText>{description}</MathText></div>}
+      {why && <div className="mistake-why"><strong>Why this happens:</strong> <MathText>{why}</MathText></div>}
+      {fix && <div className="mistake-fix"><strong>How to fix it:</strong> <MathText>{fix}</MathText></div>}
+    </div>
+  );
+}
+
+// Per-cluster accuracy across attempted questions, weakest first — this is
+// what turns a flat list of right/wrong cards into an actual gap diagnosis.
+function computeClusterGaps(items, answeredMap, clusterNames) {
+  const stats = {};
+  items.forEach((q) => {
+    const rec = answeredMap[q.itemId];
+    if (!rec || rec.unattempted) return;
+    if (!stats[q.cluster]) stats[q.cluster] = { correct: 0, total: 0 };
+    stats[q.cluster].total++;
+    if (rec.correct) stats[q.cluster].correct++;
+  });
+  return Object.entries(stats)
+    .map(([cluster, s]) => ({
+      cluster,
+      name: clusterNames[cluster] || cluster,
+      correct: s.correct,
+      total: s.total,
+      wrong: s.total - s.correct,
+      accuracy: s.total ? s.correct / s.total : 1
+    }))
+    .sort((a, b) => (b.wrong - a.wrong) || (a.accuracy - b.accuracy));
+}
+
+// Any mistake-type tag that shows up on 2+ wrong answers is a pattern worth
+// calling out on its own, not just two separate one-off mistakes.
+function computeRepeatedMistakeTags(items, answeredMap, shuffledMapRef) {
+  const counts = new Map();
+  items.forEach((q) => {
+    const rec = answeredMap[q.itemId];
+    if (!rec || rec.unattempted || rec.correct) return;
+    const shuffled = shuffledMapRef.current[q.itemId] || [];
+    const chosenOpt = shuffled[rec.chosenIdx];
+    if (!chosenOpt || !chosenOpt.misconceptionId) return;
+    const misconception = (q.misconceptions || []).find((m) => m.misconceptionId === chosenOpt.misconceptionId);
+    const tag = misconception ? misconceptionTag(misconception.rootCause) : '';
+    if (!tag) return;
+    counts.set(tag, (counts.get(tag) || 0) + 1);
+  });
+  return [...counts.entries()]
+    .filter(([, count]) => count >= 2)
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+function GapSummary({ items, answeredMap, shuffledMapRef, clusterNames }) {
+  const clusters = computeClusterGaps(items, answeredMap, clusterNames);
+  const repeated = computeRepeatedMistakeTags(items, answeredMap, shuffledMapRef);
+  if (clusters.length === 0) return null;
+  return (
+    <div className="mb-gap-summary">
+      <h3>Where you need work</h3>
+      <div className="mb-gap-clusters">
+        {clusters.map((c) => {
+          const tier = c.wrong === 0 ? 'strong' : c.accuracy < 0.5 ? 'weak' : 'shaky';
+          return (
+            <div className={`mb-gap-row mb-gap-${tier}`} key={c.cluster}>
+              <span className="mb-gap-name">{c.name}</span>
+              <span className="mb-gap-score">{c.correct}/{c.total} correct</span>
+            </div>
+          );
+        })}
+      </div>
+      {repeated.length > 0 && (
+        <div className="mb-gap-patterns">
+          {repeated.map((r) => (
+            <div key={r.tag} className="mb-gap-pattern-callout">
+              Repeated pattern: <strong>{r.tag}</strong> (seen {r.count}&times;) &mdash; worth extra practice.
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// One row of the review list, covering all three outcomes: correct,
+// incorrect, or never attempted. `shuffledMapRef` only has an entry once a
+// question has actually been rendered on screen, so an item that was never
+// reached (e.g. timer ran out first) falls back to its unshuffled options —
+// still enough to show the correct answer and feedback.
+function ReviewItemCard({ item, rec, shuffledMapRef }) {
+  const shuffled = shuffledMapRef.current[item.itemId] || item.options || [];
+  const correctOpt = shuffled.find((o) => o.correct);
+  const attempted = !!rec && !rec.unattempted;
+  const chosenOpt = attempted ? shuffled[rec.chosenIdx] : null;
+  const isCorrect = attempted && rec.correct;
+
+  let icon = '○';
+  let statusClass = 'mb-review-unattempted';
+  if (attempted) {
+    icon = isCorrect ? '✓' : '✗';
+    statusClass = isCorrect ? 'mb-review-correct' : 'mb-review-incorrect';
+  }
+
+  return (
+    <div className={`mb-review-item ${statusClass}`}>
+      <div className="q">{icon} <MathText html={item.question} /></div>
+      {attempted ? (
+        <>
+          <div className="your-ans">Your answer: <MathText>{chosenOpt ? chosenOpt.text : '—'}</MathText> {!isCorrect && '(incorrect)'}</div>
+          <div className="correct-ans">Correct answer: <MathText>{correctOpt ? correctOpt.text : '—'}</MathText></div>
+          <div className="feedback-detail"><strong>Feedback:</strong> <MathText>{correctOpt ? correctOpt.feedback : ''}</MathText></div>
+          {!isCorrect && <MistakeInsight item={item} chosenOpt={chosenOpt} />}
+        </>
+      ) : (
+        <>
+          <div className="your-ans not-attempted">Not attempted</div>
+          <div className="correct-ans">Correct answer: <MathText>{correctOpt ? correctOpt.text : '—'}</MathText></div>
+          <div className="feedback-detail"><strong>Feedback:</strong> <MathText>{correctOpt ? correctOpt.feedback : ''}</MathText></div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function ReviewModal({ cluster, clusterName, items, answeredMap, shuffledMapRef, onClose }) {
-  const attempted = items.filter((q) => answeredMap[q.itemId] && !answeredMap[q.itemId].unattempted);
   return (
     <div className="mb-modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="mb-modal-content">
         <button className="mb-modal-close" onClick={onClose}>&times;</button>
         <h3>Review: {clusterName}</h3>
-        {attempted.length === 0 && <p>No questions were attempted in this cluster.</p>}
-        {attempted.map((item) => {
-          const rec = answeredMap[item.itemId];
-          const shuffled = shuffledMapRef.current[item.itemId] || [];
-          const correctOpt = shuffled.find((o) => o.correct);
-          const chosenOpt = shuffled[rec.chosenIdx];
-          const icon = rec.correct ? '✓' : '✗';
-          return (
-            <div className="mb-review-item" key={item.itemId}>
-              <div className="q">{icon} <span dangerouslySetInnerHTML={{ __html: item.question }} /></div>
-              <div className="your-ans">Your answer: {chosenOpt ? chosenOpt.text : '—'} {!rec.correct && '(incorrect)'}</div>
-              <div className="correct-ans">Correct answer: {correctOpt ? correctOpt.text : '—'}</div>
-              <div className="feedback-detail">{chosenOpt ? chosenOpt.feedback : ''}</div>
-            </div>
-          );
-        })}
+        {items.length === 0 && <p>No questions in this cluster.</p>}
+        {items.map((item) => (
+          <ReviewItemCard key={item.itemId} item={item} rec={answeredMap[item.itemId]} shuffledMapRef={shuffledMapRef} />
+        ))}
       </div>
     </div>
   );
 }
 
 function WarmupReviewList({ items, answeredMap, shuffledMapRef }) {
-  const attempted = items.filter((q) => answeredMap[q.itemId] && !answeredMap[q.itemId].unattempted);
-  if (attempted.length === 0) {
-    return <p>No warm-up questions were attempted yet.</p>;
+  if (items.length === 0) {
+    return <p>No warm-up questions yet.</p>;
   }
   return (
     <div className="mb-warmup-review">
-      {attempted.map((item) => {
-        const rec = answeredMap[item.itemId];
-        const shuffled = shuffledMapRef.current[item.itemId] || [];
-        const correctOpt = shuffled.find((o) => o.correct);
-        const chosenOpt = shuffled[rec.chosenIdx];
-        const icon = rec.correct ? '✓' : '✗';
-        return (
-          <div className="mb-review-item" key={item.itemId}>
-            <div className="q">{icon} <span dangerouslySetInnerHTML={{ __html: item.question }} /></div>
-            <div className="your-ans">Your answer: {chosenOpt ? chosenOpt.text : '—'} {!rec.correct && '(incorrect)'}</div>
-            <div className="correct-ans">Correct answer: {correctOpt ? correctOpt.text : '—'}</div>
-            <div className="feedback-detail">{chosenOpt ? chosenOpt.feedback : ''}</div>
-          </div>
-        );
-      })}
+      {items.map((item) => (
+        <ReviewItemCard key={item.itemId} item={item} rec={answeredMap[item.itemId]} shuffledMapRef={shuffledMapRef} />
+      ))}
     </div>
   );
 }
@@ -242,10 +394,9 @@ export default function MathBootcamp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [grade, chapterSlug, level]);
 
-  // Typeset math whenever the visible question changes
-  useEffect(() => {
-    typesetMath(cardRef.current);
-  }, [phase, currentIndex, recheckIndex, answeredMap, recheckAnswered, showBreakdown, reviewCluster]);
+  // Math typesetting is handled per-node by <MathText> (see its definition
+  // above), not from a shared effect here — see that component's comment for
+  // why a single top-level effect was the wrong place for this.
 
   // -------------------------------------------------------------
   // Timer (level 4 only)
@@ -473,12 +624,15 @@ export default function MathBootcamp() {
     const diagAnswers = diagnosticQuestions.map((q) => {
       const rec = answeredMap[q.itemId] || { correct: false, chosenIdx: -1, unattempted: true };
       const t = timeLogRef.current[q.itemId];
+      const shuffled = shuffledOptionsRef.current[q.itemId] || [];
+      const chosenOpt = shuffled[rec.chosenIdx];
       return {
         item_id: q.itemId,
         phase: 'diagnostic',
         cluster: q.cluster,
         chosen_index: rec.chosenIdx,
         is_correct: !!rec.correct,
+        misconception_id: (!rec.correct && chosenOpt) ? (chosenOpt.misconceptionId || '') : '',
         skipped: !!rec.unattempted,
         time_elapsed: t ? t.elapsed : 0,
         points_awarded: rec.correct ? q.points : 0
@@ -500,12 +654,15 @@ export default function MathBootcamp() {
       .filter((q) => answeredMap[q.itemId])
       .map((q) => {
         const rec = answeredMap[q.itemId];
+        const shuffled = shuffledOptionsRef.current[q.itemId] || [];
+        const chosenOpt = shuffled[rec.chosenIdx];
         return {
           item_id: q.itemId,
           phase: 'warmup',
           cluster: q.cluster,
           chosen_index: rec.chosenIdx,
           is_correct: !!rec.correct,
+          misconception_id: (!rec.correct && chosenOpt) ? (chosenOpt.misconceptionId || '') : '',
           skipped: false,
           time_elapsed: 0,
           points_awarded: 0
@@ -516,12 +673,15 @@ export default function MathBootcamp() {
   function buildRecheckAnswers() {
     return recheckItems.map((q) => {
       const rec = recheckAnswered[q.itemId];
+      const shuffled = recheckShuffledRef.current[q.itemId] || [];
+      const chosenOpt = rec ? shuffled[rec.chosenIdx] : null;
       return {
         item_id: q.itemId,
         phase: 'recheck',
         cluster: q.cluster,
         chosen_index: rec ? rec.chosenIdx : -1,
         is_correct: rec ? !!rec.correct : false,
+        misconception_id: (rec && !rec.correct && chosenOpt) ? (chosenOpt.misconceptionId || '') : '',
         skipped: !rec,
         time_elapsed: 0,
         points_awarded: rec && rec.correct ? q.points : 0
@@ -774,9 +934,15 @@ export default function MathBootcamp() {
                   {meta && (
                     <>
                       <h3>Quick Review</h3>
-                      <div className="mb-review-card" dangerouslySetInnerHTML={{ __html: meta.gateReviewHTML }} />
+                      <MathText as="div" className="mb-review-card" html={meta.gateReviewHTML} />
                     </>
                   )}
+                  <GapSummary
+                    items={warmupQuestions}
+                    answeredMap={answeredMap}
+                    shuffledMapRef={shuffledOptionsRef}
+                    clusterNames={meta?.clusterNames || {}}
+                  />
                   <h3>Your Warm-up Answers</h3>
                   <WarmupReviewList
                     items={warmupQuestions}
@@ -887,7 +1053,7 @@ function QuestionCard({ innerRef, item, index, clusterLabel, record, shuffledMap
         <span className="mb-question-badge">{clusterLabel} &middot; Q{index + 1}</span>
         {item.tier && <span className="mb-tier-badge" data-tier={item.tier}>{tierLabel(item.tier)}</span>}
       </div>
-      <div className="mb-question-title" dangerouslySetInnerHTML={{ __html: item.question }} />
+      <MathText as="div" className="mb-question-title" html={item.question} />
       <div className="mb-options-group">
         {shuffled.map((opt, i) => {
           let state = null;
@@ -907,14 +1073,14 @@ function QuestionCard({ innerRef, item, index, clusterLabel, record, shuffledMap
         })}
       </div>
 
-      {!locked && hint && <div className="mb-hint-box">💡 {hint}</div>}
+      {!locked && hint && <div className="mb-hint-box">💡 <MathText>{hint}</MathText></div>}
 
       {locked && (
         <div className={`mb-feedback ${record.correct ? 'fb-correct' : 'fb-incorrect'}`}>
           <strong>{record.correct ? '✓ Correct!' : '✗ Incorrect.'}</strong>{' '}
-          {shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : 'Skipped.'}
-          {showBackForward && record.correct && item.backward && <> {item.backward}</>}
-          {showBackForward && record.correct && item.forward && <> {item.forward}</>}
+          <MathText>{shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : 'Skipped.'}</MathText>
+          {showBackForward && record.correct && item.backward && <MathText>{' ' + item.backward}</MathText>}
+          {showBackForward && record.correct && item.forward && <MathText>{' ' + item.forward}</MathText>}
         </div>
       )}
 
@@ -945,7 +1111,7 @@ function RecheckCard({ innerRef, item, index, record, shuffledMapRef, onChoice, 
       <div className="mb-question-meta">
         <span className="mb-question-badge">Re-check Q{index + 1}</span>
       </div>
-      <div className="mb-question-title" dangerouslySetInnerHTML={{ __html: item.question }} />
+      <MathText as="div" className="mb-question-title" html={item.question} />
       <div className="mb-options-group">
         {shuffled.map((opt, i) => {
           let state = null;
@@ -960,7 +1126,7 @@ function RecheckCard({ innerRef, item, index, record, shuffledMapRef, onChoice, 
       {locked && (
         <div className={`mb-feedback ${record.correct ? 'fb-correct' : 'fb-incorrect'}`}>
           <strong>{record.correct ? '✓ Correct!' : '✗ Incorrect.'}</strong>{' '}
-          {shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : ''}
+          <MathText>{shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : ''}</MathText>
         </div>
       )}
       {locked && (
