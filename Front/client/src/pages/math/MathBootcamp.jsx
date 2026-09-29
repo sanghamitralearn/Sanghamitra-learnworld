@@ -77,13 +77,19 @@ function NavBar({ items, activeIndex, answeredMap, onSelect }) {
   );
 }
 
-function OptionButton({ text, state, onClick, disabled }) {
+function OptionButton({ text, state, onClick, disabled, index }) {
   // state: null | 'correct' | 'incorrect'
   let cls = 'mb-option-btn';
   if (state) cls += ` ${state}`;
+  const letter = typeof index === 'number' ? String.fromCharCode(65 + index) : null;
   return (
     <button className={cls} onClick={onClick} disabled={disabled}>
-      <MathText html={text} />
+      <span className="mb-option-letter" aria-hidden="true">
+        <span className="mb-option-letter-char">{letter}</span>
+        <span className="mb-option-letter-icon"><i className="bi bi-check-lg" /></span>
+        <span className="mb-option-letter-icon incorrect-icon"><i className="bi bi-x-lg" /></span>
+      </span>
+      <span className="mb-option-text"><MathText html={text} /></span>
     </button>
   );
 }
@@ -91,12 +97,13 @@ function OptionButton({ text, state, onClick, disabled }) {
 function RestartModal({ onCancel, onConfirm }) {
   return (
     <div className="mb-modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) onCancel(); }}>
-      <div className="mb-modal-content">
+      <div className="mb-modal-content mb-modal-confirm">
+        <div className="mb-gate-icon mb-modal-warn-icon"><i className="bi bi-arrow-clockwise" /></div>
         <h3>Restart the bootcamp?</h3>
         <p>Your progress will be lost.</p>
-        <div style={{ textAlign: 'right', marginTop: '1.5rem' }}>
-          <button className="mb-btn secondary" onClick={onCancel}>Cancel</button>{' '}
-          <button className="mb-btn" onClick={onConfirm}>Yes, restart</button>
+        <div className="mb-modal-actions">
+          <button className="mb-btn secondary" onClick={onCancel}>Cancel</button>
+          <button className="mb-btn" onClick={onConfirm}>Yes, restart <i className="bi bi-arrow-right" /></button>
         </div>
       </div>
     </div>
@@ -258,8 +265,8 @@ function ReviewModal({ cluster, clusterName, items, answeredMap, shuffledMapRef,
   return (
     <div className="mb-modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="mb-modal-content">
-        <button className="mb-modal-close" onClick={onClose}>&times;</button>
-        <h3>Review: {clusterName}</h3>
+        <button className="mb-modal-close" onClick={onClose} aria-label="Close"><i className="bi bi-x-lg" /></button>
+        <h3><i className="bi bi-journal-text" /> Review: {clusterName}</h3>
         {items.length === 0 && <p>No questions in this cluster.</p>}
         {items.map((item) => (
           <ReviewItemCard key={item.itemId} item={item} rec={answeredMap[item.itemId]} shuffledMapRef={shuffledMapRef} />
@@ -820,14 +827,15 @@ export default function MathBootcamp() {
   // Render
   // -------------------------------------------------------------
   if (phase === 'loading') {
-    return <div className="mb-container"><p className="mb-loading">Loading bootcamp&hellip;</p></div>;
+    return <div className="mb-container"><p className="mb-loading"><i className="bi bi-arrow-repeat mb-spin" /> Loading bootcamp&hellip;</p></div>;
   }
   if (phase === 'error') {
     return (
       <div className="mb-container">
-        <div className="mb-card">
+        <div className="mb-card mb-gate-card">
+          <div className="mb-gate-icon"><i className="bi bi-exclamation-circle" /></div>
           <p>No questions are loaded for this chapter yet.</p>
-          <Link className="mb-btn" to="/math">Back to Math Hub</Link>
+          <Link className="mb-btn" to="/math"><i className="bi bi-arrow-left" /> Back to Math Hub</Link>
         </div>
       </div>
     );
@@ -836,17 +844,30 @@ export default function MathBootcamp() {
   return (
     <div className="mb-container">
       <header className="mb-header">
-        <Link className="mb-back-link" to="/math">&larr; Back to Math Hub</Link>
-        <h2>{meta ? meta.title : 'Math Bootcamp'} {timed && <>&middot; Level 4</>}</h2>
+        <Link className="mb-back-link" to="/math"><i className="bi bi-arrow-left" /> Back to Math Hub</Link>
+
+        {meta && (meta.gradeLabel || meta.chapterName) && (
+          <div className="mb-header-eyebrow">
+            {meta.gradeLabel && <span className="mb-eyebrow-chip">{meta.gradeLabel}</span>}
+            {meta.chapterName && <span className="mb-eyebrow-chip">{meta.chapterName}</span>}
+            <span className={`mb-eyebrow-chip mb-eyebrow-level${timed ? ' timed' : ''}`}>
+              <i className={`bi ${timed ? 'bi-stopwatch-fill' : 'bi-flag-fill'}`} />
+              {timed ? 'Level 4 · Timed' : `Level ${levelNum}`}
+            </span>
+          </div>
+        )}
+
+        <h2>{meta ? meta.title : 'Math Bootcamp'}</h2>
         <p>{meta ? meta.subtitle : ''}</p>
 
         {timed && phase === 'diagnostic' && (
           <div className="mb-timer-area">
+            <i className="bi bi-clock-history mb-timer-icon" />
             <span className={`mb-timer-display ${timeRemaining < 60 ? 'danger' : timeRemaining < 300 ? 'warning' : ''}`}>
               {timerVisible ? formatTime(timeRemaining) : '--:--'}
             </span>
             <button className="mb-hide-timer-btn" onClick={() => setTimerVisible((v) => !v)}>
-              {timerVisible ? 'Hide Timer' : 'Show Timer'}
+              <i className={`bi ${timerVisible ? 'bi-eye-slash' : 'bi-eye'}`} /> {timerVisible ? 'Hide Timer' : 'Show Timer'}
             </button>
           </div>
         )}
@@ -898,8 +919,9 @@ export default function MathBootcamp() {
 
       {phase === 'gate' && (
         <div className="mb-card mb-gate-card" ref={cardRef}>
+          <div className="mb-gate-icon"><i className={`bi ${timed ? 'bi-stopwatch' : 'bi-check2-circle'}`} /></div>
           <h2>{timed ? 'Timed Diagnostic' : 'Warm-up complete'}</h2>
-          {warmupQuestions.every((q) => warmupFirstCorrect[q.itemId] === true) && <p>🎉 Perfect warm-up!</p>}
+          {warmupQuestions.every((q) => warmupFirstCorrect[q.itemId] === true) && <p className="mb-celebrate"><i className="bi bi-stars" /> Perfect warm-up!</p>}
           {timed ? (
             <>
               <p>
@@ -914,7 +936,7 @@ export default function MathBootcamp() {
                   setCurrentIndex(0);
                 }}
               >
-                Begin Timed Diagnostic ({Math.floor((meta?.timedSeconds || 0) / 60)} min) &rarr;
+                Begin Timed Diagnostic ({Math.floor((meta?.timedSeconds || 0) / 60)} min) <i className="bi bi-arrow-right" />
               </button>
             </>
           ) : (
@@ -924,10 +946,10 @@ export default function MathBootcamp() {
                 <strong>Mistakes here are useful information, not failure.</strong>
               </p>
               <button className="mb-btn" onClick={() => { setPhase('diagnostic'); setCurrentIndex(0); }}>
-                I&apos;m ready &mdash; start diagnostic
+                I&apos;m ready &mdash; start diagnostic <i className="bi bi-arrow-right" />
               </button>{' '}
               <button className="mb-btn secondary" onClick={() => setShowGateReview((v) => !v)}>
-                I want to review first
+                <i className="bi bi-journal-text" /> I want to review first
               </button>
               {showGateReview && (
                 <div className="mb-gate-review-section">
@@ -1068,31 +1090,34 @@ function QuestionCard({ innerRef, item, index, clusterLabel, record, shuffledMap
             disabled = true;
           }
           return (
-            <OptionButton key={i} text={opt.text} state={state} disabled={disabled} onClick={() => onChoice(i)} />
+            <OptionButton key={i} index={i} text={opt.text} state={state} disabled={disabled} onClick={() => onChoice(i)} />
           );
         })}
       </div>
 
-      {!locked && hint && <div className="mb-hint-box">💡 <MathText>{hint}</MathText></div>}
+      {!locked && hint && <div className="mb-hint-box"><i className="bi bi-lightbulb-fill" /> <MathText>{hint}</MathText></div>}
 
       {locked && (
         <div className={`mb-feedback ${record.correct ? 'fb-correct' : 'fb-incorrect'}`}>
-          <strong>{record.correct ? '✓ Correct!' : '✗ Incorrect.'}</strong>{' '}
-          <MathText>{shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : 'Skipped.'}</MathText>
-          {showBackForward && record.correct && item.backward && <MathText>{' ' + item.backward}</MathText>}
-          {showBackForward && record.correct && item.forward && <MathText>{' ' + item.forward}</MathText>}
+          <span className="mb-feedback-icon"><i className={`bi ${record.correct ? 'bi-check-circle-fill' : 'bi-x-circle-fill'}`} /></span>
+          <span>
+            <strong>{record.correct ? 'Correct!' : 'Incorrect.'}</strong>{' '}
+            <MathText>{shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : 'Skipped.'}</MathText>
+            {showBackForward && record.correct && item.backward && <MathText>{' ' + item.backward}</MathText>}
+            {showBackForward && record.correct && item.forward && <MathText>{' ' + item.forward}</MathText>}
+          </span>
         </div>
       )}
 
       {locked && (
         <div className="mb-next-hint visible">
-          <span onClick={onNext}>Next <span className="arrow">&rarr;</span></span>
+          <span onClick={onNext}>Next Question <span className="arrow"><i className="bi bi-arrow-right" /></span></span>
         </div>
       )}
 
       {!locked && onSkip && (
         <div className="mb-skip-btn">
-          <button className="mb-btn secondary" onClick={onSkip}>Skip &rarr;</button>
+          <button className="mb-btn secondary" onClick={onSkip}>Skip <i className="bi bi-arrow-right" /></button>
         </div>
       )}
     </div>
@@ -1120,18 +1145,21 @@ function RecheckCard({ innerRef, item, index, record, shuffledMapRef, onChoice, 
             if (i === correctIdx) state = 'correct';
             else if (i === record.chosenIdx && !record.correct) state = 'incorrect';
           }
-          return <OptionButton key={i} text={opt.text} state={state} disabled={locked} onClick={() => onChoice(i)} />;
+          return <OptionButton key={i} index={i} text={opt.text} state={state} disabled={locked} onClick={() => onChoice(i)} />;
         })}
       </div>
       {locked && (
         <div className={`mb-feedback ${record.correct ? 'fb-correct' : 'fb-incorrect'}`}>
-          <strong>{record.correct ? '✓ Correct!' : '✗ Incorrect.'}</strong>{' '}
-          <MathText>{shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : ''}</MathText>
+          <span className="mb-feedback-icon"><i className={`bi ${record.correct ? 'bi-check-circle-fill' : 'bi-x-circle-fill'}`} /></span>
+          <span>
+            <strong>{record.correct ? 'Correct!' : 'Incorrect.'}</strong>{' '}
+            <MathText>{shuffled[record.chosenIdx] ? shuffled[record.chosenIdx].feedback : ''}</MathText>
+          </span>
         </div>
       )}
       {locked && (
         <div className="mb-next-hint visible">
-          <span onClick={onNext}>Next <span className="arrow">&rarr;</span></span>
+          <span onClick={onNext}>Next Question <span className="arrow"><i className="bi bi-arrow-right" /></span></span>
         </div>
       )}
     </div>
@@ -1200,8 +1228,8 @@ function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, di
         ) : (
           <p style={{ marginTop: '1rem' }}>🎉 You scored 90% or higher, so a re-check isn&apos;t necessary.</p>
         )}
-        <button className="mb-btn" onClick={onStartRecheck}>{recheckNeeded ? 'Start Personalised Re-check' : 'Continue'}</button>
-        <p style={{ marginTop: '1rem' }}><button className="mb-btn secondary" onClick={onRestart}>Restart Bootcamp</button></p>
+        <button className="mb-btn" onClick={onStartRecheck}>{recheckNeeded ? 'Start Personalised Re-check' : 'Continue'} <i className="bi bi-arrow-right" /></button>
+        <p style={{ marginTop: '1rem' }}><button className="mb-btn secondary" onClick={onRestart}><i className="bi bi-arrow-clockwise" /> Restart Bootcamp</button></p>
       </div>
     );
   }
@@ -1251,8 +1279,8 @@ function ResultsScreen({ timed, diagnosticQuestions, answeredMap, timeLogRef, di
       {!recheckNeeded && (
         <p>🎉 You scored 90% or higher, so a re-check isn&apos;t necessary.</p>
       )}
-      <button className="mb-btn" onClick={onStartRecheck}>{recheckNeeded ? 'Simulate Spaced Re-check' : 'Continue'}</button>
-      <p style={{ marginTop: '1rem' }}><button className="mb-btn secondary" onClick={onRestart}>Restart Bootcamp</button></p>
+      <button className="mb-btn" onClick={onStartRecheck}>{recheckNeeded ? 'Simulate Spaced Re-check' : 'Continue'} <i className="bi bi-arrow-right" /></button>
+      <p style={{ marginTop: '1rem' }}><button className="mb-btn secondary" onClick={onRestart}><i className="bi bi-arrow-clockwise" /> Restart Bootcamp</button></p>
     </div>
   );
 }
@@ -1274,7 +1302,7 @@ function FinalSummary({ cardRef, recheckItems, recheckAnswered, diagnosticCluste
       <>
         <h2>No Re-check Needed</h2>
         <p>🎉 You scored <strong>{Math.round(diagnosticPercent)}%</strong> on the diagnostic &mdash; that&apos;s 90% or higher, so a re-check isn&apos;t necessary. Great work!</p>
-        <button className="mb-btn" onClick={onRestart}>Restart Demo</button>
+        <button className="mb-btn" onClick={onRestart}><i className="bi bi-arrow-clockwise" /> Restart Demo</button>
       </>
     );
   }
@@ -1285,7 +1313,7 @@ function FinalSummary({ cardRef, recheckItems, recheckAnswered, diagnosticCluste
         <h2>Re-check Complete</h2>
         <p>You haven&apos;t attempted any re-check items yet. When you&apos;re ready, give them a try &mdash; they&apos;re selected just for you.</p>
         <p style={{ color: '#7d7872' }}>In production, this would target only your weakest areas.</p>
-        <button className="mb-btn" onClick={onRestart}>Restart Demo</button>
+        <button className="mb-btn" onClick={onRestart}><i className="bi bi-arrow-clockwise" /> Restart Demo</button>
       </>
     );
   }
@@ -1295,7 +1323,7 @@ function FinalSummary({ cardRef, recheckItems, recheckAnswered, diagnosticCluste
         <h2>Re-check Complete</h2>
         <p>You attempted <strong>{attemptedRecheck}</strong> of <strong>{totalRecheck}</strong>. That&apos;s not quite enough to compare with your diagnostic. Try completing the rest to see your progress.</p>
         <p style={{ color: '#7d7872' }}>In production, this would target only your weakest areas.</p>
-        <button className="mb-btn" onClick={onRestart}>Restart Demo</button>
+        <button className="mb-btn" onClick={onRestart}><i className="bi bi-arrow-clockwise" /> Restart Demo</button>
       </>
     );
   }
@@ -1305,7 +1333,7 @@ function FinalSummary({ cardRef, recheckItems, recheckAnswered, diagnosticCluste
         <h2>Re-check Complete</h2>
         <p>You didn&apos;t get any correct this time. That&apos;s okay &mdash; these were your hardest items from the diagnostic. Review the feedback and try again in a couple of days.</p>
         <p style={{ color: '#7d7872' }}>In production, this would target only your weakest areas.</p>
-        <button className="mb-btn" onClick={onRestart}>Restart Demo</button>
+        <button className="mb-btn" onClick={onRestart}><i className="bi bi-arrow-clockwise" /> Restart Demo</button>
       </>
     );
   }
@@ -1355,7 +1383,7 @@ function FinalSummary({ cardRef, recheckItems, recheckAnswered, diagnosticCluste
       )}
       <div className="mb-insight-box">{insight}</div>
       <p style={{ color: '#7d7872' }}>In production, this would happen 2 days later targeting only your weakest areas.</p>
-      <button className="mb-btn" onClick={onRestart}>Restart Demo</button>
+      <button className="mb-btn" onClick={onRestart}><i className="bi bi-arrow-clockwise" /> Restart Demo</button>
     </>
   );
 }
