@@ -3,9 +3,11 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const dns = require('dns');
 const User = require('./model/userSchema');
 const authRouter = require('./router/auth');
 const mathRouter = require('./router/math');
+const examsRouter = require('./router/exams');
 const adminRouter = require('./router/admin');
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -34,13 +36,32 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Connect to MongoDB once and share that client with the session store. A failed attempt
+// (e.g. the router's DNS refusing the mongodb+srv lookup) is retried instead of crashing.
+const SRV_FALLBACK_DNS = ['8.8.8.8', '1.1.1.1'];
+const mongoReady = (async function connectWithRetry(attempt = 1) {
+    try {
+        await mongoose.connect(process.env.DATABASE);
+        console.log("Connected to MongoDB");
+        return mongoose.connection.getClient();
+    } catch (err) {
+        console.error(`MongoDB connection failed (attempt ${attempt}): ${err.code || ''} ${err.message}`);
+        if (err.syscall === 'querySrv' && !dns.getServers().includes(SRV_FALLBACK_DNS[0])) {
+            console.log(`DNS lookup refused; retrying with ${SRV_FALLBACK_DNS.join(', ')}`);
+            dns.setServers([...SRV_FALLBACK_DNS, ...dns.getServers()]);
+        }
+        await new Promise((resolve) => setTimeout(resolve, Math.min(attempt, 6) * 2000));
+        return connectWithRetry(attempt + 1);
+    }
+})();
+
 app.use(session({
     name: 'sessionId',
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env.DATABASE,
+        clientPromise: mongoReady,
         collectionName: 'sessions'
     }),
     cookie: {
@@ -49,20 +70,11 @@ app.use(session({
     }
 }));
 
-// Connect to MongoDB
-mongoose.connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-}).then(() => {
-    console.log("Connected to MongoDB");
-}).catch(err => console.error("MongoDB connection error:", err));
-
 
 // Routes
 app.use('/api', authRouter);
 app.use('/api/math', mathRouter);
+app.use('/api/exams', examsRouter);
 app.use('/api/admin', adminRouter);
 
 app.get('/', (req, res) => {

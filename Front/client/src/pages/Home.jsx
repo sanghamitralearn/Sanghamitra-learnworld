@@ -25,12 +25,12 @@ export default function Home() {
           <div className="row">
             <div className="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
               <div className="course-item">
-                <img src="/img/english.index.png" className="img-fluid" alt="..." />
+                <img src="/img/competitive.index.svg" className="img-fluid" alt="Competitive Exam Courses" />
                 <div className="course-content">
                   <div className="d-flex justify-content-between align-items-center mb-3">
-                    <Link to="/english"><button className="category">English</button></Link>
+                    <Link to="/competitive-exams"><button className="category">Competitive Exam Courses</button></Link>
                   </div>
-                  <p className="description">Welcome to our English Learning Hub, where language mastery meets personalized learning. Whether you're a beginner or an advanced learner, our comprehensive resources and interactive lessons are designed to enhance your English proficiency. Join our community of learners and embark on an enriching journey towards fluency and confidence in English communication.</p>
+                  <p className="description">Get exam-ready with our Competitive Exam Courses. Build speed and accuracy in logical reasoning, quantitative aptitude, verbal ability and general awareness through focused practice and timed mock tests. Whether you're preparing for banking, SSC, railways or other entrance exams, we help you study smarter and walk into the exam hall with confidence.</p>
                   <div className="trainer d-flex justify-content-between align-items-center">
                     <div className="trainer-rank d-flex align-items-center">
                       <i className="bi bi-heart heart-icon"></i>&nbsp;65

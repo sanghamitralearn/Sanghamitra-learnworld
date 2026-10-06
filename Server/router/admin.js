@@ -4,9 +4,71 @@ const { MathScore } = require('../model/MathScore');
 const MathQuestion = require('../model/MathQuestion');
 const { VocabScore } = require('../model/vocabScoreSchema');
 const Notification = require('../model/notificationSchema');
+const { FAMILIES, forFamily } = require('../model/ExamQuestion');
+const { scoresFor } = require('../model/ExamScore');
 const { accuracyForAttempt, accuracyForAssessment } = require('../utils/scoreStats');
 
 // All routes here are mounted behind authenticate + requireAdmin in app.js.
+
+// ---- Competitive exams: one score collection per course (sat_scores, gre_scores, …) ----
+const COURSE_LABELS = {
+    sat: 'SAT', gre: 'GRE', gmat: 'GMAT', act: 'ACT', cat: 'CAT',
+    'jee-main': 'JEE Main', 'jee-advanced': 'JEE Advanced', 'gate-da': 'GATE DA'
+};
+
+const examPercent = (a) => (typeof a.percent === 'number' ? a.percent : (a.total ? Math.round((a.correct / a.total) * 100) : 0));
+
+// Every student's attempts across all courses, newest last, one row per student.
+async function allExamScores() {
+    const perFamily = await Promise.all(FAMILIES.map((f) => scoresFor(f).find({}).lean()));
+    const byEmail = new Map();
+    perFamily.forEach((docs, i) => {
+        const family = FAMILIES[i];
+        docs.forEach((doc) => {
+            if (!byEmail.has(doc.email)) byEmail.set(doc.email, { _id: doc.email, username: doc.username, email: doc.email, attempts: [] });
+            const row = byEmail.get(doc.email);
+            (doc.attempts || []).forEach((a) => {
+                row.attempts.push({ ...a, family: a.family || family, course: COURSE_LABELS[a.family || family], percent: examPercent(a) });
+            });
+        });
+    });
+    const rows = [...byEmail.values()];
+    rows.forEach((r) => r.attempts.sort((a, b) => new Date(a.date) - new Date(b.date)));
+    return rows;
+}
+
+// Question HTML (with \( … \) math) -> short plain text for the admin tables.
+function plainText(html, max = 220) {
+    const text = String(html || '')
+        .replace(/<br\s*\/?>/gi, ' ')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+        .replace(/\\\(|\\\)/g, '')
+        // Common LaTeX -> readable symbols ("115^\circ" -> "115°").
+        .replace(/\^\{?\\circ\}?/g, '°')
+        .replace(/\\(?:d|t)?frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2')
+        .replace(/\\sqrt\{([^{}]*)\}/g, '√($1)')
+        .replace(/\\(?:text|mathrm|mathbf)\{([^{}]*)\}/g, '$1')
+        .replace(/\\times/g, '×').replace(/\\div/g, '÷').replace(/\\cdot/g, '·').replace(/\\pm/g, '±')
+        .replace(/\\leq?(?![a-z])/g, '≤').replace(/\\geq?(?![a-z])/g, '≥').replace(/\\neq?(?![a-z])/g, '≠')
+        .replace(/\\angle/g, '∠').replace(/\\triangle/g, '△').replace(/\\pi/g, 'π').replace(/\\degree/g, '°')
+        .replace(/\\[,;!: ]/g, ' ')
+        .replace(/\\([a-zA-Z]+)/g, '$1')
+        .replace(/\s+/g, ' ')
+        .trim();
+    return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+}
+
+// "B" or "A,C" -> the option text(s); typed answers are returned as typed.
+function describeAnswer(question, value) {
+    if (!value) return '';
+    if (question.type === 'student_produced_response') return String(value);
+    return String(value).split(',').map((id) => {
+        const opt = (question.options || []).find((o) => o.id === id.trim());
+        const text = opt ? plainText(opt.text, 90) : '';
+        return text ? `${id.trim()}. ${text}` : id.trim();
+    }).join(' · ');
+}
 
 // Seed data writes misconception.rootCause as "Short Label — full explanation".
 // The label is the short mistake-type tag; the explanation after the dash is
@@ -24,15 +86,30 @@ function misconceptionExplanation(rootCause) {
 
 router.get('/scores', async (req, res) => {
     try {
-        const [math, english] = await Promise.all([
+        const [math, english, exams] = await Promise.all([
             MathScore.find({}),
-            VocabScore.find({})
+            VocabScore.find({}),
+            allExamScores()
         ]);
-        res.status(200).json({ math, english });
+        res.status(200).json({ math, english, exams });
     } catch (err) {
         res.status(500).json({ error: 'Server error' });
     }
 });
+
+const MATH_PHASE_ORDER = { warmup: 0, diagnostic: 1, recheck: 2 };
+
+// The option the student picked. chosen_index is a position in the student's shuffled option list,
+// so it can't index question.options directly; newer attempts also store option_index (the position
+// in question.options). For older attempts, recover it from correctness or the misconception tag.
+function chosenMathOption(question, answer) {
+    if (answer.skipped || answer.chosen_index < 0) return null;
+    const options = question.options || [];
+    if (answer.option_index >= 0) return options[answer.option_index] || null;
+    if (answer.is_correct) return options.find((o) => o.correct) || null;
+    if (answer.misconception_id) return options.find((o) => o.misconceptionId === answer.misconception_id) || null;
+    return null;
+}
 
 router.get('/scores/math/:email', async (req, res) => {
     try {
@@ -40,52 +117,90 @@ router.get('/scores/math/:email', async (req, res) => {
         if (!userScores) return res.status(404).json({ message: 'User not found' });
 
         const attempts = userScores.attempts || [];
-        const lookupKeys = new Map();
-        attempts.forEach((attempt) => {
-            (attempt.answers || []).forEach((answer) => {
-                const key = [attempt.grade, attempt.chapter_slug, attempt.level, answer.phase, answer.item_id].join('|');
-                lookupKeys.set(key, {
-                    grade: attempt.grade,
-                    chapterSlug: attempt.chapter_slug,
-                    level: attempt.level,
-                    phase: answer.phase,
-                    itemId: answer.item_id
-                });
-            });
+        const levels = new Map();
+        attempts.forEach((a) => {
+            levels.set([a.grade, a.chapter_slug, a.level].join('|'), { grade: a.grade, chapterSlug: a.chapter_slug, level: a.level });
         });
+        const questions = levels.size ? await MathQuestion.find({ $or: [...levels.values()] }).lean() : [];
 
-        if (lookupKeys.size) {
-            const questions = await MathQuestion.find({
-                $or: Array.from(lookupKeys.values())
-            }).lean();
-            const questionMap = new Map(
-                questions.map((q) => [[q.grade, q.chapterSlug, q.level, q.phase, q.itemId].join('|'), q])
-            );
+        attempts.forEach((attempt) => {
+            const bank = questions
+                .filter((q) => q.grade === attempt.grade && q.chapterSlug === attempt.chapter_slug && q.level === attempt.level)
+                .sort((a, b) => (MATH_PHASE_ORDER[a.phase] - MATH_PHASE_ORDER[b.phase]) || (a.order - b.order));
+            const answered = new Map((attempt.answers || []).map((ans) => [`${ans.phase}|${ans.item_id}`, ans]));
 
-            attempts.forEach((attempt) => {
-                (attempt.answers || []).forEach((answer) => {
-                    const key = [attempt.grade, attempt.chapter_slug, attempt.level, answer.phase, answer.item_id].join('|');
-                    const question = questionMap.get(key);
-                    if (question) {
-                        answer.question_text = question.question;
-                        answer.chosen_text = question.options?.[answer.chosen_index]?.text ?? null;
-                        answer.correct_text = question.options?.find((o) => o.correct)?.text ?? null;
-                        if (!answer.is_correct && answer.misconception_id) {
-                            const misconception = question.misconceptions?.find((m) => m.misconceptionId === answer.misconception_id);
-                            if (misconception) {
-                                answer.mistake_tag = misconceptionTag(misconception.rootCause);
-                                answer.mistake_description = misconception.description || '';
-                                answer.mistake_why = misconceptionExplanation(misconception.rootCause);
-                                answer.mistake_fix = misconception.remediation || '';
-                            }
+            // Every warmup + diagnostic question of the level, so the review shows what was never
+            // reached too. Recheck items are picked per student, so only the ones they were given.
+            const rows = bank
+                .filter((q) => q.phase !== 'recheck' || answered.has(`recheck|${q.itemId}`))
+                .map((q) => {
+                    const answer = answered.get(`${q.phase}|${q.itemId}`) || {
+                        item_id: q.itemId, phase: q.phase, cluster: q.cluster, chosen_index: -1,
+                        is_correct: false, skipped: true, not_attempted: true, points_awarded: 0
+                    };
+                    const chosen = chosenMathOption(q, answer);
+                    answer.question_text = plainText(q.question);
+                    answer.chosen_text = chosen ? plainText(chosen.text, 90) : null;
+                    answer.correct_text = plainText(q.options?.find((o) => o.correct)?.text, 90) || null;
+                    if (!answer.is_correct && answer.misconception_id) {
+                        const misconception = q.misconceptions?.find((m) => m.misconceptionId === answer.misconception_id);
+                        if (misconception) {
+                            answer.mistake_tag = misconceptionTag(misconception.rootCause);
+                            answer.mistake_description = misconception.description || '';
+                            answer.mistake_why = misconceptionExplanation(misconception.rootCause);
+                            answer.mistake_fix = misconception.remediation || '';
                         }
                     }
+                    return answer;
                 });
+            // Keep answers whose question has since been removed from the bank.
+            const inBank = new Set(bank.map((q) => `${q.phase}|${q.itemId}`));
+            (attempt.answers || []).forEach((ans) => {
+                if (!inBank.has(`${ans.phase}|${ans.item_id}`)) rows.push(ans);
             });
-        }
+            attempt.answers = rows;
+        });
 
         res.status(200).json(userScores);
     } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+// One student's competitive-exam attempts, with each answer's question text and correct answer.
+router.get('/scores/exams/:email', async (req, res) => {
+    try {
+        const row = (await allExamScores()).find((r) => r.email === req.params.email);
+        if (!row) return res.status(404).json({ message: 'User not found' });
+
+        const idsByFamily = {};
+        row.attempts.forEach((a) => (a.answers || []).forEach((ans) => {
+            (idsByFamily[a.family] ||= new Set()).add(ans.item_id);
+        }));
+        const questionMap = new Map();
+        await Promise.all(Object.entries(idsByFamily).map(async ([family, ids]) => {
+            const questions = await forFamily(family)
+                .find({ itemId: { $in: [...ids] } })
+                .select('itemId questionNumber type question options correctAnswer acceptedAnswers')
+                .lean();
+            questions.forEach((q) => questionMap.set(q.itemId, q));
+        }));
+
+        row.attempts.forEach((a) => {
+            (a.answers || []).forEach((ans) => {
+                const q = questionMap.get(ans.item_id);
+                if (!q) return;
+                ans.question_number = q.questionNumber;
+                ans.question_text = plainText(q.question);
+                ans.response_text = describeAnswer(q, ans.response);
+                ans.correct_text = q.type === 'student_produced_response'
+                    ? (q.acceptedAnswers?.length ? q.acceptedAnswers.join(' or ') : q.correctAnswer)
+                    : describeAnswer(q, q.correctAnswer);
+            });
+        });
+        res.status(200).json(row);
+    } catch (err) {
+        console.error('[admin/scores/exams] failed:', err);
         res.status(500).json({ error: 'Server error' });
     }
 });
@@ -118,10 +233,19 @@ function summarize(accuracies, scores) {
 
 router.get('/exam-performance', async (req, res) => {
     try {
-        const [mathDocs, vocabDocs] = await Promise.all([
+        const [mathDocs, vocabDocs, examRows] = await Promise.all([
             MathScore.find({}),
-            VocabScore.find({})
+            VocabScore.find({}),
+            allExamScores()
         ]);
+
+        const examAttempts = examRows.flatMap((r) => r.attempts);
+        const examByCourse = {};
+        examAttempts.forEach((a) => {
+            if (!examByCourse[a.course]) examByCourse[a.course] = { accuracies: [], scores: [] };
+            examByCourse[a.course].accuracies.push(a.percent);
+            examByCourse[a.course].scores.push(a.correct || 0);
+        });
 
         const mathAttempts = mathDocs.flatMap((doc) => doc.attempts);
         const mathAccuracies = mathAttempts.map(accuracyForAttempt);
@@ -143,7 +267,13 @@ router.get('/exam-performance', async (req, res) => {
 
         res.status(200).json({
             math: { ...summarize(mathAccuracies, mathScores), byGrade: mathByGradeSummary },
-            english: summarize(vocabAccuracies, vocabScores)
+            english: summarize(vocabAccuracies, vocabScores),
+            exams: {
+                ...summarize(examAttempts.map((a) => a.percent), examAttempts.map((a) => a.correct || 0)),
+                byCourse: Object.fromEntries(
+                    Object.entries(examByCourse).map(([course, data]) => [course, summarize(data.accuracies, data.scores)])
+                )
+            }
         });
     } catch (err) {
         res.status(500).json({ error: 'Server error' });
@@ -153,10 +283,23 @@ router.get('/exam-performance', async (req, res) => {
 router.get('/recent-activity', async (req, res) => {
     try {
         const limit = Math.min(parseInt(req.query.limit, 10) || 15, 50);
-        const [mathDocs, vocabDocs] = await Promise.all([
+        const [mathDocs, vocabDocs, examRows] = await Promise.all([
             MathScore.find({}).lean(),
-            VocabScore.find({}).lean()
+            VocabScore.find({}).lean(),
+            allExamScores()
         ]);
+
+        const examActivity = examRows.flatMap((row) =>
+            row.attempts.map((attempt) => ({
+                id: String(attempt._id),
+                subject: 'exams',
+                username: row.username,
+                email: row.email,
+                topic: `${attempt.exam_label || attempt.exam}${attempt.section_name ? ` — ${attempt.section_name}` : ''}`,
+                percentage: attempt.percent,
+                date: attempt.date
+            }))
+        );
 
         const mathActivity = mathDocs.flatMap((doc) =>
             (doc.attempts || []).map((attempt) => ({
@@ -182,7 +325,7 @@ router.get('/recent-activity', async (req, res) => {
             }))
         );
 
-        const activity = [...mathActivity, ...vocabActivity]
+        const activity = [...mathActivity, ...vocabActivity, ...examActivity]
             .sort((a, b) => new Date(b.date) - new Date(a.date))
             .slice(0, limit);
 

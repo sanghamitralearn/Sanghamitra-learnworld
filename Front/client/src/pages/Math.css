@@ -536,6 +536,7 @@
 .mx-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  align-items: stretch; /* cards in a row share one height */
   gap: 18px;
   padding-top: 22px;
 }
@@ -656,106 +657,270 @@
 
 .mx-more:hover { text-decoration: underline; }
 
-/* four levels read left-to-right as a path, joined by a line behind the numbers */
-.mx-levels {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
-  margin: 18px 0 0;
-  padding: 16px 0 0;
-  list-style: none;
-  border-top: 1px dashed var(--mx-card-tint);
-}
-
-.mx-levels::before {
-  content: '';
-  position: absolute;
-  left: 12.5%;
-  right: 12.5%;
-  top: 39px; /* 16px padding + 1px border + 8px padding + half of the 30px number - 1px */
-  height: 2px;
-  background: var(--mx-card-tint);
-}
-
-.mx-levels li { position: relative; min-width: 0; }
-
-.mx-level {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 8px 4px;
-  border: 1px solid transparent;
-  border-radius: var(--mx-r-md);
-  text-align: center;
+/* the whole card is a link: a chapter card opens the chapter's page, a level card opens the test */
+.mx-card-link,
+.mx-level-card {
+  color: inherit;
   text-decoration: none;
-  line-height: 1.25;
-  transition: all .2s var(--mx-ease);
 }
 
-.mx-level .num {
-  width: 30px;
-  height: 30px;
+.mx-card-link:hover,
+.mx-level-card:hover { color: inherit; }
+
+.mx-card-link:focus-visible,
+.mx-level-card:focus-visible {
+  outline: 2px solid var(--mx-card-accent);
+  outline-offset: 3px;
+}
+
+.mx-card-title { flex: 1 1 auto; }
+
+.mx-card-count {
+  display: block;
+  margin-top: 4px;
+  font-size: .76rem;
+  font-weight: 500;
+  color: var(--mx-muted);
+}
+
+.mx-card-chevron {
+  flex: 0 0 auto;
+  align-self: center;
+  color: var(--mx-card-ink);
+  font-size: 1rem;
+  transition: transform .25s var(--mx-ease);
+}
+
+.mx-card-link:hover .mx-card-chevron { transform: translateX(3px); }
+
+/* progress bar on the collapsed card: one segment per test, filled when finished */
+.mx-progress {
+  display: flex;
+  gap: 4px;
+  margin-top: 10px;
+  max-width: 180px;
+}
+
+.mx-progress span {
+  flex: 1;
+  height: 5px;
+  border-radius: var(--mx-r-full);
+  background: #fff;
+  border: 1px solid var(--mx-card-tint);
+}
+
+.mx-progress span.on { background: var(--mx-green-500); border-color: var(--mx-green-500); }
+
+.mx-card.is-complete .mx-card-count { color: var(--mx-green-700); font-weight: 650; }
+
+/* ============================ CHAPTER PAGE =============================== */
+
+.mx-chapter-hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.mx-chapter-hero h1 { margin-top: 8px; }
+
+.mx-chapter-hero-icon {
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
   display: grid;
   place-items: center;
-  margin-bottom: 4px;
+  border-radius: var(--mx-r-lg);
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .25);
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.mx-chapter-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 4px 12px;
+  border-radius: var(--mx-r-full);
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.mx-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--mx-green-700);
+  text-decoration: none;
+}
+
+.mx-back:hover { color: var(--mx-green-800); }
+.mx-back:hover i { transform: translateX(-3px); }
+.mx-back i { transition: transform .2s var(--mx-ease); }
+
+.mx-levels-title {
+  margin: 18px 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--mx-ink);
+}
+
+.mx-level-cards { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+.mx-level-card { gap: 6px; }
+.mx-level-card h3 { margin-top: 4px; }
+
+.mx-level-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mx-level-top .mx-step-mark { margin-right: 4px; }
+
+.mx-level-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.mx-level-foot .mx-chip.hint { margin-top: 0; }
+
+.mx-step-mark {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
   border-radius: 50%;
   background: #fff;
   border: 2px solid var(--mx-card-tint);
   color: var(--mx-card-ink);
-  font-size: .8rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
+  font-size: .95rem;
   transition: all .2s var(--mx-ease);
 }
 
-.mx-level.first .num {
+.mx-test-lvl {
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--mx-muted);
+}
+
+.mx-test-text {
+  display: block;
+  margin-top: 3px;
+  font-size: .8rem;
+  line-height: 1.45;
+  color: var(--mx-body);
+}
+
+.mx-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--mx-r-full);
+  font-size: .66rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.mx-chip.hint {
+  margin-top: 8px;
+  background: var(--mx-green-50);
+  color: var(--mx-green-700);
+}
+
+.mx-chip.hint.timed { background: var(--mx-amber-bg); color: var(--mx-amber); }
+.mx-chip.next { background: var(--mx-card-accent); color: #fff; }
+.mx-chip.done { background: var(--mx-green-100); color: var(--mx-green-700); }
+
+.mx-test-go {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--mx-muted);
+  transition: transform .2s var(--mx-ease), color .2s var(--mx-ease);
+}
+
+.mx-test-cta {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--mx-r-full);
+  background: var(--mx-card-ink);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background .2s var(--mx-ease);
+}
+
+.mx-test-cta i { transition: transform .2s var(--mx-ease); }
+
+/* up next: the one place the eye should land */
+.mx-level-card.is-next {
+  background: #fff;
+  border-color: var(--mx-card-accent);
+  box-shadow: 0 10px 24px -14px rgba(78, 111, 136, .6);
+}
+
+.mx-level-card.is-next::before { transform: scaleX(1); }
+
+.mx-level-card.is-next .mx-step-mark {
   background: var(--mx-card-accent);
   border-color: var(--mx-card-accent);
   color: #fff;
+  box-shadow: 0 0 0 4px rgba(128, 161, 186, .25);
 }
 
-.mx-level b {
-  max-width: 100%;
-  font-size: .76rem;
-  font-weight: 650;
-  color: var(--mx-ink);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* done: calm green tick, still clickable to redo */
+.mx-level-card.is-done .mx-step-mark {
+  background: var(--mx-green-500);
+  border-color: var(--mx-green-500);
+  color: #fff;
 }
 
-.mx-level small {
-  font-size: .66rem;
-  font-weight: 500;
-  color: var(--mx-muted);
-  white-space: nowrap;
-}
+/* later: visible but quieter, so it previews the path without competing */
+.mx-level-card.is-later h3 { color: var(--mx-body); }
+.mx-level-card.is-later .mx-test-text { color: var(--mx-muted); }
 
-.mx-card-cta {
-  align-self: flex-start;
-  margin-top: 16px;
-  display: inline-flex;
+.mx-level-card:hover .mx-test-go { color: var(--mx-card-ink); transform: translateX(3px); }
+.mx-level-card:hover .mx-test-cta { background: #3d5a70; }
+.mx-level-card:hover .mx-test-cta i { transform: translateX(3px); }
+
+.mx-tests-note {
+  display: flex;
   align-items: center;
   gap: 7px;
-  font-size: .85rem;
-  font-weight: 700;
-  color: var(--mx-card-ink);
-  text-decoration: none;
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--mx-r-sm);
+  background: rgba(255, 255, 255, .6);
+  font-size: .78rem;
+  color: var(--mx-body);
 }
-
-.mx-card-cta i { transition: transform .2s var(--mx-ease); }
-.mx-card-cta:hover { color: #46657D; }
-.mx-card-cta:hover i { transform: translateX(4px); }
-
-.mx-level:hover,
-.mx-level:focus-visible {
-  border-color: var(--mx-card-tint);
-  background: var(--mx-card-soft);
-}
-
-.mx-level:hover .num { background: var(--mx-card-accent); border-color: var(--mx-card-accent); color: #fff; }
 
 
 /* ============================ STATES ===================================== */

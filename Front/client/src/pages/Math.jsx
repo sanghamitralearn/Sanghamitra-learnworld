@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { apiFetch } from '../api/client';
 import './Math.css';
 
@@ -48,77 +48,94 @@ function storeGrade(gradeKey) {
   try { window.localStorage.setItem(GRADE_STORAGE_KEY, gradeKey); } catch { /* storage unavailable */ }
 }
 
-function ChapterCard({ gradeKey, gradeLabel, chapter, showGrade }) {
-  const firstLevel = chapter.levels[0];
+function chapterStatus(chapter, doneLevels) {
+  const total = chapter.levels.length;
+  const doneCount = chapter.levels.filter((l) => doneLevels.has(l)).length;
+  const complete = total > 0 && doneCount === total;
+  let label;
+  if (complete) label = <><i className="bi bi-trophy-fill"></i> Chapter complete</>;
+  else if (doneCount > 0) label = `${doneCount} of ${total} done · keep going`;
+  else label = `${total} short test${total === 1 ? '' : 's'}`;
+  return { doneCount, complete, label, nextLevel: chapter.levels.find((l) => !doneLevels.has(l)) };
+}
+
+// A chapter card is the chapter title plus a progress bar; clicking it opens the chapter's
+// own page, where its levels are listed.
+function ChapterCard({ gradeKey, gradeLabel, chapter, showGrade, doneLevels }) {
+  const { complete, label } = chapterStatus(chapter, doneLevels);
 
   return (
-    <article className="mx-card">
-      <div className="mx-card-top">
+    <Link
+      to={`/math/${gradeKey}/${chapter.slug}`}
+      className={`mx-card mx-card-link${complete ? ' is-complete' : ''}`}
+      aria-label={`Chapter ${pad(chapter.number)}: ${chapter.chapterName} — open levels`}
+    >
+      <span className="mx-card-top">
         <span className="mx-icon" aria-hidden="true">
           <i className={`bi ${chapterIcon(chapter.chapterName)}`}></i>
         </span>
-        <div className="mx-card-title">
+        <span className="mx-card-title">
           <span className="mx-card-kicker">
             Chapter {pad(chapter.number)}
             {showGrade && <span className="mx-card-grade"> · {gradeLabel}</span>}
           </span>
           <h3>{chapter.chapterName}</h3>
-        </div>
-      </div>
-
-      <ol className="mx-levels" aria-label={`${chapter.chapterName} levels`}>
-        {chapter.levels.map((level) => {
-          const meta = LEVEL_META[level] || { name: `Level ${level}`, hint: 'Practice' };
-          return (
-            <li key={level}>
-              <Link
-                to={`/math/${gradeKey}/${chapter.slug}/${level}`}
-                className={`mx-level${level === 4 ? ' timed' : ''}${level === firstLevel ? ' first' : ''}`}
-                aria-label={`${chapter.chapterName} — Level ${level}, ${meta.name} (${meta.hint})`}
-              >
-                <span className="num">{level}</span>
-                <b>{meta.name}</b>
-                <small>{meta.hint}</small>
-              </Link>
-            </li>
-          );
-        })}
-      </ol>
-
-      <Link to={`/math/${gradeKey}/${chapter.slug}/${firstLevel}`} className="mx-card-cta">
-        Start chapter <i className="bi bi-arrow-right"></i>
-      </Link>
-    </article>
+          <span className="mx-card-count">{label}</span>
+          <span className="mx-progress" aria-hidden="true">
+            {chapter.levels.map((l) => (
+              <span key={l} className={doneLevels.has(l) ? 'on' : ''} />
+            ))}
+          </span>
+        </span>
+        <i className="bi bi-chevron-right mx-card-chevron" aria-hidden="true"></i>
+      </span>
+    </Link>
   );
 }
 
-function HowItWorks() {
+// One card per level on a chapter's page. Only one level is ever marked "Up next", so the learner
+// never has to decide where to start, and finished levels are ticked so progress feels real.
+function LevelCard({ gradeKey, chapter, level, state, firstStart }) {
+  const meta = LEVEL_META[level] || { name: `Level ${level}`, hint: 'Practice', icon: 'bi-pencil' };
+  const timed = meta.hint === 'Timed';
   return (
-    <section className="mx-how" aria-labelledby="mx-how-title">
-      <div className="mx-how-head">
-        <span className="mx-how-tag"><i className="bi bi-signpost-2"></i> New here?</span>
-        <h2 id="mx-how-title">How every chapter works</h2>
-        <p>Pick your grade, open a chapter and move through its four levels in order. Most learners start with Chapter 01 &middot; Level 1.</p>
-      </div>
-      <ol className="mx-how-steps">
-        {Object.entries(LEVEL_META).map(([level, meta]) => (
-          <li key={level} className={level === '4' ? 'timed' : ''}>
-            <span className="n"><i className={`bi ${meta.icon}`}></i></span>
-            <span className="lvl">Level {level} &middot; {meta.hint}</span>
-            <b>{meta.name}</b>
-            <span className="t">{meta.text}</span>
-          </li>
-        ))}
-      </ol>
-    </section>
+    <Link
+      to={`/math/${gradeKey}/${chapter.slug}/${level}`}
+      className={`mx-card mx-level-card is-${state}`}
+      aria-label={`${chapter.chapterName} — Level ${level}, ${meta.name} (${meta.hint})${state === 'done' ? ', completed' : ''}${state === 'next' ? ', up next' : ''}`}
+    >
+      <span className="mx-level-top">
+        <span className="mx-step-mark" aria-hidden="true">
+          <i className={`bi ${state === 'done' ? 'bi-check-lg' : meta.icon}`}></i>
+        </span>
+        <span className="mx-test-lvl">Level {level}</span>
+        {state === 'next' && <span className="mx-chip next">Up next</span>}
+        {state === 'done' && <span className="mx-chip done">Done</span>}
+      </span>
+      <h3>{meta.name}</h3>
+      {meta.text && <span className="mx-test-text">{meta.text}</span>}
+      <span className="mx-level-foot">
+        <span className={`mx-chip hint${timed ? ' timed' : ''}`}>
+          <i className={`bi ${timed ? 'bi-stopwatch' : 'bi-emoji-smile'}`}></i> {meta.hint}
+        </span>
+        {state === 'next' ? (
+          <span className="mx-test-cta">{firstStart ? 'Start' : 'Continue'} <i className="bi bi-arrow-right"></i></span>
+        ) : (
+          <span className="mx-test-go">
+            {state === 'done' ? <><i className="bi bi-arrow-counterclockwise"></i> Redo</> : <>Open <i className="bi bi-chevron-right"></i></>}
+          </span>
+        )}
+      </span>
+    </Link>
   );
 }
 
-export default function MathPage() {
+const NO_LEVELS = new Set();
+
+// The maths catalog grouped by grade, then chapter; grades and chapters sorted numerically.
+function useMathCatalog() {
   const [catalog, setCatalog] = useState([]);
   const [status, setStatus] = useState('loading'); // loading | ready | error
-  const [query, setQuery] = useState('');
-  const [activeGrade, setActiveGrade] = useState(readStoredGrade);
 
   useEffect(() => {
     let cancelled = false;
@@ -135,7 +152,6 @@ export default function MathPage() {
     return () => { cancelled = true; };
   }, []);
 
-  // Group rows by grade, then by chapter; sort grades and chapters numerically.
   const grades = useMemo(() => {
     const byGrade = catalog.reduce((acc, row) => {
       if (!acc[row.grade]) acc[row.grade] = { gradeLabel: row.gradeLabel, chapters: {} };
@@ -165,6 +181,182 @@ export default function MathPage() {
       }))
       .sort((a, b) => leadingNumber(a.gradeKey) - leadingNumber(b.gradeKey));
   }, [catalog]);
+
+  return { catalog, grades, status };
+}
+
+// Finished levels for a signed-in learner, keyed "grade/slug" -> Set(levels). Logged-out
+// visitors (or learners with no attempts yet) simply see no ticks.
+function useMathProgress() {
+  const [progress, setProgress] = useState({});
+  const [signedIn, setSignedIn] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const sessionRes = await apiFetch('/session-info');
+        if (!sessionRes.ok) return;
+        const { email } = await sessionRes.json();
+        if (cancelled || !email) return;
+        setSignedIn(true);
+        const res = await apiFetch(`/math/scores?email=${encodeURIComponent(email)}`);
+        if (!res.ok) return;
+        const { attempts = [] } = await res.json();
+        if (cancelled) return;
+        const map = {};
+        attempts.forEach((a) => {
+          const key = `${a.grade}/${a.chapter_slug}`;
+          (map[key] ||= new Set()).add(Number(a.level));
+        });
+        setProgress(map);
+      } catch { /* progress is a nice-to-have; the page works without it */ }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  return { progress, signedIn };
+}
+
+// /math/:grade/:chapterSlug — one chapter's levels as cards; a level opens the bootcamp test.
+export function MathChapterPage() {
+  const { grade: gradeKey, chapterSlug } = useParams();
+  const { grades, status } = useMathCatalog();
+  const { progress, signedIn } = useMathProgress();
+
+  const grade = grades.find((g) => g.gradeKey === gradeKey);
+  const chapter = grade?.chapters.find((c) => c.slug === chapterSlug);
+  const doneLevels = progress[`${gradeKey}/${chapterSlug}`] || NO_LEVELS;
+
+  // Coming back to /math should land on this chapter's grade.
+  useEffect(() => {
+    if (grade) storeGrade(gradeKey);
+  }, [grade, gradeKey]);
+
+  const info = chapter ? chapterStatus(chapter, doneLevels) : null;
+
+  return (
+    <div className="mathx">
+      <header className="mx-hero">
+        <div className="mx-shell">
+          <ol className="mx-crumbs">
+            <li><Link to="/">Home</Link></li>
+            <li className="sep" aria-hidden="true">/</li>
+            <li><Link to="/math">Mathematics</Link></li>
+            {grade && (
+              <>
+                <li className="sep" aria-hidden="true">/</li>
+                <li><Link to="/math">{grade.gradeLabel}</Link></li>
+              </>
+            )}
+            {chapter && (
+              <>
+                <li className="sep" aria-hidden="true">/</li>
+                <li aria-current="page">{chapter.chapterName}</li>
+              </>
+            )}
+          </ol>
+
+          {chapter && (
+            <div className="mx-chapter-hero">
+              <span className="mx-chapter-hero-icon" aria-hidden="true">
+                <i className={`bi ${chapterIcon(chapter.chapterName)}`}></i>
+              </span>
+              <div>
+                <span className="mx-eyebrow">Chapter {pad(chapter.number)} &middot; {grade.gradeLabel}</span>
+                <h1>{chapter.chapterName}</h1>
+                <p className="mx-hero-lede">
+                  {chapter.description || 'Work through the levels in order — from a relaxed warm-up to a timed speed run.'}
+                </p>
+                <span className="mx-chapter-status">{info.label}</span>
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
+
+      <div className="mx-shell mx-body">
+        <Link to="/math" className="mx-back">
+          <i className="bi bi-arrow-left"></i> All chapters
+        </Link>
+
+        {status === 'loading' && (
+          <div className="mx-skeleton-grid" aria-hidden="true">
+            {Array.from({ length: 4 }, (_, i) => <div key={i} className="mx-skeleton" />)}
+          </div>
+        )}
+
+        {status === 'error' && (
+          <div className="mx-note">
+            <i className="bi bi-wifi-off"></i>
+            <b>We couldn&apos;t load this chapter</b>
+            The server didn&apos;t respond. Please refresh the page or try again in a moment.
+          </div>
+        )}
+
+        {status === 'ready' && !chapter && (
+          <div className="mx-note">
+            <i className="bi bi-search"></i>
+            <b>Chapter not found</b>
+            It may have been moved or renamed.
+            <div><Link to="/math" className="mx-tab">Browse all chapters</Link></div>
+          </div>
+        )}
+
+        {status === 'ready' && chapter && (
+          <>
+            <h2 className="mx-levels-title">Choose a level</h2>
+            <div className="mx-cards mx-level-cards">
+              {chapter.levels.map((level) => (
+                <LevelCard
+                  key={level}
+                  gradeKey={gradeKey}
+                  chapter={chapter}
+                  level={level}
+                  firstStart={info.doneCount === 0}
+                  state={doneLevels.has(level) ? 'done' : level === info.nextLevel ? 'next' : 'later'}
+                />
+              ))}
+            </div>
+            {!signedIn && (
+              <p className="mx-tests-note">
+                <i className="bi bi-lock"></i> A free account saves your progress and ticks off each level you finish.
+              </p>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function HowItWorks() {
+  return (
+    <section className="mx-how" aria-labelledby="mx-how-title">
+      <div className="mx-how-head">
+        <span className="mx-how-tag"><i className="bi bi-signpost-2"></i> New here?</span>
+        <h2 id="mx-how-title">How every chapter works</h2>
+        <p>Pick your grade, click a chapter card and move through its four levels in order. Most learners start with Chapter 01 &middot; Level 1.</p>
+      </div>
+      <ol className="mx-how-steps">
+        {Object.entries(LEVEL_META).map(([level, meta]) => (
+          <li key={level} className={level === '4' ? 'timed' : ''}>
+            <span className="n"><i className={`bi ${meta.icon}`}></i></span>
+            <span className="lvl">Level {level} &middot; {meta.hint}</span>
+            <b>{meta.name}</b>
+            <span className="t">{meta.text}</span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+export default function MathPage() {
+  const { catalog, grades, status } = useMathCatalog();
+  const { progress } = useMathProgress();
+  const [query, setQuery] = useState('');
+  const [activeGrade, setActiveGrade] = useState(readStoredGrade);
 
   // Fall back to the first grade when nothing (or a grade that no longer exists) is stored.
   const currentGrade = grades.some((g) => g.gradeKey === activeGrade) ? activeGrade : grades[0]?.gradeKey;
@@ -342,6 +534,7 @@ export default function MathPage() {
                     gradeLabel={grade.gradeLabel}
                     chapter={chapter}
                     showGrade={Boolean(term)}
+                    doneLevels={progress[`${grade.gradeKey}/${chapter.slug}`] || NO_LEVELS}
                   />
                 ))}
               </div>

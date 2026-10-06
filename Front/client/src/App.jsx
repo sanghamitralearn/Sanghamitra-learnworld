@@ -7,7 +7,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import English from './pages/English';
-import MathPage from './pages/Math';
+import MathPage, { MathChapterPage } from './pages/Math';
+import CompetitiveExams, { CourseTests } from './pages/CompetitiveExams';
 import Grammar from './pages/Grammar';
 import Writing from './pages/Writing';
 import Vocabulary from './pages/Vocabulary';
@@ -15,8 +16,10 @@ import VocabularyGuide from './pages/VocabularyGuide';
 import VocabularyDiagnosticTest from './pages/VocabularyDiagnosticTest';
 import VocabAnalytics from './pages/VocabAnalytics';
 import MathBootcamp from './pages/math/MathBootcamp';
+import ExamRunner, { ExamAnalysis } from './pages/exams/ExamRunner';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminCourseDashboard from './pages/admin/AdminCourseDashboard';
 import AdminUserDetail from './pages/admin/AdminUserDetail';
 import VocabHub from './pages/vocabulary-content/VocabHub';
 import VocabContentPage from './pages/vocabulary-content/VocabContentPage';
@@ -36,6 +39,9 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/english" element={<English />} />
             <Route path="/math" element={<MathPage />} />
+            <Route path="/math/:grade/:chapterSlug" element={<MathChapterPage />} />
+            <Route path="/competitive-exams" element={<CompetitiveExams />} />
+            <Route path="/competitive-exams/:course" element={<CourseTests />} />
             <Route path="/grammar" element={<Grammar />} />
             <Route path="/writing" element={<Writing />} />
             <Route path="/vocabulary" element={<Vocabulary />} />
@@ -49,9 +55,13 @@ export default function App() {
               <Route path="/vocabulary-diagnostic-test" element={<VocabularyDiagnosticTest />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/math/:grade/:chapterSlug/:level" element={<MathBootcamp />} />
+              <Route path="/competitive-exams/:exam/test" element={<ExamRunner />} />
+              <Route path="/competitive-exams/:exam/analysis" element={<ExamAnalysis />} />
+              <Route path="/competitive-exams/:exam/:section/:module" element={<ExamRunner />} />
             </Route>
 
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/course/:course" element={<AdminCourseDashboard />} />
             <Route path="/admin/user-detail" element={<AdminUserDetail />} />
           </Route>
 

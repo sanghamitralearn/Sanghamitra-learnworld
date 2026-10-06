@@ -78,7 +78,7 @@ export default function RecentActivityBell() {
             {!loading && activity.map((item) => (
               <div key={item.id} className="activity-row">
                 <div className={`activity-icon activity-icon-${item.subject}`}>
-                  <i className={item.subject === 'maths' ? 'bi bi-calculator' : 'bi bi-journal-text'}></i>
+                  <i className={{ maths: 'bi bi-calculator', exams: 'bi bi-trophy' }[item.subject] || 'bi bi-journal-text'}></i>
                 </div>
                 <div className="activity-details">
                   <div className="activity-name">{item.username}</div>

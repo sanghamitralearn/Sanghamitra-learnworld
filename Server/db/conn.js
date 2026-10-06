@@ -1,9 +1,5 @@
+// The MongoDB connection is opened once in app.js (with retries) and shared by mongoose and the
+// session store. This module is kept so existing require('../db/conn') calls still work.
 const mongoose = require('mongoose');
 
-const DB = process.env.DATABASE;
-
-mongoose.connect(DB).then(() => {
-    console.log('Connection Successful');
-}).catch((err) => {
-    console.log('No Connection', err);
-});
+module.exports = mongoose.connection;

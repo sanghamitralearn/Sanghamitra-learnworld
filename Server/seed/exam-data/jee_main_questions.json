@@ -1,0 +1,4359 @@
+[
+  {
+    "_id": "6a30dfd6c5f9f111324bd04b",
+    "question_number": 51,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "subtopic": "Faraday's Laws of Electrolysis",
+    "question_text": "A solution of aluminium chloride is electrolysed for 30 minutes using a current of 2 A. The amount of the aluminium deposited at the cathode is ____. [Given: molar mass of aluminium and chlorine are 27 g mol$^{-1}$ and 35.5 g mol$^{-1}$ respectively, Faraday constant = 96500 C mol$^{-1}$]",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "1.660 g"
+      },
+      {
+        "option_id": "B",
+        "text": "1.007 g"
+      },
+      {
+        "option_id": "C",
+        "text": "0.336 g"
+      },
+      {
+        "option_id": "D",
+        "text": "0.441 g"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Faraday's laws of electrolysis",
+      "gram equivalent",
+      "electrolysis of AlCl3"
+    ],
+    "problem_types": [
+      "calculate mass deposited using w = (Eq. wt x I x t)/F"
+    ],
+    "common_mistakes": [
+      "Using equivalent weight = molar mass instead of molar mass/3 (since Al is trivalent)",
+      "Forgetting to convert minutes to seconds"
+    ],
+    "prerequisite_concepts": [
+      "w = (M x I x t)/(n x F)",
+      "valency of Al = 3"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd04c",
+    "question_number": 52,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Nuclear Chemistry",
+    "subtopic": "Radioactive Decay",
+    "question_text": "Which of the following statements is not true for radioactive decay?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Amount of radioactive substance remained after three half lives is $\\dfrac{1}{8}$th of original amount."
+      },
+      {
+        "option_id": "B",
+        "text": "Decay constant does not depend upon temperature."
+      },
+      {
+        "option_id": "C",
+        "text": "Decay constant increases with increase in temperature."
+      },
+      {
+        "option_id": "D",
+        "text": "Half life is $\\ln 2$ times of $\\dfrac{1}{\\text{rate constant}}$."
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "radioactive decay",
+      "decay constant",
+      "half-life"
+    ],
+    "problem_types": [
+      "identify incorrect statement about decay kinetics"
+    ],
+    "common_mistakes": [
+      "Confusing radioactive decay constant (temperature independent) with chemical reaction rate constants (Arrhenius dependence on temperature)"
+    ],
+    "prerequisite_concepts": [
+      "first order kinetics of radioactive decay",
+      "t1/2 = ln2/lambda",
+      "amount remaining after n half-lives = N0/2^n"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd04d",
+    "question_number": 53,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Stereochemistry",
+    "subtopic": "Optical and Geometrical Isomerism",
+    "question_text": "How many different stereoisomers are possible for the given molecule? $CH_3-CH(OH)-CH=CH-CH_3$",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "3"
+      },
+      {
+        "option_id": "B",
+        "text": "1"
+      },
+      {
+        "option_id": "C",
+        "text": "2"
+      },
+      {
+        "option_id": "D",
+        "text": "4"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "stereoisomerism",
+      "chirality",
+      "cis-trans isomerism"
+    ],
+    "problem_types": [
+      "count total stereoisomers combining geometrical (cis/trans) and optical (R/S) isomerism"
+    ],
+    "common_mistakes": [
+      "Counting only geometrical isomers and ignoring the chiral centre, or vice versa",
+      "Forgetting total stereoisomers = (number of geometrical isomers) x (number of optical configurations)"
+    ],
+    "prerequisite_concepts": [
+      "identifying a chiral carbon (CH3-CH(OH)-)",
+      "cis/trans isomerism about C=C double bond",
+      "2^n rule for n stereocenters/double bonds"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd04e",
+    "question_number": 54,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Periodic Table",
+    "subtopic": "Electronegativity Trends",
+    "question_text": "Which of the following electronegativity order is incorrect?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Al < Mg < B < N"
+      },
+      {
+        "option_id": "B",
+        "text": "Al < Si < C < N"
+      },
+      {
+        "option_id": "C",
+        "text": "Mg < Be < B < N"
+      },
+      {
+        "option_id": "D",
+        "text": "S < Cl < O < F"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "periodic trends",
+      "electronegativity",
+      "Pauling scale"
+    ],
+    "problem_types": [
+      "identify incorrect ordering of electronegativity among given elements"
+    ],
+    "common_mistakes": [
+      "Assuming electronegativity always increases left to right and decreases down a group without checking actual Pauling values, especially for Mg vs Al"
+    ],
+    "prerequisite_concepts": [
+      "Pauling electronegativity values of period 2 and 3 elements",
+      "general periodic trends (increase across a period, decrease down a group)"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd04f",
+    "question_number": 55,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "d and f Block Elements",
+    "subtopic": "Lanthanoid Ion Electronic Configurations",
+    "question_text": "Lanthanoid ions with $4f^7$ configuration are: (A) $Eu^{2+}$ (B) $Gd^{3+}$ (C) $Eu^{3+}$ (D) $Tb^{3+}$ (E) $Sm^{2+}$. Choose the correct answer from the options given below:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(A) and (B) only"
+      },
+      {
+        "option_id": "B",
+        "text": "(A) and (D) only"
+      },
+      {
+        "option_id": "C",
+        "text": "(B) and (E) only"
+      },
+      {
+        "option_id": "D",
+        "text": "(B) and (C) only"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "lanthanoids",
+      "electronic configuration",
+      "f-block ions"
+    ],
+    "problem_types": [
+      "identify ions with 4f^7 configuration from given lanthanoid ions"
+    ],
+    "common_mistakes": [
+      "Forgetting that Gd3+ has configuration [Xe]4f^7 5d^0 6s^0 (since Gd is [Xe]4f^7 5d^1 6s^2 and loses 5d and 6s electrons)",
+      "Confusing Eu2+ (4f^7) with Eu3+ (4f^6)"
+    ],
+    "prerequisite_concepts": [
+      "ground state electronic configurations of lanthanides",
+      "order of electron removal (6s, 5d before 4f)"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd050",
+    "question_number": 56,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Periodic Table",
+    "subtopic": "Periodic Trends - Matching",
+    "question_text": "Match List-I with List-II.\n\nList-I:\n(A) $Al^{3+} < Mg^{2+} < Na^+ < F^-$\n(B) $B < C < O < N$\n(C) $B < Al < Mg < K$\n(D) $Si < P < S < Cl$\n\nList-II:\n(I) Ionisation Enthalpy\n(II) Metallic character\n(III) Electronegativity\n(IV) Ionic radii\n\nChoose the correct answer from the options given below:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "A-IV, B-I, C-III, D-II"
+      },
+      {
+        "option_id": "B",
+        "text": "A-II, B-III, C-IV, D-I"
+      },
+      {
+        "option_id": "C",
+        "text": "A-IV, B-I, C-II, D-III"
+      },
+      {
+        "option_id": "D",
+        "text": "A-III, B-IV, C-II, D-I"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "periodic trends",
+      "ionic radii",
+      "metallic character",
+      "electronegativity",
+      "ionisation enthalpy"
+    ],
+    "problem_types": [
+      "match orderings of elements/ions to the periodic property they represent"
+    ],
+    "common_mistakes": [
+      "Confusing ionisation enthalpy trend (B<C<O<N is an exception due to stable half-filled p3 configuration of N) with electronegativity trend",
+      "Mixing up metallic character and electronegativity trends across a period/group"
+    ],
+    "prerequisite_concepts": [
+      "isoelectronic species and ionic radii trend",
+      "anomalous ionisation enthalpy of N vs O",
+      "metallic character increases down a group/left across a period",
+      "electronegativity trend"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd051",
+    "question_number": 57,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Biomolecules",
+    "subtopic": "Vitamins",
+    "question_text": "Which of the following acids is a vitamin?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Adipic acid"
+      },
+      {
+        "option_id": "B",
+        "text": "Aspartic acid"
+      },
+      {
+        "option_id": "C",
+        "text": "Ascorbic acid"
+      },
+      {
+        "option_id": "D",
+        "text": "Saccharic acid"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "vitamins",
+      "biomolecules"
+    ],
+    "problem_types": [
+      "identify vitamin from list of acids"
+    ],
+    "common_mistakes": [
+      "Confusing aspartic acid (an amino acid) with ascorbic acid (vitamin C)"
+    ],
+    "prerequisite_concepts": [
+      "Vitamin C = ascorbic acid"
+    ],
+    "average_time_seconds": 60,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd052",
+    "question_number": 58,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Thermodynamics",
+    "subtopic": "First Law of Thermodynamics",
+    "question_text": "A liquid when kept inside a thermally insulated closed vessel at $25^\\circ C$ was mechanically stirred from outside. What will be the correct option for the following thermodynamic parameters?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\Delta U > 0, q = 0, w > 0$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\Delta U = 0, q = 0, w = 0$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\Delta U < 0, q = 0, w > 0$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\Delta U = 0, q = 0, w > 0$"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "first law of thermodynamics",
+      "work done on system",
+      "adiabatic process"
+    ],
+    "problem_types": [
+      "determine signs of q, w and DeltaU for stirring in an insulated vessel"
+    ],
+    "common_mistakes": [
+      "Assuming q=0 implies DeltaU=0 (only true if w is also 0)",
+      "Sign convention confusion: work done ON the system by stirring is positive (w>0), increasing internal energy"
+    ],
+    "prerequisite_concepts": [
+      "DeltaU=q+w",
+      "thermally insulated implies q=0",
+      "mechanical stirring does work on the system"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd053",
+    "question_number": 59,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Atomic Structure",
+    "subtopic": "Bohr Model - Radius of Orbit",
+    "question_text": "Radius of the first excited state of Helium ion is given as: ($a_0 \\to$ radius of the first stationary state of hydrogen atom).",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$r = \\dfrac{a_0}{2}$"
+      },
+      {
+        "option_id": "B",
+        "text": "$r = \\dfrac{a_0}{4}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$r = 4a_0$"
+      },
+      {
+        "option_id": "D",
+        "text": "$r = 2a_0$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Bohr model",
+      "radius of orbit",
+      "hydrogen-like species"
+    ],
+    "problem_types": [
+      "compute orbital radius of He+ in first excited state using r = a0 n^2/Z"
+    ],
+    "common_mistakes": [
+      "Using n=1 instead of n=2 for the 'first excited state'",
+      "Forgetting to divide by Z=2 for Helium ion"
+    ],
+    "prerequisite_concepts": [
+      "r = a0 (n^2/Z)",
+      "first excited state corresponds to n=2"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd054",
+    "question_number": 60,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Haloalkanes and Haloarenes",
+    "subtopic": "SN1 and SN2 Mechanisms",
+    "question_text": "Given below are two statements:\n\nStatement I: $CH_3-O-CH_2-Cl$ will undergo $S_N1$ reaction though it is a primary halide.\n\nStatement II: $(CH_3)_3C-CH_2-Cl$ will not undergo $S_N2$ reaction very easily though it is a primary halide.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Statement I is incorrect but Statement II is correct."
+      },
+      {
+        "option_id": "B",
+        "text": "Both Statement I and Statement II are incorrect"
+      },
+      {
+        "option_id": "C",
+        "text": "Statement I is correct but Statement II is incorrect"
+      },
+      {
+        "option_id": "D",
+        "text": "Both Statement I and Statement II are correct."
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "SN1 mechanism",
+      "SN2 mechanism",
+      "carbocation stability",
+      "steric hindrance"
+    ],
+    "problem_types": [
+      "assess feasibility of SN1/SN2 for given primary halides based on stability/sterics"
+    ],
+    "common_mistakes": [
+      "Assuming all primary halides only undergo SN2",
+      "Not recognizing that the oxocarbenium ion (CH3-O-CH2+) is highly stabilized by resonance, favouring SN1",
+      "Not recognizing steric hindrance of neopentyl chloride slows SN2"
+    ],
+    "prerequisite_concepts": [
+      "resonance stabilization of oxocarbenium ions",
+      "steric hindrance effect on SN2 rate (neopentyl halides)"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd055",
+    "question_number": 61,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Hydrocarbons",
+    "subtopic": "Acidity of Terminal Alkynes",
+    "question_text": "Given below are two statements:\n\nStatement I: One mole of propyne reacts with excess of sodium to liberate half a mole of $H_2$ gas.\n\nStatement II: Four g of propyne reacts with $NaNH_2$ to liberate $NH_3$ gas which occupies 224 mL at STP.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Statement I is correct but Statement II is incorrect."
+      },
+      {
+        "option_id": "B",
+        "text": "Both Statement I and Statement II are incorrect"
+      },
+      {
+        "option_id": "C",
+        "text": "Statement I is incorrect but Statement II is correct"
+      },
+      {
+        "option_id": "D",
+        "text": "Both Statement I and Statement II are correct."
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "acidic hydrogen of terminal alkyne",
+      "reaction with sodium",
+      "reaction with sodamide",
+      "molar volume at STP"
+    ],
+    "problem_types": [
+      "verify stoichiometry of propyne reactions with Na and NaNH2"
+    ],
+    "common_mistakes": [
+      "Errors converting 4 g of propyne to moles (molar mass = 40 g/mol)",
+      "Errors converting moles of NH3 produced to volume at STP (22400 mL/mol)"
+    ],
+    "prerequisite_concepts": [
+      "terminal alkyne C-H is acidic and reacts with Na to release H2 (1:1/2 mole ratio)",
+      "reaction with NaNH2 releases NH3 in 1:1 mole ratio",
+      "molar volume of gas at STP = 22400 mL"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd056",
+    "question_number": 62,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Equilibrium",
+    "subtopic": "Heterogeneous Equilibrium - Kp Calculation",
+    "question_text": "A vessel at 1000 K contains $CO_2$ with a pressure of 0.5 atm. Some of $CO_2$ is converted into CO on addition of graphite. If the total pressure at equilibrium is 0.8 atm, then $K_P$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "0.18 atm"
+      },
+      {
+        "option_id": "B",
+        "text": "1.8 atm"
+      },
+      {
+        "option_id": "C",
+        "text": "0.3 atm"
+      },
+      {
+        "option_id": "D",
+        "text": "3 atm"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "heterogeneous equilibrium",
+      "Kp",
+      "partial pressures"
+    ],
+    "problem_types": [
+      "set up equilibrium table for CO2(g)+C(s) <-> 2CO(g) and compute Kp"
+    ],
+    "common_mistakes": [
+      "Errors setting up the change in pressure x in terms of total pressure increase",
+      "Forgetting graphite (solid) does not appear in Kp expression"
+    ],
+    "prerequisite_concepts": [
+      "reaction CO2(g)+C(s) -> 2CO(g)",
+      "Kp = (P_CO)^2/P_CO2",
+      "total pressure = sum of partial pressures at equilibrium"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd057",
+    "question_number": 63,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry - Basic Principles",
+    "subtopic": "IUPAC Nomenclature",
+    "question_text": "The IUPAC name of the following compound is: $HOOC-CH(CH_3)-CH_2-CH_2-CH_2-COOCH_3$",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "2-Carboxy-5-methoxycarbonylhexane"
+      },
+      {
+        "option_id": "B",
+        "text": "Methyl-6-carboxy-2,5-dimethylhexanoate"
+      },
+      {
+        "option_id": "C",
+        "text": "Methyl-5-carboxy-2-methylhexanoate"
+      },
+      {
+        "option_id": "D",
+        "text": "6-Methoxycarbonyl-2,5-dimethylhexanoic acid"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "IUPAC nomenclature",
+      "principal characteristic group",
+      "carboxylic acid esters"
+    ],
+    "problem_types": [
+      "determine IUPAC name with carboxylic acid as principal characteristic group and ester as substituent"
+    ],
+    "common_mistakes": [
+      "Choosing the ester group as the principal characteristic group instead of the carboxylic acid (acid has higher priority than ester)",
+      "Incorrect numbering of the parent chain leading to wrong locants"
+    ],
+    "prerequisite_concepts": [
+      "seniority order of functional groups (acid > ester)",
+      "naming -COOCH3 as 'methoxycarbonyl' substituent when acid is the principal group",
+      "lowest locant rule"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd058",
+    "question_number": 64,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Electrochemistry",
+    "subtopic": "Electrolysis - Anodic Oxidation",
+    "question_text": "Which of the following electrolyte can be used to obtain $H_2S_2O_8$ by the process of electrolysis?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Dilute solution of sodium sulphate"
+      },
+      {
+        "option_id": "B",
+        "text": "Dilute solution of sulphuric acid"
+      },
+      {
+        "option_id": "C",
+        "text": "Concentrated solution of sulphuric acid"
+      },
+      {
+        "option_id": "D",
+        "text": "Acidified dilute solution of sodium sulphate"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "electrolysis",
+      "anodic oxidation of sulphate",
+      "peroxodisulphuric acid"
+    ],
+    "problem_types": [
+      "identify suitable electrolyte for preparation of H2S2O8 by electrolysis"
+    ],
+    "common_mistakes": [
+      "Choosing dilute solutions, which favour water oxidation (O2 evolution) at the anode rather than HSO4- oxidation",
+      "Confusing this preparation with that of other oxoacids of sulphur"
+    ],
+    "prerequisite_concepts": [
+      "anodic reaction 2HSO4- -> H2S2O8 + 2e-",
+      "high concentration of HSO4- needed to favour this oxidation over water oxidation"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd059",
+    "question_number": 65,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Aldehydes, Ketones and Carboxylic Acids",
+    "subtopic": "Fehling's Test",
+    "question_text": "The compounds which give a positive Fehling's test are:\n(A) Benzaldehyde (PhCHO)\n(B) Phenylacetone (Ph-CH2-CO-CH3)\n(C) $HOCH_2-CO-(CHOH)_3-CH_2-OH$\n(D) Acetaldehyde ($CH_3-CHO$)\n(E) Phenylacetaldehyde (Ph-CH2-CHO)\n\nChoose the correct answer from the options given below:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_65.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(A), (C) and (D) Only"
+      },
+      {
+        "option_id": "B",
+        "text": "(A), (D) and (E) Only"
+      },
+      {
+        "option_id": "C",
+        "text": "(C), (D) and (E) Only"
+      },
+      {
+        "option_id": "D",
+        "text": "(A), (B) and (C) Only"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Fehling's test",
+      "aliphatic vs aromatic aldehydes",
+      "reducing sugars"
+    ],
+    "problem_types": [
+      "identify which compounds give positive Fehling's test"
+    ],
+    "common_mistakes": [
+      "Forgetting that aromatic aldehydes (like benzaldehyde) do NOT give a positive Fehling's test",
+      "Not recognizing the polyhydroxy ketone (C) as a reducing sugar-like structure that gives positive Fehling's test"
+    ],
+    "prerequisite_concepts": [
+      "Fehling's test is positive for aliphatic aldehydes and alpha-hydroxy ketones (reducing sugars), but negative for aromatic aldehydes and ketones without alpha-hydroxy groups"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd05a",
+    "question_number": 66,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "subtopic": "Crystal Field Stabilization Energy (CFSE)",
+    "question_text": "In which of the following complexes the CFSE, $\\Delta_0$ will be equal to zero?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$[Fe(NH_3)_6]Br_2$"
+      },
+      {
+        "option_id": "B",
+        "text": "$[Fe(en)_3]Cl_3$"
+      },
+      {
+        "option_id": "C",
+        "text": "$K_4[Fe(CN)_6]$"
+      },
+      {
+        "option_id": "D",
+        "text": "$K_3[Fe(SCN)_6]$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "CFSE",
+      "octahedral complexes",
+      "weak field ligands",
+      "high spin d5 configuration"
+    ],
+    "problem_types": [
+      "determine which complex has CFSE = 0 based on d-electron configuration and ligand field strength"
+    ],
+    "common_mistakes": [
+      "Not determining the correct oxidation state of Fe in each complex before assigning d-electron count",
+      "Forgetting CFSE=0 for high-spin d5 (t2g^3 eg^2) configuration since (-0.4x3+0.6x2)=0"
+    ],
+    "prerequisite_concepts": [
+      "oxidation state determination in coordination compounds",
+      "weak field (high spin) vs strong field (low spin) ligands",
+      "CFSE formula in terms of t2g and eg electron occupancy"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd05b",
+    "question_number": 67,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Solutions",
+    "subtopic": "Colligative Properties - Elevation in Boiling Point",
+    "question_text": "Arrange the following solutions in order of their increasing boiling points.\n(i) $10^{-4}$ M NaCl\n(ii) $10^{-4}$ M Urea\n(iii) $10^{-3}$ M NaCl\n(iv) $10^{-2}$ M NaCl",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(ii) < (i) < (iii) < (iv)"
+      },
+      {
+        "option_id": "B",
+        "text": "(ii) < (i) $\\cong$ (iii) < (iv)"
+      },
+      {
+        "option_id": "C",
+        "text": "(i) < (ii) < (iii) < (iv)"
+      },
+      {
+        "option_id": "D",
+        "text": "(iv) < (iii) < (i) < (ii)"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "elevation in boiling point",
+      "van't Hoff factor",
+      "colligative properties"
+    ],
+    "problem_types": [
+      "rank solutions by boiling point elevation considering van't Hoff factor i and concentration"
+    ],
+    "common_mistakes": [
+      "Forgetting NaCl dissociates into 2 ions (i=2) while urea does not dissociate (i=1)",
+      "Not computing effective concentration (i x C) for comparison"
+    ],
+    "prerequisite_concepts": [
+      "DeltaTb = i Kb m (proportional to i x C)",
+      "van't Hoff factor for NaCl=2, urea=1"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd05c",
+    "question_number": 68,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry - Reactions",
+    "subtopic": "Aromatic Substitution and Diazotization Sequence",
+    "question_text": "The products formed in the following reaction sequence are:\n\nNitrobenzene $\\xrightarrow{(i)\\ Br_2/AcOH}$ $\\xrightarrow{(ii)\\ Sn, HCl}$ $\\xrightarrow{(iii)\\ NaNO_2, HCl, 273\\,K}$ $\\xrightarrow{(iv)\\ C_2H_5OH}$ A + B",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_68.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Phenol (with Br) and Phenetole (with Br)"
+      },
+      {
+        "option_id": "B",
+        "text": "Phenetole (with Br) and Acetic acid"
+      },
+      {
+        "option_id": "C",
+        "text": "Phenol (with Br) and Acetaldehyde"
+      },
+      {
+        "option_id": "D",
+        "text": "Bromobenzene derivative and Acetaldehyde"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "electrophilic aromatic substitution",
+      "reduction of nitro group",
+      "diazonium salt reactions"
+    ],
+    "problem_types": [
+      "trace a multi-step aromatic synthesis to identify two final products"
+    ],
+    "common_mistakes": [
+      "Forgetting bromination occurs para to the electron-withdrawing nitro group is actually meta-directed (NO2 is meta directing), so bromine ends up meta to NH2 after reduction",
+      "Forgetting C2H5OH reduces diazonium salt to benzene (releasing N2) while itself getting oxidized to acetaldehyde"
+    ],
+    "prerequisite_concepts": [
+      "NO2 is a meta-directing deactivating group",
+      "Sn/HCl reduces -NO2 to -NH2",
+      "diazonium salt + ethanol gives the deamination product (replacement of N2+ by H) and acetaldehyde"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd05d",
+    "question_number": 69,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Coordination Compounds",
+    "subtopic": "Geometry, Magnetic Behaviour and Oxidation State",
+    "question_text": "From the magnetic behaviour of $[NiCl_4]^{2-}$ (paramagnetic) and $[Ni(CO)_4]$ (diamagnetic), choose the correct geometry and oxidation state.",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$[NiCl_4]^{2-}$ : Ni$^{II}$, square planar; $[Ni(CO)_4]$ : Ni(0), square planar"
+      },
+      {
+        "option_id": "B",
+        "text": "$[NiCl_4]^{2-}$ : Ni$^{II}$, tetrahedral; $[Ni(CO)_4]$ : Ni(0), tetrahedral"
+      },
+      {
+        "option_id": "C",
+        "text": "$[NiCl_4]^{2-}$ : Ni$^{II}$, tetrahedral; $[Ni(CO)_4]$ : Ni$^{II}$, square planar"
+      },
+      {
+        "option_id": "D",
+        "text": "$[NiCl_4]^{2-}$ : Ni(0), tetrahedral; $[Ni(CO)_4]$ : Ni(0), square planar"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "coordination compounds",
+      "hybridization",
+      "magnetic behaviour",
+      "oxidation state determination"
+    ],
+    "problem_types": [
+      "determine geometry and oxidation state of Ni in two complexes from given magnetic behaviour"
+    ],
+    "common_mistakes": [
+      "Assuming paramagnetic complexes are always square planar (sp3 tetrahedral complexes with unpaired electrons are also paramagnetic)",
+      "Forgetting Ni(CO)4 has Ni in zero oxidation state since CO is a neutral ligand"
+    ],
+    "prerequisite_concepts": [
+      "Ni2+ : [Ar]3d8, sp3 tetrahedral with 2 unpaired electrons (paramagnetic)",
+      "Ni(0): [Ar]3d10 4s0, sp3 tetrahedral, all electrons paired (diamagnetic)"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd05e",
+    "question_number": 70,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Isomerism",
+    "subtopic": "Geometrical Isomerism",
+    "question_text": "The incorrect statements regarding geometrical isomerism are:\n(A) Propene shows geometrical isomerism.\n(B) Trans isomer has identical atoms/groups on the opposite sides of the double bond.\n(C) Cis-but-2-ene has higher dipole moment than trans-but-2-ene.\n(D) 2-methylbut-2-ene shows two geometrical isomers.\n(E) Trans-isomer has lower melting point than cis isomer.\n\nChoose the correct answer from the options given below:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(A), (D) and (E) only"
+      },
+      {
+        "option_id": "B",
+        "text": "(C), (D) and (E) only"
+      },
+      {
+        "option_id": "C",
+        "text": "(B) and (C) only"
+      },
+      {
+        "option_id": "D",
+        "text": "(A) and (E) only"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "geometrical isomerism",
+      "dipole moment",
+      "melting point trends"
+    ],
+    "problem_types": [
+      "identify all incorrect statements among five about geometrical isomerism"
+    ],
+    "common_mistakes": [
+      "Forgetting propene (CH3-CH=CH2) cannot show GI as one carbon of the double bond has two identical H atoms",
+      "Forgetting 2-methylbut-2-ene also has two identical groups (two CH3) on one carbon, so it does not show GI",
+      "Confusing melting point trend: trans isomers generally have HIGHER melting points than cis (more symmetric, better packing), so statement E is incorrect"
+    ],
+    "prerequisite_concepts": [
+      "condition for geometrical isomerism (each doubly bonded carbon must have two different substituents)",
+      "dipole moment comparison of cis vs trans isomers",
+      "melting point vs symmetry/packing efficiency"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd05f",
+    "question_number": 71,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "States of Matter and Stoichiometry",
+    "subtopic": "Gas Laws and Acid-Base Titration",
+    "question_text": "Some $CO_2$ gas was kept in a sealed container at a pressure of 1 atm and at 273 K. This entire amount of $CO_2$ gas was later passed through an aqueous solution of $Ca(OH)_2$. The excess unreacted $Ca(OH)_2$ was later neutralized with 0.1 M of 40 mL HCl. If the volume of the sealed container of $CO_2$ was x, then x is ____ $cm^3$ (nearest integer). [Given: The entire amount of $CO_2(g)$ reacted with exactly half the initial amount of $Ca(OH)_2$ present in the aqueous solution.]",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "45",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "mole concept",
+      "gas laws at STP",
+      "acid-base titration",
+      "stoichiometry"
+    ],
+    "problem_types": [
+      "combine gas law with titration stoichiometry to find volume of CO2 container"
+    ],
+    "common_mistakes": [
+      "Errors converting mL HCl and molarity into moles of HCl and then to gram equivalents of Ca(OH)2",
+      "Forgetting that CO2 reacted with only half the initial Ca(OH)2, so total Ca(OH)2 = 2 x (moles of CO2)"
+    ],
+    "prerequisite_concepts": [
+      "ideal gas equation / molar volume at STP",
+      "gram equivalent concept for acid-base neutralization",
+      "reaction CO2 + Ca(OH)2 -> CaCO3 + H2O"
+    ],
+    "average_time_seconds": 270,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd060",
+    "question_number": 72,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry - Basic Principles",
+    "subtopic": "Carius Method for Halogen Estimation",
+    "question_text": "In Carius method for estimation of halogens, 180 mg of an organic compound produced 143.5 mg of AgCl. The percentage composition of chlorine in the compound is ____ %. [Given: molar mass in g mol$^{-1}$ of Ag: 108, Cl = 35.5]",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "20",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Carius method",
+      "percentage composition",
+      "mole concept"
+    ],
+    "problem_types": [
+      "compute percentage of halogen from mass of AgCl precipitate"
+    ],
+    "common_mistakes": [
+      "Using molar mass of AgCl incorrectly (should be 143.5 g/mol)",
+      "Forgetting to express the final answer as a percentage of the 180 mg sample"
+    ],
+    "prerequisite_concepts": [
+      "moles of Cl = moles of AgCl",
+      "%Cl = (mass of Cl / mass of compound) x 100"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd061",
+    "question_number": 73,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Chemical Bonding",
+    "subtopic": "VSEPR Theory and Molecular Geometry",
+    "question_text": "The number of molecules/ions that show linear geometry among the following is ____.\n$SO_2, BeCl_2, CO_2, N_3^-, NO_2, F_2O, XeF_2, NO_2^+, I_3^-, O_3$",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "6",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "VSEPR theory",
+      "molecular geometry",
+      "linear molecules"
+    ],
+    "problem_types": [
+      "determine geometry of each species using VSEPR and count linear ones"
+    ],
+    "common_mistakes": [
+      "Forgetting XeF2 and I3- are linear due to sp3d hybridization with lone pairs occupying equatorial positions",
+      "Including bent molecules like SO2, NO2, F2O, O3 which have a lone pair causing bent geometry"
+    ],
+    "prerequisite_concepts": [
+      "VSEPR theory for AXn type molecules",
+      "effect of lone pairs on molecular shape",
+      "hybridization (sp, sp2, sp3d) of central atoms"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd062",
+    "question_number": 74,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Chemical Kinetics",
+    "subtopic": "Arrhenius Equation and First Order Kinetics",
+    "question_text": "$A \\to B$. The molecule A changes into its isomeric form B by following a first order kinetics at a temperature of 1000 K. If the energy barrier with respect to reactant energy for such isomeric transformation is 191.48 kJ mol$^{-1}$ and the frequency factor is $10^{20}$, the time required for 50% molecules of A to become B is ____ picoseconds (nearest integer). [$R = 8.314\\,JK^{-1}mol^{-1}$]",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "69",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Arrhenius equation",
+      "first order kinetics",
+      "half-life"
+    ],
+    "problem_types": [
+      "compute rate constant from Arrhenius equation then find half-life and convert units"
+    ],
+    "common_mistakes": [
+      "Errors evaluating $e^{-Ea/RT}$, especially converting to base-10 exponent (Ea/RT = 23.03 = ln10 x 10)",
+      "Forgetting to convert the final half-life from seconds to picoseconds (multiply by 10^12)"
+    ],
+    "prerequisite_concepts": [
+      "k = A e^{-Ea/RT}",
+      "t1/2 = 0.693/k for first order reaction",
+      "unit conversions (seconds to picoseconds)"
+    ],
+    "average_time_seconds": 270,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfd6c5f9f111324bd063",
+    "question_number": 75,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Chemistry",
+    "topic": "Organic Chemistry - Reactions",
+    "subtopic": "Diazonium Salt Reactions - Sandmeyer and Wurtz-Fittig",
+    "question_text": "Consider the following sequence of reactions:\n\nNitrobenzene $\\xrightarrow{(i)\\ Sn + HCl}$ $\\xrightarrow{(ii)\\ NaNO_2, HCl, 0^\\circ C}$ $\\xrightarrow{(iii)\\ Cu_2Cl_2}$ $\\xrightarrow{(iv)\\ Na, Ether}$ A (Product)\n\nMolar mass of the product formed (A) is ____ g mol$^{-1}$.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": "question_75.png",
+    "option_images": {},
+    "options": [],
+    "correct_answer": "154",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "reduction of nitro compounds",
+      "diazotization",
+      "Sandmeyer reaction",
+      "Wurtz-Fittig reaction"
+    ],
+    "problem_types": [
+      "trace a multi-step synthesis to final product and compute its molar mass"
+    ],
+    "common_mistakes": [
+      "Not recognizing Cu2Cl2 converts the diazonium salt to chlorobenzene (Sandmeyer reaction)",
+      "Not recognizing Na/ether on chlorobenzene (Wurtz-Fittig/Fittig type coupling) gives biphenyl"
+    ],
+    "prerequisite_concepts": [
+      "Sn+HCl reduces -NO2 to -NH2",
+      "NaNO2/HCl at 0C forms a diazonium salt",
+      "Sandmeyer reaction: ArN2+ + Cu2Cl2 -> ArCl",
+      "Fittig reaction: 2 ArCl + Na -> Ar-Ar (biphenyl, M=154 g/mol)"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd065",
+    "question_number": 1,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Sets, Relations and Functions",
+    "subtopic": "Equivalence Relations",
+    "question_text": "The number of non-empty equivalence relations on the set $\\{1, 2, 3\\}$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "6"
+      },
+      {
+        "option_id": "B",
+        "text": "7"
+      },
+      {
+        "option_id": "C",
+        "text": "5"
+      },
+      {
+        "option_id": "D",
+        "text": "4"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "equivalence relation",
+      "partitions of a set",
+      "Bell numbers"
+    ],
+    "problem_types": [
+      "counting relations"
+    ],
+    "common_mistakes": [
+      "Forgetting that the diagonal relation must always be included",
+      "Miscounting partitions of a 3-element set"
+    ],
+    "prerequisite_concepts": [
+      "reflexive, symmetric, transitive relations",
+      "partitions of a set"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd066",
+    "question_number": 2,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "subtopic": "Functional Equations and Area Under Curves",
+    "question_text": "Let $f: \\mathbb{R} \\to \\mathbb{R}$ be a twice differentiable function such that $f(x+y) = f(x)f(y)$ for all $x, y \\in \\mathbb{R}$. If $f'(0) = 4a$ and $f$ satisfies $f''(x) - 3a f'(x) - f(x) = 0$, $a > 0$, then the area of the region $R = \\{(x,y) \\mid 0 \\le y \\le f(ax), 0 \\le x \\le 2\\}$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$e^2 - 1$"
+      },
+      {
+        "option_id": "B",
+        "text": "$e^4 + 1$"
+      },
+      {
+        "option_id": "C",
+        "text": "$e^4 - 1$"
+      },
+      {
+        "option_id": "D",
+        "text": "$e^2 + 1$"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "functional equations",
+      "exponential functions",
+      "definite integration",
+      "area under curve"
+    ],
+    "problem_types": [
+      "derive function form from functional equation then integrate"
+    ],
+    "common_mistakes": [
+      "Wrong sign while solving the auxiliary quadratic for lambda",
+      "Substituting wrong value of a into f(ax) before integrating"
+    ],
+    "prerequisite_concepts": [
+      "solving f(x+y)=f(x)f(y) gives exponential form",
+      "second order linear ODE with constant coefficients",
+      "definite integral as area"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd067",
+    "question_number": 3,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "subtopic": "Reflection of a Point/Triangle in a Line",
+    "question_text": "Let the triangle PQR be the image of the triangle with vertices $(1,3)$, $(3,1)$ and $(2,4)$ in the line $x + 2y = 2$. If the centroid of $\\triangle PQR$ is the point $(\\alpha, \\beta)$, then $15(\\alpha - \\beta)$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "24"
+      },
+      {
+        "option_id": "B",
+        "text": "19"
+      },
+      {
+        "option_id": "C",
+        "text": "21"
+      },
+      {
+        "option_id": "D",
+        "text": "22"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "reflection of a point in a line",
+      "centroid of a triangle"
+    ],
+    "problem_types": [
+      "image of centroid under reflection"
+    ],
+    "common_mistakes": [
+      "Reflecting each vertex individually instead of reflecting the centroid directly (image of centroid = centroid of image)",
+      "Sign errors in the reflection formula"
+    ],
+    "prerequisite_concepts": [
+      "formula for image of a point in a line ax+by+c=0",
+      "centroid formula"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd068",
+    "question_number": 4,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Complex Numbers",
+    "subtopic": "Complex Numbers on the Unit Circle",
+    "question_text": "Let $z_1, z_2, z_3$ be three complex numbers on the circle $|z| = 1$ with $\\arg(z_1) = -\\dfrac{\\pi}{4}$, $\\arg(z_2) = 0$ and $\\arg(z_3) = \\dfrac{\\pi}{4}$. If $|z_1\\bar{z_2} + z_2\\bar{z_3} + z_3\\bar{z_1}|^2 = \\alpha + \\beta\\sqrt{2}$, $\\alpha, \\beta \\in \\mathbb{Z}$, then the value of $\\alpha^2 + \\beta^2$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "24"
+      },
+      {
+        "option_id": "B",
+        "text": "41"
+      },
+      {
+        "option_id": "C",
+        "text": "31"
+      },
+      {
+        "option_id": "D",
+        "text": "29"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "complex numbers in polar form",
+      "modulus of complex numbers"
+    ],
+    "problem_types": [
+      "evaluate modulus of sum of complex exponentials"
+    ],
+    "common_mistakes": [
+      "Sign errors in subtracting arguments while computing conjugates",
+      "Errors expanding $|a+bi|^2$"
+    ],
+    "prerequisite_concepts": [
+      "Euler's form $e^{i\\theta}$",
+      "modulus and conjugate properties"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd069",
+    "question_number": 5,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Trigonometry",
+    "subtopic": "Inverse Trigonometric Functions",
+    "question_text": "Using the principal values of the inverse trigonometric functions, the sum of the maximum and the minimum values of $16\\left((\\sec^{-1}x)^2 + (\\text{cosec}^{-1}x)^2\\right)$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$24\\pi^2$"
+      },
+      {
+        "option_id": "B",
+        "text": "$18\\pi^2$"
+      },
+      {
+        "option_id": "C",
+        "text": "$31\\pi^2$"
+      },
+      {
+        "option_id": "D",
+        "text": "$22\\pi^2$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "inverse trigonometric identities",
+      "principal value ranges",
+      "maxima and minima"
+    ],
+    "problem_types": [
+      "optimize a function using sec^-1 x + cosec^-1 x = pi/2 identity"
+    ],
+    "common_mistakes": [
+      "Using the wrong range/domain for sec^-1 and cosec^-1",
+      "Forgetting that x cannot lie in (-1,1)"
+    ],
+    "prerequisite_concepts": [
+      "sec^{-1}x + cosec^{-1}x = pi/2",
+      "completing the square for quadratic optimization"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd06a",
+    "question_number": 6,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "subtopic": "Probability Distribution - Mean and Variance",
+    "question_text": "A coin is tossed three times. Let X denote the number of times a tail follows a head. If $\\mu$ and $\\sigma^2$ denote the mean and variance of X, then the value of $64(\\mu + \\sigma^2)$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "51"
+      },
+      {
+        "option_id": "B",
+        "text": "48"
+      },
+      {
+        "option_id": "C",
+        "text": "32"
+      },
+      {
+        "option_id": "D",
+        "text": "64"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "probability distribution",
+      "mean and variance of random variable"
+    ],
+    "problem_types": [
+      "enumerate sample space to build probability distribution"
+    ],
+    "common_mistakes": [
+      "Miscounting the number of 'tail follows head' patterns in HTH, THT etc.",
+      "Errors computing variance = E(X^2) - [E(X)]^2"
+    ],
+    "prerequisite_concepts": [
+      "sample space of 3 coin tosses",
+      "definition of mean and variance"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd06b",
+    "question_number": 7,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Sequences and Series",
+    "subtopic": "Geometric Progression",
+    "question_text": "Let $a_1, a_2, a_3, \\ldots$ be a G.P. of increasing positive terms. If $a_1 a_5 = 28$ and $a_2 + a_4 = 29$, then $a_6$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "628"
+      },
+      {
+        "option_id": "B",
+        "text": "526"
+      },
+      {
+        "option_id": "C",
+        "text": "784"
+      },
+      {
+        "option_id": "D",
+        "text": "812"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "geometric progression",
+      "system of equations"
+    ],
+    "problem_types": [
+      "find GP term using product and sum conditions"
+    ],
+    "common_mistakes": [
+      "Choosing the decreasing root for r since the GP is increasing",
+      "Arithmetic slip while computing a6 = ar^5"
+    ],
+    "prerequisite_concepts": [
+      "nth term of GP",
+      "solving simultaneous equations involving a and r"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd06c",
+    "question_number": 8,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Three Dimensional Geometry",
+    "subtopic": "Shortest Distance Between Two Lines",
+    "question_text": "Let $L_1: \\dfrac{x-1}{2} = \\dfrac{y-2}{3} = \\dfrac{z-3}{4}$ and $L_2: \\dfrac{x-2}{3} = \\dfrac{y-4}{4} = \\dfrac{z-5}{5}$ be two lines. Then which of the following points lies on the line of the shortest distance between $L_1$ and $L_2$?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\left(-\\dfrac{5}{3}, -7, 1\\right)$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\left(2, 3, \\dfrac{1}{3}\\right)$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\left(\\dfrac{8}{3}, -1, \\dfrac{1}{3}\\right)$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\left(\\dfrac{14}{3}, -3, \\dfrac{22}{3}\\right)$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "3D lines",
+      "shortest distance between skew lines",
+      "common perpendicular"
+    ],
+    "problem_types": [
+      "find the line of shortest distance and check a point on it"
+    ],
+    "common_mistakes": [
+      "Errors setting up direction ratios of the common perpendicular PQ",
+      "Sign mistakes while solving the two perpendicularity equations"
+    ],
+    "prerequisite_concepts": [
+      "parametric points on a line",
+      "condition of perpendicularity using direction ratios",
+      "equation of a line through two points"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd06d",
+    "question_number": 9,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "subtopic": "Logarithmic and Exponential Equations",
+    "question_text": "The product of all solutions of the equation $e^{5(\\log_e x)^2 + 3} = x^8$, $x > 0$, is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$e^{8/5}$"
+      },
+      {
+        "option_id": "B",
+        "text": "$e^{6/5}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$e^2$"
+      },
+      {
+        "option_id": "D",
+        "text": "$e$"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "logarithmic equations",
+      "quadratic in log x"
+    ],
+    "problem_types": [
+      "solve exponential equation by taking log and forming quadratic"
+    ],
+    "common_mistakes": [
+      "Forgetting to take ln on both sides correctly",
+      "Confusing product of roots of the quadratic in t=ln x with product of x-values directly without exponentiating sum of roots"
+    ],
+    "prerequisite_concepts": [
+      "properties of logarithms",
+      "sum/product of roots of a quadratic"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd06e",
+    "question_number": 10,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Sequences and Series",
+    "subtopic": "Telescoping Series and Limits",
+    "question_text": "If $\\displaystyle\\sum_{r=1}^{n} T_r = \\dfrac{(2n-1)(2n+1)(2n+3)(2n+5)}{64}$, then $\\displaystyle\\lim_{n\\to\\infty}\\sum_{r=1}^{n}\\left(\\dfrac{1}{T_r}\\right)$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "1"
+      },
+      {
+        "option_id": "B",
+        "text": "0"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\dfrac{2}{3}$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\dfrac{1}{3}$"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "telescoping series",
+      "Tn = Sn - Sn-1",
+      "limits of series"
+    ],
+    "problem_types": [
+      "find Tn from Sn then sum reciprocal series using telescoping"
+    ],
+    "common_mistakes": [
+      "Errors in finding Tn = Sn - Sn-1",
+      "Incorrect partial fraction decomposition of 1/Tr"
+    ],
+    "prerequisite_concepts": [
+      "relation between sum of series and its general term",
+      "partial fractions",
+      "telescoping sums"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd06f",
+    "question_number": 11,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Permutations and Combinations",
+    "subtopic": "Selection and Arrangement",
+    "question_text": "From all the English alphabets, five letters are chosen and arranged in alphabetical order. The total number of ways, in which the middle letter is 'M', is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "14950"
+      },
+      {
+        "option_id": "B",
+        "text": "6084"
+      },
+      {
+        "option_id": "C",
+        "text": "4356"
+      },
+      {
+        "option_id": "D",
+        "text": "5148"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "combinations",
+      "alphabet positions"
+    ],
+    "problem_types": [
+      "count selections with a fixed middle element under ordering constraint"
+    ],
+    "common_mistakes": [
+      "Wrong count of letters before/after 'M' (12 before, 13 after)",
+      "Using permutations instead of combinations since order is forced alphabetical"
+    ],
+    "prerequisite_concepts": [
+      "nCr selection",
+      "position of 'M' in the alphabet (13th letter)"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd070",
+    "question_number": 12,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "subtopic": "Linear Differential Equations",
+    "question_text": "Let $x = x(y)$ be the solution of the differential equation $y^2\\,dx + \\left(x - \\dfrac{1}{y}\\right)dy = 0$. If $x(1) = 1$, then $x\\left(\\dfrac{1}{2}\\right)$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\dfrac{1}{2} + e$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\dfrac{3}{2} + e$"
+      },
+      {
+        "option_id": "C",
+        "text": "$3 - e$"
+      },
+      {
+        "option_id": "D",
+        "text": "$3 + e$"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "linear differential equations",
+      "integrating factor",
+      "integration by parts"
+    ],
+    "problem_types": [
+      "solve linear ODE in x as function of y and evaluate at a point"
+    ],
+    "common_mistakes": [
+      "Incorrect integrating factor $e^{-1/y}$",
+      "Sign/substitution errors with $t = -1/y$ while integrating $\\int t e^t dt$"
+    ],
+    "prerequisite_concepts": [
+      "standard form dx/dy + Px = Q",
+      "integrating factor method",
+      "integration by parts"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd071",
+    "question_number": 13,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "subtopic": "Parabola and Circle",
+    "question_text": "Let the parabola $y = x^2 + px - 3$ meet the coordinate axes at the points P, Q and R. If the circle C with centre $(-1,-1)$ passes through the points P, Q and R, then the area of $\\triangle PQR$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "4"
+      },
+      {
+        "option_id": "B",
+        "text": "6"
+      },
+      {
+        "option_id": "C",
+        "text": "7"
+      },
+      {
+        "option_id": "D",
+        "text": "5"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "parabola intersections with axes",
+      "circle through three points",
+      "area of triangle"
+    ],
+    "problem_types": [
+      "find p using circle passing through axis-intercepts then compute area"
+    ],
+    "common_mistakes": [
+      "Not using that R=(0,-3) lies on the circle to find r^2",
+      "Sign error in determinant formula for area"
+    ],
+    "prerequisite_concepts": [
+      "x and y intercepts of a curve",
+      "equation of circle with given centre and radius",
+      "area of triangle by determinant"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd072",
+    "question_number": 14,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Coordinate Geometry",
+    "subtopic": "Circles - Intersection Conditions",
+    "question_text": "A circle C of radius 2 lies in the second quadrant and touches both the coordinate axes. Let r be the radius of a circle that has centre at the point $(2,5)$ and intersects the circle C at exactly two points. If the set of all possible values of r is the interval $(\\alpha, \\beta)$, then $3\\beta - 2\\alpha$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "15"
+      },
+      {
+        "option_id": "B",
+        "text": "14"
+      },
+      {
+        "option_id": "C",
+        "text": "12"
+      },
+      {
+        "option_id": "D",
+        "text": "10"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "circles touching axes",
+      "distance between centres",
+      "condition for two circles to intersect at two points"
+    ],
+    "problem_types": [
+      "find range of radius for two circles intersecting at two points"
+    ],
+    "common_mistakes": [
+      "Wrong centre of circle C (should be (-2,2) for second quadrant touching both axes)",
+      "Using non-strict inequalities instead of the open interval condition $|r_1-r_2| < d < r_1+r_2$"
+    ],
+    "prerequisite_concepts": [
+      "circle touching both axes has centre (±r,±r)",
+      "distance formula",
+      "circle-circle intersection condition"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd073",
+    "question_number": 15,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Calculus",
+    "subtopic": "Definite Integration",
+    "question_text": "Let for $f(x) = 7\\tan^8 x + 7\\tan^6 x - 3\\tan^4 x - 3\\tan^2 x$, $I_1 = \\displaystyle\\int_0^{\\pi/4} f(x)\\,dx$ and $I_2 = \\displaystyle\\int_0^{\\pi/4} x f(x)\\,dx$. Then $7I_1 + 12I_2$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$2\\pi$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\pi$"
+      },
+      {
+        "option_id": "C",
+        "text": "1"
+      },
+      {
+        "option_id": "D",
+        "text": "2"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "definite integration",
+      "substitution tan x = t",
+      "integration by parts"
+    ],
+    "problem_types": [
+      "evaluate combination of two definite integrals using substitution and IBP"
+    ],
+    "common_mistakes": [
+      "Not recognizing f(x)=(7tan^6x-3tan^2x)sec^2x for substitution t=tan x",
+      "Errors applying integration by parts for I2"
+    ],
+    "prerequisite_concepts": [
+      "d/dx(tan x)=sec^2 x",
+      "integration by parts",
+      "evaluating I1 first to simplify I2"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd074",
+    "question_number": 16,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Differential Equations",
+    "subtopic": "Functional Equations leading to ODEs",
+    "question_text": "Let $f(x)$ be a real differentiable function such that $f(0) = 1$ and $f(x+y) = f(x)f'(y) + f'(x)f(y)$ for all $x, y \\in \\mathbb{R}$. Then $\\displaystyle\\sum_{n=1}^{100}\\log_e f(n)$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "2384"
+      },
+      {
+        "option_id": "B",
+        "text": "2525"
+      },
+      {
+        "option_id": "C",
+        "text": "5220"
+      },
+      {
+        "option_id": "D",
+        "text": "2406"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "functional equations",
+      "differential equations",
+      "logarithm summation"
+    ],
+    "problem_types": [
+      "derive f(x)=e^{x/2} from functional equation and sum logs"
+    ],
+    "common_mistakes": [
+      "Errors substituting x=y=0 to find f'(0)",
+      "Forgetting f(0)=1 gives integration constant C=0"
+    ],
+    "prerequisite_concepts": [
+      "putting x=0,y=0 in functional equations",
+      "separable differential equations",
+      "sum of first n natural numbers"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd075",
+    "question_number": 17,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Sets, Relations and Functions",
+    "subtopic": "Counting Sets of Rational Numbers",
+    "question_text": "Let $A = \\{1, 2, 3, \\ldots, 10\\}$ and $B = \\left\\{\\dfrac{m}{n} : m, n \\in A, m < n \\text{ and } \\gcd(m,n) = 1\\right\\}$. Then $n(B)$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "31"
+      },
+      {
+        "option_id": "B",
+        "text": "36"
+      },
+      {
+        "option_id": "C",
+        "text": "37"
+      },
+      {
+        "option_id": "D",
+        "text": "29"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "set theory",
+      "coprime numbers",
+      "counting distinct elements"
+    ],
+    "problem_types": [
+      "count distinct fractions m/n with m<n and gcd(m,n)=1"
+    ],
+    "common_mistakes": [
+      "Double counting fractions that reduce to the same value (e.g. 2/4 = 1/2)",
+      "Missing some coprime pairs while enumerating each denominator"
+    ],
+    "prerequisite_concepts": [
+      "Euler's totient idea (coprime counting)",
+      "set element distinctness"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd076",
+    "question_number": 18,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Calculus",
+    "subtopic": "Area Under Curves - Circle and Parabola",
+    "question_text": "The area of the region, inside the circle $(x - 2\\sqrt{3})^2 + y^2 = 12$ and outside the parabola $y^2 = 2\\sqrt{3}x$, is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$6\\pi - 8$"
+      },
+      {
+        "option_id": "B",
+        "text": "$3\\pi - 8$"
+      },
+      {
+        "option_id": "C",
+        "text": "$6\\pi - 16$"
+      },
+      {
+        "option_id": "D",
+        "text": "$3\\pi + 8$"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "area between circle and parabola",
+      "definite integration",
+      "symmetry"
+    ],
+    "problem_types": [
+      "find area inside circle and outside parabola using integration"
+    ],
+    "common_mistakes": [
+      "Not using symmetry about the x-axis correctly (factor of 2)",
+      "Errors finding limits of intersection of circle and parabola"
+    ],
+    "prerequisite_concepts": [
+      "area of circle = pi r^2",
+      "integration of sqrt(x) form",
+      "intersection points of curves"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd077",
+    "question_number": 19,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Probability",
+    "subtopic": "Conditional Probability",
+    "question_text": "Two balls are selected at random one by one without replacement from a bag containing 4 white and 6 black balls. If the probability that the first selected ball is black, given that the second selected ball is also black, is $\\dfrac{m}{n}$, where $\\gcd(m,n) = 1$, then $m+n$ is equal to:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "14"
+      },
+      {
+        "option_id": "B",
+        "text": "4"
+      },
+      {
+        "option_id": "C",
+        "text": "11"
+      },
+      {
+        "option_id": "D",
+        "text": "13"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "conditional probability",
+      "Bayes' theorem",
+      "sampling without replacement"
+    ],
+    "problem_types": [
+      "find P(first black | second black) using Bayes' theorem"
+    ],
+    "common_mistakes": [
+      "Confusing P(second black|first black) with the required reverse conditional",
+      "Forgetting to compute total P(second ball black) over both cases (first white or black)"
+    ],
+    "prerequisite_concepts": [
+      "conditional probability formula",
+      "law of total probability"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd078",
+    "question_number": 20,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Conic Sections",
+    "subtopic": "Hyperbola",
+    "question_text": "Let the foci of a hyperbola be $(1, 14)$ and $(1, -12)$. If it passes through the point $(1, 6)$, then the length of its latus-rectum is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\dfrac{25}{6}$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\dfrac{24}{5}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\dfrac{288}{5}$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\dfrac{144}{5}$"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "hyperbola",
+      "foci and latus rectum",
+      "vertical transverse axis"
+    ],
+    "problem_types": [
+      "find hyperbola parameters from foci and a point on it"
+    ],
+    "common_mistakes": [
+      "Confusing 'be' (distance from centre to focus) with 'a' directly",
+      "Sign error finding b^2 = b^2e^2 - b^2 = a^2(e^2-1)"
+    ],
+    "prerequisite_concepts": [
+      "definition |PF1 - PF2| = 2a",
+      "be = c (distance to focus)",
+      "latus rectum = 2a^2/b for vertical hyperbola"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd079",
+    "question_number": 21,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Calculus",
+    "subtopic": "Differentiability and Area Under Curves",
+    "question_text": "Let the function $f(x) = \\begin{cases} -3ax^2 - 2, & x < 1 \\\\ a^2 + bx, & x \\ge 1 \\end{cases}$ be differentiable for all $x \\in \\mathbb{R}$, where $a > 1$, $b \\in \\mathbb{R}$. If the area of the region enclosed by $y = f(x)$ and the line $y = -20$ is $\\alpha + \\beta\\sqrt{3}$, $\\alpha, \\beta \\in \\mathbb{Z}$, then the value of $\\alpha + \\beta$ is ____.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "34",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "piecewise functions",
+      "continuity and differentiability",
+      "area under curve"
+    ],
+    "problem_types": [
+      "find unknown parameters using differentiability then compute enclosed area"
+    ],
+    "common_mistakes": [
+      "Using only continuity and not matching derivatives (LHD=RHD) to get both equations for a and b",
+      "Errors finding x-intercepts of intersection with y=-20 involving sqrt(3)"
+    ],
+    "prerequisite_concepts": [
+      "continuity and differentiability at a junction point",
+      "definite integration to find enclosed area"
+    ],
+    "average_time_seconds": 270,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd07a",
+    "question_number": 22,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Algebra",
+    "subtopic": "Binomial Theorem",
+    "question_text": "Let $\\displaystyle\\sum_{r=0}^{5}\\dfrac{{}^{11}C_{2r+1}}{2r+2} = \\dfrac{m}{n}$, $\\gcd(m,n) = 1$. Then $m - n$ is equal to ____.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "2035",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "binomial theorem",
+      "binomial coefficient summation",
+      "definite integration of binomial expansion"
+    ],
+    "problem_types": [
+      "evaluate sum of binomial coefficients divided by index using integration trick"
+    ],
+    "common_mistakes": [
+      "Not recognizing that integrating $(1+x)^{11}$ from 0 to 1 and -1 to 0 generates the required terms",
+      "Sign errors when integrating from -1 to 0"
+    ],
+    "prerequisite_concepts": [
+      "integrating (1+x)^n term by term",
+      "binomial coefficient identities"
+    ],
+    "average_time_seconds": 270,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd07b",
+    "question_number": 23,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Matrices and Determinants",
+    "subtopic": "Adjoint and Determinant Properties",
+    "question_text": "Let A be a square matrix of order 3 such that $\\det(A) = -2$ and $\\det\\big(3\\,\\text{adj}(-6\\,\\text{adj}(3A))\\big) = 2^{m+n}\\cdot 3^{mn}$, $m > n$. Then $4m + 2n$ is equal to ____.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "34",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "determinant of adjoint",
+      "scalar multiplication of matrices",
+      "properties of adjugate"
+    ],
+    "problem_types": [
+      "repeatedly apply det(adj(A)) = det(A)^{n-1} and det(kA) = k^n det(A) for 3x3 matrix"
+    ],
+    "common_mistakes": [
+      "Wrong power used for det(adj(A)) for a 3x3 matrix (should be det(A)^2)",
+      "Forgetting the scalar factor (k^3) when computing det(kB) for 3x3 matrices"
+    ],
+    "prerequisite_concepts": [
+      "det(adj A) = det(A)^{n-1} for n x n matrix",
+      "det(kA) = k^n det(A)"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd07c",
+    "question_number": 24,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Three Dimensional Geometry",
+    "subtopic": "Intersecting Lines and Foot of Perpendicular",
+    "question_text": "Let $L_1: \\dfrac{x-1}{3} = \\dfrac{y-1}{-1} = \\dfrac{z+1}{0}$ and $L_2: \\dfrac{x-2}{2} = \\dfrac{y}{0} = \\dfrac{z+4}{\\alpha}$, $\\alpha \\in \\mathbb{R}$, be two lines, which intersect at the point B. If P is the foot of perpendicular from the point $A(1, 1, -1)$ on $L_2$, then the value of $26\\alpha(PB)^2$ is ____.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "216",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "3D lines",
+      "point of intersection of lines",
+      "foot of perpendicular"
+    ],
+    "problem_types": [
+      "find intersection point of two lines then compute foot of perpendicular and a distance"
+    ],
+    "common_mistakes": [
+      "Errors equating parametric coordinates from L1 and L2 to find the intersection point B",
+      "Sign/algebra mistakes finding the foot of perpendicular P using AP perpendicular to L2"
+    ],
+    "prerequisite_concepts": [
+      "parametric form of a line",
+      "solving for intersection of two lines in 3D",
+      "foot of perpendicular from a point to a line"
+    ],
+    "average_time_seconds": 270,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfe3c5f9f111324bd07d",
+    "question_number": 25,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Mathematics",
+    "topic": "Vector Algebra",
+    "subtopic": "Projection Vectors and Cross Product",
+    "question_text": "Let $\\vec{c}$ be the projection vector of $\\vec{b} = \\lambda\\hat{i} + 4\\hat{k}$, $\\lambda > 0$, on the vector $\\vec{a} = \\hat{i} + 2\\hat{j} + 2\\hat{k}$. If $|\\vec{a} + \\vec{c}| = 7$, then the area of the parallelogram formed by the vectors $\\vec{b}$ and $\\vec{c}$ is ____.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "16",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "projection vector",
+      "cross product",
+      "area of parallelogram"
+    ],
+    "problem_types": [
+      "find lambda using projection vector magnitude condition then compute |b x c|"
+    ],
+    "common_mistakes": [
+      "Errors in the projection vector formula $\\vec{c} = \\left(\\dfrac{\\vec{b}\\cdot\\vec{a}}{|\\vec{a}|^2}\\right)\\vec{a}$",
+      "Arithmetic mistakes evaluating the 3x3 determinant for cross product"
+    ],
+    "prerequisite_concepts": [
+      "projection of a vector on another vector",
+      "cross product determinant formula",
+      "area of parallelogram = |b x c|"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd07f",
+    "question_number": 26,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Units and Measurements",
+    "subtopic": "Vernier Callipers",
+    "question_text": "Given below are two statements:\n\nStatement I: In a vernier callipers, one vernier scale division is always smaller than one main scale division.\n\nStatement II: The vernier constant is given by one main scale division multiplied by the number of vernier scale divisions.\n\nIn the light of the above statements, choose the correct answer from the options given below.",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Both Statement I and Statement II are false."
+      },
+      {
+        "option_id": "B",
+        "text": "Statement I is true but Statement II is false."
+      },
+      {
+        "option_id": "C",
+        "text": "Both Statement I and Statement II are true."
+      },
+      {
+        "option_id": "D",
+        "text": "Statement I is false but Statement II is true."
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "vernier callipers",
+      "least count",
+      "vernier constant"
+    ],
+    "problem_types": [
+      "assertion-type statements on measuring instruments"
+    ],
+    "common_mistakes": [
+      "Assuming the vernier scale division is always smaller than the main scale division in every modified design",
+      "Confusing the formula for vernier constant (least count) with main scale division x number of divisions"
+    ],
+    "prerequisite_concepts": [
+      "least count = 1 MSD / number of VSD",
+      "vernier constant definition"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd080",
+    "question_number": 27,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "subtopic": "Gauss's Law - Electric Flux",
+    "question_text": "A line charge of length $\\dfrac{a}{2}$ is kept at the center of an edge BC of a cube ABCDEFGH having edge length 'a' as shown in the figure. If the density of the line is $\\lambda$ C per unit length, then the total electric flux through all the faces of the cube will be ____. (Take $\\varepsilon_0$ as the free space permittivity)",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_27.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\dfrac{\\lambda a}{8\\varepsilon_0}$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\dfrac{\\lambda a}{16\\varepsilon_0}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\dfrac{\\lambda a}{2\\varepsilon_0}$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\dfrac{\\lambda a}{4\\varepsilon_0}$"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Gauss's law",
+      "electric flux",
+      "charge enclosed by a cube"
+    ],
+    "problem_types": [
+      "find flux through a cube due to a partially enclosed line charge along an edge"
+    ],
+    "common_mistakes": [
+      "Forgetting that only a fraction of the line charge lies inside the cube (the charge is symmetric about the edge, so only half the cube's worth contributes)",
+      "Not dividing the enclosed charge correctly based on geometry of the edge"
+    ],
+    "prerequisite_concepts": [
+      "Gauss's law: flux = q_enclosed/epsilon_0",
+      "symmetry arguments for charge enclosed by a Gaussian surface"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd081",
+    "question_number": 28,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Current Electricity",
+    "subtopic": "Potentiometer Circuits",
+    "question_text": "Sliding contact of a potentiometer is in the middle of the potentiometer wire having resistance $R_p = 1\\,\\Omega$ as shown in the figure. An external resistance of $R_e = 2\\,\\Omega$ is connected via the sliding contact, with an emf source of 0.9 V. The current in the circuit is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_28.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "0.3 A"
+      },
+      {
+        "option_id": "B",
+        "text": "1.35 A"
+      },
+      {
+        "option_id": "C",
+        "text": "1.0 A"
+      },
+      {
+        "option_id": "D",
+        "text": "0.9 A"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "potentiometer",
+      "series-parallel resistance combinations",
+      "Ohm's law"
+    ],
+    "problem_types": [
+      "reduce a potentiometer circuit with sliding contact to an equivalent resistance and find current"
+    ],
+    "common_mistakes": [
+      "Not splitting the potentiometer wire resistance into two equal halves at the sliding contact",
+      "Incorrectly combining the half-wire resistances with Re in parallel/series"
+    ],
+    "prerequisite_concepts": [
+      "equivalent resistance for series and parallel combinations",
+      "I = V/R"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd082",
+    "question_number": 29,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Wave Optics",
+    "subtopic": "Young's Double Slit Experiment",
+    "question_text": "Given below are two statements: one is labelled as Assertion (A) and the other is labelled as Reason (R).\n\nAssertion (A): If Young's double slit experiment is performed in an optically denser medium than air, then the consecutive fringes come closer.\n\nReason (R): The speed of light reduces in an optically denser medium than air while its frequency does not change.\n\nIn the light of the above statements, choose the most appropriate answer from the options given below:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Both (A) and (R) are true and (R) is the correct explanation of (A)"
+      },
+      {
+        "option_id": "B",
+        "text": "(A) is false but (R) is true."
+      },
+      {
+        "option_id": "C",
+        "text": "Both (A) and (R) are true but (R) is not the correct explanation of (A)"
+      },
+      {
+        "option_id": "D",
+        "text": "(A) is true but (R) is false."
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "YDSE fringe width",
+      "refractive index",
+      "wavelength in a medium"
+    ],
+    "problem_types": [
+      "assertion-reason on fringe width dependence on medium"
+    ],
+    "common_mistakes": [
+      "Forgetting fringe width depends on wavelength in the medium, not in vacuum",
+      "Confusing the relation v = c/mu with frequency changing in a medium"
+    ],
+    "prerequisite_concepts": [
+      "fringe width beta = lambda D / d",
+      "lambda_medium = lambda_vacuum / mu",
+      "frequency is invariant across media"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd083",
+    "question_number": 30,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Thermal Physics",
+    "subtopic": "Stefan-Boltzmann Law",
+    "question_text": "Two spherical bodies of the same material having radii 0.2 m and 0.8 m are placed in the same atmosphere. The temperature of the smaller body is 800 K and the temperature of the bigger body is 400 K. If the energy radiated from the smaller body is E, the energy radiated from the bigger body is (assume the effect of the surrounding to be negligible):",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "256 E"
+      },
+      {
+        "option_id": "B",
+        "text": "E"
+      },
+      {
+        "option_id": "C",
+        "text": "64 E"
+      },
+      {
+        "option_id": "D",
+        "text": "16 E"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Stefan-Boltzmann law",
+      "radiated power proportional to area and T^4"
+    ],
+    "problem_types": [
+      "compare radiated energy of two bodies given radius and temperature ratios"
+    ],
+    "common_mistakes": [
+      "Forgetting power depends on surface area (R^2), not just T^4",
+      "Errors in setting up the ratio (0.2/0.8)^2 x (800/400)^4"
+    ],
+    "prerequisite_concepts": [
+      "P proportional to A T^4 (Stefan's law)",
+      "ratio and proportion"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd084",
+    "question_number": 31,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Thermal Physics",
+    "subtopic": "Calorimetry - Latent Heat and Specific Heat",
+    "question_text": "An amount of ice of mass $10^{-3}$ kg and temperature $-10^\\circ C$ is transformed to vapour of temperature $110^\\circ C$ by applying heat. The total amount of work required for this conversion is: (Take, specific heat of ice $= 2100\\,Jkg^{-1}K^{-1}$, specific heat of water $= 4180\\,Jkg^{-1}K^{-1}$, specific heat of steam $= 1920\\,Jkg^{-1}K^{-1}$, latent heat of ice $= 3.35\\times10^5\\,Jkg^{-1}$ and latent heat of steam $= 2.25\\times10^6\\,Jkg^{-1}$)",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "3022 J"
+      },
+      {
+        "option_id": "B",
+        "text": "3043 J"
+      },
+      {
+        "option_id": "C",
+        "text": "3003 J"
+      },
+      {
+        "option_id": "D",
+        "text": "3024 J"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "calorimetry",
+      "latent heat",
+      "specific heat capacity",
+      "phase change"
+    ],
+    "problem_types": [
+      "sum up heat required across five stages: heating ice, melting, heating water, vaporizing, heating steam"
+    ],
+    "common_mistakes": [
+      "Missing one of the five stages (e.g., heating the steam from 100C to 110C)",
+      "Using wrong mass units (not converting to kg consistently)"
+    ],
+    "prerequisite_concepts": [
+      "Q = mcΔT for temperature change",
+      "Q = mL for phase change"
+    ],
+    "average_time_seconds": 210,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd085",
+    "question_number": 32,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Atoms",
+    "subtopic": "Bohr Model and de Broglie Wavelength",
+    "question_text": "An electron in the ground state of the hydrogen atom has the orbital radius of $5.3\\times10^{-11}$ m while that for the electron in the third excited state is $8.48\\times10^{-10}$ m. The ratio of the de Broglie wavelengths of electron in the ground state to that in the excited state is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "4"
+      },
+      {
+        "option_id": "B",
+        "text": "9"
+      },
+      {
+        "option_id": "C",
+        "text": "3"
+      },
+      {
+        "option_id": "D",
+        "text": "16"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Bohr model",
+      "de Broglie wavelength",
+      "quantization of angular momentum"
+    ],
+    "problem_types": [
+      "relate de Broglie wavelength ratio to orbital radius and quantum number ratio"
+    ],
+    "common_mistakes": [
+      "Forgetting that lambda is proportional to r/n, not just r",
+      "Using n=4 incorrectly for 'third excited state' (n should be 4 since ground state is n=1)"
+    ],
+    "prerequisite_concepts": [
+      "mvr = nh/2pi",
+      "lambda = h/(mv)",
+      "lambda proportional to r/n"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd086",
+    "question_number": 33,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Ray Optics",
+    "subtopic": "Power of Lens Combination - Refraction at Curved Surfaces",
+    "question_text": "In the diagram given below, there are three lenses formed. Considering negligible thickness of each of them as compared to $|R_1|$ and $|R_2|$, i.e., the radii of curvature for the upper and lower surfaces of the glass lens, the power of the combination is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_33.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$-\\dfrac{1}{6}\\left(\\dfrac{1}{|R_1|}+\\dfrac{1}{|R_2|}\\right)$"
+      },
+      {
+        "option_id": "B",
+        "text": "$-\\dfrac{1}{6}\\left(\\dfrac{1}{|R_1|}-\\dfrac{1}{|R_2|}\\right)$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\dfrac{1}{6}\\left(\\dfrac{1}{|R_1|}+\\dfrac{1}{|R_2|}\\right)$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\dfrac{1}{6}\\left(\\dfrac{1}{|R_1|}-\\dfrac{1}{|R_2|}\\right)$"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "lensmaker's formula",
+      "refraction at spherical surfaces",
+      "power of combination of lenses"
+    ],
+    "problem_types": [
+      "compute net power of a stack of water-glass-water refracting surfaces"
+    ],
+    "common_mistakes": [
+      "Using wrong sign convention for radii of curvature of upper vs lower surfaces",
+      "Forgetting to add powers of all three individual refracting surfaces (p1+p2+p3)"
+    ],
+    "prerequisite_concepts": [
+      "refraction formula at a single spherical surface (mu2/v - mu1/u = (mu2-mu1)/R)",
+      "power of combination = sum of individual powers"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd087",
+    "question_number": 34,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "subtopic": "Motion of Charged Particle in Uniform Electric Field",
+    "question_text": "An electron is made to enter symmetrically between two parallel and equally but oppositely charged metal plates, each of 10 cm length. The electron emerges out of the field region with a horizontal component of velocity $10^6$ m/s. If the magnitude of the electric field between the plates is 9.1 V/cm, then the vertical component of velocity of the electron is (mass of electron $= 9.1\\times10^{-31}$ kg and charge of electron $= 1.6\\times10^{-19}$ C):",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$1\\times10^6$ m/s"
+      },
+      {
+        "option_id": "B",
+        "text": "0"
+      },
+      {
+        "option_id": "C",
+        "text": "$16\\times10^6$ m/s"
+      },
+      {
+        "option_id": "D",
+        "text": "$16\\times10^4$ m/s"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "projectile-like motion of charged particle",
+      "electric force",
+      "kinematics"
+    ],
+    "problem_types": [
+      "find vertical velocity component using time of flight and acceleration from electric field"
+    ],
+    "common_mistakes": [
+      "Not converting the electric field from V/cm to V/m",
+      "Using the wrong length/time relation t = l/v_x"
+    ],
+    "prerequisite_concepts": [
+      "a = eE/m",
+      "v_y = u_y + a t",
+      "time of flight t = horizontal length / horizontal velocity"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd088",
+    "question_number": 35,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Current Electricity",
+    "subtopic": "Resistivity vs Temperature",
+    "question_text": "Which of the following resistivity ($\\rho$) v/s temperature (T) curves is most suitable to be used in wire bound standard resistors?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_35.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Resistivity nearly constant, very slight positive slope with temperature"
+      },
+      {
+        "option_id": "B",
+        "text": "Resistivity increases sharply (concave up) with temperature"
+      },
+      {
+        "option_id": "C",
+        "text": "Resistivity decreases sharply then becomes nearly flat with temperature"
+      },
+      {
+        "option_id": "D",
+        "text": "Resistivity decreases linearly with temperature"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "resistivity",
+      "temperature coefficient of resistance",
+      "standard resistors"
+    ],
+    "problem_types": [
+      "identify correct rho-T graph for a material property"
+    ],
+    "common_mistakes": [
+      "Choosing a curve where resistivity strongly depends on temperature, unsuitable for a 'standard' resistor",
+      "Confusing behaviour of metals (manganin/constantan, nearly temperature independent) with semiconductors"
+    ],
+    "prerequisite_concepts": [
+      "materials with near-zero temperature coefficient of resistivity used for standard resistors (e.g. manganin)"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd089",
+    "question_number": 36,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Waves",
+    "subtopic": "Organ Pipes - Harmonics",
+    "question_text": "A closed organ tube and an open organ tube filled by two different gases having the same bulk modulus but different densities $\\rho_1$ and $\\rho_2$ respectively. The frequency of the $9^{th}$ harmonic of the closed tube is identical with the $4^{th}$ harmonic of the open tube. If the length of the closed tube is 10 cm and the density ratio of the gases is $\\rho_1 : \\rho_2 = 1 : 16$, then the length of the open tube is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\dfrac{20}{7}$ cm"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\dfrac{15}{7}$ cm"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\dfrac{20}{9}$ cm"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\dfrac{15}{9}$ cm"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "organ pipes",
+      "harmonics in open and closed pipes",
+      "speed of sound in a gas"
+    ],
+    "problem_types": [
+      "equate harmonic frequencies of closed and open pipes with different gas densities"
+    ],
+    "common_mistakes": [
+      "Using wrong harmonic formulas (closed pipe only supports odd harmonics: n=2k-1; open pipe supports all harmonics)",
+      "Forgetting speed of sound v = sqrt(B/rho) depends on the gas density"
+    ],
+    "prerequisite_concepts": [
+      "closed pipe frequency = nV/4L (n odd)",
+      "open pipe frequency = nV/2L",
+      "v = sqrt(B/rho)"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd08a",
+    "question_number": 37,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Rotational Motion",
+    "subtopic": "Moment of Inertia of a Disc with a Cut-out",
+    "question_text": "A uniform circular disc of radius 'R' and mass 'M' is rotating about an axis perpendicular to its plane and passing through its centre. A small circular part of radius $R/2$ is removed from the original disc as shown in the figure. Find the moment of inertia of the remaining part of the original disc about the axis as given above.",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_37.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\dfrac{7}{32}MR^2$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\dfrac{9}{32}MR^2$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\dfrac{17}{32}MR^2$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\dfrac{13}{32}MR^2$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "moment of inertia",
+      "parallel axis theorem",
+      "removed mass method"
+    ],
+    "problem_types": [
+      "find moment of inertia of a disc with a circular cavity using subtraction method"
+    ],
+    "common_mistakes": [
+      "Using wrong mass for the removed disc (should be M/4, proportional to area)",
+      "Forgetting to apply the parallel axis theorem for the removed piece's own axis vs the main axis"
+    ],
+    "prerequisite_concepts": [
+      "I of a disc about its centre = MR^2/2",
+      "parallel axis theorem I = Icm + Md^2",
+      "mass scales with area for uniform discs"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd08b",
+    "question_number": 38,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Gravitation",
+    "subtopic": "Gravitational Force due to a Sphere with a Cavity",
+    "question_text": "A small point of mass m is placed at a distance 2R from the centre 'O' of a big uniform solid sphere of mass M and radius R. The gravitational force on 'm' due to M is $F_1$. A spherical part of radius $R/3$ is removed from the big sphere as shown in the figure and the gravitational force on m due to the remaining part of M is found to be $F_2$. The value of the ratio $F_1 : F_2$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_38.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "16 : 9"
+      },
+      {
+        "option_id": "B",
+        "text": "11 : 10"
+      },
+      {
+        "option_id": "C",
+        "text": "12 : 11"
+      },
+      {
+        "option_id": "D",
+        "text": "12 : 9"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "gravitation",
+      "superposition principle",
+      "cavity in a sphere"
+    ],
+    "problem_types": [
+      "use superposition (whole sphere minus removed cavity) to find gravitational force"
+    ],
+    "common_mistakes": [
+      "Wrong mass of removed spherical cavity (mass scales with volume, M/27 for radius R/3)",
+      "Wrong distance of the cavity's centre from the point mass m"
+    ],
+    "prerequisite_concepts": [
+      "F = GMm/r^2",
+      "superposition: F(remaining) = F(whole) - F(removed part)",
+      "mass proportional to r^3 for uniform density"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd08c",
+    "question_number": 39,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Dual Nature of Radiation and Matter",
+    "subtopic": "Photoelectric Effect",
+    "question_text": "The work functions of cesium (Cs) and lithium (Li) metals are 1.9 eV and 2.5 eV, respectively. If we incident a light of wavelength 550 nm on these two metal surfaces, then photoelectric effect is possible for the case of:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Li only"
+      },
+      {
+        "option_id": "B",
+        "text": "Cs only"
+      },
+      {
+        "option_id": "C",
+        "text": "Neither Cs nor Li"
+      },
+      {
+        "option_id": "D",
+        "text": "Both Cs and Li"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "photoelectric effect",
+      "work function",
+      "photon energy"
+    ],
+    "problem_types": [
+      "compare photon energy to work function to determine if photoemission occurs"
+    ],
+    "common_mistakes": [
+      "Using E=1240/lambda(nm) incorrectly (units mismatch)",
+      "Comparing photon energy to the wrong metal's work function"
+    ],
+    "prerequisite_concepts": [
+      "E (eV) = 1240/lambda(nm)",
+      "photoelectric effect occurs only if photon energy >= work function"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd08d",
+    "question_number": 40,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Units and Dimensions",
+    "subtopic": "Dimensional Formula of B/mu0",
+    "question_text": "If B is the magnetic field and $\\mu_0$ is the permeability of free space, then the dimensions of $(B/\\mu_0)$ is:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$[MT^{-2}A^{-1}]$"
+      },
+      {
+        "option_id": "B",
+        "text": "$[L^{-1}A]$"
+      },
+      {
+        "option_id": "C",
+        "text": "$[LT^{-2}A^{-1}]$"
+      },
+      {
+        "option_id": "D",
+        "text": "$[ML^2T^{-2}A^{-1}]$"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "dimensional analysis",
+      "magnetic field",
+      "permeability of free space"
+    ],
+    "problem_types": [
+      "dimensional formula"
+    ],
+    "common_mistakes": [
+      "Forgetting B = mu0 n i so B/mu0 has the dimensions of (turns per length x current) = [L^-1 A]",
+      "Trying to derive dimensions of B and mu0 separately from unrelated formulas"
+    ],
+    "prerequisite_concepts": [
+      "B = mu0 n i for a solenoid",
+      "dimensional formula of current and length"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd08e",
+    "question_number": 41,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Circular Motion",
+    "subtopic": "Vertical Circular Motion - Slack String",
+    "question_text": "A bob of mass m is suspended at a point O by a light string of length $l$ and left to perform vertical motion (circular) as shown in figure. Initially, by applying horizontal velocity $v_0$ at the point 'A', the string becomes slack when the bob reaches at the point 'D'. The ratio of the kinetic energy of the bob at the points B and C is ____.",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_41.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "2"
+      },
+      {
+        "option_id": "B",
+        "text": "1"
+      },
+      {
+        "option_id": "C",
+        "text": "4"
+      },
+      {
+        "option_id": "D",
+        "text": "3"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "vertical circular motion",
+      "energy conservation",
+      "condition for slack string"
+    ],
+    "problem_types": [
+      "use slack-string condition at D to find v0, then apply energy conservation to find KE at B and C"
+    ],
+    "common_mistakes": [
+      "Using the slack condition (mg=mv^2/l, i.e. v_D^2=gl) at the wrong point",
+      "Errors computing height differences of B and C relative to A"
+    ],
+    "prerequisite_concepts": [
+      "condition for string to become slack: v^2=gl at the point",
+      "conservation of mechanical energy"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd08f",
+    "question_number": 42,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Current Electricity",
+    "subtopic": "Cells in Parallel - Equivalent EMF and Internal Resistance",
+    "question_text": "Given below are two statements:\n\nStatement-I: The equivalent emf of two nonideal batteries connected in parallel is smaller than either of the two emfs.\n\nStatement-II: The equivalent internal resistance of two nonideal batteries connected in parallel is smaller than the internal resistance of either of the two batteries.\n\nIn the light of the above statements, choose the correct answer from the options given below.",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Statement-I is true but Statement-II is false"
+      },
+      {
+        "option_id": "B",
+        "text": "Both Statement-I and Statement-II are false"
+      },
+      {
+        "option_id": "C",
+        "text": "Both Statement-I and Statement-II are true"
+      },
+      {
+        "option_id": "D",
+        "text": "Statement-I is false but Statement-II is true"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "cells in parallel",
+      "equivalent emf",
+      "equivalent internal resistance"
+    ],
+    "problem_types": [
+      "assertion-type comparison of equivalent emf and resistance for parallel cells"
+    ],
+    "common_mistakes": [
+      "Assuming equivalent emf in parallel is always smaller than both individual emfs (it actually lies between them)",
+      "Not knowing the formula for equivalent emf and resistance of cells in parallel"
+    ],
+    "prerequisite_concepts": [
+      "equivalent emf = (e1/r1+e2/r2)/(1/r1+1/r2)",
+      "equivalent resistance of resistors in parallel is less than the smallest individual resistance"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd090",
+    "question_number": 43,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Semiconductor Electronics",
+    "subtopic": "Diode Biasing",
+    "question_text": "Which of the following circuits represents a forward biased diode? (Circuits A to E are shown with different applied voltages on either side of a diode.)",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": "question_43.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(B), (D) and (E) only"
+      },
+      {
+        "option_id": "B",
+        "text": "(A) and (D) only"
+      },
+      {
+        "option_id": "C",
+        "text": "(B), (C) and (E) only"
+      },
+      {
+        "option_id": "D",
+        "text": "(C) and (E) only"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "p-n junction diode",
+      "forward and reverse biasing"
+    ],
+    "problem_types": [
+      "identify forward-biased diode circuits from given p-n orientation and voltage values"
+    ],
+    "common_mistakes": [
+      "Not noting the orientation (direction) of the diode symbol in each circuit",
+      "Comparing voltages without considering which terminal is p-side and which is n-side"
+    ],
+    "prerequisite_concepts": [
+      "forward bias: p-side at higher potential than n-side",
+      "diode symbol orientation"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd091",
+    "question_number": 44,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Electrostatics",
+    "subtopic": "Capacitors with Dielectrics",
+    "question_text": "A parallel-plate capacitor of capacitance $40\\mu F$ is connected to a 100 V power supply. Now the intermediate space between the plates is filled with a dielectric material of dielectric constant $K = 2$. Due to the introduction of the dielectric material, the extra charge and the change in the electrostatic energy in the capacitor, respectively, are:",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "2 mC and 0.2 J"
+      },
+      {
+        "option_id": "B",
+        "text": "8 mC and 2.0 J"
+      },
+      {
+        "option_id": "C",
+        "text": "4 mC and 0.2 J"
+      },
+      {
+        "option_id": "D",
+        "text": "2 mC and 0.4 J"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "capacitor with dielectric",
+      "charge stored on capacitor",
+      "energy stored in capacitor"
+    ],
+    "problem_types": [
+      "find extra charge and change in stored energy when dielectric is inserted at constant voltage"
+    ],
+    "common_mistakes": [
+      "Using Q=CV with original C instead of new C=KC for the new charge",
+      "Sign error or factor error computing ΔU = (1/2)(K-1)CV^2"
+    ],
+    "prerequisite_concepts": [
+      "Q=CV",
+      "U=(1/2)CV^2",
+      "capacitance with dielectric C'=KC"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd092",
+    "question_number": 45,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Ray Optics",
+    "subtopic": "Silvered Lens - Equivalent Mirror",
+    "question_text": "Given is a thin convex lens of glass (refractive index $\\mu$) and each side having radius of curvature R. One side is polished for complete reflection. At what distance from the lens, an object be placed on the optic axis so that the image gets formed on the object itself?",
+    "type": "multiple_choice",
+    "display_type": "mcq",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$R/\\mu$"
+      },
+      {
+        "option_id": "B",
+        "text": "$R/(2\\mu-3)$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\mu R$"
+      },
+      {
+        "option_id": "D",
+        "text": "$R/(2\\mu-1)$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": -1,
+      "zero": 0
+    },
+    "concept_tags": [
+      "silvered lens",
+      "equivalent mirror power",
+      "lensmaker's formula"
+    ],
+    "problem_types": [
+      "find equivalent focal length of a silvered plano-convex/biconvex lens system"
+    ],
+    "common_mistakes": [
+      "Forgetting the silvered surface acts as a mirror, so light passes through the lens twice (P_eq = 2P_lens + P_mirror)",
+      "Sign errors in radius of curvature for the mirror term"
+    ],
+    "prerequisite_concepts": [
+      "lensmaker's formula 1/f=(mu-1)(1/R1-1/R2)",
+      "mirror formula power = 2/R (or -2/f)",
+      "equivalent power of combination P_eq=2P_lens+P_mirror"
+    ],
+    "average_time_seconds": 240,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd093",
+    "question_number": 46,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Properties of Matter",
+    "subtopic": "Surface Tension - Soap Bubbles",
+    "question_text": "Two soap bubbles of radius 2 cm and 4 cm, respectively, are in contact with each other. The radius of curvature of the common surface, in cm, is ____.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "4",
+    "difficulty": "easy",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "surface tension",
+      "excess pressure in a soap bubble",
+      "common surface of two bubbles"
+    ],
+    "problem_types": [
+      "find radius of curvature of common interface between two soap bubbles"
+    ],
+    "common_mistakes": [
+      "Using r1+r2 instead of r1*r2/(r1-r2)",
+      "Sign confusion regarding which bubble is larger"
+    ],
+    "prerequisite_concepts": [
+      "excess pressure inside a soap bubble = 4T/r",
+      "pressure balance at the common interface gives r = r1 r2 / (r1 - r2)"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd094",
+    "question_number": 47,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Ray Optics",
+    "subtopic": "Convex Mirror - Image Acceleration",
+    "question_text": "The driver sitting inside a parked car is watching vehicles approaching from behind with the help of his side view mirror, which is a convex mirror with radius of curvature $R = 2$ m. Another car approaches him from behind with a uniform speed of 90 km/hr. When the car is at a distance of 24 m from him, the magnitude of the acceleration of the image of the side view mirror is 'a'. The value of 100a is ____ $m/s^2$.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "8",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "mirror formula",
+      "differentiation with respect to time",
+      "convex mirror image"
+    ],
+    "problem_types": [
+      "find acceleration of image by differentiating mirror formula twice with respect to time"
+    ],
+    "common_mistakes": [
+      "Forgetting to differentiate the mirror formula twice (once for velocity, once for acceleration of image)",
+      "Sign errors in u, v conventions for a convex mirror"
+    ],
+    "prerequisite_concepts": [
+      "mirror formula 1/v+1/u=1/f",
+      "magnification m=-v/u",
+      "differentiating implicit relations with respect to time"
+    ],
+    "average_time_seconds": 270,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd095",
+    "question_number": 48,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Thermal Physics",
+    "subtopic": "Heat Conduction - Series and Parallel Combinations",
+    "question_text": "Three conductors of same length having thermal conductivity $k_1$, $k_2$ and $k_3$ are connected as shown in the figure. Area of cross sections of the $1^{st}$ and $2^{nd}$ conductor are same and for the $3^{rd}$ conductor it is double of the $1^{st}$ conductor. The temperatures are given in the figure ($100^\\circ C$, $\\theta^\\circ C$, $0^\\circ C$). In steady state condition, the value of $\\theta$ is ____ $^\\circ C$. (Given: $k_1 = 60$, $k_2 = 120$, $k_3 = 135\\,Js^{-1}m^{-1}K^{-1}$)",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": "question_48.png",
+    "option_images": {},
+    "options": [],
+    "correct_answer": "40",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "thermal conduction",
+      "thermal resistance",
+      "series-parallel combination"
+    ],
+    "problem_types": [
+      "find junction temperature using thermal resistance network in steady state"
+    ],
+    "common_mistakes": [
+      "Wrong thermal resistance formula R=L/(kA) - forgetting the factor of area for the 3rd conductor",
+      "Treating the parallel combination of k1,k2 incorrectly while combining with k3 in series"
+    ],
+    "prerequisite_concepts": [
+      "thermal resistance R=L/(kA)",
+      "heat current analogy with electrical current (series/parallel combination)"
+    ],
+    "average_time_seconds": 270,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd096",
+    "question_number": 49,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Rotational Motion",
+    "subtopic": "Angular Momentum of a Particle about Another Particle",
+    "question_text": "The position vectors of two 1 kg particles, (A) and (B), are given by $\\vec{r}_A = (\\alpha_1 t^2\\hat{i} + \\alpha_2 t\\hat{j} + \\alpha_3 t\\hat{k})$ m and $\\vec{r}_B = (\\beta_1 t\\hat{i} + \\beta_2 t^2\\hat{j} + \\beta_3 t\\hat{k})$ m, respectively; ($\\alpha_1 = 1\\,m/s^2$, $\\alpha_2 = 3n\\,m/s$, $\\alpha_3 = 2\\,m/s$, $\\beta_1 = 2\\,m/s$, $\\beta_2 = -1\\,m/s^2$, $\\beta_3 = 4p\\,m/s$), where t is time, and n and p are constants. At $t = 1s$, $|\\vec{V}_A| = |\\vec{V}_B|$ and the velocities $\\vec{V}_A$ and $\\vec{V}_B$ of the particles are orthogonal to each other. At $t = 1$ s, the magnitude of the angular momentum of particle (A) with respect to the position of particle (B) is $\\sqrt{L}$ kg m$^2$s$^{-1}$. The value of L is ____.",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "90",
+    "difficulty": "hard",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "angular momentum",
+      "relative position vector",
+      "cross product",
+      "vector differentiation"
+    ],
+    "problem_types": [
+      "find unknown constants from velocity conditions, then compute angular momentum L = m(r_A/B x V_A)"
+    ],
+    "common_mistakes": [
+      "Errors differentiating position vectors to get velocity vectors",
+      "Sign errors solving the simultaneous equations from |VA|=|VB| and VA.VB=0"
+    ],
+    "prerequisite_concepts": [
+      "velocity = derivative of position vector",
+      "dot product = 0 for orthogonal vectors",
+      "angular momentum L = m (r x v)"
+    ],
+    "average_time_seconds": 300,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "6a30dfedc5f9f111324bd097",
+    "question_number": 50,
+    "year": "22 January 2025 Morning Shift",
+    "paper": "JEE Mains Question Paper",
+    "subject": "Physics",
+    "topic": "Kinematics",
+    "subtopic": "Projectile Motion - Distance in nth Second",
+    "question_text": "A particle is projected at an angle of $30^\\circ$ from horizontal at a speed of 60 m/s. The height traversed by the particle in the first second is $h_0$ and the height traversed in the last second, before it reaches the maximum height, is $h_1$. The ratio $h_0 : h_1$ is ____. [Take, $g = 10\\,m/s^2$]",
+    "type": "numeric",
+    "display_type": "integer",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "5",
+    "difficulty": "medium",
+    "points": 4,
+    "marking_scheme": {
+      "full": 4,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "projectile motion",
+      "distance covered in nth second",
+      "vertical component of velocity"
+    ],
+    "problem_types": [
+      "find ratio of distances traveled in first and last seconds of upward motion"
+    ],
+    "common_mistakes": [
+      "Forgetting to use the 'distance in nth second' formula S_n = u - g(2n-1)/2 with appropriate sign for the last second of ascent",
+      "Incorrectly computing total time to reach maximum height"
+    ],
+    "prerequisite_concepts": [
+      "u_y = u sin(theta)",
+      "S_n = ut - (1/2)gt^2 applied for the nth second",
+      "time to reach maximum height = u_y/g"
+    ],
+    "average_time_seconds": 180,
+    "__v": 0,
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  }
+]

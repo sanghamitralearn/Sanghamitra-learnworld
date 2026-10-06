@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Exam runner — SAT/PSAT module player.
+   Builds on MathBootcamp.css (same .mb-* design tokens and components) and only
+   adds what a reading passage, a figure or a typed answer needs.
+   ========================================================================== */
+
+/* Reading and Writing modules get a wider, two-column layout (passage | question). */
+.mb-container.exr-wide { max-width: 1180px; }
+
+.exr-question { display: flex; flex-direction: column; gap: 18px; }
+
+@media (min-width: 980px) {
+  .exr-wide .exr-question.has-passage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  .exr-wide .exr-question.has-passage .exr-passage {
+    position: sticky;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
+}
+
+.exr-passage { padding: 26px 28px; }
+.exr-passage-label {
+  display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--mb-text-muted); margin-bottom: 10px;
+}
+.exr-passage-body { font-size: 1.02rem; line-height: 1.75; color: var(--mb-text); }
+.exr-passage-body u { text-decoration-thickness: 2px; text-underline-offset: 3px; text-decoration-color: var(--mb-primary); }
+
+.exr-question-title { font-size: 1.08rem; }
+
+/* Tables produced by the seed (from LaTeX tabular/array and pipe tables). */
+.exr .exq-table {
+  border-collapse: collapse; margin: 12px 0; font-size: 0.92rem; background: #fff;
+  border: 1px solid var(--mb-border); border-radius: var(--mb-radius-xs); overflow: hidden;
+}
+.exr .exq-table th, .exr .exq-table td { padding: 6px 12px; border: 1px solid var(--mb-border); text-align: center; vertical-align: middle; }
+.exr .exq-table th { background: var(--mb-border-light); font-weight: 700; }
+.exr .mb-option-btn .exq-table { margin: 0; }
+.exr ol[type='I'] { margin: 10px 0 0 1.4rem; font-weight: 500; }
+
+/* GRE: blanks in text completion, given information, Quantity A | Quantity B, worked steps. */
+.exr .exq-blank {
+  display: inline-block; width: 5.5em; height: 1.05em; margin: 0 3px; vertical-align: text-bottom;
+  border-bottom: 2px solid var(--mb-text);
+}
+.exr .exq-given {
+  margin: 0 0 14px; padding: 12px 16px; border-radius: var(--mb-radius-sm); background: var(--mb-border-light);
+  text-align: center; font-weight: 500;
+}
+.exr .exq-given .exq-table { margin: 10px auto; text-align: center; }
+.exr .exq-qc-lead { margin: 10px 0 6px; font-weight: 600; }
+.exr .exq-qc { width: 100%; table-layout: fixed; }
+.exr .exq-qc td { padding: 12px; font-size: 1rem; }
+.exr .exq-steps { margin: 8px 0 0 1.2rem; padding: 0; }
+.exr .exq-steps li { margin-bottom: 4px; }
+.exr .exq-in-context { margin-top: 8px; font-style: italic; }
+
+.exr-multi-hint { margin: 0 0 10px; font-size: 0.86rem; font-weight: 600; color: var(--mb-text-secondary); }
+.exr-multi-hint i { color: var(--mb-primary); }
+.exr-blanks { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+.exr-blank-col { display: flex; flex-direction: column; gap: 8px; }
+.exr-blank-label { font-size: 0.78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--mb-text-muted); }
+/* Select-all choices get a square marker, like a checkbox. */
+.mb-option-btn.exr-choice-multi .mb-option-letter { border-radius: 6px; }
+.exr-multi-check { display: flex; justify-content: flex-end; margin-top: 12px; }
+.exr-multi-check .mb-btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* GMAT: Multi-Source Reasoning tab headings, common-mistake note, Two-Part Analysis table. */
+.exr .exq-tab-title {
+  display: block; margin: 0 0 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--mb-primary);
+}
+.exr .exq-mistake { margin-top: 8px; font-size: 0.9rem; color: var(--mb-text-secondary); }
+
+.exr-two-part { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--mb-border); border-radius: var(--mb-radius-sm); overflow: hidden; }
+.exr-two-part th, .exr-two-part td { padding: 10px 12px; border-bottom: 1px solid var(--mb-border); text-align: center; vertical-align: middle; }
+.exr-two-part th { background: var(--mb-border-light); font-size: 0.82rem; font-weight: 700; }
+.exr-two-part tr:last-child td { border-bottom: none; }
+.exr-two-part .exr-two-part-choice { text-align: left; width: 55%; }
+.exr-radio {
+  width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--mb-border); background: #fff; cursor: pointer;
+  padding: 0; transition: all var(--mb-transition);
+}
+.exr-radio:hover:not(:disabled) { border-color: var(--mb-primary); }
+.exr-radio.on { border-color: var(--mb-primary); background: radial-gradient(var(--mb-primary) 45%, #fff 50%); }
+.exr-radio.correct { border-color: var(--mb-success); background: radial-gradient(var(--mb-success) 45%, #fff 50%); }
+.exr-radio.incorrect { border-color: var(--mb-accent); background: radial-gradient(var(--mb-accent) 45%, #fff 50%); }
+.exr-radio:disabled { cursor: default; }
+.exr-radio:focus-visible { outline: 3px solid var(--mb-primary-light); outline-offset: 2px; }
+
+/* Figures, graphs and picture answer choices. */
+.exr-figure { margin: 0 0 18px; text-align: center; }
+.exr-figure img {
+  max-width: 100%; max-height: 420px; height: auto; border-radius: var(--mb-radius-sm);
+  border: 1px solid var(--mb-border); background: #fff;
+}
+.exr-figure-missing {
+  margin: 0 0 18px; padding: 12px 14px; border-radius: var(--mb-radius-sm); background: var(--mb-border-light);
+  color: var(--mb-text-secondary); font-size: 0.9rem;
+}
+.exr-option-img { display: block; max-width: 100%; max-height: 220px; height: auto; border-radius: var(--mb-radius-xs); }
+
+/* Badges and the review flag. */
+.exr-topic-badge {
+  display: inline-flex; align-items: center; font-weight: 600; font-size: 0.74rem; padding: 5px 11px;
+  border-radius: var(--mb-radius-full); background: var(--mb-border-light); color: var(--mb-text-secondary);
+  border: 1px solid var(--mb-border);
+}
+.exr-diff {
+  display: inline-flex; font-weight: 700; font-size: 0.68rem; padding: 5px 10px; border-radius: var(--mb-radius-full);
+  text-transform: uppercase; letter-spacing: .04em; color: #fff; background: var(--mb-text-muted);
+}
+.exr-diff-easy { background: var(--mb-success); }
+.exr-diff-medium { background: #2f8fd1; }
+.exr-diff-hard { background: var(--mb-accent); }
+
+.exr-flag {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600;
+  padding: 5px 12px; border-radius: var(--mb-radius-full); border: 1.5px solid var(--mb-border); background: #fff;
+  color: var(--mb-text-secondary); cursor: pointer; transition: all var(--mb-transition);
+}
+.exr-flag:hover { border-color: var(--mb-accent-border); color: var(--mb-accent); }
+.exr-flag.on { background: var(--mb-accent-bg); border-color: var(--mb-accent-border); color: var(--mb-accent); }
+
+.mb-nav-btn.exr-nav-answered { border-color: var(--mb-primary); background: var(--mb-primary-light); color: var(--mb-primary); }
+.mb-nav-btn.exr-nav-answered.active-nav { background: var(--mb-primary); color: #fff; }
+.mb-nav-btn.exr-nav-flagged::after {
+  content: ''; position: absolute; top: -4px; right: -4px; width: 11px; height: 11px; border-radius: 50%;
+  background: var(--mb-accent); border: 2px solid #fff;
+}
+
+/* Selected (not yet graded) choice in timed mode. */
+.mb-option-btn.exr-selected { background: var(--mb-primary-light); border-color: var(--mb-primary); }
+.mb-option-btn.exr-selected .mb-option-letter { background: var(--mb-primary); border-color: var(--mb-primary); color: #fff; }
+
+/* Student-produced response input. */
+.exr-spr { display: flex; flex-direction: column; gap: 8px; }
+.exr-spr label { font-weight: 700; font-size: 0.85rem; color: var(--mb-text-secondary); }
+.exr-spr-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.exr-spr input {
+  flex: 0 1 220px; min-width: 0; font-size: 1.15rem; font-weight: 600; padding: 0.7rem 1rem;
+  border: 1.5px solid var(--mb-border); border-radius: var(--mb-radius-sm); font-variant-numeric: tabular-nums;
+  background: #fff; color: var(--mb-text);
+}
+.exr-spr input:focus { outline: none; border-color: var(--mb-primary); box-shadow: 0 0 0 3px var(--mb-primary-light); }
+.exr-spr-help { font-size: 0.8rem; color: var(--mb-text-muted); }
+.exr-spr .mb-btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+
+.exr-explanation { margin-top: 8px; font-weight: 450; color: var(--mb-text); }
+
+.exr-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+.exr-actions .mb-btn[disabled] { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* Intro: mode picker. */
+.exr-intro h2 { margin-bottom: 10px; }
+.exr-topic-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 14px; }
+.exr-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 16px 0 8px; text-align: left; }
+.exr-mode {
+  display: flex; flex-direction: column; gap: 6px; padding: 18px 18px 16px; border-radius: var(--mb-radius-md);
+  border: 1.5px solid var(--mb-border); background: #fff; cursor: pointer; transition: all var(--mb-transition);
+  color: var(--mb-text); box-shadow: var(--mb-shadow-sm); font: inherit; text-align: left;
+}
+.exr-mode i { font-size: 1.4rem; color: var(--mb-primary); }
+.exr-mode.timed i { color: var(--mb-accent); }
+.exr-mode b { font-size: 1.05rem; }
+.exr-mode span { font-size: 0.88rem; color: var(--mb-text-secondary); }
+.exr-mode:hover { border-color: var(--mb-mint); background: var(--mb-primary-light); transform: translateY(-2px); box-shadow: var(--mb-shadow-md); }
+.exr-mode.timed:hover { border-color: var(--mb-accent-border); background: var(--mb-accent-bg); }
+.exr-source { margin-top: 14px; font-size: 0.8rem; color: var(--mb-text-muted); }
+
+/* Intro: module plan for a full-length test. */
+.exr-module-plan { list-style: none; padding: 0; margin: 6px auto 14px; max-width: 460px; text-align: left; counter-reset: exrmod; }
+.exr-module-plan li {
+  counter-increment: exrmod; display: flex; align-items: center; gap: 10px; justify-content: space-between;
+  padding: 9px 12px; border: 1px solid var(--mb-border); border-radius: var(--mb-radius-sm); margin-bottom: 6px; background: #fff;
+}
+.exr-module-plan li::before {
+  content: counter(exrmod); flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--mb-primary-light); color: var(--mb-primary); font-weight: 700; font-size: 0.8rem;
+}
+.exr-module-plan b { flex: 1; font-size: 0.92rem; }
+.exr-module-plan span { font-size: 0.8rem; color: var(--mb-text-muted); white-space: nowrap; }
+
+.exr-review-module + .exr-review-module { margin-top: 18px; }
+.exr-review-module-title {
+  display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; margin: 14px 0 10px;
+  padding-bottom: 6px; border-bottom: 1px solid var(--mb-border);
+}
+.exr-review-module-title span { font-size: 0.82rem; color: var(--mb-text-muted); font-weight: 600; }
+
+/* Results. */
+.exr-results { text-align: center; }
+.exr-score { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin: 4px 0 2px; }
+.exr-score b { font-size: 3rem; line-height: 1; color: var(--mb-primary); font-variant-numeric: tabular-nums; }
+.exr-score span { font-size: 1.3rem; color: var(--mb-text-muted); font-weight: 600; }
+.exr-score-sub { color: var(--mb-text-secondary); margin-bottom: 18px; }
+.exr-topics { text-align: left; }
+.exr-results .mb-modal-actions { flex-wrap: wrap; }
+
+.exr-review-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.exr-review-head h3 { margin: 0; display: flex; align-items: center; gap: 8px; }
+.exr-review-note { color: var(--mb-text-muted); font-size: 0.85rem; }
+.exr-seg { display: inline-flex; border: 1.5px solid var(--mb-border); border-radius: var(--mb-radius-full); overflow: hidden; }
+.exr-seg button { border: none; background: #fff; padding: 6px 14px; font-size: 0.82rem; font-weight: 600; color: var(--mb-text-secondary); cursor: pointer; }
+.exr-seg button[aria-pressed='true'] { background: var(--mb-primary); color: #fff; }
+
+.exr-review-toggle {
+  width: 100%; display: flex; align-items: center; gap: 10px; background: none; border: none; padding: 0;
+  font: inherit; cursor: pointer; text-align: left; color: inherit;
+}
+.exr-review-num { font-weight: 700; min-width: 52px; }
+.exr-review-topic { flex: 1; color: var(--mb-text-secondary); font-size: 0.9rem; }
+.exr-review-body { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+.exr-review-passage {
+  font-size: 0.9rem; line-height: 1.6; padding: 10px 12px; background: #fff; border-radius: var(--mb-radius-xs);
+  border: 1px solid var(--mb-border); max-height: 240px; overflow-y: auto;
+}
+
+@media (max-width: 560px) {
+  .exr-passage { padding: 20px 18px; }
+  .exr-flag { margin-left: 0; }
+  .exr-actions .mb-btn { flex: 1 1 auto; justify-content: center; }
+}

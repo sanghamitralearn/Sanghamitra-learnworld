@@ -5,7 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed:math": "node seed/mathSeed.js"
+    "seed:math": "node seed/mathSeed.js",
+    "seed:exams": "node seed/examSeedSat.js && node seed/examSeedGre.js && node seed/examSeedGmat.js && node seed/examSeedAct.js && node seed/examSeedCat.js && node seed/examSeedJeeMain.js && node seed/examSeedJeeAdvanced.js && node seed/examSeedGateDa.js",
+    "seed:cat": "node seed/examSeedCat.js",
+    "seed:jee-main": "node seed/examSeedJeeMain.js",
+    "seed:jee-advanced": "node seed/examSeedJeeAdvanced.js",
+    "seed:gate-da": "node seed/examSeedGateDa.js",
+    "seed:gmat": "node seed/examSeedGmat.js",
+    "seed:act": "node seed/examSeedAct.js",
+    "seed:sat": "node seed/examSeedSat.js",
+    "seed:gre": "node seed/examSeedGre.js"
   },
   "keywords": [],
   "author": "",

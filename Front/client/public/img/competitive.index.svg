@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#3b9b6d"/>
+  <text x="300" y="78" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#ffffff">COMPETITIVE EXAMS</text>
+  <text x="300" y="112" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#e8f5ee">Practice smart. Score higher. Crack your exam.</text>
+
+  <!-- answer sheet -->
+  <g transform="translate(120 140)">
+    <rect width="220" height="230" rx="10" fill="#f8f6ef" stroke="#1f3a2e" stroke-width="3"/>
+    <rect x="18" y="18" width="120" height="12" rx="6" fill="#1f3a2e"/>
+    <g font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#1f3a2e">
+      <text x="20" y="72">1</text><text x="20" y="112">2</text><text x="20" y="152">3</text><text x="20" y="192">4</text>
+    </g>
+    <g fill="none" stroke="#1f3a2e" stroke-width="2.5">
+      <circle cx="62" cy="67" r="11"/><circle cx="102" cy="67" r="11"/><circle cx="142" cy="67" r="11"/><circle cx="182" cy="67" r="11"/>
+      <circle cx="62" cy="107" r="11"/><circle cx="102" cy="107" r="11"/><circle cx="142" cy="107" r="11"/><circle cx="182" cy="107" r="11"/>
+      <circle cx="62" cy="147" r="11"/><circle cx="102" cy="147" r="11"/><circle cx="142" cy="147" r="11"/><circle cx="182" cy="147" r="11"/>
+      <circle cx="62" cy="187" r="11"/><circle cx="102" cy="187" r="11"/><circle cx="142" cy="187" r="11"/><circle cx="182" cy="187" r="11"/>
+    </g>
+    <g fill="#1f3a2e">
+      <circle cx="102" cy="67" r="8"/><circle cx="182" cy="107" r="8"/><circle cx="62" cy="147" r="8"/><circle cx="142" cy="187" r="8"/>
+    </g>
+  </g>
+
+  <!-- pencil -->
+  <g transform="translate(300 300) rotate(-40)">
+    <rect x="0" y="-10" width="150" height="20" fill="#ffc84a" stroke="#1f3a2e" stroke-width="2.5"/>
+    <rect x="150" y="-10" width="22" height="20" fill="#f29b8c" stroke="#1f3a2e" stroke-width="2.5"/>
+    <polygon points="0,-10 -26,0 0,10" fill="#f3d9a8" stroke="#1f3a2e" stroke-width="2.5"/>
+    <polygon points="-17,-3.5 -26,0 -17,3.5" fill="#1f3a2e"/>
+  </g>
+
+  <!-- trophy / target tags -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#1f3a2e">
+    <rect x="390" y="160" width="130" height="36" rx="8" fill="#f7a072"/>
+    <text x="455" y="184" text-anchor="middle">Mock Tests</text>
+    <rect x="390" y="210" width="130" height="36" rx="8" fill="#ffd166"/>
+    <text x="455" y="234" text-anchor="middle">Reasoning</text>
+    <rect x="390" y="260" width="130" height="36" rx="8" fill="#a3c586"/>
+    <text x="455" y="284" text-anchor="middle">Aptitude</text>
+  </g>
+</svg>

@@ -1,17 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
-import './AdminUserDetail.css';
+import TrendChart from '../../components/admin/TrendChart';
+import {
+  entriesFor, findCourse, formatDate, fullTests, isExamCourse, loadSections, moduleAttempts, percentOf, scoreTone
+} from './adminCourses';
+import { ScoreText } from './AdminCourseDashboard';
+import './admin.css';
+
+const SECTION_COLORS = ['#15803d', '#1e40af', '#ea580c', '#0891b2', '#be185d'];
 
 export default function AdminUserDetail() {
   const [searchParams] = useSearchParams();
-  const subject = searchParams.get('subject') === 'english' ? 'english' : 'maths';
+  const requested = searchParams.get('course') || searchParams.get('subject');
+  const key = findCourse(requested) ? requested : 'maths';
+  const course = findCourse(key);
+  const exam = isExamCourse(key);
   const email = searchParams.get('email') || '';
 
   const [data, setData] = useState(null);
+  const [sections, setSections] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [review, setReview] = useState(null);
+  const reviewRef = useRef(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -19,8 +31,9 @@ export default function AdminUserDetail() {
     async function load() {
       setLoading(true);
       setError(null);
+      setReview(null);
       try {
-        const path = subject === 'maths' ? '/admin/scores/math' : '/admin/scores/english';
+        const path = key === 'maths' ? '/admin/scores/math' : '/admin/scores/exams';
         const response = await apiFetch(`${path}/${encodeURIComponent(email)}`);
         if (response.status === 404) {
           if (!cancelled) setData(null);
@@ -28,7 +41,11 @@ export default function AdminUserDetail() {
         }
         if (!response.ok) throw new Error('Failed to load user detail');
         const json = await response.json();
-        if (!cancelled) setData(json);
+        const nextSections = exam ? await loadSections(key, entriesFor(key, json)) : [];
+        if (!cancelled) {
+          setData(json);
+          setSections(nextSections);
+        }
       } catch (err) {
         console.error('Error loading user detail:', err);
         if (!cancelled) setError('Failed to load this user\'s results.');
@@ -41,154 +58,515 @@ export default function AdminUserDetail() {
     return () => {
       cancelled = true;
     };
-  }, [subject, email]);
+  }, [key, exam, email]);
 
   useEffect(() => {
-    setExpandedIndex(null);
-  }, [subject, email]);
+    if (review) reviewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [review]);
 
-  const rawEntries = subject === 'maths' ? data?.attempts : data?.assessments;
-  const entries = rawEntries
-    ? [...rawEntries].sort((a, b) => new Date(b.date) - new Date(a.date))
-    : rawEntries;
-
-  function toggleExpand(idx) {
-    setExpandedIndex((prev) => (prev === idx ? null : idx));
-  }
+  const entries = useMemo(() => (data ? entriesFor(key, data) : []), [data, key]);
+  const fulls = useMemo(() => (exam ? fullTests(entries) : entries), [entries, exam]);
+  const latestFull = fulls[fulls.length - 1] || null;
+  const headline = latestFull || entries[entries.length - 1] || null;
+  const headlinePct = headline ? percentOf(headline.correct, headline.total) ?? 0 : 0;
 
   return (
-    <section className="admin-user-detail">
-      <div className="admin-header-bar">
-        <div className="container admin-header-inner">
-          <div className="admin-header-title">
-            <i className="bi bi-person-lines-fill"></i>
-            <div>
-              <h2 className="mb-0">{data?.username || email}</h2>
-              <span className="admin-header-subtitle">{subject === 'maths' ? 'Maths' : 'English'} results &middot; {email}</span>
+    <section className="adm-page">
+      <div className="container-fluid adm-wrap">
+        <div className="adm-head-actions mb-3">
+          <Link to="/admin" className="adm-btn adm-btn-dark">&larr; Admin Home</Link>
+          <Link to={`/admin/course/${key}`} className="adm-btn adm-btn-light">&larr; Back to List</Link>
+        </div>
+
+        {loading && <p>Loading&hellip;</p>}
+        {error && <p className="text-danger">{error}</p>}
+        {!loading && !error && !entries.length && (
+          <div className="adm-panel adm-panel-pad">No {course.label} attempts recorded for {email} yet.</div>
+        )}
+
+        {!loading && !error && entries.length > 0 && (
+          <>
+            <div className="adm-panel adm-panel-pad adm-panel-accent">
+              <div className="adm-detail-title">
+                Student Details: <span>{data.username}</span>
+              </div>
+              <div className="adm-detail-grid">
+                <div>
+                  <div className="adm-detail-label">Student Information</div>
+                  <p>Email: <strong>{data.email}</strong></p>
+                  <p>Name: <strong>{data.username}</strong></p>
+                </div>
+                <div>
+                  <div className="adm-detail-label">Performance Summary</div>
+                  <p>Total Submissions: <strong>{entries.length}</strong></p>
+                  <p>
+                    {exam ? 'Latest Full Test' : 'Latest Score'}:{' '}
+                    {headline && (exam ? latestFull : true) ? (
+                      <>
+                        <span className={`adm-score tone-${scoreTone(headlinePct)}`}>{headline.correct}</span>
+                        {' '}/ {headline.total} ({headlinePct}%)
+                      </>
+                    ) : '—'}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <Link to="/admin" className="btn btn-sm btn-light">&larr; Back to Dashboard</Link>
-        </div>
-      </div>
 
-      <div className="container mt-4">
-        <div className="card shadow-sm mb-4">
-          <div className="card-body">
-            {loading && <p>Loading&hellip;</p>}
-            {error && <p className="text-danger">{error}</p>}
+            <div className="adm-banner">
+              <div>
+                <h2>{exam && latestFull ? 'Combined Score' : 'Latest Score'}</h2>
+                <p className="adm-banner-sub">{bannerSubtitle(key, course, headline, latestFull, sections)}</p>
+                <p className="adm-banner-note">{entries.length} total attempts{exam ? ' across all sections' : ''}</p>
+              </div>
+              <div className="adm-ring-wrap">
+                <div className="adm-ring">
+                  <strong>{headline.correct}</strong>
+                  <span>{headline.total}</span>
+                </div>
+                <div className="adm-ring-pct">{headlinePct}%</div>
+              </div>
+            </div>
 
-            {!loading && !error && !entries?.length && (
-              <p>No {subject === 'maths' ? 'attempts' : 'assessments'} recorded for this user yet.</p>
+            {exam ? (
+              <ExamSections
+                course={course}
+                entries={entries}
+                fulls={fulls}
+                latestFull={latestFull}
+                sections={sections}
+                onReview={setReview}
+              />
+            ) : (
+              <MathSections entries={entries} onReview={setReview} />
             )}
 
-            {!loading && !error && entries?.length > 0 && (
-              <>
-                <div className="d-flex justify-content-between align-items-center mb-2">
-                  <h4 className="section-title mb-0">Attempt History</h4>
-                  <span className="text-muted small">Click a row to review its questions</span>
+            {review && (
+              <div className="adm-panel mt-4" ref={reviewRef}>
+                <div className="adm-panel-head">
+                  <span>
+                    Question Review &middot; {reviewTitle(key, review)}
+                    <small className="adm-muted-cell ms-2">{new Date(review.date).toLocaleString()}</small>
+                  </span>
+                  <button type="button" className="adm-btn adm-btn-light adm-btn-sm" onClick={() => setReview(null)}>
+                    Close &times;
+                  </button>
                 </div>
-
-                <div className="table-responsive mb-2">
-                  {subject === 'maths' ? (
-                    <table className="table table-striped admin-attempts-table">
-                      <thead>
-                        <tr>
-                          <th>Date</th>
-                          <th>Grade</th>
-                          <th>Chapter</th>
-                          <th>Level</th>
-                          <th>Warmup</th>
-                          <th>Diagnostic</th>
-                          <th>Recheck</th>
-                          <th>Total Score</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {entries.flatMap((a, idx) => {
-                          const diagPct = a.diagnostic_total ? Math.round((a.diagnostic_correct / a.diagnostic_total) * 100) : null;
-                          const recheckNotNeeded = a.recheck_total === 0 && diagPct !== null && diagPct >= 90;
-                          const rows = [
-                            <tr key={`row-${idx}`} className="clickable-row" onClick={() => toggleExpand(idx)}>
-                              <td>{new Date(a.date).toLocaleDateString()}</td>
-                              <td>{a.grade}</td>
-                              <td>{a.chapter_name}</td>
-                              <td>{a.level}</td>
-                              <td>{a.warmup_correct}/{a.warmup_total}</td>
-                              <td>{a.diagnostic_correct}/{a.diagnostic_total}{diagPct !== null && ` (${diagPct}%)`}</td>
-                              <td>{recheckNotNeeded ? 'Not needed (≥90%)' : `${a.recheck_correct}/${a.recheck_total}`}</td>
-                              <td>{a.total_score}</td>
-                              <td className="expand-toggle-cell">
-                                <i className={`bi ${expandedIndex === idx ? 'bi-chevron-up' : 'bi-chevron-down'}`}></i>
-                              </td>
-                            </tr>
-                          ];
-                          if (expandedIndex === idx) {
-                            rows.push(
-                              <tr key={`detail-${idx}`}>
-                                <td colSpan={9}>
-                                  <MathAnswerBreakdown answers={a.answers} />
-                                </td>
-                              </tr>
-                            );
-                          }
-                          return rows;
-                        })}
-                      </tbody>
-                    </table>
-                  ) : (
-                    <table className="table table-striped admin-attempts-table">
-                      <thead>
-                        <tr>
-                          <th>Date</th>
-                          <th>Correct</th>
-                          <th>Total Questions</th>
-                          <th>Total Score</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {entries.flatMap((a, idx) => {
-                          const rows = [
-                            <tr key={`row-${idx}`} className="clickable-row" onClick={() => toggleExpand(idx)}>
-                              <td>{new Date(a.date).toLocaleDateString()}</td>
-                              <td>{a.questions.filter((q) => q.is_correct).length}</td>
-                              <td>{a.questions.length}</td>
-                              <td>{a.total_score}</td>
-                              <td className="expand-toggle-cell">
-                                <i className={`bi ${expandedIndex === idx ? 'bi-chevron-up' : 'bi-chevron-down'}`}></i>
-                              </td>
-                            </tr>
-                          ];
-                          if (expandedIndex === idx) {
-                            rows.push(
-                              <tr key={`detail-${idx}`}>
-                                <td colSpan={5}>
-                                  <VocabQuestionBreakdown questions={a.questions} />
-                                </td>
-                              </tr>
-                            );
-                          }
-                          return rows;
-                        })}
-                      </tbody>
-                    </table>
-                  )}
+                <div className="adm-panel-pad table-responsive">
+                  {exam ? <ExamAnswerBreakdown attempt={review} /> : <MathAnswerBreakdown answers={review.answers} />}
                 </div>
-              </>
+              </div>
             )}
-          </div>
-        </div>
+          </>
+        )}
       </div>
     </section>
+  );
+}
+
+function bannerSubtitle(key, course, headline, latestFull, sections) {
+  if (key === 'maths') return `${headline.chapter_name} · Grade ${headline.grade} · Level ${headline.level}`;
+  if (latestFull) return `${sections.map((s) => s.name).join(' + ')} · Full ${course.label} Test`;
+  return `${headline.exam_label || headline.exam} · ${headline.section_name || 'Module'} practice`;
+}
+
+function reviewTitle(key, attempt) {
+  if (key === 'maths') return `${attempt.chapter_name} — Level ${attempt.level}`;
+  return `${attempt.exam_label || attempt.exam} — ${attempt.scope === 'full' ? 'Full test' : attempt.section_name}`;
+}
+
+function sectionResult(attempt, code) {
+  return (attempt.section_results || []).find((s) => s.section === code) || null;
+}
+
+function ScoreHeader({ correct, total }) {
+  const pct = percentOf(correct, total) ?? 0;
+  return (
+    <div className="adm-score-header">
+      <div>
+        <span className={`adm-score-big tone-${scoreTone(pct)}`}>{correct}</span>
+        <span className="adm-score-of"> / {total}</span>
+      </div>
+      <span className={`adm-pct-badge tone-${scoreTone(pct)}`}>{pct}%</span>
+    </div>
+  );
+}
+
+function ExamSections({ course, entries, fulls, latestFull, sections, onReview }) {
+  const practice = useMemo(() => sections
+    .map((s) => ({ ...s, attempts: moduleAttempts(entries, s.code) }))
+    .filter((s) => s.attempts.length > 0), [entries, sections]);
+  const latestPractice = practice.map((s) => s.attempts[s.attempts.length - 1]);
+  const practiceCorrect = latestPractice.reduce((sum, a) => sum + a.correct, 0);
+  const practiceTotal = latestPractice.reduce((sum, a) => sum + a.total, 0);
+
+  // Practice history: every module attempt in date order, numbered within its section.
+  const history = useMemo(() => {
+    const counters = {};
+    return entries
+      .filter((a) => a.scope === 'module')
+      .map((a) => ({ attempt: a, number: (counters[a.section] = (counters[a.section] || 0) + 1) }));
+  }, [entries]);
+
+  const fullChart = useMemo(() => ({
+    labels: fulls.map((_, i) => `S${i + 1}`),
+    datasets: [{ label: 'Score', data: fulls.map((a) => a.percent), color: '#7c3aed' }]
+  }), [fulls]);
+
+  const practiceChart = useMemo(() => {
+    const length = Math.max(0, ...practice.map((s) => s.attempts.length));
+    return {
+      labels: Array.from({ length }, (_, i) => `#${i + 1}`),
+      datasets: practice.map((s, i) => ({
+        label: s.name,
+        data: s.attempts.map((a) => a.percent),
+        color: SECTION_COLORS[i % SECTION_COLORS.length]
+      }))
+    };
+  }, [practice]);
+
+  return (
+    <>
+      <div className="adm-two-col">
+        <div className="adm-panel adm-panel-pad">
+          <div className="adm-card-head">
+            <h3>Full {course.label} Test</h3>
+            {latestFull && <ScoreHeader correct={latestFull.correct} total={latestFull.total} />}
+          </div>
+          {latestFull ? (
+            <>
+              {sections.map((s, i) => {
+                const r = sectionResult(latestFull, s.code);
+                return (
+                  <div key={s.code} className="adm-section-row">
+                    <span className="adm-section-name" style={{ color: SECTION_COLORS[i % SECTION_COLORS.length] }}>{s.name}</span>
+                    {r ? <ScoreText correct={r.correct} total={r.total} /> : <ScoreText />}
+                  </div>
+                );
+              })}
+              <button type="button" className="adm-btn adm-btn-purple adm-btn-block" onClick={() => onReview(latestFull)}>
+                View Full Analysis &rarr;
+              </button>
+              <div className="adm-card-foot">{fulls.length} attempts &middot; {formatDate(latestFull.date)}</div>
+            </>
+          ) : (
+            <p className="adm-muted-cell mb-0">No full-length test taken yet.</p>
+          )}
+        </div>
+
+        <div className="adm-panel adm-panel-pad">
+          <div className="adm-card-head">
+            <h3>Module Practice</h3>
+            {practiceTotal > 0 && <ScoreHeader correct={practiceCorrect} total={practiceTotal} />}
+          </div>
+          {practice.length ? practice.map((s, i) => {
+            const latest = s.attempts[s.attempts.length - 1];
+            const wrong = latest.total - latest.correct - latest.unattempted;
+            return (
+              <div key={s.code} className="adm-section-row">
+                <div>
+                  <span className="adm-section-name" style={{ color: SECTION_COLORS[i % SECTION_COLORS.length] }}>{s.name}</span>
+                  <span className="adm-att-chip">{s.attempts.length} att</span>
+                  <div className="adm-section-meta">
+                    <span className="tone-high">{latest.correct}✓</span>{' '}
+                    <span className="tone-low">{wrong}✗</span>{' '}
+                    <span>{latest.unattempted}—</span> &middot; acc {latest.percent}%
+                  </div>
+                </div>
+                <div className="adm-section-right">
+                  <ScoreText correct={latest.correct} total={latest.total} />
+                  <button type="button" className="adm-btn adm-btn-blue adm-btn-xs" onClick={() => onReview(latest)}>
+                    Analyze
+                  </button>
+                </div>
+              </div>
+            );
+          }) : <p className="adm-muted-cell mb-0">No module practice yet.</p>}
+        </div>
+      </div>
+
+      {fulls.length > 0 && (
+        <>
+          <h4 className="adm-insight-title">Full {course.label} Test — Insights</h4>
+          <div className="adm-two-col">
+            <div className="adm-panel">
+              <div className="adm-panel-head adm-panel-head-sm">
+                <span>Session History <small className="adm-muted-cell">({fulls.length} sessions)</small></span>
+              </div>
+              <div className="table-responsive adm-scroll">
+                <table className="adm-table adm-table-compact">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      {sections.map((s) => <th key={s.code}>{s.name}</th>)}
+                      <th>Total</th>
+                      <th>Date</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[...fulls].reverse().map((a, idx) => (
+                      <tr key={a._id || idx}>
+                        <td>#{fulls.length - idx}</td>
+                        {sections.map((s) => {
+                          const r = sectionResult(a, s.code);
+                          return <td key={s.code}>{r ? <ScoreText correct={r.correct} total={r.total} /> : <ScoreText />}</td>;
+                        })}
+                        <td><ScoreText correct={a.correct} total={a.total} /></td>
+                        <td className="adm-muted-cell">{formatDate(a.date)}</td>
+                        <td>
+                          <button type="button" className="adm-icon-btn" onClick={() => onReview(a)} aria-label="Review questions">
+                            <i className="bi bi-bar-chart-fill"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="adm-panel">
+              <div className="adm-panel-head adm-panel-head-sm"><span>Score Trend (%)</span></div>
+              <div className="adm-panel-pad">
+                <TrendChart labels={fullChart.labels} datasets={fullChart.datasets} />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {history.length > 0 && (
+        <>
+          <h4 className="adm-insight-title adm-insight-title-dark">Module Practice — Insights</h4>
+          <div className="adm-two-col">
+            <div className="adm-panel">
+              <div className="adm-panel-head adm-panel-head-sm"><span>Practice History</span></div>
+              <div className="table-responsive adm-scroll">
+                <table className="adm-table adm-table-compact">
+                  <thead>
+                    <tr>
+                      <th>Section</th>
+                      <th>#</th>
+                      <th>Score</th>
+                      <th>✓</th>
+                      <th>✗</th>
+                      <th>Acc</th>
+                      <th>Date</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {history.map(({ attempt: a, number }, idx) => (
+                      <tr key={a._id || idx}>
+                        <td className="adm-student-name">{a.section_name || a.section}</td>
+                        <td>#{number}</td>
+                        <td><ScoreText correct={a.correct} total={a.total} /></td>
+                        <td className="tone-high">{a.correct}</td>
+                        <td className="tone-low">{a.total - a.correct - a.unattempted}</td>
+                        <td className={`tone-${scoreTone(a.percent)}`}>{a.percent}%</td>
+                        <td className="adm-muted-cell">{formatDate(a.date)}</td>
+                        <td>
+                          <button type="button" className="adm-icon-btn" onClick={() => onReview(a)} aria-label="Review questions">
+                            <i className="bi bi-bar-chart-fill"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="adm-panel">
+              <div className="adm-panel-head adm-panel-head-sm"><span>Subject Score Trend (%)</span></div>
+              <div className="adm-panel-pad">
+                <TrendChart labels={practiceChart.labels} datasets={practiceChart.datasets} />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </>
+  );
+}
+
+function MathSections({ entries, onReview }) {
+  const latest = entries[entries.length - 1];
+  const best = entries.reduce((b, a) => (a.percent > b.percent ? a : b), entries[0]);
+  const avg = Math.round(entries.reduce((sum, a) => sum + a.percent, 0) / entries.length);
+  const first = entries[0];
+
+  const chart = useMemo(() => ({
+    labels: entries.map((_, i) => `A${i + 1}`),
+    datasets: [{ label: 'Score', data: entries.map((a) => a.percent), color: '#7c3aed' }]
+  }), [entries]);
+
+  return (
+    <>
+      <div className="adm-two-col">
+        <div className="adm-panel adm-panel-pad">
+          <div className="adm-card-head">
+            <h3>Latest Attempt</h3>
+            <ScoreHeader correct={latest.correct} total={latest.total} />
+          </div>
+          <div className="adm-section-row"><span className="adm-section-name">Warmup</span><ScoreText correct={latest.warmup_correct} total={latest.warmup_total} /></div>
+          <div className="adm-section-row"><span className="adm-section-name">Diagnostic</span><ScoreText correct={latest.diagnostic_correct} total={latest.diagnostic_total} /></div>
+          <div className="adm-section-row">
+            <span className="adm-section-name">Recheck</span>
+            {latest.recheck_total === 0 && percentOf(latest.diagnostic_correct, latest.diagnostic_total) >= 90
+              ? <span className="adm-score tone-high">Not needed (≥90%)</span>
+              : <ScoreText correct={latest.recheck_correct} total={latest.recheck_total} />}
+          </div>
+          <div className="adm-section-row"><span className="adm-section-name">Points</span><strong>{latest.total_score}</strong></div>
+          <button type="button" className="adm-btn adm-btn-purple adm-btn-block" onClick={() => onReview(latest)}>
+            View Full Analysis &rarr;
+          </button>
+          <div className="adm-card-foot">{formatDate(latest.date)}</div>
+        </div>
+
+        <div className="adm-panel adm-panel-pad">
+          <div className="adm-card-head"><h3>Progress</h3></div>
+          <div className="adm-section-row"><span className="adm-section-name">Attempts</span><strong>{entries.length}</strong></div>
+          <div className="adm-section-row"><span className="adm-section-name">Best score</span><span className={`adm-score tone-${scoreTone(best.percent)}`}>{best.percent}%</span></div>
+          <div className="adm-section-row"><span className="adm-section-name">Average score</span><span className={`adm-score tone-${scoreTone(avg)}`}>{avg}%</span></div>
+          <div className="adm-section-row">
+            <span className="adm-section-name">First &rarr; Latest</span>
+            <span>
+              <span className={`adm-score tone-${scoreTone(first.percent)}`}>{first.percent}%</span>
+              {' '}&rarr;{' '}
+              <span className={`adm-score tone-${scoreTone(latest.percent)}`}>{latest.percent}%</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <h4 className="adm-insight-title">Attempts — Insights</h4>
+      <div className="adm-two-col">
+        <div className="adm-panel">
+          <div className="adm-panel-head adm-panel-head-sm">
+            <span>Attempt History <small className="adm-muted-cell">({entries.length} attempts)</small></span>
+          </div>
+          <div className="table-responsive adm-scroll">
+            <table className="adm-table adm-table-compact">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Chapter</th>
+                  <th>Level</th>
+                  <th>Warmup</th>
+                  <th>Diagnostic</th>
+                  <th>Recheck</th>
+                  <th>Points</th>
+                  <th>Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...entries].reverse().map((a, idx) => (
+                  <tr key={a._id || idx}>
+                    <td>#{entries.length - idx}</td>
+                    <td>{a.chapter_name}</td>
+                    <td>{a.level}</td>
+                    <td><ScoreText correct={a.warmup_correct} total={a.warmup_total} /></td>
+                    <td><ScoreText correct={a.diagnostic_correct} total={a.diagnostic_total} /></td>
+                    <td><ScoreText correct={a.recheck_correct} total={a.recheck_total} /></td>
+                    <td>{a.total_score}</td>
+                    <td className="adm-muted-cell">{formatDate(a.date)}</td>
+                    <td>
+                      <button type="button" className="adm-icon-btn" onClick={() => onReview(a)} aria-label="Review questions">
+                        <i className="bi bi-bar-chart-fill"></i>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="adm-panel">
+          <div className="adm-panel-head adm-panel-head-sm"><span>Score Trend (%)</span></div>
+          <div className="adm-panel-pad">
+            <TrendChart labels={chart.labels} datasets={chart.datasets} />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function formatDuration(seconds) {
+  const s = Math.max(0, Math.round(seconds || 0));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  return h ? `${h}h ${m}m` : `${m}m ${s % 60}s`;
+}
+
+function ExamAnswerBreakdown({ attempt }) {
+  const answers = attempt.answers || [];
+  if (!answers.length) return <p className="text-muted mb-0">No question-level data recorded for this attempt.</p>;
+
+  return (
+    <>
+      <p className="mb-2 small">
+        <strong>Mode:</strong> <span className="text-capitalize">{attempt.mode}</span>
+        {' · '}<strong>Time:</strong> {formatDuration(attempt.time_spent)}
+        {' · '}<strong>Unanswered:</strong> {attempt.unattempted}
+        {attempt.section_results?.length > 1 && (
+          <>
+            {' · '}<strong>By section:</strong>{' '}
+            {attempt.section_results.map((s) => `${s.section}: ${s.correct}/${s.total} (${s.percent}%)`).join(' · ')}
+          </>
+        )}
+      </p>
+      <table className="table table-sm table-bordered mb-0 adm-breakdown">
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>Q</th>
+            <th>Question</th>
+            <th>Student&apos;s Answer</th>
+            <th>Correct Answer</th>
+            <th>Result</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {answers.map((ans, idx) => (
+            <tr key={`${ans.item_id}-${idx}`}>
+              <td>{ans.section}</td>
+              <td>{ans.question_number ?? '—'}</td>
+              <td>{ans.question_text || ans.item_id}</td>
+              <td>{ans.skipped ? 'Not answered' : (ans.response_text || ans.response || '—')}</td>
+              <td>{ans.correct_text || '—'}</td>
+              <td>
+                <span className={`result-pill ${ans.is_correct ? 'result-pill-correct' : 'result-pill-incorrect'}`}>
+                  <i className={`bi ${ans.is_correct ? 'bi-check-circle-fill' : 'bi-x-circle-fill'}`}></i>
+                  {ans.is_correct ? 'Correct' : ans.skipped ? 'Skipped' : 'Incorrect'}
+                </span>
+              </td>
+              <td>{ans.time_elapsed ? `${ans.time_elapsed}s` : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 }
 
 function MathAnswerBreakdown({ answers }) {
   if (!answers?.length) return <p className="text-muted mb-0">No question-level data recorded for this attempt.</p>;
 
+  const reached = answers.filter((a) => !a.not_attempted);
+  const correct = answers.filter((a) => a.is_correct).length;
+  const wrong = reached.filter((a) => !a.is_correct && !a.skipped).length;
+
   return (
-    <table className="table table-sm table-bordered mb-0 breakdown-table">
+    <>
+    <p className="mb-2 small">
+      <strong>Answered:</strong> {reached.length - reached.filter((a) => a.skipped).length} of {answers.length}
+      {' · '}<span className="tone-high"><strong>Correct:</strong> {correct}</span>
+      {' · '}<span className="tone-low"><strong>Wrong:</strong> {wrong}</span>
+      {' · '}<strong>Not attempted / skipped:</strong> {answers.length - correct - wrong}
+    </p>
+    <table className="table table-sm table-bordered mb-0 adm-breakdown">
       <thead>
         <tr>
           <th>Phase</th>
@@ -207,13 +585,20 @@ function MathAnswerBreakdown({ answers }) {
             <td>{ans.phase}</td>
             <td>{ans.cluster}</td>
             <td>{ans.question_text || ans.item_id}</td>
-            <td>{ans.skipped ? 'Skipped' : (ans.chosen_text ?? `Option ${ans.chosen_index + 1}`)}</td>
+            <td>{ans.not_attempted ? 'Not attempted' : ans.skipped ? 'Skipped' : (ans.chosen_text ?? '—')}</td>
             <td>{ans.correct_text ?? '—'}</td>
             <td>
-              <span className={`result-pill ${ans.is_correct ? 'result-pill-correct' : 'result-pill-incorrect'}`}>
-                <i className={`bi ${ans.is_correct ? 'bi-check-circle-fill' : 'bi-x-circle-fill'}`}></i>
-                {ans.is_correct ? 'Correct' : 'Incorrect'}
-              </span>
+              {ans.skipped ? (
+                <span className="result-pill result-pill-muted">
+                  <i className="bi bi-dash-circle"></i>
+                  {ans.not_attempted ? 'Not attempted' : 'Skipped'}
+                </span>
+              ) : (
+                <span className={`result-pill ${ans.is_correct ? 'result-pill-correct' : 'result-pill-incorrect'}`}>
+                  <i className={`bi ${ans.is_correct ? 'bi-check-circle-fill' : 'bi-x-circle-fill'}`}></i>
+                  {ans.is_correct ? 'Correct' : 'Incorrect'}
+                </span>
+              )}
             </td>
             <td className="mistake-detail-cell">
               {!ans.is_correct && ans.mistake_tag && (
@@ -235,45 +620,6 @@ function MathAnswerBreakdown({ answers }) {
         ))}
       </tbody>
     </table>
-  );
-}
-
-function VocabQuestionBreakdown({ questions }) {
-  if (!questions?.length) return <p className="text-muted mb-0">No question-level data recorded for this assessment.</p>;
-
-  return (
-    <table className="table table-sm table-bordered mb-0 breakdown-table">
-      <thead>
-        <tr>
-          <th>Question</th>
-          <th>Topic</th>
-          <th>CEFR Level</th>
-          <th>Difficulty</th>
-          <th>Response</th>
-          <th>Correct Answer</th>
-          <th>Result</th>
-          <th>Points</th>
-        </tr>
-      </thead>
-      <tbody>
-        {questions.map((q, idx) => (
-          <tr key={q.question_id || idx}>
-            <td>{q.question_text}</td>
-            <td>{q.topic}</td>
-            <td>{q.CEFR_level}</td>
-            <td>{q.difficulty_level}</td>
-            <td>{q.user_response}</td>
-            <td>{q.correct_option}</td>
-            <td>
-              <span className={`result-pill ${q.is_correct ? 'result-pill-correct' : 'result-pill-incorrect'}`}>
-                <i className={`bi ${q.is_correct ? 'bi-check-circle-fill' : 'bi-x-circle-fill'}`}></i>
-                {q.is_correct ? 'Correct' : 'Incorrect'}
-              </span>
-            </td>
-            <td>{q.points_awarded}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    </>
   );
 }

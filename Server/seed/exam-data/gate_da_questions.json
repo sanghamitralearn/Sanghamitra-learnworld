@@ -1,0 +1,3905 @@
+[
+  {
+    "_id": "6a4f2ee8af6457403ecef98b",
+    "question_id": "GATE-DA2024-Q01",
+    "section": "General Aptitude (GA)",
+    "subject": "Verbal Ability",
+    "topic": "Vocabulary",
+    "subtopic": "Word Analogy / Intensity Scale",
+    "question_number": 1,
+    "passage": "",
+    "question_text": "If `$\\rightarrow$' denotes increasing order of intensity, then the meaning of the words [sick $\\rightarrow$ infirm $\\rightarrow$ moribund] is analogous to [silly $\\rightarrow$ \\_\\_\\_\\_\\_\\_\\_ $\\rightarrow$ daft]. Which one of the given options is appropriate to fill the blank?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "frown"
+      },
+      {
+        "option_id": "B",
+        "text": "fawn"
+      },
+      {
+        "option_id": "C",
+        "text": "vein"
+      },
+      {
+        "option_id": "D",
+        "text": "vain"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "vocabulary",
+      "word intensity scale",
+      "analogy"
+    ],
+    "problem_types": [
+      "verbal reasoning"
+    ],
+    "average_time_seconds": 50,
+    "solution_explanation": "The triad sick $\\rightarrow$ infirm $\\rightarrow$ moribund is an increasing-intensity scale (mildly ill $\\rightarrow$ chronically weak $\\rightarrow$ near death). The analogous scale for foolishness must increase in intensity from 'silly' to 'daft', with the middle word being a synonym of mild foolishness of greater degree than silly.",
+    "step_by_step_solution": [
+      "Identify the relationship: increasing intensity of the same underlying quality (illness).",
+      "Apply the same pattern to the silly-daft scale: need a word meaning 'foolish/vain' that sits between silly and daft in intensity.",
+      "'vain' (excessively proud, foolish about oneself) fits as an intermediate degree; 'frown', 'fawn', 'vein' are unrelated in meaning."
+    ],
+    "answer_explanation": "Option (D) 'vain' is correct as it fits the increasing-intensity pattern of foolishness between 'silly' and 'daft'.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.1",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 0.83
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef98c",
+    "question_id": "GATE-DA2024-Q02",
+    "section": "General Aptitude (GA)",
+    "subject": "Analytical Aptitude",
+    "topic": "Logical Reasoning",
+    "subtopic": "Graph Colouring",
+    "question_number": 2,
+    "passage": "",
+    "question_text": "The 15 parts of the given figure are to be painted such that no two adjacent parts with shared boundaries (excluding corners) have the same color. The minimum number of colors required is [see image]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "image",
+    "has_latex": false,
+    "image_url": "q02_diagram.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "4"
+      },
+      {
+        "option_id": "B",
+        "text": "3"
+      },
+      {
+        "option_id": "C",
+        "text": "5"
+      },
+      {
+        "option_id": "D",
+        "text": "6"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "graph colouring",
+      "chromatic number",
+      "spatial reasoning"
+    ],
+    "problem_types": [
+      "logical reasoning"
+    ],
+    "average_time_seconds": 60,
+    "solution_explanation": "The figure decomposes into a central 3-part circle, a 4-part square ring, 4 corner triangles, and a 4-part outer ellipse ring — regions that mutually touch in groups requiring 4 colours at points where a corner triangle touches both an adjacent square-ring part and an adjacent outer ring part simultaneously.",
+    "step_by_step_solution": [
+      "Identify all pairwise-adjacent (sharing an edge, not just a corner) regions.",
+      "Find the largest clique of mutually adjacent regions in the adjacency graph.",
+      "A 4-region mutual-adjacency point exists (inner square edge + two touching outer regions + corner triangle), forcing at least 4 colours, and 4 colours suffice to properly colour the rest."
+    ],
+    "answer_explanation": "The minimum number of colours required is 4 (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.2",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef98d",
+    "question_id": "GATE-DA2024-Q03",
+    "section": "General Aptitude (GA)",
+    "subject": "Quantitative Aptitude",
+    "topic": "Permutations & Combinations",
+    "subtopic": "Divisibility Rules",
+    "question_number": 3,
+    "passage": "",
+    "question_text": "How many 4-digit positive integers divisible by 3 can be formed using only the digits $\\{1, 3, 4, 6, 7\\}$, such that no digit appears more than once in a number?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "24"
+      },
+      {
+        "option_id": "B",
+        "text": "48"
+      },
+      {
+        "option_id": "C",
+        "text": "72"
+      },
+      {
+        "option_id": "D",
+        "text": "12"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "divisibility by 3",
+      "permutations",
+      "digit sum"
+    ],
+    "problem_types": [
+      "quantitative reasoning"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "The sum of all 5 digits is $1+3+4+6+7=21$, divisible by 3. Any 4-digit subset formed by removing one digit has sum $21 - (\\text{removed digit})$, which is divisible by 3 only if the removed digit itself is divisible by 3 (i.e., 3 or 6).",
+    "step_by_step_solution": [
+      "Sum of all digits = 21 (divisible by 3).",
+      "Removing digit $d$ leaves a sum $21-d$; this is divisible by 3 only when $d \\in \\{3,6\\}$.",
+      "For each of the 2 valid choices of removed digit, the remaining 4 digits can be arranged in $4! = 24$ ways.",
+      "Total = $2 \\times 24 = 48$."
+    ],
+    "answer_explanation": "There are 48 such 4-digit numbers divisible by 3 (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.3",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef98e",
+    "question_id": "GATE-DA2024-Q04",
+    "section": "General Aptitude (GA)",
+    "subject": "Quantitative Aptitude",
+    "topic": "Series & Sequences",
+    "subtopic": "Sum of Infinite Series",
+    "question_number": 4,
+    "passage": "",
+    "question_text": "The sum of the following infinite series is \\[2 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\frac{1}{8} + \\frac{1}{9} + \\frac{1}{16} + \\frac{1}{27} + \\cdots\\]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "11/3"
+      },
+      {
+        "option_id": "B",
+        "text": "7/2"
+      },
+      {
+        "option_id": "C",
+        "text": "13/4"
+      },
+      {
+        "option_id": "D",
+        "text": "9/2"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "infinite geometric series",
+      "series decomposition"
+    ],
+    "problem_types": [
+      "quantitative reasoning"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "The series interleaves two geometric series: powers of 2 in the denominator ($2, \\tfrac12, \\tfrac14, \\tfrac18, \\dots$) and powers of 3 ($\\tfrac13, \\tfrac19, \\tfrac1{27}, \\dots$).",
+    "step_by_step_solution": [
+      "Powers-of-2 part: $2+\\tfrac12+\\tfrac14+\\tfrac18+\\cdots = 2 + \\dfrac{1/2}{1-1/2} = 2+1=3$.",
+      "Powers-of-3 part: $\\tfrac13+\\tfrac19+\\tfrac1{27}+\\cdots = \\dfrac{1/3}{1-1/3} = \\tfrac12$.",
+      "Total sum $= 3 + \\tfrac12 = \\tfrac72$."
+    ],
+    "answer_explanation": "The sum of the series is $7/2$ (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.4",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef98f",
+    "question_id": "GATE-DA2024-Q05",
+    "section": "General Aptitude (GA)",
+    "subject": "Quantitative Aptitude",
+    "topic": "Data Interpretation",
+    "subtopic": "Pie Chart",
+    "question_number": 5,
+    "passage": "",
+    "question_text": "In an election, the share of valid votes received by the four candidates A, B, C, and D is represented by the pie chart shown. The total number of votes cast in the election were 1,15,000, out of which 5,000 were invalid. Based on the data provided, the total number of valid votes received by the candidates B and C is [see image: pie chart, A=40\\%, B=25\\%, C=20\\%, D=15\\%]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "image",
+    "has_latex": true,
+    "image_url": "q05_piechart.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "45,000"
+      },
+      {
+        "option_id": "B",
+        "text": "49,500"
+      },
+      {
+        "option_id": "C",
+        "text": "51,750"
+      },
+      {
+        "option_id": "D",
+        "text": "54,000"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "pie chart",
+      "percentages",
+      "data interpretation"
+    ],
+    "problem_types": [
+      "quantitative reasoning"
+    ],
+    "average_time_seconds": 60,
+    "solution_explanation": "Valid votes = Total votes $-$ Invalid votes = $115000 - 5000 = 110000$. B and C together account for $25\\%+20\\%=45\\%$ of the valid votes.",
+    "step_by_step_solution": [
+      "Valid votes $=1{,}15{,}000 - 5{,}000 = 1{,}10{,}000$.",
+      "B+C share $= 25\\%+20\\%=45\\%$.",
+      "Votes for B and C $= 0.45 \\times 1{,}10{,}000 = 49{,}500$."
+    ],
+    "answer_explanation": "Candidates B and C together received 49,500 valid votes (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.5",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef990",
+    "question_id": "GATE-DA2024-Q06",
+    "section": "General Aptitude (GA)",
+    "subject": "Verbal Ability",
+    "topic": "Reading Comprehension",
+    "subtopic": "Inference",
+    "question_number": 6,
+    "passage": "Thousands of years ago, some people began dairy farming. This coincided with a number of mutations in a particular gene that resulted in these people developing the ability to digest dairy milk.",
+    "question_text": "Based on the given passage, which of the following can be inferred?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "All human beings can digest dairy milk."
+      },
+      {
+        "option_id": "B",
+        "text": "No human being can digest dairy milk."
+      },
+      {
+        "option_id": "C",
+        "text": "Digestion of dairy milk is essential for human beings."
+      },
+      {
+        "option_id": "D",
+        "text": "In human beings, digestion of dairy milk resulted from a mutated gene."
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "easy",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "reading comprehension",
+      "inference",
+      "critical reasoning"
+    ],
+    "problem_types": [
+      "verbal reasoning"
+    ],
+    "average_time_seconds": 90,
+    "solution_explanation": "The passage states that the ability to digest dairy milk arose from gene mutations in some (not all) people who took up dairy farming — this directly supports option D, and directly contradicts the universal claims in A and B.",
+    "step_by_step_solution": [
+      "The passage restricts the mutation, and hence the ability, to 'some people' — not all humans (rules out A).",
+      "Since some people gained the ability, it is false that 'no' human can digest milk (rules out B).",
+      "The passage never claims digestion of milk is 'essential' (rules out C).",
+      "The only claim directly supported is that the ability came from a mutated gene (D)."
+    ],
+    "answer_explanation": "Option D is the only inference directly supported by the passage.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.6",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef991",
+    "question_id": "GATE-DA2024-Q07",
+    "section": "General Aptitude (GA)",
+    "subject": "Quantitative Aptitude",
+    "topic": "Probability",
+    "subtopic": "Binomial Probability",
+    "question_number": 7,
+    "passage": "",
+    "question_text": "The probability of a boy or a girl being born is $1/2$. For a family having only three children, what is the probability of having two girls and one boy?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "3/8"
+      },
+      {
+        "option_id": "B",
+        "text": "1/8"
+      },
+      {
+        "option_id": "C",
+        "text": "1/4"
+      },
+      {
+        "option_id": "D",
+        "text": "1/2"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "easy",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "binomial probability",
+      "combinatorics"
+    ],
+    "problem_types": [
+      "quantitative reasoning"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "Each birth is an independent Bernoulli trial with $p=1/2$. The number of ways to choose which 2 of the 3 children are girls is $\\binom{3}{2}=3$.",
+    "step_by_step_solution": [
+      "$P(\\text{2 girls, 1 boy}) = \\binom{3}{2} \\left(\\tfrac12\\right)^2\\left(\\tfrac12\\right)^1$.",
+      "$= 3 \\times \\tfrac18 = \\tfrac38$."
+    ],
+    "answer_explanation": "The probability is $3/8$ (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.7",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef992",
+    "question_id": "GATE-DA2024-Q08",
+    "section": "General Aptitude (GA)",
+    "subject": "Quantitative Aptitude",
+    "topic": "Ratio, Rates & Returns",
+    "subtopic": "Simple Interest / Rate of Return",
+    "question_number": 8,
+    "passage": "",
+    "question_text": "Person 1 and Person 2 invest in three mutual funds A, B, and C. The amounts they invest in each of these mutual funds are given in the table: Person 1 invests ₹10,000 in fund A, ₹20,000 in fund B, ₹20,000 in fund C; Person 2 invests ₹20,000 in fund A, ₹15,000 in fund B, ₹15,000 in fund C. At the end of one year, the total amount that Person 1 gets is ₹500 more than Person 2. The annual rate of return for the mutual funds B and C is 15\\% each. What is the annual rate of return for the mutual fund A?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "7.5%"
+      },
+      {
+        "option_id": "B",
+        "text": "10%"
+      },
+      {
+        "option_id": "C",
+        "text": "15%"
+      },
+      {
+        "option_id": "D",
+        "text": "20%"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "percentage",
+      "rate of return",
+      "linear equations"
+    ],
+    "problem_types": [
+      "quantitative reasoning"
+    ],
+    "average_time_seconds": 100,
+    "solution_explanation": "Let $r$ be the rate of return for fund A. Person 1's total return is $10000r + (20000+20000)(0.15)$ and Person 2's is $20000r + (15000+15000)(0.15)$; setting Person 1's return $=$ Person 2's return $+500$ gives $r$.",
+    "step_by_step_solution": [
+      "Person 1 return: $10000r + 6000$; Person 2 return: $20000r + 4500$.",
+      "$10000r + 6000 = 20000r + 4500 + 500$.",
+      "$1000 = 10000r \\Rightarrow r = 0.10 = 10\\%$."
+    ],
+    "answer_explanation": "The annual rate of return for mutual fund A is 10% (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.8",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.67
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef993",
+    "question_id": "GATE-DA2024-Q09",
+    "section": "General Aptitude (GA)",
+    "subject": "Analytical Aptitude",
+    "topic": "Spatial Reasoning",
+    "subtopic": "Dice / Net Folding",
+    "question_number": 9,
+    "passage": "",
+    "question_text": "Three different views of a dice are shown in the figure below [see image: three cube views]. The piece of paper that can be folded to make this dice is [see images: four candidate nets A, B, C, D]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "image",
+    "has_latex": false,
+    "image_url": "q09_dice_views.png",
+    "option_images": {
+      "A": "q09_option_A.png",
+      "B": "q09_option_B.png",
+      "C": "q09_option_C.png",
+      "D": "q09_option_D.png"
+    },
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Net with column 5|1, 4, 6, 2|3 (see image)"
+      },
+      {
+        "option_id": "B",
+        "text": "Net with column 5|1, 4, 2, 6|3 (see image)"
+      },
+      {
+        "option_id": "C",
+        "text": "Net with column 5|1, 3, 2, 4|6 (see image)"
+      },
+      {
+        "option_id": "D",
+        "text": "Net with column 5|1, 4, 6, 3|2 (see image)"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "dice nets",
+      "spatial visualization",
+      "cube folding"
+    ],
+    "problem_types": [
+      "logical reasoning"
+    ],
+    "average_time_seconds": 120,
+    "solution_explanation": "From the three cube views, adjacent-face relationships can be pinned down: 5 is adjacent to 4 and 1; 4 is adjacent to 6 and 3; 2 is adjacent to 6 and 5. Using these constraints and checking that opposite faces in the candidate net are never adjacent on the cube resolves the unique correct net.",
+    "step_by_step_solution": [
+      "From view 1 (5,4,1) and view 2 (4,6,3): 4 is adjacent to 5,1,6,3, so 4 and 2 (which never appears with 4) must be opposite faces.",
+      "From view 3 (2,6,5): 2 is adjacent to 6 and 5, consistent with 2 opposite 4.",
+      "Checking each net for consistent adjacency (in particular that 4 and 2 never end up on touching/foldable-adjacent faces) identifies option A as the only valid folding."
+    ],
+    "answer_explanation": "Option A is the net that folds into the dice shown.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.9",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef994",
+    "question_id": "GATE-DA2024-Q10",
+    "section": "General Aptitude (GA)",
+    "subject": "Analytical Aptitude",
+    "topic": "Spatial Reasoning",
+    "subtopic": "Solid Geometry / Cross-sections",
+    "question_number": 10,
+    "passage": "",
+    "question_text": "Visualize two identical right circular cones such that one is inverted over the other and they share a common circular base. If a cutting plane passes through the vertices of the assembled cones, what shape does the outer boundary of the resulting cross-section make?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "A rhombus"
+      },
+      {
+        "option_id": "B",
+        "text": "A triangle"
+      },
+      {
+        "option_id": "C",
+        "text": "An ellipse"
+      },
+      {
+        "option_id": "D",
+        "text": "A hexagon"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "solid geometry",
+      "cross-sections",
+      "3D visualization"
+    ],
+    "problem_types": [
+      "logical reasoning"
+    ],
+    "average_time_seconds": 90,
+    "solution_explanation": "A plane through both apexes and the shared circular base's diameter cuts each cone in an isosceles triangle; the two cones (apex up, apex down) together produce two triangles joined base-to-base along the shared diameter, whose outer boundary is a rhombus (a kite/quadrilateral with two pairs of equal adjacent sides, symmetric since the cones are identical).",
+    "step_by_step_solution": [
+      "A plane through the two apexes intersects each cone in a triangular cross-section (apex plus the two points where the plane meets the base circle).",
+      "The two triangles share their base (the chord through the circle's centre) and point in opposite directions (one cone inverted).",
+      "The combined outer boundary of the two triangles joined at their common base is a rhombus."
+    ],
+    "answer_explanation": "The outer boundary of the cross-section is a rhombus (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.10",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef995",
+    "question_id": "GATE-DA2024-Q11",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Random Variables",
+    "subtopic": "Poisson & Normal Distributions",
+    "question_number": 11,
+    "passage": "",
+    "question_text": "Consider the following statements: (i) The mean and variance of a Poisson random variable are equal. (ii) For a standard normal random variable, the mean is zero and the variance is one. Which ONE of the following options is correct?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Both (i) and (ii) are true"
+      },
+      {
+        "option_id": "B",
+        "text": "(i) is true and (ii) is false"
+      },
+      {
+        "option_id": "C",
+        "text": "(ii) is true and (i) is false"
+      },
+      {
+        "option_id": "D",
+        "text": "Both (i) and (ii) are false"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Poisson distribution",
+      "standard normal distribution",
+      "mean and variance"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 45,
+    "solution_explanation": "For a Poisson($\\lambda$) random variable, $E[X]=\\mathrm{Var}(X)=\\lambda$, so (i) is true by definition. A standard normal random variable is defined as $N(0,1)$, i.e. mean 0 and variance 1, so (ii) is also true.",
+    "step_by_step_solution": [
+      "Poisson distribution: mean $=\\lambda=$ variance — statement (i) true.",
+      "Standard normal: by definition mean$=0$, variance$=1$ — statement (ii) true."
+    ],
+    "answer_explanation": "Both statements are true (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.11",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 0.75
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef996",
+    "question_id": "GATE-DA2024-Q12",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Events & Probability",
+    "subtopic": "Coin Toss Events",
+    "question_number": 12,
+    "passage": "",
+    "question_text": "Three fair coins are tossed independently. $T$ is the event that two or more tosses result in heads. $S$ is the event that two or more tosses result in tails. What is the probability of the event $T \\cap S$?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "0"
+      },
+      {
+        "option_id": "B",
+        "text": "0.5"
+      },
+      {
+        "option_id": "C",
+        "text": "0.25"
+      },
+      {
+        "option_id": "D",
+        "text": "1"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "probability",
+      "events",
+      "mutually exclusive events"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 50,
+    "solution_explanation": "With only 3 tosses, having at least 2 heads and at least 2 tails simultaneously would require at least 4 tosses — an impossibility, so $T$ and $S$ are mutually exclusive.",
+    "step_by_step_solution": [
+      "$T$ requires $\\ge 2$ heads out of 3 tosses; $S$ requires $\\ge 2$ tails out of the same 3 tosses.",
+      "$\\ge2$ heads $+ \\ge2$ tails $\\ge 4 > 3$ tosses — impossible simultaneously.",
+      "Hence $T \\cap S = \\emptyset$ and $P(T\\cap S)=0$."
+    ],
+    "answer_explanation": "The probability is 0 (Option A) since $T$ and $S$ cannot occur together.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.12",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 0.83
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef997",
+    "question_id": "GATE-DA2024-Q13",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Linear Algebra",
+    "topic": "Eigenvalues & Eigenvectors",
+    "subtopic": "Nature of Eigenvalues",
+    "question_number": 13,
+    "passage": "",
+    "question_text": "Consider the matrix $\\boldsymbol{M} = \\begin{bmatrix} 2 & -1 \\\\ 3 & 1 \\end{bmatrix}$. Which ONE of the following statements is TRUE?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "The eigenvalues of $\\boldsymbol{M}$ are non-negative and real."
+      },
+      {
+        "option_id": "B",
+        "text": "The eigenvalues of $\\boldsymbol{M}$ are complex conjugate pairs."
+      },
+      {
+        "option_id": "C",
+        "text": "One eigenvalue of $\\boldsymbol{M}$ is positive and real, and another eigenvalue of $\\boldsymbol{M}$ is zero."
+      },
+      {
+        "option_id": "D",
+        "text": "One eigenvalue of $\\boldsymbol{M}$ is non-negative and real, and another eigenvalue of $\\boldsymbol{M}$ is negative and real."
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "eigenvalues",
+      "characteristic polynomial",
+      "complex roots"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "The characteristic equation is $\\lambda^2 - \\mathrm{tr}(M)\\lambda + \\det(M) = 0$, i.e. $\\lambda^2 - 3\\lambda + 5 = 0$. The discriminant is $9-20=-11<0$, giving a complex conjugate pair of eigenvalues.",
+    "step_by_step_solution": [
+      "$\\mathrm{tr}(M) = 2+1 = 3$, $\\det(M) = 2(1) - (-1)(3) = 5$.",
+      "Characteristic equation: $\\lambda^2 - 3\\lambda + 5 = 0$.",
+      "Discriminant $= 9 - 20 = -11 < 0 \\Rightarrow$ complex conjugate eigenvalues."
+    ],
+    "answer_explanation": "The eigenvalues of M are a complex conjugate pair (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.13",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef998",
+    "question_id": "GATE-DA2024-Q14",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Graph Algorithms",
+    "subtopic": "DFS Edge Classification",
+    "question_number": 14,
+    "passage": "",
+    "question_text": "Consider performing depth-first search (DFS) on an undirected and unweighted graph $G$ starting at vertex $s$. For any vertex $u$ in $G$, $d[u]$ is the length of the shortest path from $s$ to $u$. Let $(u,v)$ be an edge in $G$ such that $d[u] < d[v]$. If the edge $(u,v)$ is explored first in the direction from $u$ to $v$ during the above DFS, then $(u,v)$ becomes a \\_\\_\\_\\_\\_\\_ edge.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "tree"
+      },
+      {
+        "option_id": "B",
+        "text": "cross"
+      },
+      {
+        "option_id": "C",
+        "text": "back"
+      },
+      {
+        "option_id": "D",
+        "text": "gray"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "DFS",
+      "graph traversal",
+      "edge classification"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "In an undirected graph, since $d[u]<d[v]$, vertex $v$ is farther from the source than $u$; if $(u,v)$ is explored from $u$'s side first, $v$ has not yet been discovered, so the DFS discovers $v$ through this edge, making it a tree edge.",
+    "step_by_step_solution": [
+      "$d[u] < d[v]$ implies $v$ is not an ancestor of $u$ reachable more directly.",
+      "Exploring $(u,v)$ from $u$ before $v$ is otherwise visited means $v$ gets discovered via this edge.",
+      "A DFS edge leading to first discovery of a vertex is, by definition, a tree edge."
+    ],
+    "answer_explanation": "The edge becomes a tree edge (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.14",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef99a",
+    "question_id": "GATE-DA2024-Q16",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Abstract Data Types",
+    "subtopic": "Matching: Stacks, Queues, Hash Tables",
+    "question_number": 16,
+    "passage": "",
+    "question_text": "Match the items in Column 1 with the items in Column 2 in the following table: Column 1 -- (p) First In First Out, (q) Lookup Operation, (r) Last In First Out; Column 2 -- (i) Stacks, (ii) Queues, (iii) Hash Tables.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(p) - (ii), (q) - (iii), (r) - (i)"
+      },
+      {
+        "option_id": "B",
+        "text": "(p) - (ii), (q) - (i), (r) - (iii)"
+      },
+      {
+        "option_id": "C",
+        "text": "(p) - (i), (q) - (ii), (r) - (iii)"
+      },
+      {
+        "option_id": "D",
+        "text": "(p) - (i), (q) - (iii), (r) - (ii)"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "stacks",
+      "queues",
+      "hash tables",
+      "data structure properties"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 45,
+    "solution_explanation": "FIFO is the defining property of Queues, average O(1) lookup is the hallmark of Hash Tables, and LIFO is the defining property of Stacks.",
+    "step_by_step_solution": [
+      "FIFO $\\rightarrow$ Queues (ii).",
+      "Lookup Operation $\\rightarrow$ Hash Tables (iii).",
+      "LIFO $\\rightarrow$ Stacks (i)."
+    ],
+    "answer_explanation": "The correct matching is (p)-(ii), (q)-(iii), (r)-(i) (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.16",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 0.75
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef99b",
+    "question_id": "GATE-DA2024-Q17",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Support Vector Machines",
+    "subtopic": "Support Vectors in Hard-Margin SVM",
+    "question_number": 17,
+    "passage": "",
+    "question_text": "Consider the dataset with six datapoints: $\\{(\\boldsymbol{x_1},y_1),\\ldots,(\\boldsymbol{x_6},y_6)\\}$, where $\\boldsymbol{x_1}=\\begin{bmatrix}1\\\\0\\end{bmatrix}, \\boldsymbol{x_2}=\\begin{bmatrix}0\\\\1\\end{bmatrix}, \\boldsymbol{x_3}=\\begin{bmatrix}0\\\\-1\\end{bmatrix}, \\boldsymbol{x_4}=\\begin{bmatrix}-1\\\\0\\end{bmatrix}, \\boldsymbol{x_5}=\\begin{bmatrix}2\\\\2\\end{bmatrix}, \\boldsymbol{x_6}=\\begin{bmatrix}-2\\\\-2\\end{bmatrix}$ and the labels are given by $y_1=y_2=y_5=1$, and $y_3=y_4=y_6=-1$. A hard margin linear support vector machine is trained on the above dataset. Which ONE of the following sets is a possible set of support vectors?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\{x_1,x_2,x_5\\}$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\{x_3,x_4,x_5\\}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\{x_4,x_5\\}$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\{x_1,x_2,x_3,x_4\\}$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "support vector machine",
+      "hard margin",
+      "support vectors"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 100,
+    "solution_explanation": "By symmetry the separating hyperplane is $x+y=0$. Points $x_1,x_2$ lie at signed distance $+1$ and $x_3,x_4$ at signed distance $-1$ from this line, all equally close, so they define the margin; $x_5$ ($x+y=4$) and $x_6$ ($x+y=-4$) lie well outside the margin and are not support vectors.",
+    "step_by_step_solution": [
+      "Guess the boundary $x+y=0$ using the symmetry of the labelled points.",
+      "Evaluate $x+y$ at each point: $x_1,x_2 \\to 1$; $x_3,x_4 \\to -1$; $x_5\\to4$; $x_6\\to-4$.",
+      "The closest, equally-distant points on each side ($x_1,x_2,x_3,x_4$) touch the margin and are the support vectors; $x_5,x_6$ lie strictly outside the margin."
+    ],
+    "answer_explanation": "The possible set of support vectors is $\\{x_1,x_2,x_3,x_4\\}$ (Option D).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.17",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.67
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef99c",
+    "question_id": "GATE-DA2024-Q18",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Model Taxonomy",
+    "subtopic": "Generative vs Discriminative vs Dimensionality Reduction",
+    "question_number": 18,
+    "passage": "",
+    "question_text": "Match the items in Column 1 with the items in Column 2: Column 1 -- (p) Principal Component Analysis, (q) Na\\\"ive Bayes Classification, (r) Logistic Regression; Column 2 -- (i) Discriminative Model, (ii) Dimensionality Reduction, (iii) Generative Model.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(p) - (iii), (q) - (i), (r) - (ii)"
+      },
+      {
+        "option_id": "B",
+        "text": "(p) - (ii), (q) - (i), (r) - (iii)"
+      },
+      {
+        "option_id": "C",
+        "text": "(p) - (ii), (q) - (iii), (r) - (i)"
+      },
+      {
+        "option_id": "D",
+        "text": "(p) - (iii), (q) - (ii), (r) - (i)"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "PCA",
+      "Naive Bayes",
+      "logistic regression",
+      "generative vs discriminative models"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 50,
+    "solution_explanation": "PCA is a dimensionality reduction technique (ii); Naïve Bayes models the joint distribution $P(X,Y)$ so it is generative (iii); Logistic Regression models $P(Y|X)$ directly so it is discriminative (i).",
+    "step_by_step_solution": [
+      "PCA $\\rightarrow$ Dimensionality Reduction (ii).",
+      "Naïve Bayes $\\rightarrow$ Generative Model (iii).",
+      "Logistic Regression $\\rightarrow$ Discriminative Model (i)."
+    ],
+    "answer_explanation": "The correct matching is (p)-(ii), (q)-(iii), (r)-(i) (Option C).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.18",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 0.83
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef99d",
+    "question_id": "GATE-DA2024-Q19",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Clustering",
+    "subtopic": "k-means Voronoi Property",
+    "question_number": 19,
+    "passage": "",
+    "question_text": "Euclidean distance based $k$-means clustering algorithm was run on a dataset of 100 points with $k=3$. If the points $\\begin{bmatrix}1\\\\1\\end{bmatrix}$ and $\\begin{bmatrix}-1\\\\1\\end{bmatrix}$ are both part of cluster 3, then which ONE of the following points is necessarily also part of cluster 3?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\begin{bmatrix}0\\\\0\\end{bmatrix}$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\begin{bmatrix}0\\\\2\\end{bmatrix}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\begin{bmatrix}2\\\\0\\end{bmatrix}$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\begin{bmatrix}0\\\\1\\end{bmatrix}$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "k-means",
+      "Voronoi regions",
+      "convexity"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "k-means clusters correspond to convex Voronoi cells. Since $(1,1)$ and $(-1,1)$ both belong to cluster 3, every point on the line segment joining them — including the midpoint $(0,1)$ — must also lie in the same (convex) cell, hence in cluster 3.",
+    "step_by_step_solution": [
+      "k-means clusters are convex regions (Voronoi cells) around centroids.",
+      "$(0,1)$ is the midpoint of the segment joining $(1,1)$ and $(-1,1)$.",
+      "By convexity, the midpoint must belong to the same cluster as both endpoints."
+    ],
+    "answer_explanation": "The point $(0,1)$ is necessarily also part of cluster 3 (Option D).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.19",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef99e",
+    "question_id": "GATE-DA2024-Q20",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Naive Bayes",
+    "subtopic": "Parameter Counting",
+    "question_number": 20,
+    "passage": "",
+    "question_text": "Given a dataset with $K$ binary-valued attributes (where $K>2$) for a two-class classification task, the number of parameters to be estimated for learning a na\\\"ive Bayes classifier is",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$2^K + 1$"
+      },
+      {
+        "option_id": "B",
+        "text": "$2K + 1$"
+      },
+      {
+        "option_id": "C",
+        "text": "$2^{K+1} + 1$"
+      },
+      {
+        "option_id": "D",
+        "text": "$K^2 + 1$"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Naive Bayes",
+      "parameter estimation",
+      "binary attributes"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "Naive Bayes needs 1 parameter for the class prior $P(Y=1)$, and for each of the $K$ binary attributes and each of the 2 classes, one parameter $P(X_i=1|Y)$, giving $2K$ conditional parameters.",
+    "step_by_step_solution": [
+      "Class prior $P(Y)$: 1 free parameter (binary class).",
+      "For each attribute $X_i$ ($K$ of them) and each class (2 classes): 1 free parameter each, giving $2K$ parameters.",
+      "Total $= 2K + 1$."
+    ],
+    "answer_explanation": "The number of parameters is $2K+1$ (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.20",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef99f",
+    "question_id": "GATE-DA2024-Q21",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Hashing",
+    "subtopic": "Open Addressing - Insertion Cost",
+    "question_number": 21,
+    "passage": "",
+    "question_text": "Consider performing uniform hashing on an open address hash table with load factor $\\alpha = \\frac{n}{m} < 1$, where $n$ elements are stored in the table with $m$ slots. The expected number of probes in an unsuccessful search is at most $\\frac{1}{1-\\alpha}$. Inserting an element in this hash table requires at most \\_\\_\\_\\_\\_\\_ probes, on average.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\ln\\left(\\dfrac{1}{1-\\alpha}\\right)$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\dfrac{1}{1-\\alpha}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$1+\\dfrac{\\alpha}{2}$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\dfrac{1}{1+\\alpha}$"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "hashing",
+      "open addressing",
+      "load factor"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 60,
+    "solution_explanation": "Insertion under open addressing probes exactly like an unsuccessful search (it probes slots until an empty one is found), so its expected cost bound is the same: at most $\\frac{1}{1-\\alpha}$.",
+    "step_by_step_solution": [
+      "Insertion probes the table exactly as an unsuccessful search would, stopping at the first empty slot.",
+      "Hence the expected number of probes for insertion equals that of an unsuccessful search."
+    ],
+    "answer_explanation": "Insertion requires at most $\\dfrac{1}{1-\\alpha}$ probes on average (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.21",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a0",
+    "question_id": "GATE-DA2024-Q22",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Dimensionality Reduction",
+    "subtopic": "Fisher Linear Discriminant",
+    "question_number": 22,
+    "passage": "",
+    "question_text": "For any binary classification dataset, let $S_B \\in \\mathbb{R}^{d\\times d}$ and $S_W \\in \\mathbb{R}^{d\\times d}$ be the between-class and within-class scatter (covariance) matrices, respectively. The Fisher linear discriminant is defined by $u^* \\in \\mathbb{R}^d$, that maximizes $J(u) = \\dfrac{u^T S_B u}{u^T S_W u}$. If $\\lambda = J(u^*)$, $S_W$ is non-singular and $S_B \\ne 0$, then $(u^*,\\lambda)$ must satisfy which ONE of the following equations?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$S_W^{-1}S_B u^* = \\lambda u^*$"
+      },
+      {
+        "option_id": "B",
+        "text": "$S_W u^* = \\lambda S_B u^*$"
+      },
+      {
+        "option_id": "C",
+        "text": "$S_B S_W u^* = \\lambda u^*$"
+      },
+      {
+        "option_id": "D",
+        "text": "$u^{*T}u^* = \\lambda^2$"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Fisher linear discriminant",
+      "generalized eigenvalue problem",
+      "LDA"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 90,
+    "solution_explanation": "Maximizing the generalized Rayleigh quotient $J(u)=\\frac{u^TS_Bu}{u^TS_Wu}$ leads to the generalized eigenvalue problem $S_Bu=\\lambda S_Wu$; since $S_W$ is invertible, this is equivalent to $S_W^{-1}S_Bu=\\lambda u$.",
+    "step_by_step_solution": [
+      "Setting the gradient of $J$ w.r.t. $u$ to zero gives $S_Bu = \\lambda S_Wu$ where $\\lambda = J(u)$.",
+      "Since $S_W$ is non-singular, left-multiply by $S_W^{-1}$: $S_W^{-1}S_Bu = \\lambda u$."
+    ],
+    "answer_explanation": "The optimum satisfies $S_W^{-1}S_Bu^*=\\lambda u^*$ (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.22",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a1",
+    "question_id": "GATE-DA2024-Q23",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Artificial Intelligence",
+    "topic": "Search",
+    "subtopic": "Admissible Heuristics",
+    "question_number": 23,
+    "passage": "",
+    "question_text": "Let $h_1$ and $h_2$ be two admissible heuristics used in $A^*$ search. Which ONE of the following expressions is always an admissible heuristic?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$h_1+h_2$"
+      },
+      {
+        "option_id": "B",
+        "text": "$h_1\\times h_2$"
+      },
+      {
+        "option_id": "C",
+        "text": "$h_1/h_2,\\ (h_2\\ne0)$"
+      },
+      {
+        "option_id": "D",
+        "text": "$|h_1-h_2|$"
+      }
+    ],
+    "correct_answer": "D",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "admissible heuristics",
+      "A* search",
+      "heuristic combination"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 90,
+    "solution_explanation": "Both $h_1,h_2 \\in [0, h^*]$ since they are admissible, so their difference satisfies $0 \\le |h_1-h_2| \\le h^*$ always (the maximum gap between two numbers in $[0,h^*]$ is $h^*$), guaranteeing admissibility; sums or products of two admissible heuristics can exceed $h^*$ in general.",
+    "step_by_step_solution": [
+      "Admissibility means $0 \\le h_1(n), h_2(n) \\le h^*(n)$ for every node $n$.",
+      "Since both lie in $[0,h^*(n)]$, their absolute difference cannot exceed $h^*(n)$: $|h_1-h_2|\\le h^*(n)$.",
+      "In contrast, $h_1+h_2$ can exceed $h^*(n)$ (e.g. $h_1=h_2=h^*(n)$ gives sum $2h^*(n)$), so it is not always admissible."
+    ],
+    "answer_explanation": "$|h_1-h_2|$ is always admissible (Option D).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.23",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a2",
+    "question_id": "GATE-DA2024-Q24",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Artificial Intelligence",
+    "topic": "Probabilistic Graphical Models",
+    "subtopic": "Conditional Independence / d-separation",
+    "question_number": 24,
+    "passage": "",
+    "question_text": "Consider five random variables $U,V,W,X,Y$ whose joint distribution satisfies: $P(U,V,W,X,Y) = P(U)P(V)P(W|U,V)P(X|W)P(Y|W)$. Which ONE of the following statements is FALSE?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$Y$ is conditionally independent of $V$ given $W$"
+      },
+      {
+        "option_id": "B",
+        "text": "$X$ is conditionally independent of $U$ given $W$"
+      },
+      {
+        "option_id": "C",
+        "text": "$U$ and $V$ are conditionally independent given $W$"
+      },
+      {
+        "option_id": "D",
+        "text": "$Y$ and $X$ are conditionally independent given $W$"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Bayesian networks",
+      "d-separation",
+      "collider / explaining away"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 100,
+    "solution_explanation": "$W$ is a collider with parents $U$ and $V$ (a v-structure $U \\to W \\leftarrow V$). Conditioning on a collider W (or its descendants) makes its previously-independent parents $U,V$ dependent (\"explaining away\"), so statement C is false; the other statements correctly follow from $W$ blocking/d-separating $X,Y$ from $U,V$ given $W$.",
+    "step_by_step_solution": [
+      "The network structure is $U\\to W \\leftarrow V$, with $X\\leftarrow W \\to Y$.",
+      "$X$ and $Y$ are d-separated from $U,V$ given $W$ (since $W$ blocks the only paths) — A, B, D are all true.",
+      "$U,V$ meet at collider $W$; conditioning on the collider W opens the path between them, making $U,V$ dependent given $W$ — so C ('conditionally independent given W') is FALSE."
+    ],
+    "answer_explanation": "Statement C is false: $U$ and $V$ become dependent (not independent) once conditioned on the collider $W$.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.24",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.67
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a3",
+    "question_id": "GATE-DA2024-Q25",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Artificial Intelligence",
+    "topic": "Adversarial Search",
+    "subtopic": "Alpha-Beta Pruning",
+    "question_number": 25,
+    "passage": "",
+    "question_text": "Consider the following statement: In adversarial search, $\\alpha-\\beta$ pruning can be applied to game trees of any depth where $\\alpha$ is the \\_\\_(m)\\_\\_ value choice we have formed so far at any choice point along the path for the MAX player and $\\beta$ is the \\_\\_(n)\\_\\_ value choice we have formed so far at any choice point along the path for the MIN player. Which ONE of the following choices of (m) and (n) makes the above statement valid?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(m) = highest, (n) = highest"
+      },
+      {
+        "option_id": "B",
+        "text": "(m) = lowest, (n) = highest"
+      },
+      {
+        "option_id": "C",
+        "text": "(m) = highest, (n) = lowest"
+      },
+      {
+        "option_id": "D",
+        "text": "(m) = lowest, (n) = lowest"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "alpha-beta pruning",
+      "minimax",
+      "adversarial search"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 60,
+    "solution_explanation": "$\\alpha$ tracks the best (highest) value found so far for MAX along the path, and $\\beta$ tracks the best (lowest) value found so far for MIN along the path — this is the standard definition used for pruning.",
+    "step_by_step_solution": [
+      "MAX wants to maximize, so $\\alpha$ is updated to the highest value seen so far.",
+      "MIN wants to minimize, so $\\beta$ is updated to the lowest value seen so far."
+    ],
+    "answer_explanation": "(m) = highest, (n) = lowest (Option C).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.25",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a4",
+    "question_id": "GATE-DA2024-Q26",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Databases",
+    "topic": "Relational Algebra",
+    "subtopic": "Set Difference / Containment Check",
+    "question_number": 26,
+    "passage": "",
+    "question_text": "Consider a database that includes the following relations: Defender(name, rating, side, goals), Forward(name, rating, assists, goals), Team(name, club, price). Which ONE of the following relational algebra expressions checks that every name occurring in Team appears in either Defender or Forward, where $\\phi$ denotes the empty set?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\Pi_{name}(\\text{Team}) \\setminus (\\Pi_{name}(\\text{Defender}) \\cap \\Pi_{name}(\\text{Forward})) = \\phi$"
+      },
+      {
+        "option_id": "B",
+        "text": "$(\\Pi_{name}(\\text{Defender}) \\cap \\Pi_{name}(\\text{Forward})) \\setminus \\Pi_{name}(\\text{Team}) = \\phi$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\Pi_{name}(\\text{Team}) \\setminus (\\Pi_{name}(\\text{Defender}) \\cup \\Pi_{name}(\\text{Forward})) = \\phi$"
+      },
+      {
+        "option_id": "D",
+        "text": "$(\\Pi_{name}(\\text{Defender}) \\cup \\Pi_{name}(\\text{Forward})) \\setminus \\Pi_{name}(\\text{Team}) = \\phi$"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.33,
+      "zero": 0
+    },
+    "concept_tags": [
+      "relational algebra",
+      "set difference",
+      "containment"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "\"Every name in Team appears in Defender or Forward\" is a subset-containment condition: $\\Pi_{name}(\\text{Team}) \\subseteq \\Pi_{name}(\\text{Defender}) \\cup \\Pi_{name}(\\text{Forward})$, which holds iff the set difference (Team names minus the union) is empty.",
+    "step_by_step_solution": [
+      "The required condition is $\\Pi_{name}(\\text{Team}) \\subseteq \\Pi_{name}(\\text{Defender}) \\cup \\Pi_{name}(\\text{Forward})$.",
+      "$A \\subseteq B \\iff A \\setminus B = \\phi$.",
+      "So the check is $\\Pi_{name}(\\text{Team}) \\setminus (\\Pi_{name}(\\text{Defender}) \\cup \\Pi_{name}(\\text{Forward})) = \\phi$."
+    ],
+    "answer_explanation": "Option C correctly expresses the containment check.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.26",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a6",
+    "question_id": "GATE-DA2024-Q28",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Trees",
+    "subtopic": "Tree Traversal Reconstruction",
+    "question_number": 28,
+    "passage": "",
+    "question_text": "Consider the following tree traversals on a full binary tree: (i) Preorder, (ii) Inorder, (iii) Postorder. Which of the following traversal options is/are sufficient to uniquely reconstruct the full binary tree?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(i) and (ii)"
+      },
+      {
+        "option_id": "B",
+        "text": "(ii) and (iii)"
+      },
+      {
+        "option_id": "C",
+        "text": "(i) and (iii)"
+      },
+      {
+        "option_id": "D",
+        "text": "(ii) only"
+      }
+    ],
+    "correct_answer": "A;B;C",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "binary tree",
+      "tree traversal",
+      "tree reconstruction",
+      "full binary tree property"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 90,
+    "solution_explanation": "Preorder+Inorder and Inorder+Postorder always uniquely reconstruct any binary tree. Additionally, for a FULL binary tree specifically (every node has 0 or 2 children), Preorder+Postorder also suffices, because at each step it is unambiguous whether a node is a leaf (0 children) or has exactly 2 children. Inorder alone is never sufficient.",
+    "step_by_step_solution": [
+      "Preorder+Inorder (A): root from preorder, inorder splits left/right subtrees — always sufficient.",
+      "Inorder+Postorder (B): root from postorder's last element, inorder splits subtrees — always sufficient.",
+      "Preorder+Postorder (C): normally ambiguous for general binary trees, but for a FULL binary tree (0 or 2 children per node) the split point is unambiguous, making it sufficient here.",
+      "Inorder only (D): a single traversal never uniquely determines tree structure — insufficient."
+    ],
+    "answer_explanation": "Options A, B, and C are each sufficient to reconstruct a full binary tree; D alone is not.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.28",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a8",
+    "question_id": "GATE-DA2024-Q30",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Sorting",
+    "subtopic": "Quicksort Swap Count",
+    "question_number": 30,
+    "passage": "",
+    "question_text": "Consider sorting the following array of integers in ascending order using an in-place Quicksort algorithm that uses the last element as the pivot: $60\\ 70\\ 80\\ 90\\ 100$. The minimum number of swaps performed during this Quicksort is \\_\\_\\_\\_\\_\\_.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "quicksort",
+      "partitioning",
+      "sorting algorithms"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 90,
+    "solution_explanation": "The array is already sorted, and the pivot (last element) is always the maximum of the current subarray at every recursive call, so the partition step never needs to move any element past the pivot position — no actual (non-trivial) swaps occur.",
+    "step_by_step_solution": [
+      "Pivot = last element = maximum of the (already sorted) subarray at every level of recursion.",
+      "During partitioning, no element is greater than the pivot, so the pointer never advances until the pivot's own position, resulting in only a (trivial) self-swap or none at all.",
+      "This holds recursively for every sub-call, so total swaps = 0."
+    ],
+    "answer_explanation": "The minimum number of swaps is 0.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.30",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9a9",
+    "question_id": "GATE-DA2024-Q31",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Databases",
+    "topic": "SQL",
+    "subtopic": "Join with Filter Conditions",
+    "question_number": 31,
+    "passage": "",
+    "question_text": "Consider the following two tables named Raider and Team in a relational database maintained by a Kabaddi league. The attribute ID in table Team references the primary key of the Raider table, ID. Raider: (1,Arjun,200,250), (2,Ankush,190,219), (3,Sunil,150,200), (4,Reza,150,190), (5,Pratham,175,220), (6,Gopal,193,215) [ID, Name, Raids, RaidPoints]. Team: (Jaipur,2,200), (Patna,3,195), (Hyderabad,5,175), (Jaipur,1,250), (Patna,4,200), (Jaipur,6,200) [City, ID, BidPoints]. The SQL query: SELECT * FROM Raider, Team WHERE Raider.ID=Team.ID AND City=\\textquotedbl Jaipur\\textquotedbl\\ AND RaidPoints > 200; The number of rows returned by this query is \\_\\_\\_\\_\\_\\_.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "3",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "SQL",
+      "joins",
+      "filtering"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 100,
+    "solution_explanation": "Jaipur rows in Team have ID = 2, 1, 6. Their RaidPoints (from Raider) are: ID2$\\to$219, ID1$\\to$250, ID6$\\to$215 — all exceed 200, so all 3 join rows satisfy the filter.",
+    "step_by_step_solution": [
+      "Filter Team rows to City = 'Jaipur': IDs 2, 1, 6.",
+      "Join with Raider on ID: RaidPoints are 219 (Ankush), 250 (Arjun), 215 (Gopal).",
+      "Apply RaidPoints > 200: all three (219, 250, 215) qualify $\\Rightarrow$ 3 rows."
+    ],
+    "answer_explanation": "The query returns 3 rows.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.31",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.67
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9aa",
+    "question_id": "GATE-DA2024-Q32",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Deque",
+    "subtopic": "Sequence of Deque Operations",
+    "question_number": 32,
+    "passage": "",
+    "question_text": "The fundamental operations in a double-ended queue D are: insertFirst(e), insertLast(e), removeFirst(), removeLast(). In an empty double-ended queue, the following operations are performed: insertFirst(10); insertLast(32); a $\\leftarrow$ removeFirst(); insertLast(28); insertLast(17); a $\\leftarrow$ removeFirst(); a $\\leftarrow$ removeLast(). The value of a is \\_\\_\\_\\_\\_\\_.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "17",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "deque",
+      "queue operations",
+      "data structure simulation"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "Trace the deque state after each operation and track the final value assigned to $a$.",
+    "step_by_step_solution": [
+      "insertFirst(10): D=[10]; insertLast(32): D=[10,32].",
+      "a=removeFirst(): a=10, D=[32]; insertLast(28): D=[32,28]; insertLast(17): D=[32,28,17].",
+      "a=removeFirst(): a=32, D=[28,17]; a=removeLast(): a=17, D=[28]."
+    ],
+    "answer_explanation": "The final value of a is 17.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.32",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9ab",
+    "question_id": "GATE-DA2024-Q33",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Calculus",
+    "topic": "Differentiation",
+    "subtopic": "Derivative of the Sigmoid Function",
+    "question_number": 33,
+    "passage": "",
+    "question_text": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be the function $f(x) = \\dfrac{1}{1+e^{-x}}$. The value of the derivative of $f$ at $x$ where $f(x)=0.4$ is \\_\\_\\_\\_\\_\\_ (rounded off to two decimal places).",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.24",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "sigmoid function",
+      "derivative",
+      "logistic function"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 75,
+    "solution_explanation": "For the logistic/sigmoid function, $f'(x) = f(x)(1-f(x))$ — a well-known identity.",
+    "step_by_step_solution": [
+      "$f'(x) = f(x)\\,(1-f(x))$.",
+      "Given $f(x)=0.4$: $f'(x) = 0.4 \\times 0.6 = 0.24$."
+    ],
+    "answer_explanation": "The derivative value is 0.24.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.33",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.25
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9ac",
+    "question_id": "GATE-DA2024-Q34",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Descriptive Statistics",
+    "subtopic": "Updating the Sample Mean",
+    "question_number": 34,
+    "passage": "",
+    "question_text": "The sample average of 50 data points is 40. The updated sample average after including a new data point taking the value of 142 is \\_\\_\\_\\_\\_\\_.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "42",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "sample mean",
+      "incremental statistics"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 60,
+    "solution_explanation": "Sum of original 50 points $= 50\\times40=2000$. Adding the new point gives total $2142$ over $51$ points.",
+    "step_by_step_solution": [
+      "Original sum $=50\\times40=2000$.",
+      "New sum $=2000+142=2142$; new count $=51$.",
+      "New average $=2142/51=42$."
+    ],
+    "answer_explanation": "The updated sample average is 42.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.34",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9ad",
+    "question_id": "GATE-DA2024-Q35",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Linear Algebra",
+    "topic": "Determinants",
+    "subtopic": "Determinant of a Matrix Polynomial",
+    "question_number": 35,
+    "passage": "",
+    "question_text": "Consider the $3\\times3$ matrix $\\boldsymbol{M} = \\begin{bmatrix} 1 & 2 & 3 \\\\ 3 & 1 & 3 \\\\ 4 & 3 & 6 \\end{bmatrix}$. The determinant of $(\\boldsymbol{M}^2 + 12\\boldsymbol{M})$ is \\_\\_\\_\\_\\_\\_.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "determinants",
+      "matrix polynomials",
+      "eigenvalues"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 90,
+    "solution_explanation": "$\\det(M) = 1(6-9) - 2(18-12) + 3(9-4) = -3-12+15 = 0$. Since $M^2+12M = M(M+12I)$, $\\det(M^2+12M)=\\det(M)\\cdot\\det(M+12I) = 0$.",
+    "step_by_step_solution": [
+      "Compute $\\det(M) = 1(1\\cdot6-3\\cdot3) - 2(3\\cdot6-3\\cdot4) + 3(3\\cdot3-1\\cdot4) = -3-12+15=0$.",
+      "Factor: $M^2+12M = M(M+12I)$.",
+      "$\\det(M^2+12M) = \\det(M)\\,\\det(M+12I) = 0 \\times (\\cdot) = 0$."
+    ],
+    "answer_explanation": "The determinant is 0, because M itself is singular.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.35",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9ae",
+    "question_id": "GATE-DA2024-Q36",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Expectation",
+    "subtopic": "Expected Waiting Time (Markov Chain)",
+    "question_number": 36,
+    "passage": "",
+    "question_text": "A fair six-sided die (with faces numbered 1,2,3,4,5,6) is repeatedly thrown independently. What is the expected number of times the die is thrown until two consecutive throws of even numbers are seen?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "2"
+      },
+      {
+        "option_id": "B",
+        "text": "4"
+      },
+      {
+        "option_id": "C",
+        "text": "6"
+      },
+      {
+        "option_id": "D",
+        "text": "8"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "expected value",
+      "Markov chains",
+      "waiting time problems"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Model states as $S_0$ (last throw not even / start) and $S_1$ (last throw even); with $p=1/2$ for even, set up and solve the linear system for expected throws to absorption.",
+    "step_by_step_solution": [
+      "Let $E_0$ = expected throws from state $S_0$ (no run yet), $E_1$ = expected throws from state $S_1$ (last was even).",
+      "$E_0 = 1 + \\tfrac12 E_1 + \\tfrac12 E_0 \\Rightarrow E_0 = 2 + E_1$.",
+      "$E_1 = 1 + \\tfrac12(0) + \\tfrac12 E_0 \\Rightarrow E_1 = 1+\\tfrac12E_0$.",
+      "Substitute: $E_0 = 2 + 1 + \\tfrac12E_0 \\Rightarrow \\tfrac12E_0=3 \\Rightarrow E_0=6$."
+    ],
+    "answer_explanation": "The expected number of throws is 6 (Option C).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.36",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9af",
+    "question_id": "GATE-DA2024-Q37",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Calculus",
+    "topic": "Continuity & Differentiability",
+    "subtopic": "Piecewise Function Coefficients",
+    "question_number": 37,
+    "passage": "",
+    "question_text": "Let $f:\\mathbb{R}\\to\\mathbb{R}$ be a function: $f(x) = -x$ if $x<-2$; $f(x)=ax^2+bx+c$ if $x\\in[-2,2]$; $f(x)=x$ if $x>2$. Which ONE of the following choices gives the values of $a,b,c$ that make the function $f$ continuous and differentiable?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$a=\\tfrac14, b=0, c=1$"
+      },
+      {
+        "option_id": "B",
+        "text": "$a=\\tfrac12, b=0, c=0$"
+      },
+      {
+        "option_id": "C",
+        "text": "$a=0, b=0, c=0$"
+      },
+      {
+        "option_id": "D",
+        "text": "$a=1, b=1, c=-4$"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "continuity",
+      "differentiability",
+      "piecewise functions"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Match values and slopes at the two junction points $x=-2$ and $x=2$ to get four equations in $a,b,c$.",
+    "step_by_step_solution": [
+      "Continuity at $x=2$: $4a+2b+c=2$; continuity at $x=-2$: $4a-2b+c=2$. Subtracting gives $b=0$.",
+      "Differentiability at $x=2$: $f'(x)=2ax+b$ must equal 1 (slope of $x$): $4a+b=1 \\Rightarrow 4a=1 \\Rightarrow a=\\tfrac14$.",
+      "From $4a+c=2$: $c = 2-1 = 1$.",
+      "So $a=\\tfrac14, b=0, c=1$."
+    ],
+    "answer_explanation": "Option A gives values making f continuous and differentiable.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.37",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b1",
+    "question_id": "GATE-DA2024-Q39",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Programming",
+    "topic": "Algorithms",
+    "subtopic": "Longest Non-Decreasing Run (Pseudocode Trace)",
+    "question_number": 39,
+    "passage": "",
+    "question_text": "Consider the function computeS(X) whose pseudocode is: $S[1]\\leftarrow1$; for $i\\leftarrow2$ to length(X): $S[i]\\leftarrow1$; if $X[i-1]\\le X[i]$ then $S[i]\\leftarrow S[i]+S[i-1]$; end for; return S. Which ONE of the following values is returned by the function computeS(X) for $X=[6,3,5,4,10]$?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "[1, 1, 2, 3, 4]"
+      },
+      {
+        "option_id": "B",
+        "text": "[1, 1, 2, 3, 3]"
+      },
+      {
+        "option_id": "C",
+        "text": "[1, 1, 2, 1, 2]"
+      },
+      {
+        "option_id": "D",
+        "text": "[1, 1, 2, 1, 5]"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "pseudocode tracing",
+      "dynamic programming",
+      "sequences"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 120,
+    "solution_explanation": "$S[i]$ counts the length of the non-decreasing run ending at position $i$; trace through $X=[6,3,5,4,10]$ step by step.",
+    "step_by_step_solution": [
+      "$S[1]=1$.",
+      "$i=2$: $X[1]=6 > X[2]=3 \\Rightarrow S[2]=1$.",
+      "$i=3$: $X[2]=3 \\le X[3]=5 \\Rightarrow S[3]=1+S[2]=2$.",
+      "$i=4$: $X[3]=5 > X[4]=4 \\Rightarrow S[4]=1$.",
+      "$i=5$: $X[4]=4 \\le X[5]=10 \\Rightarrow S[5]=1+S[4]=2$.",
+      "Result: $[1,1,2,1,2]$."
+    ],
+    "answer_explanation": "The returned array is [1, 1, 2, 1, 2] (Option C).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.39",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b2",
+    "question_id": "GATE-DA2024-Q40",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Searching",
+    "subtopic": "Binary Search Recurrence",
+    "question_number": 40,
+    "passage": "",
+    "question_text": "Let $F(n)$ denote the maximum number of comparisons made while searching for an entry in a sorted array of size $n$ using binary search. Which ONE of the following options is TRUE?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$F(n) = F(\\lfloor n/2 \\rfloor) + 1$"
+      },
+      {
+        "option_id": "B",
+        "text": "$F(n) = F(\\lfloor n/2 \\rfloor) + F(\\lceil n/2 \\rceil)$"
+      },
+      {
+        "option_id": "C",
+        "text": "$F(n) = F(\\lfloor n/2 \\rfloor)$"
+      },
+      {
+        "option_id": "D",
+        "text": "$F(n) = F(n-1) + 1$"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "binary search",
+      "recurrence relations",
+      "algorithm analysis"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 100,
+    "solution_explanation": "Each comparison in binary search halves the search space (to size $\\lfloor n/2 \\rfloor$, the larger of the two halves in the worst case), costing 1 comparison plus the cost of searching the remaining half.",
+    "step_by_step_solution": [
+      "Binary search compares the middle element (1 comparison), then recurses on a half of size at most $\\lfloor n/2\\rfloor$.",
+      "So $F(n) = F(\\lfloor n/2\\rfloor) + 1$."
+    ],
+    "answer_explanation": "The correct recurrence is $F(n)=F(\\lfloor n/2\\rfloor)+1$ (Option A).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.40",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.67
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b3",
+    "question_id": "GATE-DA2024-Q41",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Programming",
+    "topic": "Recursion",
+    "subtopic": "In-place List Reversal",
+    "question_number": 41,
+    "passage": "",
+    "question_text": "Consider the following Python function: \\texttt{def fun(D, s1, s2): if s1 < s2: D[s1], D[s2] = D[s2], D[s1]; fun(D, s1+1, s2-1)}. What does this Python function fun() do?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "It finds the smallest element in D from index s1 to s2, both inclusive."
+      },
+      {
+        "option_id": "B",
+        "text": "It performs a merge sort in-place on this list D between indices s1 and s2, both inclusive."
+      },
+      {
+        "option_id": "C",
+        "text": "It reverses the list D between indices s1 and s2, both inclusive."
+      },
+      {
+        "option_id": "D",
+        "text": "It swaps the elements in D at indices s1 and s2, and leaves the remaining elements unchanged."
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Python",
+      "recursion",
+      "array reversal"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 100,
+    "solution_explanation": "The function repeatedly swaps the outermost pair of indices and moves inward ($s1{+}1$, $s2{-}1$) until the pointers meet or cross — this is the classic two-pointer in-place reversal pattern.",
+    "step_by_step_solution": [
+      "Base swap: element at s1 and s2 are exchanged.",
+      "Recursive call moves both pointers inward (s1+1, s2-1), repeating the swap.",
+      "This continues until s1 $\\ge$ s2, reversing the whole subarray between the original s1 and s2."
+    ],
+    "answer_explanation": "The function reverses list D between indices s1 and s2 (Option C).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.41",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.67
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b4",
+    "question_id": "GATE-DA2024-Q42",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Clustering",
+    "subtopic": "Single-Linkage Hierarchical Clustering",
+    "question_number": 42,
+    "passage": "",
+    "question_text": "Consider the table below, where the $(i,j)^{th}$ element of the table is the distance between points $x_i$ and $x_j$: $x_1x_2{=}1, x_1x_3{=}4, x_1x_4{=}3, x_1x_5{=}6, x_2x_3{=}3, x_2x_4{=}5, x_2x_5{=}3, x_3x_4{=}2, x_3x_5{=}5, x_4x_5{=}1$. Single linkage clustering is performed on data points $x_1,x_2,x_3,x_4,x_5$. Which ONE of the following is the correct representation of the clusters produced? [see image: four candidate dendrograms A-D]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "image",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {
+      "A": "q42_option_A.png",
+      "B": "q42_option_B.png",
+      "C": "q42_option_C.png",
+      "D": "q42_option_D.png"
+    },
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Dendrogram: (x1,x2) merge first; (x4,x5) merge, then x3 joins (x4,x5); both groups merge at the top"
+      },
+      {
+        "option_id": "B",
+        "text": "Dendrogram with a different early-merge order (see image)"
+      },
+      {
+        "option_id": "C",
+        "text": "Dendrogram with a different early-merge order (see image)"
+      },
+      {
+        "option_id": "D",
+        "text": "Dendrogram with a different early-merge order (see image)"
+      }
+    ],
+    "correct_answer": "A",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "hierarchical clustering",
+      "single linkage",
+      "dendrogram"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Repeatedly merge the two clusters with the smallest single-linkage (minimum pairwise) distance, updating the distance matrix after each merge, until one cluster remains.",
+    "step_by_step_solution": [
+      "Smallest distance overall: $x_1$-$x_2=1$ and $x_4$-$x_5=1$ (tie) $\\Rightarrow$ merge $\\{x_1,x_2\\}$ and $\\{x_4,x_5\\}$.",
+      "Next distances: $\\{x_1,x_2\\}$-$x_3=\\min(4,3)=3$; $x_3$-$\\{x_4,x_5\\}=\\min(2,5)=2$; $\\{x_1,x_2\\}$-$\\{x_4,x_5\\}=\\min(3,6,5,3)=3$.",
+      "Smallest is 2: merge $x_3$ into $\\{x_4,x_5\\}$, forming $\\{x_3,x_4,x_5\\}$.",
+      "Final merge: $\\{x_1,x_2\\}$ with $\\{x_3,x_4,x_5\\}$ at distance $\\min(3,3)=3$ (the root)."
+    ],
+    "answer_explanation": "The dendrogram matching this merge sequence is Option A.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.42",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b6",
+    "question_id": "GATE-DA2024-Q44",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Artificial Intelligence",
+    "topic": "Uninformed Search",
+    "subtopic": "BFS vs DFS State Expansion",
+    "question_number": 44,
+    "passage": "",
+    "question_text": "Consider a state space where the start state is number 1. The successor function for the state numbered $n$ returns two states numbered $n{+}1$ and $n{+}2$. Assume that the states in the unexpanded state list are expanded in the ascending order of numbers and the previously expanded states are not added to the unexpanded state list. Which ONE of the following statements about breadth-first search (BFS) and depth-first search (DFS) is true, when reaching the goal state number 6?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "BFS expands more states than DFS."
+      },
+      {
+        "option_id": "B",
+        "text": "DFS expands more states than BFS."
+      },
+      {
+        "option_id": "C",
+        "text": "Both BFS and DFS expand equal number of states."
+      },
+      {
+        "option_id": "D",
+        "text": "Both BFS and DFS do not reach the goal state number 6."
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "BFS",
+      "DFS",
+      "state space search"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Simulating both strategies on this specific successor structure (each state $n$ generates $n{+}1,n{+}2$, expanded in ascending numeric order, no re-expansion of already-expanded states) shows both algorithms expand the same set of states $\\{1,2,3,4,5\\}$ before generating and reaching goal state 6.",
+    "step_by_step_solution": [
+      "BFS expands 1 (frontier: 2,3), then 2 (frontier: 3,4), then 3 (frontier: 4,5), then 4 (frontier: 5,6) — goal 6 generated after expanding 1,2,3,4.",
+      "DFS with ascending-order tie-breaking on the unexpanded list behaves identically here because the ascending-order expansion rule forces the same left-to-right sequence, so it also expands 1,2,3,4 before generating 6.",
+      "Both expand the same 4 states $\\{1,2,3,4\\}$ before reaching goal 6."
+    ],
+    "answer_explanation": "Both BFS and DFS expand an equal number of states (Option C).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.44",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b7",
+    "question_id": "GATE-DA2024-Q45",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Sorting",
+    "subtopic": "Sorting Completed in Exactly Two Passes",
+    "question_number": 45,
+    "passage": "",
+    "question_text": "Consider the following sorting algorithms: (i) Bubble sort, (ii) Insertion sort, (iii) Selection sort. Which ONE among the following choices of sorting algorithms sorts the numbers in the array $[4,3,2,1,5]$ in increasing order after exactly two passes over the array?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_single",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(i) only"
+      },
+      {
+        "option_id": "B",
+        "text": "(iii) only"
+      },
+      {
+        "option_id": "C",
+        "text": "(i) and (iii) only"
+      },
+      {
+        "option_id": "D",
+        "text": "(ii) and (iii) only"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.67,
+      "zero": 0
+    },
+    "concept_tags": [
+      "bubble sort",
+      "selection sort",
+      "insertion sort",
+      "algorithm tracing"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Trace each algorithm for exactly 2 passes on $[4,3,2,1,5]$ and check which yields the fully sorted array $[1,2,3,4,5]$.",
+    "step_by_step_solution": [
+      "Selection sort pass 1: minimum is 1 (index 3); swap with index 0 $\\to [1,3,2,4,5]$.",
+      "Selection sort pass 2: minimum of remaining $[3,2,4,5]$ is 2; swap with index 1 $\\to [1,2,3,4,5]$ — sorted in 2 passes.",
+      "Bubble sort after 2 passes gives $[2,1,3,4,5]$ (not sorted); Insertion sort after 2 passes gives $[2,3,4,1,5]$ (not sorted)."
+    ],
+    "answer_explanation": "Only Selection sort (iii) sorts the array in exactly two passes (Option B).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.45",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b8",
+    "question_id": "GATE-DA2024-Q46",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Databases",
+    "topic": "Functional Dependencies",
+    "subtopic": "Armstrong's Axioms / Derivation",
+    "question_number": 46,
+    "passage": "",
+    "question_text": "Given the relational schema $R=(U,V,W,X,Y,Z)$ and the set of functional dependencies $\\{U\\to V,\\ U\\to W,\\ WX\\to Y,\\ WX\\to Z,\\ V\\to X\\}$. Which of the following functional dependencies can be derived from the above set?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$VW \\to YZ$"
+      },
+      {
+        "option_id": "B",
+        "text": "$WX \\to YZ$"
+      },
+      {
+        "option_id": "C",
+        "text": "$VW \\to U$"
+      },
+      {
+        "option_id": "D",
+        "text": "$VW \\to Y$"
+      }
+    ],
+    "correct_answer": "A;B;D",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "functional dependencies",
+      "Armstrong's axioms",
+      "closure"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Use Armstrong's axioms (augmentation, union, transitivity) to check derivability of each candidate FD from the given set.",
+    "step_by_step_solution": [
+      "$WX\\to Y$ and $WX\\to Z$ (given) combine by union rule to give $WX\\to YZ$ directly — B holds.",
+      "$V\\to X$ (given), augment with $W$: $VW \\to WX$; combined with $WX\\to YZ$ by transitivity gives $VW\\to YZ$ — A holds, and hence $VW\\to Y$ also holds by decomposition — D holds.",
+      "There is no FD in the closure implying $VW\\to U$ (nothing determines $U$) — C does not hold."
+    ],
+    "answer_explanation": "Options A, B, and D are derivable; C is not.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.46",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9b9",
+    "question_id": "GATE-DA2024-Q47",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Linear Algebra",
+    "topic": "Vector Spaces",
+    "subtopic": "Subspaces of R^3",
+    "question_number": 47,
+    "passage": "",
+    "question_text": "Select all choices that are subspaces of $\\mathbb{R}^3$: (A) $\\{x : x = \\alpha[1,1,0]^T + \\beta[1,0,0]^T, \\alpha,\\beta\\in\\mathbb{R}\\}$; (B) $\\{x : x = \\alpha^2[1,2,0]^T + \\beta^2[1,0,1]^T, \\alpha,\\beta\\in\\mathbb{R}\\}$; (C) $\\{x : 5x_1+2x_3=0,\\ 4x_1-2x_2+3x_3=0\\}$; (D) $\\{x : 5x_1+2x_3+4=0\\}$.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$\\{x = \\alpha[1,1,0]^T + \\beta[1,0,0]^T\\}$"
+      },
+      {
+        "option_id": "B",
+        "text": "$\\{x = \\alpha^2[1,2,0]^T + \\beta^2[1,0,1]^T\\}$"
+      },
+      {
+        "option_id": "C",
+        "text": "$\\{5x_1+2x_3=0,\\ 4x_1-2x_2+3x_3=0\\}$"
+      },
+      {
+        "option_id": "D",
+        "text": "$\\{5x_1+2x_3+4=0\\}$"
+      }
+    ],
+    "correct_answer": "A;C",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "vector subspaces",
+      "linear span",
+      "homogeneous systems"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "A subspace must contain the origin and be closed under addition and (all real, including negative) scalar multiplication.",
+    "step_by_step_solution": [
+      "(A) is the span of two fixed vectors with free real coefficients $\\alpha,\\beta$ — a valid subspace (a plane through the origin).",
+      "(B) uses $\\alpha^2,\\beta^2 \\ge 0$ only, so it cannot produce arbitrary negative scalar multiples — closure under scalar multiplication fails, not a subspace.",
+      "(C) is the solution set of homogeneous linear equations (both pass through the origin) — intersection of two planes through origin, a valid subspace (a line).",
+      "(D) is an affine (non-homogeneous) equation, $5x_1+2x_3=-4$, which does not pass through the origin — not a subspace."
+    ],
+    "answer_explanation": "Options A and C are valid subspaces of $\\mathbb{R}^3$.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.47",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9ba",
+    "question_id": "GATE-DA2024-Q48",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Linear Algebra",
+    "topic": "Systems of Linear Equations",
+    "subtopic": "Existence & Uniqueness of Solutions",
+    "question_number": 48,
+    "passage": "",
+    "question_text": "Which of the following statements is/are TRUE? (A) There exist $M\\in\\mathbb{R}^{3\\times3}, p,q\\in\\mathbb{R}^3$ such that $Mx=p$ has a unique solution and $Mx=q$ has infinite solutions. (B) There exist $M\\in\\mathbb{R}^{3\\times3},p,q\\in\\mathbb{R}^3$ such that $Mx=p$ has no solutions and $Mx=q$ has infinite solutions. (C) There exist $M\\in\\mathbb{R}^{2\\times3},p,q\\in\\mathbb{R}^2$ such that $Mx=p$ has a unique solution and $Mx=q$ has infinite solutions. (D) There exist $M\\in\\mathbb{R}^{3\\times2},p,q\\in\\mathbb{R}^3$ such that $Mx=p$ has a unique solution and $Mx=q$ has no solutions.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Square $M$: unique solution for $p$, infinite for $q$"
+      },
+      {
+        "option_id": "B",
+        "text": "Square $M$: no solution for $p$, infinite for $q$"
+      },
+      {
+        "option_id": "C",
+        "text": "Wide $M$ ($2\\times3$): unique solution for $p$, infinite for $q$"
+      },
+      {
+        "option_id": "D",
+        "text": "Tall $M$ ($3\\times2$): unique solution for $p$, no solution for $q$"
+      }
+    ],
+    "correct_answer": "B;D",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "linear systems",
+      "rank",
+      "existence and uniqueness"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "For a fixed matrix $M$, the solvability structure (unique / infinite / none) for different right-hand sides is constrained by $\\mathrm{rank}(M)$ relative to the number of columns and rows: a full-column-rank square $M$ always gives a unique solution for every consistent (indeed every) $p$ — it cannot also give infinite solutions for another $q$; similarly for wide matrices.",
+    "step_by_step_solution": [
+      "(A) If square $M$ is invertible, every $p$ gives a unique solution — it can never also give infinite solutions for some $q$; if $M$ is singular, no $p$ gives a unique solution. So (A) is impossible — FALSE.",
+      "(B) Take $M$ singular (rank $<3$): for some $p$ outside the column space $\\Rightarrow$ no solution; for $q=0$ (or in the column space) $\\Rightarrow$ infinite solutions (nontrivial null space). Achievable — TRUE.",
+      "(C) A $2\\times3$ matrix has a nontrivial null space (3 columns, rank $\\le2$) whenever it has any solution, so a unique solution is impossible for any $p$ — (C) is impossible — FALSE.",
+      "(D) A full-column-rank $3\\times2$ matrix gives a unique solution when $p$ is in its column space (2-dimensional subspace of $\\mathbb{R}^3$), and no solution when $q$ lies outside that column space. Achievable — TRUE."
+    ],
+    "answer_explanation": "Statements B and D are true; A and C are impossible given the rank constraints.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.48",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9bb",
+    "question_id": "GATE-DA2024-Q49",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Linear Algebra",
+    "topic": "Projections",
+    "subtopic": "Properties of Projection Matrices",
+    "question_number": 49,
+    "passage": "",
+    "question_text": "Let $U$ be a subspace of $\\mathbb{R}^3$ and $M\\in\\mathbb{R}^{3\\times3}$ be the matrix corresponding to the projection onto the subspace $U$. Which of the following statements is/are TRUE? (A) If $U$ is a 1-dimensional subspace, then the null space of $M$ is a 1-dimensional subspace. (B) If $U$ is a 2-dimensional subspace, then the null space of $M$ is a 1-dimensional subspace. (C) $M^2=M$. (D) $M^3=M$.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "If $U$ is 1-D, null space of $M$ is 1-D"
+      },
+      {
+        "option_id": "B",
+        "text": "If $U$ is 2-D, null space of $M$ is 1-D"
+      },
+      {
+        "option_id": "C",
+        "text": "$M^2=M$"
+      },
+      {
+        "option_id": "D",
+        "text": "$M^3=M$"
+      }
+    ],
+    "correct_answer": "B;C;D",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "projection matrices",
+      "idempotent matrices",
+      "null space"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "A projection matrix onto subspace $U$ of $\\mathbb{R}^n$ has $\\mathrm{null}(M) = U^{\\perp}$, with $\\dim(U)+\\dim(U^\\perp)=n$, and satisfies the idempotent property $M^2=M$.",
+    "step_by_step_solution": [
+      "(A) If $\\dim(U)=1$, then $\\dim(U^\\perp)=3-1=2$, so the null space is 2-dimensional, not 1-dimensional — FALSE.",
+      "(B) If $\\dim(U)=2$, then $\\dim(U^\\perp)=3-2=1$ — TRUE.",
+      "(C) All orthogonal projection matrices satisfy $M^2=M$ (projecting twice = projecting once) — TRUE.",
+      "(D) $M^3 = M\\cdot M^2 = M\\cdot M = M^2 = M$ — TRUE (follows directly from C)."
+    ],
+    "answer_explanation": "Statements B, C, and D are true; A is false.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.49",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9bc",
+    "question_id": "GATE-DA2024-Q50",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Calculus",
+    "topic": "Optimization",
+    "subtopic": "Local Extrema via Derivative Test",
+    "question_number": 50,
+    "passage": "",
+    "question_text": "Consider the function $f:\\mathbb{R}\\to\\mathbb{R}$: $f(x) = \\dfrac{x^4}{4} - \\dfrac{2x^3}{3} - \\dfrac{3x^2}{2} + 1$. Which of the following statements is/are TRUE?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$x=0$ is a local maximum of $f$"
+      },
+      {
+        "option_id": "B",
+        "text": "$x=3$ is a local minimum of $f$"
+      },
+      {
+        "option_id": "C",
+        "text": "$x=-1$ is a local maximum of $f$"
+      },
+      {
+        "option_id": "D",
+        "text": "$x=0$ is a local minimum of $f$"
+      }
+    ],
+    "correct_answer": "A;B",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "local extrema",
+      "first and second derivative test",
+      "critical points"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Find critical points from $f'(x)=0$ and classify each using the sign of $f''(x)$.",
+    "step_by_step_solution": [
+      "$f'(x) = x^3 - 2x^2 - 3x = x(x-3)(x+1)$; critical points: $x=0,3,-1$.",
+      "$f''(x) = 3x^2-4x-3$.",
+      "At $x=0$: $f''=-3<0 \\Rightarrow$ local maximum. At $x=3$: $f''=12>0 \\Rightarrow$ local minimum. At $x=-1$: $f''=4>0 \\Rightarrow$ local minimum (not maximum)."
+    ],
+    "answer_explanation": "Statements A and B are true; C and D are false (x=0 is a maximum, not minimum; x=-1 is a minimum, not maximum).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.50",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9bd",
+    "question_id": "GATE-DA2024-Q51",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Graph Algorithms",
+    "subtopic": "Topological Sort Validity",
+    "question_number": 51,
+    "passage": "",
+    "question_text": "Consider the directed acyclic graph (DAG) below: edges $P\\to Q$, $R\\to Q$, $Q\\to S$, $Q\\to V$, $S\\to U$, $V\\to T$. Which of the following is/are valid vertex orderings that can be obtained from a topological sort of the DAG? [see image]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "image",
+    "has_latex": false,
+    "image_url": "q51_dag.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "P Q R S T U V"
+      },
+      {
+        "option_id": "B",
+        "text": "P R Q V S U T"
+      },
+      {
+        "option_id": "C",
+        "text": "P Q R S V U T"
+      },
+      {
+        "option_id": "D",
+        "text": "P R Q S V T U"
+      }
+    ],
+    "correct_answer": "B;D",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "topological sort",
+      "DAG",
+      "graph ordering"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "A valid topological order must place P and R before Q, Q before both S and V, S before U, and V before T.",
+    "step_by_step_solution": [
+      "(A) P Q R S T U V: R appears after Q, violating $R\\to Q$ — INVALID.",
+      "(B) P R Q V S U T: P,R before Q (OK); Q before S,V (OK); S before U (OK); V before T (OK) — VALID.",
+      "(C) P Q R S V U T: R appears after Q, violating $R\\to Q$ — INVALID.",
+      "(D) P R Q S V T U: P,R before Q (OK); Q before S,V (OK); S before U (OK, U is last); V before T (OK) — VALID."
+    ],
+    "answer_explanation": "Orderings B and D are valid topological sorts of the DAG.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.51",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9be",
+    "question_id": "GATE-DA2024-Q52",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Algorithms & Data Structures",
+    "topic": "Trees",
+    "subtopic": "Binary Tree Bounds (Height, Nodes, Leaves)",
+    "question_number": 52,
+    "passage": "",
+    "question_text": "Let $H,I,L,N$ represent height, number of internal nodes, number of leaf nodes, and the total number of nodes respectively in a rooted binary tree. Which of the following statements is/are always TRUE?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$L \\le I+1$"
+      },
+      {
+        "option_id": "B",
+        "text": "$H+1 \\le N \\le 2^{H+1}-1$"
+      },
+      {
+        "option_id": "C",
+        "text": "$H \\le I \\le 2^H-1$"
+      },
+      {
+        "option_id": "D",
+        "text": "$H \\le L \\le 2^{H-1}$"
+      }
+    ],
+    "correct_answer": "A;B;C",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "binary trees",
+      "tree height",
+      "combinatorial bounds"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Use the standard bounds for binary trees: minimum a degenerate (path-like) tree, maximum a perfect (fully balanced) tree of the given height.",
+    "step_by_step_solution": [
+      "(A) In a binary tree, leaves are at most one more than internal nodes ($L \\le I+1$, with equality for a full binary tree) — TRUE.",
+      "(B) Minimum nodes for height $H$ is a single path: $N=H+1$; maximum is a perfect tree: $N=2^{H+1}-1$ — TRUE.",
+      "(C) A path-like tree has $H$ internal nodes (minimum); a perfect tree has $2^H-1$ internal nodes (maximum) — TRUE.",
+      "(D) A path-like tree of height $H$ has only 1 leaf, not $H$, so the lower bound $H \\le L$ fails for $H>1$ — FALSE."
+    ],
+    "answer_explanation": "Statements A, B, and C are always true; D is false.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.52",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9bf",
+    "question_id": "GATE-DA2024-Q53",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Classification",
+    "subtopic": "Linear Separability",
+    "question_number": 53,
+    "passage": "",
+    "question_text": "Consider the following figures representing datasets consisting of two-dimensional features with two classes denoted by circles and squares. [see image: four scatter plots (i)-(iv)] Which of the following is/are TRUE?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "image",
+    "has_latex": false,
+    "image_url": "q53_all.png",
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "(i) is linearly separable."
+      },
+      {
+        "option_id": "B",
+        "text": "(ii) is linearly separable."
+      },
+      {
+        "option_id": "C",
+        "text": "(iii) is linearly separable."
+      },
+      {
+        "option_id": "D",
+        "text": "(iv) is linearly separable."
+      }
+    ],
+    "correct_answer": "A;D",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "linear separability",
+      "classification",
+      "decision boundaries"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "A dataset is linearly separable if a single straight line can separate all circle points from all square points with no misclassification.",
+    "step_by_step_solution": [
+      "(i): circles are clustered in the upper-left, squares in the lower-right — a single line can separate them — TRUE.",
+      "(ii): a circle sits at the centre surrounded by squares on multiple sides — no single line separates them — FALSE.",
+      "(iii): circles and squares are diagonally interleaved (alternating corners) — not linearly separable — FALSE.",
+      "(iv): despite being scattered, the two classes can still be divided by a suitably placed line — TRUE."
+    ],
+    "answer_explanation": "Datasets (i) and (iv) are linearly separable (Options A and D).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.53",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c0",
+    "question_id": "GATE-DA2024-Q54",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Artificial Intelligence",
+    "topic": "Knowledge Representation",
+    "subtopic": "First-Order Logic Translation",
+    "question_number": 54,
+    "passage": "",
+    "question_text": "Let $game(ball,rugby)$ be true if the ball is used in rugby and false otherwise. Let $shape(ball,round)$ be true if the ball is round and false otherwise. Consider: $s1: \\forall ball\\ \\neg game(ball,rugby) \\Rightarrow shape(ball,round)$; $s2: \\forall ball\\ \\neg shape(ball,round) \\Rightarrow game(ball,rugby)$; $s3: \\forall ball\\ game(ball,rugby) \\Rightarrow \\neg shape(ball,round)$; $s4: \\forall ball\\ shape(ball,round) \\Rightarrow \\neg game(ball,rugby)$. Which of the following choices is/are logical representations of the assertion \\textquotedbl All balls are round except balls used in rugby\\textquotedbl?",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "$s1 \\wedge s3$"
+      },
+      {
+        "option_id": "B",
+        "text": "$s1 \\wedge s2$"
+      },
+      {
+        "option_id": "C",
+        "text": "$s2 \\wedge s3$"
+      },
+      {
+        "option_id": "D",
+        "text": "$s3 \\wedge s4$"
+      }
+    ],
+    "correct_answer": "A;C",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "first-order logic",
+      "knowledge representation",
+      "predicate logic translation"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "\"All balls are round except rugby balls\" means: (i) any non-rugby ball is round, and (ii) any rugby ball is not round. These two directions are captured (possibly via contrapositive-equivalent forms) by pairs that include both $s1$ (or its equivalent $s2$) and $s3$.",
+    "step_by_step_solution": [
+      "'Except rugby balls, all balls are round' means: not-rugby $\\Rightarrow$ round, i.e. $s1$; and equivalently (contrapositive of $s1$) not-round $\\Rightarrow$ rugby, i.e. $s2$ — so $s1$ and $s2$ are logically equivalent statements of the same half.",
+      "It also means: rugby $\\Rightarrow$ not round, i.e. $s3$ (with contrapositive round $\\Rightarrow$ not rugby, i.e. $s4$, equivalent to $s3$).",
+      "A correct full representation needs one statement from the $\\{s1,s2\\}$-equivalent pair AND one from the $\\{s3,s4\\}$-equivalent pair: $s1\\wedge s3$ (A) and $s2\\wedge s3$ (C) both qualify; $s1\\wedge s2$ (B) captures only one direction twice, and $s3\\wedge s4$ (D) captures only the other direction twice."
+    ],
+    "answer_explanation": "Options A ($s1\\wedge s3$) and C ($s2\\wedge s3$) both correctly represent the assertion.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.54",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c1",
+    "question_id": "GATE-DA2024-Q55",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Databases",
+    "topic": "Indexing",
+    "subtopic": "Choosing Index Types for a Query",
+    "question_number": 55,
+    "passage": "",
+    "question_text": "An OTT company maintains a disk-based relational database: Movie(ID, CustomerRating), Genre(ID, Name), Movie\\_Genre(MovieID, GenreID). Query: SELECT * FROM Movie, Genre, Movie\\_Genre WHERE Movie.CustomerRating > 3.4 AND Genre.Name = \\textquotedbl Comedy\\textquotedbl\\ AND Movie\\_Genre.MovieID = Movie.ID AND Movie\\_Genre.GenreID = Genre.ID; This SQL query can be sped up using which of the following indexing options? A: B+ tree on all the attributes. B: Hash index on Genre.Name and B+ tree on the remaining attributes. C: Hash index on Movie.CustomerRating and B+ tree on the remaining attributes. D: Hash index on all the attributes.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "multiple_choice_multiple",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "B+ tree on all the attributes."
+      },
+      {
+        "option_id": "B",
+        "text": "Hash index on Genre.Name and B+ tree on the remaining attributes."
+      },
+      {
+        "option_id": "C",
+        "text": "Hash index on Movie.CustomerRating and B+ tree on the remaining attributes."
+      },
+      {
+        "option_id": "D",
+        "text": "Hash index on all the attributes."
+      }
+    ],
+    "correct_answer": "A;B",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "database indexing",
+      "hash index",
+      "B+ tree",
+      "query optimization"
+    ],
+    "problem_types": [
+      "conceptual"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "The query has an equality predicate (Genre.Name = 'Comedy') and a range predicate (CustomerRating > 3.4). Hash indexes efficiently support equality lookups but NOT range queries; B+ tree indexes support both equality and range/ordered queries.",
+    "step_by_step_solution": [
+      "Genre.Name is used in an equality condition — a hash index (or B+ tree) works well here.",
+      "Movie.CustomerRating is used in a range condition (> 3.4) — only a B+ tree (ordered index) can efficiently support this; a hash index cannot.",
+      "Option A (B+ tree everywhere) supports both predicate types — speeds up the query.",
+      "Option B (hash on the equality attribute, B+ tree elsewhere including CustomerRating) also correctly supports both — speeds up the query.",
+      "Options C and D put a hash index on CustomerRating (a range predicate), which a hash index cannot efficiently support — do not properly speed up the query."
+    ],
+    "answer_explanation": "Options A and B correctly speed up the query; C and D misuse hash indexes on a range predicate.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.55",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c2",
+    "question_id": "GATE-DA2024-Q56",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Continuous Random Variables",
+    "subtopic": "Probability from Uniform Distributions",
+    "question_number": 56,
+    "passage": "",
+    "question_text": "Let $X$ be a random variable uniformly distributed in the interval $[1,3]$ and $Y$ be a random variable uniformly distributed in the interval $[2,4]$. If $X$ and $Y$ are independent of each other, the probability $P(X \\ge Y)$ is \\_\\_\\_\\_\\_\\_ (rounded off to three decimal places).",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.125",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "uniform distribution",
+      "joint probability",
+      "geometric probability"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 180,
+    "solution_explanation": "The joint density is uniform over the rectangle $[1,3]\\times[2,4]$ with density $\\tfrac14$; integrate over the region where $x \\ge y$, which only overlaps the rectangle for $x\\in[2,3]$.",
+    "step_by_step_solution": [
+      "Joint density $f(x,y) = \\tfrac{1}{2}\\cdot\\tfrac{1}{2} = \\tfrac14$ on $[1,3]\\times[2,4]$.",
+      "The region $X\\ge Y$ within this rectangle is $\\{2\\le x\\le3,\\ 2\\le y\\le x\\}$ (a triangle).",
+      "$P(X\\ge Y) = \\int_2^3 \\int_2^x \\tfrac14\\, dy\\, dx = \\int_2^3 \\tfrac{x-2}{4}dx = \\tfrac14\\left[\\tfrac{(x-2)^2}{2}\\right]_2^3 = \\tfrac14\\cdot\\tfrac12 = 0.125$."
+    ],
+    "answer_explanation": "The probability is 0.125.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.56",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 3
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c3",
+    "question_id": "GATE-DA2024-Q57",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Continuous Random Variables",
+    "subtopic": "Exponential Distribution Parameter",
+    "question_number": 57,
+    "passage": "",
+    "question_text": "Let $X$ be a random variable exponentially distributed with parameter $\\lambda>0$, $f_X(x)=\\lambda e^{-\\lambda x}$ for $x\\ge0$. If $5E(X)=Var(X)$, the value of $\\lambda$ is \\_\\_\\_\\_\\_\\_ (rounded off to one decimal place).",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.2",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "exponential distribution",
+      "mean and variance"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 100,
+    "solution_explanation": "For $X\\sim\\text{Exp}(\\lambda)$: $E(X)=1/\\lambda$ and $Var(X)=1/\\lambda^2$.",
+    "step_by_step_solution": [
+      "$5\\cdot\\tfrac1\\lambda = \\tfrac1{\\lambda^2}$.",
+      "$5\\lambda = 1 \\Rightarrow \\lambda = 0.2$."
+    ],
+    "answer_explanation": "The value of $\\lambda$ is 0.2.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.57",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 1.67
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c4",
+    "question_id": "GATE-DA2024-Q58",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Bayes' Theorem",
+    "subtopic": "Posterior Probability Computation",
+    "question_number": 58,
+    "passage": "",
+    "question_text": "Consider two events $T$ and $S$. Let $\\bar T$ denote the complement of the event $T$. Given: $P(\\bar T)=0.6$, $P(S|T)=0.3$, $P(S|\\bar T)=0.6$. Then, $P(T|S)$ is \\_\\_\\_\\_\\_\\_ (rounded off to two decimal places).",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.25",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Bayes theorem",
+      "total probability",
+      "conditional probability"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 120,
+    "solution_explanation": "Use the law of total probability to find $P(S)$, then apply Bayes' theorem.",
+    "step_by_step_solution": [
+      "$P(T)=1-P(\\bar T)=0.4$.",
+      "$P(S) = P(S|T)P(T) + P(S|\\bar T)P(\\bar T) = 0.3(0.4)+0.6(0.6)=0.12+0.36=0.48$.",
+      "$P(T|S) = \\dfrac{P(S|T)P(T)}{P(S)} = \\dfrac{0.12}{0.48}=0.25$."
+    ],
+    "answer_explanation": "The value of $P(T|S)$ is 0.25.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.58",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c5",
+    "question_id": "GATE-DA2024-Q59",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Joint Distributions",
+    "subtopic": "Conditional Expectation from Joint Density",
+    "question_number": 59,
+    "passage": "",
+    "question_text": "Consider a joint probability density function of two random variables $X$ and $Y$: $f_{X,Y}(x,y)=2xy$ for $0<x<2,\\ 0<y<x$, and 0 otherwise. Then, $E[Y|X=1.5]$ is \\_\\_\\_\\_\\_\\_.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "1",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "joint density",
+      "conditional expectation",
+      "marginal distribution"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 180,
+    "solution_explanation": "Derive the marginal $f_X(x)$, then the conditional density $f(y|x)$, and integrate $y \\cdot f(y|x)$ over $y\\in(0,x)$.",
+    "step_by_step_solution": [
+      "Marginal: $f_X(x)=\\int_0^x 2xy\\,dy = 2x\\cdot\\tfrac{x^2}{2}=x^3$ for $0<x<2$.",
+      "Conditional density: $f(y|x) = \\dfrac{2xy}{x^3}=\\dfrac{2y}{x^2}$ for $0<y<x$.",
+      "$E[Y|X=x] = \\int_0^x y\\cdot\\tfrac{2y}{x^2}dy = \\dfrac{2}{x^2}\\cdot\\dfrac{x^3}{3}=\\dfrac{2x}{3}$.",
+      "At $x=1.5$: $E[Y|X=1.5] = \\dfrac{2(1.5)}{3}=1$."
+    ],
+    "answer_explanation": "Note: this question was marked as 'Marks to All' (MTA) in the official key due to an issue in the question; the mathematically derived value using the given density is 1.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.59",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 3
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c6",
+    "question_id": "GATE-DA2024-Q60",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Calculus",
+    "topic": "Limits",
+    "subtopic": "Limit via Series Expansion",
+    "question_number": 60,
+    "passage": "",
+    "question_text": "Evaluate the following limit: \\[\\lim_{x\\to0} \\frac{\\ln\\big((x^2+1)\\cos x\\big)}{x^2}\\]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.5",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "limits",
+      "Taylor series",
+      "logarithm expansion"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Use small-$x$ Taylor expansions: $\\ln(1+x^2)\\approx x^2$ and $\\ln(\\cos x)\\approx -x^2/2$, then divide by $x^2$.",
+    "step_by_step_solution": [
+      "$\\ln((x^2+1)\\cos x) = \\ln(1+x^2) + \\ln(\\cos x)$.",
+      "$\\ln(1+x^2) \\approx x^2 - \\tfrac{x^4}{2}+\\cdots \\approx x^2$ for small $x$.",
+      "$\\ln(\\cos x) \\approx -\\tfrac{x^2}{2} - \\cdots \\approx -\\tfrac{x^2}{2}$ for small $x$.",
+      "Sum $\\approx x^2 - \\tfrac{x^2}{2} = \\tfrac{x^2}{2}$; dividing by $x^2$ gives the limit $=\\tfrac12=0.5$."
+    ],
+    "answer_explanation": "The limit evaluates to 0.5.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.60",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c7",
+    "question_id": "GATE-DA2024-Q61",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Linear Algebra",
+    "topic": "Singular Value Decomposition",
+    "subtopic": "Singular Values of a Rank-1 Matrix",
+    "question_number": 61,
+    "passage": "",
+    "question_text": "Let $\\boldsymbol{u} = [1,2,3,4,5]^T$, and let $\\sigma_1,\\sigma_2,\\sigma_3,\\sigma_4,\\sigma_5$ be the singular values of the matrix $\\boldsymbol{M}=\\boldsymbol{u}\\boldsymbol{u}^T$. The value of $\\sum_{i=1}^{5}\\sigma_i$ is \\_\\_\\_\\_\\_\\_.",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "55",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "singular value decomposition",
+      "rank-1 matrix",
+      "eigenvalues"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "$M=uu^T$ is a rank-1, symmetric positive semi-definite matrix; it has exactly one nonzero eigenvalue equal to $u^Tu = \\|u\\|^2$, and since $M$ is PSD its singular values equal its eigenvalues.",
+    "step_by_step_solution": [
+      "$M=uu^T$ has rank 1, so only one nonzero singular value; the rest are 0.",
+      "The nonzero eigenvalue of $uu^T$ equals $u^Tu = \\|u\\|^2 = 1^2+2^2+3^2+4^2+5^2 = 1+4+9+16+25=55$.",
+      "Since $M$ is symmetric PSD, its singular values equal its eigenvalues: $\\{55,0,0,0,0\\}$.",
+      "Sum of all singular values $=55$."
+    ],
+    "answer_explanation": "The sum of the singular values is 55.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.61",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c8",
+    "question_id": "GATE-DA2024-Q62",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Decision Trees",
+    "subtopic": "Information Gain Computation",
+    "question_number": 62,
+    "passage": "",
+    "question_text": "Details of ten international cricket games between teams Green and Blue are given in Table C (Pitch: S=spin-friendly, F=pace-friendly; Format: O=one-day, T=test; Winner is the target). Rows: (S,T,Green),(S,T,Blue),(F,O,Blue),(S,O,Blue),(F,T,Green),(F,O,Blue),(S,O,Green),(F,T,Blue),(F,O,Blue),(S,O,Green). The computed InformationGain(C, Pitch) with respect to the Target is \\_\\_\\_\\_\\_\\_ (rounded off to two decimal places).",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.12",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "decision trees",
+      "information gain",
+      "entropy"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 200,
+    "solution_explanation": "Compute the entropy of the target (Winner) overall, then the weighted average entropy after splitting on Pitch, and subtract.",
+    "step_by_step_solution": [
+      "Overall: Green=4, Blue=6 out of 10. $H(\\text{target}) = -0.4\\log_2 0.4 - 0.6\\log_2 0.6 \\approx 0.971$.",
+      "Pitch=S (5 rows): Green=3, Blue=2. $H_S = -0.6\\log_2 0.6 - 0.4\\log_2 0.4 \\approx 0.971$.",
+      "Pitch=F (5 rows): Green=1, Blue=4. $H_F = -0.2\\log_2 0.2 - 0.8\\log_2 0.8 \\approx 0.722$.",
+      "Weighted entropy $= \\tfrac{5}{10}(0.971) + \\tfrac{5}{10}(0.722) \\approx 0.846$.",
+      "InformationGain $= 0.971 - 0.846 \\approx 0.12$."
+    ],
+    "answer_explanation": "The information gain of splitting on Pitch is approximately 0.12.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.62",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 3.33
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9c9",
+    "question_id": "GATE-DA2024-Q63",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Machine Learning",
+    "topic": "Instance-Based Learning",
+    "subtopic": "k-Nearest Neighbours Tie Resolution",
+    "question_number": 63,
+    "passage": "",
+    "question_text": "Given a two-dimensional dataset of 5 points from two classes (circles at (1,1),(1,2); squares at (2,3),(3,3),(3,2)) and a query diamond point at (2,1), using Euclidean distance, the minimum odd value of $k$ in the $k$-nearest neighbor algorithm for which the diamond point is assigned the label square is \\_\\_\\_\\_\\_\\_. [see image]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "image",
+    "has_latex": true,
+    "image_url": "q63_knn_plot.png",
+    "option_images": {},
+    "options": [],
+    "correct_answer": "5",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "k-nearest neighbours",
+      "Euclidean distance",
+      "majority voting"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 180,
+    "solution_explanation": "Compute the Euclidean distance from (2,1) to each of the 5 labelled points, sort them, and check the majority label as $k$ increases through odd values.",
+    "step_by_step_solution": [
+      "Distances from (2,1): to (1,1)=1 [circle]; to (1,2)=$\\sqrt2\\approx1.41$ [circle]; to (3,2)=$\\sqrt2\\approx1.41$ [square]; to (2,3)=2 [square]; to (3,3)=$\\sqrt5\\approx2.24$ [square].",
+      "$k=1$: nearest is (1,1) [circle] $\\Rightarrow$ label circle.",
+      "$k=3$: three nearest are (1,1),(1,2),(3,2) $\\Rightarrow$ 2 circles, 1 square $\\Rightarrow$ label circle.",
+      "$k=5$: all 5 points included $\\Rightarrow$ 2 circles, 3 squares $\\Rightarrow$ majority label square."
+    ],
+    "answer_explanation": "The minimum odd k for which the diamond point is labelled square is 5.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.63",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 3
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9ca",
+    "question_id": "GATE-DA2024-Q64",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Bayesian Networks",
+    "subtopic": "Joint Probability from a Bayesian Network",
+    "question_number": 64,
+    "passage": "",
+    "question_text": "Given a Bayesian Network with four Bernoulli random variables $U\\to V, U\\to W, V\\to Z, W\\to Z$ and associated CPTs: $P(U{=}1){=}0.5$; $P(V{=}1|U){=}0.5$ regardless of $U$; $P(W{=}1|U{=}0){=}0, P(W{=}1|U{=}1){=}1$; $P(Z{=}1|V{=}0,W{=}0){=}0.5$, $P(Z{=}1|V{=}0,W{=}1){=}0$, $P(Z{=}1|V{=}1,W{=}0){=}0$, $P(Z{=}1|V{=}1,W{=}1){=}0.5$. The value of $P(U{=}1,V{=}1,W{=}1,Z{=}1)$ is \\_\\_\\_\\_\\_\\_ (rounded off to three decimal places). [see image: network graph]",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "image",
+    "has_latex": true,
+    "image_url": "q64_bn_graph.png",
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.125",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "Bayesian networks",
+      "joint probability",
+      "chain rule"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "Use the chain rule for Bayesian networks: $P(U,V,W,Z) = P(U)P(V|U)P(W|U)P(Z|V,W)$.",
+    "step_by_step_solution": [
+      "$P(U=1) = 0.5$.",
+      "$P(V=1|U=1) = 0.5$.",
+      "$P(W=1|U=1) = 1$.",
+      "$P(Z=1|V=1,W=1) = 0.5$.",
+      "Product: $0.5\\times0.5\\times1\\times0.5 = 0.125$."
+    ],
+    "answer_explanation": "The joint probability is 0.125.",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.64",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a4f2ee8af6457403ecef9cb",
+    "question_id": "GATE-DA2024-Q65",
+    "section": "Data Science and Artificial Intelligence (DA)",
+    "subject": "Probability & Statistics",
+    "topic": "Covariance",
+    "subtopic": "Covariance of Derived Binary Random Variables",
+    "question_number": 65,
+    "passage": "",
+    "question_text": "Two fair coins are tossed independently. $X$ takes value 1 if both tosses are heads and 0 otherwise. $Y$ takes value 1 if at least one of the tosses is heads and 0 otherwise. The value of the covariance of $X$ and $Y$ is \\_\\_\\_\\_\\_\\_ (rounded off to three decimal places).",
+    "has_underlined_text": false,
+    "underlined_passages": [],
+    "type": "numerical_answer",
+    "display_type": "text",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": "0.063",
+    "difficulty": "hard",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "covariance",
+      "binary random variables",
+      "joint expectation"
+    ],
+    "problem_types": [
+      "computation"
+    ],
+    "average_time_seconds": 150,
+    "solution_explanation": "$Cov(X,Y) = E[XY] - E[X]E[Y]$. Since $X=1$ (both heads) implies $Y=1$ (at least one head), $XY=X$ always, simplifying $E[XY]=E[X]$.",
+    "step_by_step_solution": [
+      "$P(X=1)=P(HH)=0.25 \\Rightarrow E[X]=0.25$.",
+      "$P(Y=1)=P(\\text{at least one H})=0.75 \\Rightarrow E[Y]=0.75$.",
+      "Since HH $\\Rightarrow$ at least one H, $XY=X$, so $E[XY]=E[X]=0.25$.",
+      "$Cov(X,Y) = 0.25 - (0.25)(0.75) = 0.25-0.1875 = 0.0625 \\approx 0.063$."
+    ],
+    "answer_explanation": "The covariance of X and Y is approximately 0.063 (0.0625).",
+    "source_citation": "GATE 2024 Data Science and Artificial Intelligence (DA), Organizing Institute: IISc Bengaluru, Q.65",
+    "source_type": "official",
+    "status": "published",
+    "is_active": true,
+    "grade_level": "postgraduate admissions test (GATE)",
+    "estimated_time_minutes": 2.5
+  },
+  {
+    "_id": "6a60a66d59dce8ab534dcb0c",
+    "question_number": 15,
+    "subject": "Algorithms & Data Structures",
+    "topic": "Stacks and Queues",
+    "question_text": "Consider an initially empty stack that supports the standard push and pop operations. The following sequence of operations is performed: push(10), push(20), pop(), push(30), push(40), pop(), pop(). What value is returned by the last pop() operation?",
+    "type": "multiple_choice_single",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "10"
+      },
+      {
+        "option_id": "B",
+        "text": "20"
+      },
+      {
+        "option_id": "C",
+        "text": "30"
+      },
+      {
+        "option_id": "D",
+        "text": "40"
+      }
+    ],
+    "correct_answer": "C",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.3333333333333333,
+      "zero": 0
+    },
+    "concept_tags": [],
+    "problem_types": [],
+    "common_mistakes": [],
+    "prerequisite_concepts": [],
+    "__v": 0,
+    "createdAt": "2026-07-22T11:15:57.582Z",
+    "updatedAt": "2026-07-22T11:15:57.582Z"
+  },
+  {
+    "_id": "6a60a66d59dce8ab534dcb0d",
+    "question_number": 27,
+    "subject": "Databases",
+    "topic": "Normalization",
+    "question_text": "A relation R(A, B, C) has the functional dependencies A -> B and B -> C. A is the only candidate key of R. Which of the following best describes the normal form satisfied by R?",
+    "type": "multiple_choice_single",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "R is only in 1NF"
+      },
+      {
+        "option_id": "B",
+        "text": "R is in 2NF but not in 3NF"
+      },
+      {
+        "option_id": "C",
+        "text": "R is in 3NF but not in BCNF"
+      },
+      {
+        "option_id": "D",
+        "text": "R is in BCNF"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": -0.6666666666666666,
+      "zero": 0
+    },
+    "concept_tags": [],
+    "problem_types": [],
+    "common_mistakes": [],
+    "prerequisite_concepts": [],
+    "__v": 0,
+    "createdAt": "2026-07-22T11:15:57.584Z",
+    "updatedAt": "2026-07-22T11:15:57.584Z"
+  },
+  {
+    "_id": "6a60a66d59dce8ab534dcb0e",
+    "question_number": 29,
+    "subject": "Programming",
+    "topic": "Recursion",
+    "question_text": "Consider the following recursive function:\n\nint f(int n) {\n  if (n <= 1) return 1;\n  return f(n - 1) + f(n - 2);\n}\n\nWhat is the value of f(5)?",
+    "type": "numeric",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": 8,
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [],
+    "problem_types": [],
+    "common_mistakes": [],
+    "prerequisite_concepts": [],
+    "__v": 0,
+    "createdAt": "2026-07-22T11:15:57.584Z",
+    "updatedAt": "2026-07-22T11:15:57.584Z"
+  },
+  {
+    "_id": "6a60a66d59dce8ab534dcb0f",
+    "question_number": 38,
+    "subject": "Discrete Mathematics",
+    "topic": "Combinatorics",
+    "question_text": "How many distinct arrangements are possible for all the letters of the word 'DATASET'?",
+    "type": "numeric",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [],
+    "correct_answer": 1260,
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [],
+    "problem_types": [],
+    "common_mistakes": [],
+    "prerequisite_concepts": [],
+    "__v": 0,
+    "createdAt": "2026-07-22T11:15:57.584Z",
+    "updatedAt": "2026-07-22T11:15:57.584Z"
+  },
+  {
+    "_id": "6a60a66d59dce8ab534dcb10",
+    "question_number": 43,
+    "subject": "Artificial Intelligence",
+    "topic": "Constraint Satisfaction Problems",
+    "question_text": "In a Constraint Satisfaction Problem (CSP), which of the following algorithms is used to enforce arc consistency, reducing variable domains before search begins?",
+    "type": "multiple_choice_single",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "A",
+        "text": "Backtracking search"
+      },
+      {
+        "option_id": "B",
+        "text": "AC-3 algorithm"
+      },
+      {
+        "option_id": "C",
+        "text": "Hill climbing"
+      },
+      {
+        "option_id": "D",
+        "text": "Minimax algorithm"
+      }
+    ],
+    "correct_answer": "B",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": -0.3333333333333333,
+      "zero": 0
+    },
+    "concept_tags": [],
+    "problem_types": [],
+    "common_mistakes": [],
+    "prerequisite_concepts": [],
+    "__v": 0,
+    "createdAt": "2026-07-22T11:15:57.584Z",
+    "updatedAt": "2026-07-22T11:15:57.584Z"
+  }
+]

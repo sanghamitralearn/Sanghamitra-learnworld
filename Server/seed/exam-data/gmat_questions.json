@@ -1,0 +1,4006 @@
+[
+  {
+    "_id": "6a6834f87e316019b56c33a8",
+    "question_number": 1,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Percents",
+    "passage": null,
+    "question_text": "A retailer marks up the cost of an item by 40% and then offers a 25% discount on the marked price during a sale. What is the sale price as a percentage of the original cost?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "95%"
+      },
+      {
+        "option_id": "b",
+        "text": "100%"
+      },
+      {
+        "option_id": "c",
+        "text": "105%"
+      },
+      {
+        "option_id": "d",
+        "text": "110%"
+      },
+      {
+        "option_id": "e",
+        "text": "115%"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "successive percentage change",
+      "markup and discount"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "subtracting 25% from 40% instead of applying the discount to the marked price"
+    ],
+    "prerequisite_concepts": [
+      "percentage change"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.077Z",
+    "updatedAt": "2026-07-28T04:50:00.077Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33a9",
+    "question_number": 2,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Algebra",
+    "passage": null,
+    "question_text": "If $3x - 7 = 2x + 5$, what is the value of $x^2 - 3$?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "117"
+      },
+      {
+        "option_id": "b",
+        "text": "129"
+      },
+      {
+        "option_id": "c",
+        "text": "141"
+      },
+      {
+        "option_id": "d",
+        "text": "150"
+      },
+      {
+        "option_id": "e",
+        "text": "165"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "linear equations",
+      "substitution"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "arithmetic slip when isolating x"
+    ],
+    "prerequisite_concepts": [
+      "solving linear equations"
+    ],
+    "average_time_seconds": 60,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33aa",
+    "question_number": 3,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Number Properties",
+    "passage": null,
+    "question_text": "What is the remainder when $7^{100}$ is divided by 5?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "0"
+      },
+      {
+        "option_id": "b",
+        "text": "1"
+      },
+      {
+        "option_id": "c",
+        "text": "2"
+      },
+      {
+        "option_id": "d",
+        "text": "3"
+      },
+      {
+        "option_id": "e",
+        "text": "4"
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "cyclicity of remainders",
+      "modular arithmetic"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "not reducing the base modulo 5 before finding the cycle"
+    ],
+    "prerequisite_concepts": [
+      "units digit / remainder cycles"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33ab",
+    "question_number": 4,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Rates and Work",
+    "passage": null,
+    "question_text": "Machine A can complete a job in 6 hours, and Machine B can complete the same job in 4 hours. If both machines work together at their respective constant rates, how many hours will it take them to complete the job?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "2"
+      },
+      {
+        "option_id": "b",
+        "text": "2.4"
+      },
+      {
+        "option_id": "c",
+        "text": "2.5"
+      },
+      {
+        "option_id": "d",
+        "text": "3"
+      },
+      {
+        "option_id": "e",
+        "text": "3.6"
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "combined work rate"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "averaging the two times instead of adding rates"
+    ],
+    "prerequisite_concepts": [
+      "rate = work / time"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33ac",
+    "question_number": 5,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Geometry",
+    "passage": null,
+    "question_text": "The circumference of a circle is 18π. What is the area of the circle, in terms of π?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "9π"
+      },
+      {
+        "option_id": "b",
+        "text": "18π"
+      },
+      {
+        "option_id": "c",
+        "text": "36π"
+      },
+      {
+        "option_id": "d",
+        "text": "81π"
+      },
+      {
+        "option_id": "e",
+        "text": "162π"
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "circle circumference and area"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "squaring the circumference instead of solving for radius first"
+    ],
+    "prerequisite_concepts": [
+      "C = 2πr",
+      "A = πr^2"
+    ],
+    "average_time_seconds": 75,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33ad",
+    "question_number": 6,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Statistics",
+    "passage": null,
+    "question_text": "The average (arithmetic mean) of 5 numbers is 24. If one of the numbers is removed, the average of the remaining 4 numbers is 21. What is the value of the number that was removed?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "21"
+      },
+      {
+        "option_id": "b",
+        "text": "27"
+      },
+      {
+        "option_id": "c",
+        "text": "33"
+      },
+      {
+        "option_id": "d",
+        "text": "36"
+      },
+      {
+        "option_id": "e",
+        "text": "39"
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "mean and sum relationship"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "subtracting the two averages instead of the two sums"
+    ],
+    "prerequisite_concepts": [
+      "sum = average × count"
+    ],
+    "average_time_seconds": 75,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33ae",
+    "question_number": 7,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Inequalities",
+    "passage": null,
+    "question_text": "If -3 ≤ x ≤ 5 and -2 ≤ y ≤ 4, which of the following CANNOT be a possible value of x - y?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "-7"
+      },
+      {
+        "option_id": "b",
+        "text": "-2"
+      },
+      {
+        "option_id": "c",
+        "text": "0"
+      },
+      {
+        "option_id": "d",
+        "text": "7"
+      },
+      {
+        "option_id": "e",
+        "text": "8"
+      }
+    ],
+    "correct_answer": "e",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "range of a difference of two bounded variables"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "adding the ranges instead of subtracting the min of y from the max of x"
+    ],
+    "prerequisite_concepts": [
+      "compound inequalities"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33af",
+    "question_number": 8,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Probability",
+    "passage": null,
+    "question_text": "A committee of 3 people is to be selected at random from a group of 5 men and 4 women. What is the probability that the committee consists of exactly 2 men and 1 woman?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "4/21"
+      },
+      {
+        "option_id": "b",
+        "text": "5/14"
+      },
+      {
+        "option_id": "c",
+        "text": "10/21"
+      },
+      {
+        "option_id": "d",
+        "text": "5/9"
+      },
+      {
+        "option_id": "e",
+        "text": "2/3"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "combinations",
+      "probability"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "using permutations instead of combinations for an unordered committee"
+    ],
+    "prerequisite_concepts": [
+      "nCr combinations"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b0",
+    "question_number": 9,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Number Properties",
+    "passage": null,
+    "question_text": "The greatest common divisor of two positive integers is 12 and their least common multiple is 360. If one of the integers is 72, what is the other integer?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "36"
+      },
+      {
+        "option_id": "b",
+        "text": "48"
+      },
+      {
+        "option_id": "c",
+        "text": "60"
+      },
+      {
+        "option_id": "d",
+        "text": "72"
+      },
+      {
+        "option_id": "e",
+        "text": "90"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "GCD-LCM product relationship"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "forgetting that GCD × LCM equals the product of the two numbers"
+    ],
+    "prerequisite_concepts": [
+      "GCD and LCM"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.079Z",
+    "updatedAt": "2026-07-28T04:50:00.079Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b1",
+    "question_number": 10,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Mixtures",
+    "passage": null,
+    "question_text": "A chemist has a solution that is 30% acid and another solution that is 60% acid. How many liters of the 60% solution must be added to 10 liters of the 30% solution to create a solution that is 50% acid?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "10"
+      },
+      {
+        "option_id": "b",
+        "text": "15"
+      },
+      {
+        "option_id": "c",
+        "text": "20"
+      },
+      {
+        "option_id": "d",
+        "text": "25"
+      },
+      {
+        "option_id": "e",
+        "text": "30"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "mixture problems",
+      "weighted average"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "setting up the weighted average equation with the wrong total volume"
+    ],
+    "prerequisite_concepts": [
+      "alligation / weighted averages"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b2",
+    "question_number": 11,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Exponents",
+    "passage": null,
+    "question_text": "If $2^{x+3} = 4^{x-1}$, what is the value of x?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "3"
+      },
+      {
+        "option_id": "b",
+        "text": "4"
+      },
+      {
+        "option_id": "c",
+        "text": "5"
+      },
+      {
+        "option_id": "d",
+        "text": "6"
+      },
+      {
+        "option_id": "e",
+        "text": "7"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "exponent equations",
+      "common base"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "failing to rewrite 4 as 2^2 before equating exponents"
+    ],
+    "prerequisite_concepts": [
+      "laws of exponents"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b3",
+    "question_number": 12,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Ratios",
+    "passage": null,
+    "question_text": "The ratio of boys to girls in a classroom is 3:5. If there are 12 boys, how many total students are in the classroom?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "20"
+      },
+      {
+        "option_id": "b",
+        "text": "24"
+      },
+      {
+        "option_id": "c",
+        "text": "28"
+      },
+      {
+        "option_id": "d",
+        "text": "32"
+      },
+      {
+        "option_id": "e",
+        "text": "36"
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "ratios",
+      "scaling parts to actual quantities"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "adding the ratio parts (8) directly instead of scaling by the multiplier first"
+    ],
+    "prerequisite_concepts": [
+      "part-to-part ratios"
+    ],
+    "average_time_seconds": 70,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b4",
+    "question_number": 13,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Coordinate Geometry",
+    "passage": null,
+    "question_text": "What is the distance between the points (2, -3) and (7, 9) in the coordinate plane?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "11"
+      },
+      {
+        "option_id": "b",
+        "text": "12"
+      },
+      {
+        "option_id": "c",
+        "text": "13"
+      },
+      {
+        "option_id": "d",
+        "text": "14"
+      },
+      {
+        "option_id": "e",
+        "text": "15"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "distance formula"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "dropping the negative sign when computing the change in y"
+    ],
+    "prerequisite_concepts": [
+      "Pythagorean theorem / distance formula"
+    ],
+    "average_time_seconds": 80,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b5",
+    "question_number": 14,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Sequences",
+    "passage": null,
+    "question_text": "In a sequence, the first term is 5, and each subsequent term is 3 more than twice the previous term. What is the fourth term?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "45"
+      },
+      {
+        "option_id": "b",
+        "text": "53"
+      },
+      {
+        "option_id": "c",
+        "text": "61"
+      },
+      {
+        "option_id": "d",
+        "text": "69"
+      },
+      {
+        "option_id": "e",
+        "text": "77"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "recursive sequences"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "applying the recursive rule to the term index instead of the previous term's value"
+    ],
+    "prerequisite_concepts": [
+      "recursive formulas"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b6",
+    "question_number": 15,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Absolute Value",
+    "passage": null,
+    "question_text": "How many integer values of x satisfy $|2x - 5| < 9$?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "6"
+      },
+      {
+        "option_id": "b",
+        "text": "7"
+      },
+      {
+        "option_id": "c",
+        "text": "8"
+      },
+      {
+        "option_id": "d",
+        "text": "9"
+      },
+      {
+        "option_id": "e",
+        "text": "10"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "absolute value inequalities"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "miscounting the integers at the boundary of the open interval"
+    ],
+    "prerequisite_concepts": [
+      "splitting |A| < B into -B < A < B"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b7",
+    "question_number": 16,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Speed, Distance and Time",
+    "passage": null,
+    "question_text": "A car travels the first half of a journey (by distance) at 60 mph and the second half at 40 mph. What is the car's average speed for the entire journey, in mph?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "45"
+      },
+      {
+        "option_id": "b",
+        "text": "48"
+      },
+      {
+        "option_id": "c",
+        "text": "50"
+      },
+      {
+        "option_id": "d",
+        "text": "52"
+      },
+      {
+        "option_id": "e",
+        "text": "55"
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "average speed for equal distances",
+      "harmonic mean"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "taking the simple arithmetic average of the two speeds"
+    ],
+    "prerequisite_concepts": [
+      "average speed = total distance / total time"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b8",
+    "question_number": 17,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Profit and Loss",
+    "passage": null,
+    "question_text": "A shopkeeper buys an item for \\$80 and wants to sell it at a profit of 25% after offering a 10% discount on the marked price. What should the marked price be?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "\\$100.00"
+      },
+      {
+        "option_id": "b",
+        "text": "\\$105.50"
+      },
+      {
+        "option_id": "c",
+        "text": "\\$108.00"
+      },
+      {
+        "option_id": "d",
+        "text": "\\$111.11"
+      },
+      {
+        "option_id": "e",
+        "text": "\\$115.00"
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "marked price",
+      "discount and profit combined"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "applying the discount and profit percentages to the wrong base amount"
+    ],
+    "prerequisite_concepts": [
+      "cost price, marked price, and selling price relationships"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33b9",
+    "question_number": 18,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Simple Interest",
+    "passage": null,
+    "question_text": "A sum of money invested at simple interest grows from \\$2,000 to \\$2,600 in 4 years. What is the annual simple interest rate?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "5%"
+      },
+      {
+        "option_id": "b",
+        "text": "6%"
+      },
+      {
+        "option_id": "c",
+        "text": "6.5%"
+      },
+      {
+        "option_id": "d",
+        "text": "7.5%"
+      },
+      {
+        "option_id": "e",
+        "text": "8%"
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "simple interest"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "dividing the interest by the final amount instead of the principal"
+    ],
+    "prerequisite_concepts": [
+      "SI = P × R × T / 100"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33ba",
+    "question_number": 19,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Sets",
+    "passage": null,
+    "question_text": "In a survey of 100 people, 60 people like tea, 45 people like coffee, and 20 people like both tea and coffee. How many people like neither tea nor coffee?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "10"
+      },
+      {
+        "option_id": "b",
+        "text": "15"
+      },
+      {
+        "option_id": "c",
+        "text": "20"
+      },
+      {
+        "option_id": "d",
+        "text": "25"
+      },
+      {
+        "option_id": "e",
+        "text": "30"
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "set theory",
+      "inclusion-exclusion principle"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "forgetting to subtract the overlap before subtracting from the total"
+    ],
+    "prerequisite_concepts": [
+      "|A ∪ B| = |A| + |B| - |A ∩ B|"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33bb",
+    "question_number": 20,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Functions",
+    "passage": null,
+    "question_text": "If $f(x) = 2x^2 - 3x + 1$, what is $f(-2)$?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "9"
+      },
+      {
+        "option_id": "b",
+        "text": "11"
+      },
+      {
+        "option_id": "c",
+        "text": "13"
+      },
+      {
+        "option_id": "d",
+        "text": "15"
+      },
+      {
+        "option_id": "e",
+        "text": "17"
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "function evaluation"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "sign error when substituting a negative value into a squared term"
+    ],
+    "prerequisite_concepts": [
+      "evaluating polynomial functions"
+    ],
+    "average_time_seconds": 70,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33bc",
+    "question_number": 21,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Quantitative Reasoning",
+    "topic": "Problem Solving",
+    "subtopic": "Roots and Radicals",
+    "passage": null,
+    "question_text": "If $\\sqrt{3x + 4} = 7$, what is the value of x?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "11"
+      },
+      {
+        "option_id": "b",
+        "text": "13"
+      },
+      {
+        "option_id": "c",
+        "text": "15"
+      },
+      {
+        "option_id": "d",
+        "text": "17"
+      },
+      {
+        "option_id": "e",
+        "text": "19"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "radical equations"
+    ],
+    "problem_types": [
+      "Problem Solving"
+    ],
+    "common_mistakes": [
+      "forgetting to square both sides before isolating x"
+    ],
+    "prerequisite_concepts": [
+      "squaring both sides of an equation"
+    ],
+    "average_time_seconds": 70,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33bd",
+    "question_number": 22,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Assumption",
+    "passage": null,
+    "question_text": "City officials argue that installing red-light cameras at busy intersections will reduce traffic fatalities, citing a 20% drop in fatal accidents in a neighboring city that installed similar cameras last year. Which of the following is an assumption underlying the officials' argument?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "The neighboring city's decrease in fatal accidents was primarily caused by the camera installation rather than by other factors."
+      },
+      {
+        "option_id": "b",
+        "text": "Red-light cameras are more expensive to install than other traffic safety measures."
+      },
+      {
+        "option_id": "c",
+        "text": "Traffic fatalities have been rising steadily in the city for the past decade."
+      },
+      {
+        "option_id": "d",
+        "text": "Drivers in the neighboring city were previously unaware of the risks of running red lights."
+      },
+      {
+        "option_id": "e",
+        "text": "The city has sufficient funding to install cameras at all busy intersections."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "assumption",
+      "causal reasoning"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "picking a statement that strengthens rather than one the argument depends on"
+    ],
+    "prerequisite_concepts": [
+      "necessary vs. sufficient assumptions"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33be",
+    "question_number": 23,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Strengthen the Argument",
+    "passage": null,
+    "question_text": "A pharmaceutical company claims that its new drug, Zolarex, is more effective than the standard treatment for lowering blood pressure, based on a clinical trial in which patients taking Zolarex showed a greater average reduction in blood pressure than patients taking the standard treatment. Which of the following, if true, would most strengthen the company's claim?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Patients in both groups were of similar age, weight, and baseline blood pressure."
+      },
+      {
+        "option_id": "b",
+        "text": "Zolarex is significantly cheaper to produce than the standard treatment."
+      },
+      {
+        "option_id": "c",
+        "text": "The clinical trial was conducted over a period of six months."
+      },
+      {
+        "option_id": "d",
+        "text": "Some patients taking Zolarex reported mild side effects such as headaches."
+      },
+      {
+        "option_id": "e",
+        "text": "The standard treatment has been used for over twenty years."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "strengthen",
+      "eliminating confounding variables"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "choosing a fact that is merely relevant but doesn't rule out an alternative explanation"
+    ],
+    "prerequisite_concepts": [
+      "controlled comparison"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33bf",
+    "question_number": 24,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Weaken the Argument",
+    "passage": null,
+    "question_text": "An airline argues that its new boarding procedure, which boards passengers by window, middle, and aisle seats in sequence, reduces overall boarding time compared to the traditional back-to-front method, based on a trial at one airport where the new procedure was 15% faster. Which of the following, if true, would most weaken the airline's argument?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "The trial airport has wider aisles than most airports the airline serves."
+      },
+      {
+        "option_id": "b",
+        "text": "The trial was conducted using flights that were, on average, only 60% full, unlike the airline's typical fully booked flights."
+      },
+      {
+        "option_id": "c",
+        "text": "Passengers generally prefer window seats over aisle seats."
+      },
+      {
+        "option_id": "d",
+        "text": "The new procedure requires additional staff to direct passengers to the correct boarding zone."
+      },
+      {
+        "option_id": "e",
+        "text": "Boarding time has become an increasingly important metric for airlines seeking to improve on-time departure rates."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "weaken",
+      "sample representativeness"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "choosing an operational drawback (cost, staffing) instead of a flaw that undermines the causal claim"
+    ],
+    "prerequisite_concepts": [
+      "generalizing from a trial to typical conditions"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c0",
+    "question_number": 25,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Inference",
+    "passage": null,
+    "question_text": "Every employee at Meridian Corp who was hired before 2015 has completed the advanced compliance training. No employee who has completed the advanced compliance training is eligible for the entry-level certification exam. Based on the statements above, which of the following must be true?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "All employees hired after 2015 are eligible for the entry-level certification exam."
+      },
+      {
+        "option_id": "b",
+        "text": "No employee hired before 2015 is eligible for the entry-level certification exam."
+      },
+      {
+        "option_id": "c",
+        "text": "Some employees hired after 2015 have completed the advanced compliance training."
+      },
+      {
+        "option_id": "d",
+        "text": "Every employee who has completed the advanced compliance training was hired before 2015."
+      },
+      {
+        "option_id": "e",
+        "text": "The entry-level certification exam is required for all new hires."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "formal logic",
+      "chained conditionals",
+      "contrapositive"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "confusing the converse or the inverse of a conditional with a valid contrapositive"
+    ],
+    "prerequisite_concepts": [
+      "if-then statement chaining"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.080Z",
+    "updatedAt": "2026-07-28T04:50:00.080Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c1",
+    "question_number": 26,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Evaluate the Argument",
+    "passage": null,
+    "question_text": "A city council is considering banning food trucks from operating within 500 feet of established restaurants, arguing that food trucks unfairly divert customers from restaurants that pay higher rent and property taxes. To evaluate the merits of this argument, it would be most useful to determine which of the following?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Whether food truck owners pay any licensing fees to operate in the city."
+      },
+      {
+        "option_id": "b",
+        "text": "Whether restaurant revenue near existing food truck locations has actually declined since the trucks began operating."
+      },
+      {
+        "option_id": "c",
+        "text": "How many food trucks currently operate within the city limits."
+      },
+      {
+        "option_id": "d",
+        "text": "Whether food trucks offer a wider variety of cuisines than nearby restaurants."
+      },
+      {
+        "option_id": "e",
+        "text": "Whether other cities have implemented similar bans on food trucks."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "evaluate the argument"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "choosing a fact that is interesting but does not test the core causal claim"
+    ],
+    "prerequisite_concepts": [
+      "identifying the argument's central claim"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c2",
+    "question_number": 27,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Resolve the Paradox",
+    "passage": null,
+    "question_text": "Although the number of registered users on the Fintrack budgeting app increased by 35% last year, the company's revenue from premium subscriptions decreased by 10% over the same period. Which of the following, if true, best explains this apparent discrepancy?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Fintrack spent more on marketing last year than in the previous year."
+      },
+      {
+        "option_id": "b",
+        "text": "Most of the new users signed up for the free version of the app rather than the premium subscription."
+      },
+      {
+        "option_id": "c",
+        "text": "A competing budgeting app also increased its user base last year."
+      },
+      {
+        "option_id": "d",
+        "text": "Fintrack's premium subscription price remained unchanged throughout the year."
+      },
+      {
+        "option_id": "e",
+        "text": "The overall market for budgeting apps grew by 20% last year."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "resolve the paradox"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "choosing a fact unrelated to the specific metric (premium revenue) that decreased"
+    ],
+    "prerequisite_concepts": [
+      "distinguishing total users from paying users"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c3",
+    "question_number": 28,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Flaw in the Argument",
+    "passage": null,
+    "question_text": "A school administrator argues that because students who attend the weekly tutoring program have higher average test scores than students who do not attend, the tutoring program is responsible for improved test performance. Which of the following identifies a flaw in the administrator's reasoning?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "The argument fails to consider that students who choose to attend tutoring may already be more motivated or academically stronger than those who do not."
+      },
+      {
+        "option_id": "b",
+        "text": "The argument does not specify how many students attend the tutoring program."
+      },
+      {
+        "option_id": "c",
+        "text": "The argument assumes that all teachers support the tutoring program."
+      },
+      {
+        "option_id": "d",
+        "text": "The argument does not mention the cost of running the tutoring program."
+      },
+      {
+        "option_id": "e",
+        "text": "The argument fails to define what constitutes a \"higher\" test score."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "flaw in reasoning",
+      "self-selection bias"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "mistaking a missing operational detail for the actual logical flaw"
+    ],
+    "prerequisite_concepts": [
+      "correlation vs. causation"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c4",
+    "question_number": 29,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Necessary Assumption",
+    "passage": null,
+    "question_text": "A city plans to reduce traffic congestion by converting one lane of a major highway into a dedicated bus lane, reasoning that this will encourage more commuters to use public transit. This plan assumes which of the following?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "The bus system has enough capacity to handle a significant increase in ridership."
+      },
+      {
+        "option_id": "b",
+        "text": "The highway currently has more lanes than are necessary for existing traffic."
+      },
+      {
+        "option_id": "c",
+        "text": "Commuters are willing to pay higher fares for improved bus service."
+      },
+      {
+        "option_id": "d",
+        "text": "No new highways will be built in the city in the near future."
+      },
+      {
+        "option_id": "e",
+        "text": "Public transit is currently underfunded compared to road infrastructure."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "necessary assumption",
+      "negation test"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "choosing background context instead of a claim the plan cannot work without"
+    ],
+    "prerequisite_concepts": [
+      "the negation test for assumptions"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c5",
+    "question_number": 30,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Strengthen the Argument",
+    "passage": null,
+    "question_text": "A study found that employees who take a 15-minute walk during their lunch break report higher afternoon productivity than employees who do not. The study's authors conclude that walking during lunch causes increased afternoon productivity. Which of the following, if true, would most strengthen this conclusion?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Employees who walk during lunch tend to have more physically demanding jobs."
+      },
+      {
+        "option_id": "b",
+        "text": "When a group of previously non-walking employees was randomly assigned to take lunchtime walks, their afternoon productivity increased compared to a control group that did not walk."
+      },
+      {
+        "option_id": "c",
+        "text": "The study included employees from a wide variety of industries."
+      },
+      {
+        "option_id": "d",
+        "text": "Employees who walk during lunch report enjoying their jobs more than those who do not."
+      },
+      {
+        "option_id": "e",
+        "text": "The study was conducted over a period of one year."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "strengthen",
+      "randomized controlled comparison"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "treating a correlational detail as equivalent to experimental evidence"
+    ],
+    "prerequisite_concepts": [
+      "causal inference from observational vs. experimental data"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c6",
+    "question_number": 31,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Method of Reasoning",
+    "passage": null,
+    "question_text": "Economist: Some critics claim that raising the minimum wage always leads to significant job losses. But in several regions that raised their minimum wage in the past decade, employment in low-wage sectors did not decline substantially. Therefore, the claim that raising the minimum wage always leads to significant job losses is false. Which of the following best describes the economist's method of reasoning?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Citing counterexamples to refute a universal claim."
+      },
+      {
+        "option_id": "b",
+        "text": "Appealing to the authority of economic experts."
+      },
+      {
+        "option_id": "c",
+        "text": "Drawing an analogy between two unrelated situations."
+      },
+      {
+        "option_id": "d",
+        "text": "Using a hypothetical scenario to illustrate a general principle."
+      },
+      {
+        "option_id": "e",
+        "text": "Attacking the motives of those who hold the opposing view."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "method of reasoning",
+      "universal claims vs. counterexamples"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "mistaking the use of real-world data for an appeal to authority"
+    ],
+    "prerequisite_concepts": [
+      "identifying argumentative structure"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c7",
+    "question_number": 32,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Complete the Argument",
+    "passage": null,
+    "question_text": "Manufacturer: Our new packaging material decomposes within six months, compared to the decades required for our previous plastic packaging. Since consumers increasingly prefer environmentally friendly products, switching to the new packaging should __________.",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "increase our production costs significantly."
+      },
+      {
+        "option_id": "b",
+        "text": "improve consumer perception of our brand."
+      },
+      {
+        "option_id": "c",
+        "text": "require us to redesign our product line entirely."
+      },
+      {
+        "option_id": "d",
+        "text": "reduce the shelf life of our products."
+      },
+      {
+        "option_id": "e",
+        "text": "have no effect on consumer purchasing decisions."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "complete the argument",
+      "logical continuation"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "choosing a plausible but unsupported outcome instead of the one that logically follows from the stated premises"
+    ],
+    "prerequisite_concepts": [
+      "drawing the conclusion that best fits given premises"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c8",
+    "question_number": 33,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Critical Reasoning",
+    "subtopic": "Weaken the Argument",
+    "passage": null,
+    "question_text": "A university reports that students who take online courses achieve, on average, exam scores similar to those of students in traditional in-person courses, and concludes that online instruction is just as effective as in-person instruction for all types of coursework. Which of the following, if true, would most weaken this conclusion?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Online courses are generally less expensive for students than in-person courses."
+      },
+      {
+        "option_id": "b",
+        "text": "The comparison included only introductory-level courses, while advanced laboratory-based courses were not offered online."
+      },
+      {
+        "option_id": "c",
+        "text": "Some students prefer the flexibility of online course schedules."
+      },
+      {
+        "option_id": "d",
+        "text": "The university has offered online courses for over ten years."
+      },
+      {
+        "option_id": "e",
+        "text": "Exam formats were identical for both online and in-person courses."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "weaken",
+      "scope shift",
+      "overgeneralization"
+    ],
+    "problem_types": [
+      "Critical Reasoning"
+    ],
+    "common_mistakes": [
+      "failing to notice that the conclusion generalizes beyond the coursework actually studied"
+    ],
+    "prerequisite_concepts": [
+      "identifying a mismatch between evidence scope and conclusion scope"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33c9",
+    "question_number": 34,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Network Effects",
+    "passage": "Network effects occur when the value of a product or service increases as more people use it. Social media platforms, telecommunication networks, and certain marketplaces exhibit strong network effects: a telephone is far more useful when millions of other people also own telephones than when only a handful do. Economists distinguish between direct network effects, in which the value to a user grows directly with the number of other users on the same platform, and indirect network effects, in which the value to one group of users grows as the number of users in a different, complementary group increases—for example, a ride-hailing app becomes more valuable to riders as more drivers join, and more valuable to drivers as more riders join. Network effects can create winner-take-most dynamics in an industry, since a platform that reaches critical mass first can become difficult for rivals to dislodge, even if a competitor later offers a technically superior product. However, network effects are not infinitely self-reinforcing: many platforms eventually experience congestion effects, in which too many users degrade the quality of the experience for everyone, or fragmentation, in which subgroups of users prefer to interact only with each other, diluting the value of the broader network.",
+    "question_text": "According to the passage, indirect network effects are best illustrated by which of the following?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "A messaging app that becomes more useful to a user as more of that user's friends join the same app."
+      },
+      {
+        "option_id": "b",
+        "text": "A ride-hailing app that becomes more valuable to riders as more drivers join the platform."
+      },
+      {
+        "option_id": "c",
+        "text": "A telephone network that becomes more useful as more households acquire telephones."
+      },
+      {
+        "option_id": "d",
+        "text": "A social media platform that loses value as unrelated subgroups stop interacting with one another."
+      },
+      {
+        "option_id": "e",
+        "text": "A marketplace that becomes congested as too many buyers compete for limited listings."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "detail location",
+      "definitional application"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "confusing direct network effects with indirect network effects"
+    ],
+    "prerequisite_concepts": [
+      "close reading of definitions"
+    ],
+    "average_time_seconds": 80,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33ca",
+    "question_number": 35,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Network Effects",
+    "passage": "Network effects occur when the value of a product or service increases as more people use it. Social media platforms, telecommunication networks, and certain marketplaces exhibit strong network effects: a telephone is far more useful when millions of other people also own telephones than when only a handful do. Economists distinguish between direct network effects, in which the value to a user grows directly with the number of other users on the same platform, and indirect network effects, in which the value to one group of users grows as the number of users in a different, complementary group increases—for example, a ride-hailing app becomes more valuable to riders as more drivers join, and more valuable to drivers as more riders join. Network effects can create winner-take-most dynamics in an industry, since a platform that reaches critical mass first can become difficult for rivals to dislodge, even if a competitor later offers a technically superior product. However, network effects are not infinitely self-reinforcing: many platforms eventually experience congestion effects, in which too many users degrade the quality of the experience for everyone, or fragmentation, in which subgroups of users prefer to interact only with each other, diluting the value of the broader network.",
+    "question_text": "The passage suggests that a company with a technically inferior product could still dominate a market primarily because",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "it invests more heavily in marketing than its competitors."
+      },
+      {
+        "option_id": "b",
+        "text": "it reaches critical mass in its user base before rivals do."
+      },
+      {
+        "option_id": "c",
+        "text": "it avoids the problem of network congestion entirely."
+      },
+      {
+        "option_id": "d",
+        "text": "it targets a narrower, more loyal customer segment."
+      },
+      {
+        "option_id": "e",
+        "text": "it prevents competitors from entering the market through legal means."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "inference",
+      "cause and effect"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "introducing an outside explanation (marketing, legal barriers) not supported by the passage"
+    ],
+    "prerequisite_concepts": [
+      "textual support for inference"
+    ],
+    "average_time_seconds": 80,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33cb",
+    "question_number": 36,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Network Effects",
+    "passage": "Network effects occur when the value of a product or service increases as more people use it. Social media platforms, telecommunication networks, and certain marketplaces exhibit strong network effects: a telephone is far more useful when millions of other people also own telephones than when only a handful do. Economists distinguish between direct network effects, in which the value to a user grows directly with the number of other users on the same platform, and indirect network effects, in which the value to one group of users grows as the number of users in a different, complementary group increases—for example, a ride-hailing app becomes more valuable to riders as more drivers join, and more valuable to drivers as more riders join. Network effects can create winner-take-most dynamics in an industry, since a platform that reaches critical mass first can become difficult for rivals to dislodge, even if a competitor later offers a technically superior product. However, network effects are not infinitely self-reinforcing: many platforms eventually experience congestion effects, in which too many users degrade the quality of the experience for everyone, or fragmentation, in which subgroups of users prefer to interact only with each other, diluting the value of the broader network.",
+    "question_text": "Which of the following, if true, would most directly support the passage's claim about congestion effects?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "A photo-sharing app's server response times slow noticeably once its user base surpasses ten million active users, leading to declining user satisfaction."
+      },
+      {
+        "option_id": "b",
+        "text": "A telecommunications company lowers its prices to attract new subscribers."
+      },
+      {
+        "option_id": "c",
+        "text": "A ride-hailing app expands into a new metropolitan area."
+      },
+      {
+        "option_id": "d",
+        "text": "A social media platform introduces a new privacy feature."
+      },
+      {
+        "option_id": "e",
+        "text": "A marketplace increases the number of product categories it offers."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "supporting evidence",
+      "application"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "selecting an option unrelated to degraded user experience from overuse"
+    ],
+    "prerequisite_concepts": [
+      "matching examples to a stated concept"
+    ],
+    "average_time_seconds": 75,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33cc",
+    "question_number": 37,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Circadian Rhythms",
+    "passage": "Circadian rhythms are internal biological processes that follow an approximately 24-hour cycle, regulating functions such as sleep-wake patterns, hormone release, and body temperature. In mammals, the primary circadian clock resides in a region of the brain called the suprachiasmatic nucleus (SCN), which receives light information directly from the retina and uses this information to synchronize the body's internal clock with the external day-night cycle. While the SCN acts as the master clock, nearly every tissue and organ in the body contains its own peripheral clock, which can be influenced by cues other than light, such as meal timing and physical activity. When peripheral clocks fall out of sync with the central clock in the SCN—as can happen with shift work, jet lag, or irregular eating schedules—researchers have observed disruptions to metabolic processes, including impaired glucose regulation and altered fat storage. This has led some researchers to propose that the timing of food intake, not merely its content, may play a meaningful role in metabolic health, an idea that has given rise to time-restricted eating approaches that confine food consumption to a specific window each day.",
+    "question_text": "According to the passage, the suprachiasmatic nucleus (SCN) differs from peripheral clocks in that the SCN",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "is influenced primarily by meal timing rather than light."
+      },
+      {
+        "option_id": "b",
+        "text": "is located in every tissue and organ of the body."
+      },
+      {
+        "option_id": "c",
+        "text": "synchronizes the body's internal clock using light information from the retina."
+      },
+      {
+        "option_id": "d",
+        "text": "is unaffected by shift work or jet lag."
+      },
+      {
+        "option_id": "e",
+        "text": "regulates hormone release but not sleep-wake patterns."
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "detail location",
+      "compare and contrast"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "attributing a peripheral-clock trait to the SCN"
+    ],
+    "prerequisite_concepts": [
+      "close reading"
+    ],
+    "average_time_seconds": 75,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33cd",
+    "question_number": 38,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Circadian Rhythms",
+    "passage": "Circadian rhythms are internal biological processes that follow an approximately 24-hour cycle, regulating functions such as sleep-wake patterns, hormone release, and body temperature. In mammals, the primary circadian clock resides in a region of the brain called the suprachiasmatic nucleus (SCN), which receives light information directly from the retina and uses this information to synchronize the body's internal clock with the external day-night cycle. While the SCN acts as the master clock, nearly every tissue and organ in the body contains its own peripheral clock, which can be influenced by cues other than light, such as meal timing and physical activity. When peripheral clocks fall out of sync with the central clock in the SCN—as can happen with shift work, jet lag, or irregular eating schedules—researchers have observed disruptions to metabolic processes, including impaired glucose regulation and altered fat storage. This has led some researchers to propose that the timing of food intake, not merely its content, may play a meaningful role in metabolic health, an idea that has given rise to time-restricted eating approaches that confine food consumption to a specific window each day.",
+    "question_text": "The passage implies that time-restricted eating approaches are based on the idea that",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "reducing overall caloric intake is the most effective way to improve metabolic health."
+      },
+      {
+        "option_id": "b",
+        "text": "the timing of food consumption, independent of its content, may influence metabolic processes."
+      },
+      {
+        "option_id": "c",
+        "text": "peripheral clocks are entirely independent of the SCN."
+      },
+      {
+        "option_id": "d",
+        "text": "shift work has no meaningful effect on glucose regulation."
+      },
+      {
+        "option_id": "e",
+        "text": "the SCN can be reset through dietary changes alone."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "inference",
+      "implication"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "conflating 'timing of intake' with 'amount of intake'"
+    ],
+    "prerequisite_concepts": [
+      "paraphrasing the passage's final claim"
+    ],
+    "average_time_seconds": 80,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33ce",
+    "question_number": 39,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Circadian Rhythms",
+    "passage": "Circadian rhythms are internal biological processes that follow an approximately 24-hour cycle, regulating functions such as sleep-wake patterns, hormone release, and body temperature. In mammals, the primary circadian clock resides in a region of the brain called the suprachiasmatic nucleus (SCN), which receives light information directly from the retina and uses this information to synchronize the body's internal clock with the external day-night cycle. While the SCN acts as the master clock, nearly every tissue and organ in the body contains its own peripheral clock, which can be influenced by cues other than light, such as meal timing and physical activity. When peripheral clocks fall out of sync with the central clock in the SCN—as can happen with shift work, jet lag, or irregular eating schedules—researchers have observed disruptions to metabolic processes, including impaired glucose regulation and altered fat storage. This has led some researchers to propose that the timing of food intake, not merely its content, may play a meaningful role in metabolic health, an idea that has given rise to time-restricted eating approaches that confine food consumption to a specific window each day.",
+    "question_text": "Which of the following best describes the organization of the passage?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "A theory is proposed and then systematically disproven with experimental evidence."
+      },
+      {
+        "option_id": "b",
+        "text": "A biological mechanism is described, followed by an explanation of what happens when its components fall out of sync, leading to a related research implication."
+      },
+      {
+        "option_id": "c",
+        "text": "Two competing theories are presented and evaluated against each other."
+      },
+      {
+        "option_id": "d",
+        "text": "A historical overview of research on sleep is followed by a critique of current methodologies."
+      },
+      {
+        "option_id": "e",
+        "text": "A problem is identified and several unrelated solutions are compared."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "passage structure",
+      "organization"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "describing the passage as argumentative/persuasive when it is primarily expository"
+    ],
+    "prerequisite_concepts": [
+      "identifying passage structure"
+    ],
+    "average_time_seconds": 70,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33cf",
+    "question_number": 40,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Green Infrastructure",
+    "passage": "Green infrastructure refers to a network of natural and semi-natural features—such as rain gardens, permeable pavements, and urban tree canopies—that municipalities install to manage stormwater and mitigate the effects of urbanization. Traditional stormwater systems rely on underground pipes and drains to funnel rainwater away from developed areas as quickly as possible, a design that becomes increasingly strained as cities expand and impervious surfaces such as roads and rooftops replace absorbent soil and vegetation. During heavy rainfall, these conventional systems can become overwhelmed, leading to flooding and, in cities with combined sewer systems, the discharge of untreated sewage into nearby waterways. Green infrastructure addresses this problem by slowing down and absorbing rainwater closer to where it falls, reducing the volume of water that traditional systems must handle. Proponents note that green infrastructure offers benefits beyond stormwater management, including reduced urban heat, improved air quality, and increased property values in surrounding areas. Critics, however, point out that green infrastructure requires ongoing maintenance—clogged rain gardens or untended tree pits can fail to perform their intended function—and that municipalities have not always budgeted adequately for this upkeep, resulting in installations that look impressive when built but that gradually lose their effectiveness over time.",
+    "question_text": "According to the passage, conventional stormwater systems become strained primarily because",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "they were not designed to handle any rainfall at all."
+      },
+      {
+        "option_id": "b",
+        "text": "urbanization replaces absorbent surfaces with impervious ones, increasing the volume of runoff the pipes must manage."
+      },
+      {
+        "option_id": "c",
+        "text": "municipalities have stopped investing in underground infrastructure."
+      },
+      {
+        "option_id": "d",
+        "text": "green infrastructure diverts water away from traditional systems."
+      },
+      {
+        "option_id": "e",
+        "text": "heavy rainfall has become less predictable in recent decades."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "detail location",
+      "cause and effect"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "choosing an extreme or unsupported claim rather than the specific cause named in the passage"
+    ],
+    "prerequisite_concepts": [
+      "close reading"
+    ],
+    "average_time_seconds": 75,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d0",
+    "question_number": 41,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Green Infrastructure",
+    "passage": "Green infrastructure refers to a network of natural and semi-natural features—such as rain gardens, permeable pavements, and urban tree canopies—that municipalities install to manage stormwater and mitigate the effects of urbanization. Traditional stormwater systems rely on underground pipes and drains to funnel rainwater away from developed areas as quickly as possible, a design that becomes increasingly strained as cities expand and impervious surfaces such as roads and rooftops replace absorbent soil and vegetation. During heavy rainfall, these conventional systems can become overwhelmed, leading to flooding and, in cities with combined sewer systems, the discharge of untreated sewage into nearby waterways. Green infrastructure addresses this problem by slowing down and absorbing rainwater closer to where it falls, reducing the volume of water that traditional systems must handle. Proponents note that green infrastructure offers benefits beyond stormwater management, including reduced urban heat, improved air quality, and increased property values in surrounding areas. Critics, however, point out that green infrastructure requires ongoing maintenance—clogged rain gardens or untended tree pits can fail to perform their intended function—and that municipalities have not always budgeted adequately for this upkeep, resulting in installations that look impressive when built but that gradually lose their effectiveness over time.",
+    "question_text": "The passage suggests that combined sewer systems pose a particular risk during heavy rainfall because",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "they can discharge untreated sewage into waterways when overwhelmed."
+      },
+      {
+        "option_id": "b",
+        "text": "they are more expensive to maintain than green infrastructure."
+      },
+      {
+        "option_id": "c",
+        "text": "they were phased out in most cities decades ago."
+      },
+      {
+        "option_id": "d",
+        "text": "they rely exclusively on rain gardens for water management."
+      },
+      {
+        "option_id": "e",
+        "text": "they increase urban heat more than other systems."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "detail location"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "confusing a stated fact with an unsupported comparison"
+    ],
+    "prerequisite_concepts": [
+      "close reading"
+    ],
+    "average_time_seconds": 70,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.081Z",
+    "updatedAt": "2026-07-28T04:50:00.081Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d1",
+    "question_number": 42,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Green Infrastructure",
+    "passage": "Green infrastructure refers to a network of natural and semi-natural features—such as rain gardens, permeable pavements, and urban tree canopies—that municipalities install to manage stormwater and mitigate the effects of urbanization. Traditional stormwater systems rely on underground pipes and drains to funnel rainwater away from developed areas as quickly as possible, a design that becomes increasingly strained as cities expand and impervious surfaces such as roads and rooftops replace absorbent soil and vegetation. During heavy rainfall, these conventional systems can become overwhelmed, leading to flooding and, in cities with combined sewer systems, the discharge of untreated sewage into nearby waterways. Green infrastructure addresses this problem by slowing down and absorbing rainwater closer to where it falls, reducing the volume of water that traditional systems must handle. Proponents note that green infrastructure offers benefits beyond stormwater management, including reduced urban heat, improved air quality, and increased property values in surrounding areas. Critics, however, point out that green infrastructure requires ongoing maintenance—clogged rain gardens or untended tree pits can fail to perform their intended function—and that municipalities have not always budgeted adequately for this upkeep, resulting in installations that look impressive when built but that gradually lose their effectiveness over time.",
+    "question_text": "Which of the following, if true, would most support the critics' concern described in the passage?",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "A city's rain gardens were found to be functioning at only 40% of their design capacity due to years of insufficient maintenance funding."
+      },
+      {
+        "option_id": "b",
+        "text": "A city increased its overall stormwater management budget by 15%."
+      },
+      {
+        "option_id": "c",
+        "text": "A newly installed green infrastructure project reduced local flooding within its first year."
+      },
+      {
+        "option_id": "d",
+        "text": "Property values near a new urban park increased by 10%."
+      },
+      {
+        "option_id": "e",
+        "text": "A city replaced its combined sewer system with a separated system."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "supporting evidence",
+      "application"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "choosing an option that supports the proponents' view instead of the critics' concern"
+    ],
+    "prerequisite_concepts": [
+      "matching examples to a stated concern"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d2",
+    "question_number": 43,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Green Infrastructure",
+    "passage": "Green infrastructure refers to a network of natural and semi-natural features—such as rain gardens, permeable pavements, and urban tree canopies—that municipalities install to manage stormwater and mitigate the effects of urbanization. Traditional stormwater systems rely on underground pipes and drains to funnel rainwater away from developed areas as quickly as possible, a design that becomes increasingly strained as cities expand and impervious surfaces such as roads and rooftops replace absorbent soil and vegetation. During heavy rainfall, these conventional systems can become overwhelmed, leading to flooding and, in cities with combined sewer systems, the discharge of untreated sewage into nearby waterways. Green infrastructure addresses this problem by slowing down and absorbing rainwater closer to where it falls, reducing the volume of water that traditional systems must handle. Proponents note that green infrastructure offers benefits beyond stormwater management, including reduced urban heat, improved air quality, and increased property values in surrounding areas. Critics, however, point out that green infrastructure requires ongoing maintenance—clogged rain gardens or untended tree pits can fail to perform their intended function—and that municipalities have not always budgeted adequately for this upkeep, resulting in installations that look impressive when built but that gradually lose their effectiveness over time.",
+    "question_text": "The primary purpose of the passage is to",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "argue that green infrastructure should replace all traditional stormwater systems."
+      },
+      {
+        "option_id": "b",
+        "text": "describe how green infrastructure works and present both its benefits and a significant limitation."
+      },
+      {
+        "option_id": "c",
+        "text": "provide a historical account of stormwater management practices."
+      },
+      {
+        "option_id": "d",
+        "text": "compare the costs of green infrastructure across different cities."
+      },
+      {
+        "option_id": "e",
+        "text": "criticize municipal governments for underfunding public infrastructure generally."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "primary purpose",
+      "passage structure"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "mistaking a balanced expository passage for a one-sided argument"
+    ],
+    "prerequisite_concepts": [
+      "identifying the author's overall purpose"
+    ],
+    "average_time_seconds": 80,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d3",
+    "question_number": 44,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Verbal Reasoning",
+    "topic": "Reading Comprehension",
+    "subtopic": "Green Infrastructure",
+    "passage": "Green infrastructure refers to a network of natural and semi-natural features—such as rain gardens, permeable pavements, and urban tree canopies—that municipalities install to manage stormwater and mitigate the effects of urbanization. Traditional stormwater systems rely on underground pipes and drains to funnel rainwater away from developed areas as quickly as possible, a design that becomes increasingly strained as cities expand and impervious surfaces such as roads and rooftops replace absorbent soil and vegetation. During heavy rainfall, these conventional systems can become overwhelmed, leading to flooding and, in cities with combined sewer systems, the discharge of untreated sewage into nearby waterways. Green infrastructure addresses this problem by slowing down and absorbing rainwater closer to where it falls, reducing the volume of water that traditional systems must handle. Proponents note that green infrastructure offers benefits beyond stormwater management, including reduced urban heat, improved air quality, and increased property values in surrounding areas. Critics, however, point out that green infrastructure requires ongoing maintenance—clogged rain gardens or untended tree pits can fail to perform their intended function—and that municipalities have not always budgeted adequately for this upkeep, resulting in installations that look impressive when built but that gradually lose their effectiveness over time.",
+    "question_text": "It can be inferred from the passage that the long-term effectiveness of green infrastructure depends significantly on",
+    "type": "multiple_choice",
+    "display_type": "text_options",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "the initial construction cost of the installation."
+      },
+      {
+        "option_id": "b",
+        "text": "consistent maintenance after installation."
+      },
+      {
+        "option_id": "c",
+        "text": "the size of the city in which it is installed."
+      },
+      {
+        "option_id": "d",
+        "text": "whether the city also has a combined sewer system."
+      },
+      {
+        "option_id": "e",
+        "text": "the number of property owners who support the project."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "inference"
+    ],
+    "problem_types": [
+      "Reading Comprehension"
+    ],
+    "common_mistakes": [
+      "overlooking the critics' point about ongoing upkeep in favor of an unrelated detail"
+    ],
+    "prerequisite_concepts": [
+      "drawing an inference from the passage's final point"
+    ],
+    "average_time_seconds": 75,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d4",
+    "question_number": 45,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Number Properties",
+    "passage": null,
+    "question_text": "Is $x > 0$?\n(1) $x^2 = 16$\n(2) $x^3 = -64$",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "even vs. odd roots"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "forgetting that a definite 'no' answer still counts as sufficient"
+    ],
+    "prerequisite_concepts": [
+      "square roots yield two solutions; cube roots yield one real solution"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d5",
+    "question_number": 46,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Number Properties",
+    "passage": null,
+    "question_text": "What is the value of integer n?\n(1) n is a prime number less than 10.\n(2) $n^2 - 5n + 6 = 0$",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "e",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "quadratic equations",
+      "prime numbers"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "assuming combining two non-unique constraints automatically yields a unique value"
+    ],
+    "prerequisite_concepts": [
+      "factoring quadratics"
+    ],
+    "average_time_seconds": 130,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d6",
+    "question_number": 47,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Geometry",
+    "passage": null,
+    "question_text": "A rectangular garden has a length of L meters and a width of W meters. What is the area of the garden?\n(1) The perimeter of the garden is 40 meters.\n(2) L = 2W",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "perimeter and area"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "assuming a ratio statement alone fixes absolute dimensions"
+    ],
+    "prerequisite_concepts": [
+      "perimeter = 2(L+W)",
+      "area = L×W"
+    ],
+    "average_time_seconds": 120,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d7",
+    "question_number": 48,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Number Properties",
+    "passage": null,
+    "question_text": "Is the positive integer x divisible by 6?\n(1) x is divisible by 12.\n(2) x is divisible by 18.",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "divisibility"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "missing that both 12 and 18 are individually multiples of 6"
+    ],
+    "prerequisite_concepts": [
+      "factors and multiples"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d8",
+    "question_number": 49,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Number Properties",
+    "passage": null,
+    "question_text": "If x and y are positive integers, what is the remainder when x is divided by y?\n(1) x = 5y + 3\n(2) y > 3",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "remainders"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "assuming the remainder in x = 5y + 3 is always 3, regardless of the size of y"
+    ],
+    "prerequisite_concepts": [
+      "remainder must be less than the divisor"
+    ],
+    "average_time_seconds": 130,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33d9",
+    "question_number": 50,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Number Properties",
+    "passage": null,
+    "question_text": "Is x an integer?\n(1) x/3 is an integer.\n(2) 3x is an integer.",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "a",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "integer properties"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "assuming 3x being an integer implies x itself must be an integer (counterexample: x = 1/3)"
+    ],
+    "prerequisite_concepts": [
+      "definition of an integer"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33da",
+    "question_number": 51,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Algebra",
+    "passage": null,
+    "question_text": "What is the value of y?\n(1) y is the smallest positive integer that is divisible by both 4 and 6.\n(2) 2y - 5 = 19",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "d",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "least common multiple",
+      "linear equations"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "not recognizing that 'smallest positive integer divisible by both' pins down a single LCM value"
+    ],
+    "prerequisite_concepts": [
+      "LCM",
+      "solving a single linear equation"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33db",
+    "question_number": 52,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Data Sufficiency",
+    "subtopic": "Geometry",
+    "passage": null,
+    "question_text": "Is quadrilateral ABCD a square?\n(1) All four sides of ABCD have equal length.\n(2) The diagonals of ABCD are equal in length and bisect each other.",
+    "type": "multiple_choice",
+    "display_type": "data_sufficiency",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Statement (1) ALONE is sufficient, but statement (2) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "b",
+        "text": "Statement (2) ALONE is sufficient, but statement (1) alone is not sufficient to answer the question asked."
+      },
+      {
+        "option_id": "c",
+        "text": "BOTH statements TOGETHER are sufficient to answer the question asked, but NEITHER statement ALONE is sufficient."
+      },
+      {
+        "option_id": "d",
+        "text": "EACH statement ALONE is sufficient to answer the question asked."
+      },
+      {
+        "option_id": "e",
+        "text": "Statements (1) and (2) TOGETHER are NOT sufficient to answer the question asked, and additional data specific to the problem are needed."
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "hard",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "data sufficiency",
+      "quadrilateral properties"
+    ],
+    "problem_types": [
+      "Data Sufficiency"
+    ],
+    "common_mistakes": [
+      "not recognizing that equal sides alone describe a rhombus, and equal bisecting diagonals alone describe a rectangle"
+    ],
+    "prerequisite_concepts": [
+      "properties of rhombuses, rectangles, and squares"
+    ],
+    "average_time_seconds": 130,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33dc",
+    "question_number": 53,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Two-Part Analysis",
+    "subtopic": "Algebra / Word Problems",
+    "passage": null,
+    "question_text": "A company's total marketing budget for the quarter is \\$84,000, split between digital advertising and print advertising. The amount spent on digital advertising is \\$12,000 more than twice the amount spent on print advertising. In the table, select a value for Print Spend and a value for Digital Spend that are jointly consistent with the information given. Make only two selections, one in each column.",
+    "type": "multiple_select",
+    "display_type": "two_part_table",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "\\$12,000"
+      },
+      {
+        "option_id": "b",
+        "text": "\\$18,000"
+      },
+      {
+        "option_id": "c",
+        "text": "\\$24,000"
+      },
+      {
+        "option_id": "d",
+        "text": "\\$60,000"
+      },
+      {
+        "option_id": "e",
+        "text": "\\$72,000"
+      }
+    ],
+    "correct_answer": {
+      "Print Spend": "c",
+      "Digital Spend": "d"
+    },
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "two-part analysis",
+      "simultaneous equations"
+    ],
+    "problem_types": [
+      "Two-Part Analysis"
+    ],
+    "common_mistakes": [
+      "setting up 'more than twice' as '2x + 12,000' applied to the wrong variable"
+    ],
+    "prerequisite_concepts": [
+      "translating word problems into two linear equations"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33dd",
+    "question_number": 54,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Two-Part Analysis",
+    "subtopic": "Rate-Time-Distance",
+    "passage": null,
+    "question_text": "Two trains, Train X and Train Y, start at the same time from stations 450 miles apart and travel toward each other on parallel tracks. Train X travels at a constant speed that is 15 mph faster than Train Y's constant speed, and the two trains meet after 5 hours. In the table, select a value for Train Y's Speed and a value for Train X's Speed that are jointly consistent with the information given. Make only two selections, one in each column.",
+    "type": "multiple_select",
+    "display_type": "two_part_table",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "30 mph"
+      },
+      {
+        "option_id": "b",
+        "text": "37.5 mph"
+      },
+      {
+        "option_id": "c",
+        "text": "45 mph"
+      },
+      {
+        "option_id": "d",
+        "text": "52.5 mph"
+      },
+      {
+        "option_id": "e",
+        "text": "60 mph"
+      }
+    ],
+    "correct_answer": {
+      "Train Y Speed": "b",
+      "Train X Speed": "d"
+    },
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "two-part analysis",
+      "relative speed",
+      "trains moving toward each other"
+    ],
+    "problem_types": [
+      "Two-Part Analysis"
+    ],
+    "common_mistakes": [
+      "using the difference of speeds instead of the sum when trains move toward each other"
+    ],
+    "prerequisite_concepts": [
+      "distance = rate × time",
+      "combined closing speed"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33de",
+    "question_number": 55,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Two-Part Analysis",
+    "subtopic": "Algebra / Word Problems",
+    "passage": null,
+    "question_text": "A company's annual revenue was \\$500,000 higher than three times its annual expenses, and the sum of its revenue and expenses was \\$2,900,000. In the table, select a value for Expenses and a value for Revenue that are jointly consistent with the information given. Make only two selections, one in each column.",
+    "type": "multiple_select",
+    "display_type": "two_part_table",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "\\$500,000"
+      },
+      {
+        "option_id": "b",
+        "text": "\\$600,000"
+      },
+      {
+        "option_id": "c",
+        "text": "\\$900,000"
+      },
+      {
+        "option_id": "d",
+        "text": "\\$2,300,000"
+      },
+      {
+        "option_id": "e",
+        "text": "\\$2,400,000"
+      }
+    ],
+    "correct_answer": {
+      "Expenses": "b",
+      "Revenue": "d"
+    },
+    "difficulty": "medium",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "two-part analysis",
+      "simultaneous equations"
+    ],
+    "problem_types": [
+      "Two-Part Analysis"
+    ],
+    "common_mistakes": [
+      "translating 'higher than three times' incorrectly as '3(x + 500,000)'"
+    ],
+    "prerequisite_concepts": [
+      "translating word problems into two linear equations"
+    ],
+    "average_time_seconds": 150,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33df",
+    "question_number": 56,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Two-Part Analysis",
+    "subtopic": "Geometry",
+    "passage": null,
+    "question_text": "A rectangular swimming pool has a perimeter of 116 feet. The length of the pool is 18 feet more than its width. In the table, select a value for the Width and a value for the Length that are jointly consistent with the information given. Make only two selections, one in each column.",
+    "type": "multiple_select",
+    "display_type": "two_part_table",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "18 ft"
+      },
+      {
+        "option_id": "b",
+        "text": "20 ft"
+      },
+      {
+        "option_id": "c",
+        "text": "29 ft"
+      },
+      {
+        "option_id": "d",
+        "text": "38 ft"
+      },
+      {
+        "option_id": "e",
+        "text": "40 ft"
+      }
+    ],
+    "correct_answer": {
+      "Width": "b",
+      "Length": "d"
+    },
+    "difficulty": "easy",
+    "points": 2,
+    "marking_scheme": {
+      "full": 2,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "two-part analysis",
+      "perimeter"
+    ],
+    "problem_types": [
+      "Two-Part Analysis"
+    ],
+    "common_mistakes": [
+      "using perimeter = L + W instead of 2(L + W)"
+    ],
+    "prerequisite_concepts": [
+      "perimeter of a rectangle",
+      "translating word problems into two linear equations"
+    ],
+    "average_time_seconds": 140,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.082Z",
+    "updatedAt": "2026-07-28T04:50:00.082Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e0",
+    "question_number": 57,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Table Analysis",
+    "subtopic": "Retail Sales Data",
+    "passage": "The sortable table below shows quarterly sales data for a retail company across five regions.\n\n\\begin{tabular}{|l|c|c|c|}\n\\hline\nRegion & Q1 Sales (\\$000) & Q2 Sales (\\$000) & Number of Stores \\\\\n\\hline\nNorth & 1,200 & 1,350 & 15 \\\\\nSouth & 950 & 900 & 12 \\\\\nEast & 1,600 & 1,720 & 20 \\\\\nWest & 800 & 980 & 10 \\\\\nCentral & 1,100 & 1,175 & 14 \\\\\n\\hline\n\\end{tabular}",
+    "question_text": "Statement: The North region had a greater percentage increase in sales from Q1 to Q2 than the East region. Is this statement True or False based on the table?",
+    "type": "multiple_choice",
+    "display_type": "table_statement",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "true",
+        "text": "True"
+      },
+      {
+        "option_id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_answer": "true",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "table analysis",
+      "percentage change",
+      "sorting/filtering data"
+    ],
+    "problem_types": [
+      "Table Analysis"
+    ],
+    "common_mistakes": [
+      "comparing absolute sales increase instead of percentage increase"
+    ],
+    "prerequisite_concepts": [
+      "percentage change formula"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e1",
+    "question_number": 58,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Table Analysis",
+    "subtopic": "Retail Sales Data",
+    "passage": "The sortable table below shows quarterly sales data for a retail company across five regions.\n\n\\begin{tabular}{|l|c|c|c|}\n\\hline\nRegion & Q1 Sales (\\$000) & Q2 Sales (\\$000) & Number of Stores \\\\\n\\hline\nNorth & 1,200 & 1,350 & 15 \\\\\nSouth & 950 & 900 & 12 \\\\\nEast & 1,600 & 1,720 & 20 \\\\\nWest & 800 & 980 & 10 \\\\\nCentral & 1,100 & 1,175 & 14 \\\\\n\\hline\n\\end{tabular}",
+    "question_text": "Statement: The West region had the highest average sales per store in Q2 among the five regions. Is this statement True or False based on the table?",
+    "type": "multiple_choice",
+    "display_type": "table_statement",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "true",
+        "text": "True"
+      },
+      {
+        "option_id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_answer": "true",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "table analysis",
+      "derived metric (sales per store)"
+    ],
+    "problem_types": [
+      "Table Analysis"
+    ],
+    "common_mistakes": [
+      "ranking regions by total Q2 sales instead of Q2 sales per store"
+    ],
+    "prerequisite_concepts": [
+      "computing a rate from two table columns"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e2",
+    "question_number": 59,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Table Analysis",
+    "subtopic": "Retail Sales Data",
+    "passage": "The sortable table below shows quarterly sales data for a retail company across five regions.\n\n\\begin{tabular}{|l|c|c|c|}\n\\hline\nRegion & Q1 Sales (\\$000) & Q2 Sales (\\$000) & Number of Stores \\\\\n\\hline\nNorth & 1,200 & 1,350 & 15 \\\\\nSouth & 950 & 900 & 12 \\\\\nEast & 1,600 & 1,720 & 20 \\\\\nWest & 800 & 980 & 10 \\\\\nCentral & 1,100 & 1,175 & 14 \\\\\n\\hline\n\\end{tabular}",
+    "question_text": "Statement: The South region and the Central region were the only two regions in which Q2 sales were lower than Q1 sales. Is this statement True or False based on the table?",
+    "type": "multiple_choice",
+    "display_type": "table_statement",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "true",
+        "text": "True"
+      },
+      {
+        "option_id": "false",
+        "text": "False"
+      }
+    ],
+    "correct_answer": "false",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "table analysis",
+      "row-by-row comparison"
+    ],
+    "problem_types": [
+      "Table Analysis"
+    ],
+    "common_mistakes": [
+      "overlooking that Central's sales actually increased from Q1 to Q2"
+    ],
+    "prerequisite_concepts": [
+      "comparing two columns across all rows"
+    ],
+    "average_time_seconds": 90,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e3",
+    "question_number": 60,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Graphics Interpretation",
+    "subtopic": "Line Graph / Weather Data",
+    "passage": "The line graph tracks the monthly average temperature (in degrees Fahrenheit) recorded in a coastal city over a 12-month period:\nJan 42, Feb 45, Mar 51, Apr 58, May 66, Jun 73, Jul 78, Aug 77, Sep 71, Oct 61, Nov 51, Dec 44.",
+    "question_text": "According to the graph, the month in which the average temperature increased the most compared to the previous month is __________.",
+    "type": "multiple_choice",
+    "display_type": "graphics_blank",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "March"
+      },
+      {
+        "option_id": "b",
+        "text": "April"
+      },
+      {
+        "option_id": "c",
+        "text": "May"
+      },
+      {
+        "option_id": "d",
+        "text": "June"
+      },
+      {
+        "option_id": "e",
+        "text": "July"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "graphics interpretation",
+      "month-over-month change"
+    ],
+    "problem_types": [
+      "Graphics Interpretation"
+    ],
+    "common_mistakes": [
+      "reading the highest absolute temperature instead of the largest month-over-month increase"
+    ],
+    "prerequisite_concepts": [
+      "computing consecutive differences from a data series"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e4",
+    "question_number": 61,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Graphics Interpretation",
+    "subtopic": "Line Graph / Weather Data",
+    "passage": "The line graph tracks the monthly average temperature (in degrees Fahrenheit) recorded in a coastal city over a 12-month period:\nJan 42, Feb 45, Mar 51, Apr 58, May 66, Jun 73, Jul 78, Aug 77, Sep 71, Oct 61, Nov 51, Dec 44.",
+    "question_text": "According to the graph, the average temperature in October was approximately __________ lower than the average temperature in July.",
+    "type": "multiple_choice",
+    "display_type": "graphics_blank",
+    "has_latex": false,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "10%"
+      },
+      {
+        "option_id": "b",
+        "text": "15%"
+      },
+      {
+        "option_id": "c",
+        "text": "22%"
+      },
+      {
+        "option_id": "d",
+        "text": "30%"
+      },
+      {
+        "option_id": "e",
+        "text": "35%"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "graphics interpretation",
+      "percentage decrease"
+    ],
+    "problem_types": [
+      "Graphics Interpretation"
+    ],
+    "common_mistakes": [
+      "dividing the difference by the October value instead of the July value"
+    ],
+    "prerequisite_concepts": [
+      "percentage decrease formula"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e5",
+    "question_number": 62,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Multi-Source Reasoning",
+    "subtopic": "Warehouse Capacity Planning",
+    "passage": "[Tab 1: Email] From: Operations Manager. To: Regional Directors. Subject: Warehouse Capacity Update. Our three regional warehouses—Warehouse A, Warehouse B, and Warehouse C—are approaching capacity ahead of the holiday season. Warehouse A is currently at 85% capacity, Warehouse B is at 92% capacity, and Warehouse C is at 68% capacity. Company policy requires that no warehouse exceed 95% capacity, as this creates unsafe working conditions for staff and slows order fulfillment times. We expect inbound shipments to increase capacity utilization by approximately 10 percentage points at each warehouse over the next month.\n\n[Tab 2: Warehouse Data Table]\n\\begin{tabular}{|l|c|c|c|}\n\\hline\nWarehouse & Total Capacity (units) & Current Inventory (units) & Monthly Operating Cost \\\\\n\\hline\nA & 40,000 & 34,000 & \\$180,000 \\\\\nB & 25,000 & 23,000 & \\$140,000 \\\\\nC & 60,000 & 40,800 & \\$210,000 \\\\\n\\hline\n\\end{tabular}",
+    "question_text": "If capacity utilization at each warehouse increases by 10 percentage points as projected in the email, which warehouse would be the first to violate company policy by exceeding 95% capacity?",
+    "type": "multiple_choice",
+    "display_type": "multi_source_tabs",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Warehouse A"
+      },
+      {
+        "option_id": "b",
+        "text": "Warehouse B"
+      },
+      {
+        "option_id": "c",
+        "text": "Warehouse C"
+      },
+      {
+        "option_id": "d",
+        "text": "Both A and B"
+      },
+      {
+        "option_id": "e",
+        "text": "None of the warehouses"
+      }
+    ],
+    "correct_answer": "b",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "multi-source reasoning",
+      "synthesizing data across tabs"
+    ],
+    "problem_types": [
+      "Multi-Source Reasoning"
+    ],
+    "common_mistakes": [
+      "treating a projected capacity of exactly 95% as a policy violation (the policy only bars exceeding 95%)"
+    ],
+    "prerequisite_concepts": [
+      "combining a narrative constraint with quantitative data"
+    ],
+    "average_time_seconds": 110,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e6",
+    "question_number": 63,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Multi-Source Reasoning",
+    "subtopic": "Warehouse Capacity Planning",
+    "passage": "[Tab 1: Email] From: Operations Manager. To: Regional Directors. Subject: Warehouse Capacity Update. Our three regional warehouses—Warehouse A, Warehouse B, and Warehouse C—are approaching capacity ahead of the holiday season. Warehouse A is currently at 85% capacity, Warehouse B is at 92% capacity, and Warehouse C is at 68% capacity. Company policy requires that no warehouse exceed 95% capacity, as this creates unsafe working conditions for staff and slows order fulfillment times. We expect inbound shipments to increase capacity utilization by approximately 10 percentage points at each warehouse over the next month.\n\n[Tab 2: Warehouse Data Table]\n\\begin{tabular}{|l|c|c|c|}\n\\hline\nWarehouse & Total Capacity (units) & Current Inventory (units) & Monthly Operating Cost \\\\\n\\hline\nA & 40,000 & 34,000 & \\$180,000 \\\\\nB & 25,000 & 23,000 & \\$140,000 \\\\\nC & 60,000 & 40,800 & \\$210,000 \\\\\n\\hline\n\\end{tabular}",
+    "question_text": "What is the monthly operating cost per unit of current inventory at Warehouse C, rounded to the nearest cent?",
+    "type": "multiple_choice",
+    "display_type": "multi_source_tabs",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "\\$3.50"
+      },
+      {
+        "option_id": "b",
+        "text": "\\$4.20"
+      },
+      {
+        "option_id": "c",
+        "text": "\\$5.15"
+      },
+      {
+        "option_id": "d",
+        "text": "\\$6.80"
+      },
+      {
+        "option_id": "e",
+        "text": "\\$8.40"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "medium",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "multi-source reasoning",
+      "unit rate calculation"
+    ],
+    "problem_types": [
+      "Multi-Source Reasoning"
+    ],
+    "common_mistakes": [
+      "dividing operating cost by total capacity instead of current inventory"
+    ],
+    "prerequisite_concepts": [
+      "reading precise values from a data table"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  },
+  {
+    "_id": "6a6834f87e316019b56c33e7",
+    "question_number": 64,
+    "year": 2026,
+    "paper": "GMAT Focus Edition Practice Set 1",
+    "subject": "Data Insights",
+    "topic": "Multi-Source Reasoning",
+    "subtopic": "Warehouse Capacity Planning",
+    "passage": "[Tab 1: Email] From: Operations Manager. To: Regional Directors. Subject: Warehouse Capacity Update. Our three regional warehouses—Warehouse A, Warehouse B, and Warehouse C—are approaching capacity ahead of the holiday season. Warehouse A is currently at 85% capacity, Warehouse B is at 92% capacity, and Warehouse C is at 68% capacity. Company policy requires that no warehouse exceed 95% capacity, as this creates unsafe working conditions for staff and slows order fulfillment times. We expect inbound shipments to increase capacity utilization by approximately 10 percentage points at each warehouse over the next month.\n\n[Tab 2: Warehouse Data Table]\n\\begin{tabular}{|l|c|c|c|}\n\\hline\nWarehouse & Total Capacity (units) & Current Inventory (units) & Monthly Operating Cost \\\\\n\\hline\nA & 40,000 & 34,000 & \\$180,000 \\\\\nB & 25,000 & 23,000 & \\$140,000 \\\\\nC & 60,000 & 40,800 & \\$210,000 \\\\\n\\hline\n\\end{tabular}",
+    "question_text": "Which warehouse has the lowest current inventory as a percentage of its total capacity, and is therefore best positioned to absorb the projected increase in inbound shipments without approaching the 95% policy threshold?",
+    "type": "multiple_choice",
+    "display_type": "multi_source_tabs",
+    "has_latex": true,
+    "image_url": null,
+    "option_images": {},
+    "options": [
+      {
+        "option_id": "a",
+        "text": "Warehouse A"
+      },
+      {
+        "option_id": "b",
+        "text": "Warehouse B"
+      },
+      {
+        "option_id": "c",
+        "text": "Warehouse C"
+      },
+      {
+        "option_id": "d",
+        "text": "Warehouses A and C are tied"
+      },
+      {
+        "option_id": "e",
+        "text": "Cannot be determined from the information given"
+      }
+    ],
+    "correct_answer": "c",
+    "difficulty": "easy",
+    "points": 1,
+    "marking_scheme": {
+      "full": 1,
+      "negative": 0,
+      "zero": 0
+    },
+    "concept_tags": [
+      "multi-source reasoning",
+      "synthesizing narrative and tabular data"
+    ],
+    "problem_types": [
+      "Multi-Source Reasoning"
+    ],
+    "common_mistakes": [
+      "comparing raw inventory counts instead of inventory as a percentage of capacity"
+    ],
+    "prerequisite_concepts": [
+      "computing and comparing ratios across entities"
+    ],
+    "average_time_seconds": 100,
+    "__v": 0,
+    "createdAt": "2026-07-28T04:50:00.083Z",
+    "updatedAt": "2026-07-28T04:50:00.083Z"
+  }
+]

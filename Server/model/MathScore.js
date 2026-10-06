@@ -5,7 +5,8 @@ const answerSchema = new mongoose.Schema({
   item_id: { type: String, required: true },
   phase: { type: String, required: true },
   cluster: { type: String, required: true },
-  chosen_index: { type: Number, required: true },
+  chosen_index: { type: Number, required: true },   // position in the student's shuffled options
+  option_index: { type: Number, default: -1 },      // position in the question's own options[]; -1 = none / not recorded
   is_correct: { type: Boolean, required: true },
   misconception_id: { type: String, default: '' },  // set when the chosen option is wrong and tags a known error pattern
   skipped: { type: Boolean, default: false },
