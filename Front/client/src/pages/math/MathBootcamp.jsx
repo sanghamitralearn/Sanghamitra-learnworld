@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
 import { typesetMath } from './mathjax';
+import { LEVEL_META } from './levels';
 import './MathBootcamp.css';
 
 function shuffleArray(arr) {
@@ -860,8 +861,13 @@ export default function MathBootcamp() {
           </div>
         )}
 
-        <h2>{meta ? meta.title : 'Math Bootcamp'}</h2>
-        <p>{meta ? meta.subtitle : ''}</p>
+        {/* Built from the level number so every chapter in every grade names its levels the same way. */}
+        <h2>
+          {meta
+            ? (meta.chapterName && LEVEL_META[levelNum] ? `${meta.chapterName} — ${LEVEL_META[levelNum].name}` : meta.title)
+            : 'Math Bootcamp'}
+        </h2>
+        {meta && meta.subtitle && !(meta.gradeLabel || meta.chapterName) && <p>{meta.subtitle}</p>}
 
         {timed && phase === 'diagnostic' && (
           <div className="mb-timer-area">

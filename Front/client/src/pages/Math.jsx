@@ -1,15 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { apiFetch } from '../api/client';
+import { LEVEL_META } from './math/levels';
 import './Math.css';
-
-// The four bootcamp stages every chapter runs through, in the order a learner should take them.
-const LEVEL_META = {
-  1: { name: 'Warm-up', hint: 'Untimed', icon: 'bi-cup-hot', text: 'Ease in with guided questions — no clock, no pressure.' },
-  2: { name: 'Diagnostic', hint: 'Untimed', icon: 'bi-search', text: 'Find exactly which ideas still need work.' },
-  3: { name: 'Recheck', hint: 'Spaced', icon: 'bi-arrow-repeat', text: 'Come back later and lock in what you fixed.' },
-  4: { name: 'Speed Run', hint: 'Timed', icon: 'bi-stopwatch', text: 'Beat the clock to build real exam pace.' },
-};
 
 const GRADE_STORAGE_KEY = 'mathx.activeGrade';
 
@@ -266,7 +259,7 @@ export function MathChapterPage() {
                 <span className="mx-eyebrow">Chapter {pad(chapter.number)} &middot; {grade.gradeLabel}</span>
                 <h1>{chapter.chapterName}</h1>
                 <p className="mx-hero-lede">
-                  {chapter.description || 'Work through the levels in order — from a relaxed warm-up to a timed speed run.'}
+                  {chapter.description || 'Work through the levels in order — from core fluency to a timed speed run.'}
                 </p>
                 <span className="mx-chapter-status">{info.label}</span>
               </div>
@@ -336,7 +329,7 @@ function HowItWorks() {
       <div className="mx-how-head">
         <span className="mx-how-tag"><i className="bi bi-signpost-2"></i> New here?</span>
         <h2 id="mx-how-title">How every chapter works</h2>
-        <p>Pick your grade, click a chapter card and move through its four levels in order. Most learners start with Chapter 01 &middot; Level 1.</p>
+        <p>Pick your grade, click a chapter card and move through its four levels in order. Every level has a warm-up, a diagnostic and a recheck. Most learners start with Chapter 01 &middot; Level 1.</p>
       </div>
       <ol className="mx-how-steps">
         {Object.entries(LEVEL_META).map(([level, meta]) => (
@@ -405,8 +398,8 @@ export default function MathPage() {
               </span>
               <h1>Master maths, <em>one chapter at a time.</em></h1>
               <p className="mx-hero-lede">
-                Choose your grade, then work through the chapters in order. Each chapter has four short levels
-                that take you from a relaxed warm-up to a timed speed run.
+                Choose your grade, then work through the chapters in order. Each chapter has four levels
+                that take you from core fluency to a timed speed run.
               </p>
             </div>
 
