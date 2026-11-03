@@ -47,6 +47,12 @@ function plainText(html, max = 220) {
         // Common LaTeX -> readable symbols ("115^\circ" -> "115°").
         .replace(/\^\{?\\circ\}?/g, '°')
         .replace(/\\(?:d|t)?frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2')
+        // Recurring decimals ("0.\overline{27}" -> "0.2̅7̅"), sequences, brackets and blanks.
+        .replace(/\\overline\{([^{}]*)\}/g, (m, digits) => [...digits].map((c) => `${c}̅`).join(''))
+        .replace(/\\ldots|\\dots|\\cdots/g, '…')
+        .replace(/\\left|\\right/g, '')
+        .replace(/\\square/g, '□').replace(/\\implies/g, '⇒').replace(/\\approx/g, '≈').replace(/\\to(?![a-z])/g, '→')
+        .replace(/\{,\}/g, ',')
         .replace(/\\sqrt\{([^{}]*)\}/g, '√($1)')
         .replace(/\\(?:text|mathrm|mathbf)\{([^{}]*)\}/g, '$1')
         .replace(/\\times/g, '×').replace(/\\div/g, '÷').replace(/\\cdot/g, '·').replace(/\\pm/g, '±')
