@@ -9,6 +9,7 @@ const authRouter = require('./router/auth');
 const mathRouter = require('./router/math');
 const examsRouter = require('./router/exams');
 const adminRouter = require('./router/admin');
+const meRouter = require('./router/me');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
@@ -76,6 +77,7 @@ app.use('/api', authRouter);
 app.use('/api/math', mathRouter);
 app.use('/api/exams', examsRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/me', meRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World');

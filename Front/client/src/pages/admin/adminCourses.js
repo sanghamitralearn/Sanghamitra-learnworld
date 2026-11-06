@@ -40,6 +40,9 @@ export function scoreTone(pct) {
 
 export const formatDate = (date) => new Date(date).toLocaleDateString();
 
+// Maths grades are stored as "grade-6"; shown as "6".
+export const gradeNumber = (grade) => String(grade ?? '').replace(/^grade-/, '') || '—';
+
 // One student's attempts in a course, oldest first. Every entry carries correct / total / percent
 // so the dashboards can score maths and exam attempts the same way.
 export function entriesFor(key, doc) {

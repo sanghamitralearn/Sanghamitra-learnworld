@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
 import TrendChart from '../../components/admin/TrendChart';
 import {
-  entriesFor, findCourse, formatDate, fullTests, isExamCourse, loadSections, moduleAttempts, percentOf, scoreTone
+  entriesFor, findCourse, formatDate, fullTests, gradeNumber, isExamCourse, loadSections, moduleAttempts, percentOf, scoreTone
 } from './adminCourses';
 import { ScoreText } from './AdminCourseDashboard';
 import './admin.css';
@@ -164,7 +164,7 @@ export default function AdminUserDetail() {
 }
 
 function bannerSubtitle(key, course, headline, latestFull, sections) {
-  if (key === 'maths') return `${headline.chapter_name} · Grade ${headline.grade} · Level ${headline.level}`;
+  if (key === 'maths') return `${headline.chapter_name} · Grade ${gradeNumber(headline.grade)} · Level ${headline.level}`;
   if (latestFull) return `${sections.map((s) => s.name).join(' + ')} · Full ${course.label} Test`;
   return `${headline.exam_label || headline.exam} · ${headline.section_name || 'Module'} practice`;
 }
@@ -450,6 +450,7 @@ function MathSections({ entries, onReview }) {
                 <tr>
                   <th>#</th>
                   <th>Chapter</th>
+                  <th>Grade</th>
                   <th>Level</th>
                   <th>Warmup</th>
                   <th>Diagnostic</th>
@@ -464,6 +465,7 @@ function MathSections({ entries, onReview }) {
                   <tr key={a._id || idx}>
                     <td>#{entries.length - idx}</td>
                     <td>{a.chapter_name}</td>
+                    <td>{gradeNumber(a.grade)}</td>
                     <td>{a.level}</td>
                     <td><ScoreText correct={a.warmup_correct} total={a.warmup_total} /></td>
                     <td><ScoreText correct={a.diagnostic_correct} total={a.diagnostic_total} /></td>
