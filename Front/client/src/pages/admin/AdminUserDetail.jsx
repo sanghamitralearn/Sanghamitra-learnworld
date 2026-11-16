@@ -394,10 +394,20 @@ function MathSections({ entries, onReview }) {
   const avg = Math.round(entries.reduce((sum, a) => sum + a.percent, 0) / entries.length);
   const first = entries[0];
 
-  const chart = useMemo(() => ({
-    labels: entries.map((_, i) => `A${i + 1}`),
-    datasets: [{ label: 'Score', data: entries.map((a) => a.percent), color: '#7c3aed' }]
-  }), [entries]);
+  const [trendMetric, setTrendMetric] = useState('total');
+
+  const chart = useMemo(() => {
+    const m = TREND_METRICS[trendMetric];
+    return {
+      labels: entries.map((_, i) => `A${i + 1}`),
+      datasets: [{
+        label: m.label,
+        data: entries.map((a) => m.percent(a)),
+        color: m.color,
+        details: entries.map((a) => trendDetails(trendMetric, a))
+      }]
+    };
+  }, [entries, trendMetric]);
 
   return (
     <>
@@ -484,7 +494,17 @@ function MathSections({ entries, onReview }) {
           </div>
         </div>
         <div className="adm-panel">
-          <div className="adm-panel-head adm-panel-head-sm"><span>Score Trend (%)</span></div>
+          <div className="adm-panel-head adm-panel-head-sm">
+            <span>{TREND_METRICS[trendMetric].label} Score Trend (%)</span>
+            <select
+              className="adm-trend-select"
+              value={trendMetric}
+              onChange={(e) => setTrendMetric(e.target.value)}
+              aria-label="Score to show"
+            >
+              {Object.entries(TREND_METRICS).map(([k, m]) => <option key={k} value={k}>{m.label}</option>)}
+            </select>
+          </div>
           <div className="adm-panel-pad">
             <TrendChart labels={chart.labels} datasets={chart.datasets} />
           </div>
@@ -492,6 +512,40 @@ function MathSections({ entries, onReview }) {
       </div>
     </>
   );
+}
+
+// Per-phase time in seconds. Older attempts saved before phase timers existed fall back to the
+// per-question times (only recorded on timed diagnostics); 0 means "not recorded".
+function phaseSeconds(a, phase) {
+  const stored = a[`${phase}_time`];
+  if (stored) return stored;
+  return (a.answers || []).filter((x) => x.phase === phase).reduce((s, x) => s + (x.time_elapsed || 0), 0);
+}
+
+const timeText = (sec) => (sec > 0 ? formatDuration(sec) : 'not recorded');
+
+const TREND_METRICS = {
+  total: { label: 'Total', color: '#7c3aed', percent: (a) => a.percent },
+  warmup: { label: 'Warmup', color: '#15803d', percent: (a) => percentOf(a.warmup_correct, a.warmup_total) },
+  diagnostic: { label: 'Diagnostic', color: '#ea580c', percent: (a) => percentOf(a.diagnostic_correct, a.diagnostic_total) }
+};
+
+// Tooltip lines for one attempt: correct/total and time spent, plus a per-phase breakdown for Total.
+function trendDetails(metric, a) {
+  const w = phaseSeconds(a, 'warmup');
+  const d = phaseSeconds(a, 'diagnostic');
+  const r = phaseSeconds(a, 'recheck');
+  const date = `Date: ${new Date(a.date).toLocaleString()}`;
+  if (metric === 'warmup') return [`Correct: ${a.warmup_correct}/${a.warmup_total}`, `Time: ${timeText(w)}`, date];
+  if (metric === 'diagnostic') return [`Correct: ${a.diagnostic_correct}/${a.diagnostic_total}`, `Time: ${timeText(d)}`, date];
+  return [
+    `Correct: ${a.correct}/${a.total}`,
+    `Total time: ${timeText(w + d + r)}`,
+    `  Warmup: ${timeText(w)}`,
+    `  Diagnostic: ${timeText(d)}`,
+    ...(a.recheck_total ? [`  Recheck: ${timeText(r)}`] : []),
+    date
+  ];
 }
 
 function formatDuration(seconds) {

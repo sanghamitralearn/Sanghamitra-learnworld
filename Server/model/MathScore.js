@@ -28,6 +28,10 @@ const attemptSchema = new mongoose.Schema({
   recheck_correct: { type: Number, default: 0 },
   recheck_total: { type: Number, default: 0 },
   total_score: { type: Number, default: 0 },
+  // Seconds the student actively spent in each phase (tab visible).
+  warmup_time: { type: Number, default: 0 },
+  diagnostic_time: { type: Number, default: 0 },
+  recheck_time: { type: Number, default: 0 },
   avg_time_per_correct: { type: Number, default: 0 },
   answers: { type: [answerSchema], default: [] }
 });

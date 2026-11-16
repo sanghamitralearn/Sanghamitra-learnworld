@@ -5,13 +5,6 @@ import { AttemptHistory } from './attempts/AttemptHistory';
 import { buildActivity, buildCourses, nextStep, overallStats, vocabEntries, vocabTopics } from './dashboardStats';
 import './Dashboard.css';
 
-const NAV = [
-  { to: '/dashboard', label: 'Dashboard', current: true },
-  { to: '/math', label: 'Mathematics' },
-  { to: '/competitive-exams', label: 'Competitive Exams' },
-  { to: '/contact', label: 'Support' }
-];
-
 const STATUS_NOTE = { new: 'Not started', completed: 'Completed' };
 
 const formatDate = (value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -343,13 +336,6 @@ export default function Dashboard() {
       <div className="container sd-frame">
         <div className="sd-topbar">
           <h1>My Dashboard</h1>
-          <nav className="sd-nav" aria-label="Dashboard">
-            {NAV.map((item) => (
-              <Link key={item.to} to={item.to} className={item.current ? 'is-active' : ''} aria-current={item.current ? 'page' : undefined}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
         </div>
 
         {partial && (

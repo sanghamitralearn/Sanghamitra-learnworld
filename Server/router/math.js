@@ -1,8 +1,10 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express.Router();
 const authenticate = require('../middleware/authenticate');
 const MathQuestion = require('../model/MathQuestion');
 const MathChapter = require('../model/MathChapter');
+const MathProgress = require('../model/MathProgress');
 const { MathScore, addOrUpdateMathAttempt } = require('../model/MathScore');
 const { notifyNewMathAttempt } = require('../utils/notify');
 
@@ -87,6 +89,79 @@ router.get('/scores', authenticate, async (req, res) => {
     if (level) attempts = attempts.filter((a) => a.level === Number(level));
 
     res.status(200).json({ email: userScores.email, username: userScores.username, attempts });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// ---------------------------------------------------------------------
+// In-progress bootcamp state (resume where the student left off).
+// Always keyed to the signed-in user's own email, never one from the client.
+// ---------------------------------------------------------------------
+function progressKey(req, source) {
+  const { grade, chapter, level } = source;
+  if (!grade || !chapter || !level) return null;
+  return { email: req.rootUser.email, grade, chapter_slug: chapter, level: Number(level) };
+}
+
+// List every bootcamp this user has in progress (for "Resume" badges on the hub).
+router.get('/progress/all', authenticate, async (req, res) => {
+  try {
+    const docs = await MathProgress.find({ email: req.rootUser.email }, { state: 0 });
+    res.json(docs.map((d) => ({ grade: d.grade, chapter: d.chapter_slug, level: d.level, updated_at: d.updated_at })));
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+router.get('/progress', authenticate, async (req, res) => {
+  const key = progressKey(req, req.query);
+  if (!key) return res.status(400).json({ error: 'grade, chapter and level are required' });
+  try {
+    const doc = await MathProgress.findOne(key);
+    if (!doc) return res.status(404).json({ message: 'No saved progress' });
+    res.json({ state: doc.state, updated_at: doc.updated_at });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+router.put('/progress', authenticate, async (req, res) => {
+  const key = progressKey(req, req.body);
+  const { state } = req.body;
+  if (!key || !state || typeof state !== 'object') {
+    return res.status(400).json({ error: 'grade, chapter, level and state are required' });
+  }
+  try {
+    await MathProgress.updateOne(key, { $set: { state, updated_at: new Date() } }, { upsert: true });
+
+    // Keep the saved attempt's phase times current as the student goes, so time spent
+    // is recorded even if they leave mid-phase. $max: a late/out-of-order save never lowers it.
+    const t = state.phaseTime;
+    if (t && state.savedAttemptId && mongoose.isValidObjectId(state.savedAttemptId)) {
+      const secs = (v) => (Number.isFinite(Number(v)) ? Math.max(0, Math.round(Number(v))) : 0);
+      await MathScore.updateOne(
+        { email: key.email, 'attempts._id': state.savedAttemptId },
+        { $max: {
+          'attempts.$.warmup_time': secs(t.warmup),
+          'attempts.$.diagnostic_time': secs(t.diagnostic),
+          'attempts.$.recheck_time': secs(t.recheck)
+        } }
+      );
+    }
+    res.json({ message: 'Progress saved' });
+  } catch (err) {
+    console.error('[math/progress] failed to save progress:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+router.delete('/progress', authenticate, async (req, res) => {
+  const key = progressKey(req, req.query);
+  if (!key) return res.status(400).json({ error: 'grade, chapter and level are required' });
+  try {
+    await MathProgress.deleteOne(key);
+    res.json({ message: 'Progress cleared' });
   } catch (err) {
     res.status(500).json({ error: 'Server error' });
   }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
 import RecentActivityBell from '../../components/admin/RecentActivityBell';
-import { ALL_COURSES, COURSE_GROUPS, courseStudents } from './adminCourses';
+import { COURSE_GROUPS, courseStudents } from './adminCourses';
 import './admin.css';
 
 export default function AdminDashboard() {
@@ -41,17 +41,6 @@ export default function AdminDashboard() {
       </div>
 
       <div className="container adm-overview">
-        <aside className="adm-sidebar">
-          <NavLink to="/admin" end className="adm-sidebar-link">
-            <i className="bi bi-speedometer2"></i> Dashboard Overview
-          </NavLink>
-          {ALL_COURSES.map((course) => (
-            <NavLink key={course.key} to={`/admin/course/${course.key}`} className="adm-sidebar-link">
-              <i className={`bi ${course.icon}`}></i> {course.label}
-            </NavLink>
-          ))}
-        </aside>
-
         <div className="adm-overview-main">
           <div className="adm-welcome">
             <div className="adm-welcome-avatar">

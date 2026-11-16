@@ -291,6 +291,37 @@ function WarmupReviewList({ items, answeredMap, shuffledMapRef }) {
 }
 
 // ---------------------------------------------------------------------
+// Resume support — the in-progress state is saved to the server so a student
+// who leaves mid-bootcamp lands back on the same question next time.
+// ---------------------------------------------------------------------
+const RESUMABLE_PHASES = new Set(['warmup', 'gate', 'diagnostic', 'results', 'recheck']);
+const PROGRESS_VERSION = 1;
+
+// Shuffled option arrays hold the question's own option objects; store them as
+// indices into item.options so the order can be rebuilt after a reload.
+function serializeShuffled(map, byId) {
+  const out = {};
+  Object.entries(map).forEach(([id, shuffled]) => {
+    const item = byId[id];
+    if (item) out[id] = shuffled.map((opt) => item.options.indexOf(opt));
+  });
+  return out;
+}
+
+// Returns null if the saved order no longer fits the question (bank re-seeded).
+function deserializeShuffled(saved, byId) {
+  const out = {};
+  for (const [id, idxs] of Object.entries(saved || {})) {
+    const item = byId[id];
+    if (!item || !Array.isArray(idxs) || idxs.length !== item.options.length) return null;
+    const opts = idxs.map((i) => item.options[i]);
+    if (opts.some((o) => !o)) return null;
+    out[id] = opts;
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------
 // Main engine
 // ---------------------------------------------------------------------
 
@@ -337,6 +368,14 @@ export default function MathBootcamp() {
   const diagnosticSubmitRef = useRef(false);
   const finalSubmitRef = useRef(false);
   const savedAttemptIdRef = useRef(null);
+
+  const [resumed, setResumed] = useState(false);
+  const progressReadyRef = useRef(false); // saving starts only after load/restore finished
+  const saveTimerRef = useRef(null);
+  const saveChainRef = useRef(Promise.resolve()); // keeps PUT/DELETE requests in order
+  const buildSnapshotRef = useRef(() => null);
+  const phaseTimeRef = useRef({ warmup: 0, diagnostic: 0, recheck: 0 }); // active seconds per phase
+  const progressQuery = `grade=${encodeURIComponent(grade)}&chapter=${encodeURIComponent(chapterSlug)}&level=${levelNum}`;
 
   // -------------------------------------------------------------
   // Load session + catalog + questions
@@ -389,9 +428,29 @@ export default function MathBootcamp() {
 
         if (warmup.length === 0) {
           setPhase('error');
+          return;
+        }
+
+        // Pick up where the student left off, if they have saved progress here.
+        let saved = null;
+        try {
+          const progressRes = await apiFetch(`/math/progress?${progressQuery}`);
+          if (progressRes.ok) saved = (await progressRes.json()).state;
+        } catch { /* no saved progress — start fresh */ }
+        if (cancelled) return;
+
+        const restored = saved && restoreSnapshot(saved, {
+          warmup,
+          diagnostic,
+          recheck,
+          timedSeconds: chapterMeta?.timedSeconds || 0
+        });
+        if (restored) {
+          setResumed(true);
         } else {
           setPhase('warmup');
         }
+        progressReadyRef.current = true;
       } catch (err) {
         if (!cancelled) setPhase('error');
       }
@@ -445,6 +504,23 @@ export default function MathBootcamp() {
       questionStartRef.current = Date.now();
     }
   }, [phase, timed, currentIndex]);
+
+  // Count the seconds spent in each question phase, only while the tab is visible.
+  useEffect(() => {
+    if (!(phase in phaseTimeRef.current)) return undefined;
+    const id = setInterval(() => {
+      if (document.visibilityState !== 'visible') return;
+      phaseTimeRef.current[phase] += 1;
+      // Save every 15 s so the time survives a crash / lost connection, not just a clean exit.
+      if (phaseTimeRef.current[phase] % 15 === 0) scheduleProgressSave();
+    }, 1000);
+    return () => clearInterval(id);
+  }, [phase]);
+
+  function phaseTimes() {
+    const t = phaseTimeRef.current;
+    return { warmup_time: t.warmup, diagnostic_time: t.diagnostic, recheck_time: t.recheck };
+  }
 
   function recordTime(itemId, correct) {
     if (questionStartRef.current) {
@@ -753,6 +829,7 @@ export default function MathBootcamp() {
       if (data?.attemptId) {
         savedAttemptIdRef.current = data.attemptId;
         console.log('[math bootcamp] attempt saved:', data.attemptId, fields);
+        scheduleProgressSave(); // so a resumed session patches this attempt instead of creating a new one
       }
     } catch (err) {
       console.error('[math bootcamp] network error saving attempt:', err);
@@ -773,6 +850,7 @@ export default function MathBootcamp() {
       warmup_total: warmupTotal,
       diagnostic_total: diagnosticQuestions.length,
       diagnostic_unattempted: diagnosticQuestions.length,
+      ...phaseTimes(),
       answers: buildWarmupAnswers()
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -794,6 +872,7 @@ export default function MathBootcamp() {
       diagnostic_unattempted: diagnosticUnattempted,
       total_score: totalScore,
       avg_time_per_correct: avgTime,
+      ...phaseTimes(),
       answers: [...buildWarmupAnswers(), ...diagAnswers]
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -818,12 +897,160 @@ export default function MathBootcamp() {
       recheck_correct: recheckCorrect,
       recheck_total: recheckItems.length,
       total_score: totalScore,
+      ...phaseTimes(),
       answers: [...buildWarmupAnswers(), ...diagAnswers, ...recheckAnswers]
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
-  function restart() {
+  // -------------------------------------------------------------
+  // Resume: snapshot / restore / save in-progress state
+  // -------------------------------------------------------------
+  function buildSnapshot() {
+    if (!RESUMABLE_PHASES.has(phase)) return null;
+    const byId = {};
+    [...warmupQuestions, ...diagnosticQuestions, ...recheckBank].forEach((q) => { byId[q.itemId] = q; });
+    return {
+      version: PROGRESS_VERSION,
+      phase,
+      currentIndex,
+      answeredMap,
+      warmupAttempts,
+      warmupFirstCorrect,
+      warmupWrongIdx,
+      recheckItemIds: recheckItems.map((q) => q.itemId),
+      recheckIndex,
+      recheckAnswered,
+      recheckSkipped,
+      shuffled: serializeShuffled(shuffledOptionsRef.current, byId),
+      recheckShuffled: serializeShuffled(recheckShuffledRef.current, byId),
+      timeLog: timeLogRef.current,
+      timeRemaining,
+      phaseTime: { ...phaseTimeRef.current },
+      savedAttemptId: savedAttemptIdRef.current,
+      warmupSubmitted: warmupSubmitRef.current,
+      diagnosticSubmitted: diagnosticSubmitRef.current
+    };
+  }
+  buildSnapshotRef.current = buildSnapshot;
+
+  // Applies a saved snapshot; returns false (start fresh) if it doesn't fit the current question bank.
+  function restoreSnapshot(s, { warmup, diagnostic, recheck, timedSeconds }) {
+    if (!s || s.version !== PROGRESS_VERSION || !RESUMABLE_PHASES.has(s.phase)) return false;
+    const byId = {};
+    [...warmup, ...diagnostic, ...recheck].forEach((q) => { byId[q.itemId] = q; });
+
+    const shuffled = deserializeShuffled(s.shuffled, byId);
+    const recheckShuffled = deserializeShuffled(s.recheckShuffled, byId);
+    if (!shuffled || !recheckShuffled) return false;
+    const answers = s.answeredMap || {};
+    if (Object.keys(answers).some((id) => !byId[id])) return false;
+    const recheckById = {};
+    recheck.forEach((q) => { recheckById[q.itemId] = q; });
+    const rItems = (s.recheckItemIds || []).map((id) => recheckById[id]);
+    if (rItems.some((q) => !q)) return false;
+    if (s.phase === 'recheck' && rItems.length === 0) return false;
+
+    const list = s.phase === 'warmup' ? warmup : s.phase === 'diagnostic' ? diagnostic : null;
+    const index = list ? Math.min(Math.max(0, s.currentIndex || 0), list.length - 1) : 0;
+
+    shuffledOptionsRef.current = shuffled;
+    recheckShuffledRef.current = recheckShuffled;
+    timeLogRef.current = s.timeLog || {};
+    phaseTimeRef.current = { warmup: 0, diagnostic: 0, recheck: 0, ...(s.phaseTime || {}) };
+    // Only trust "already submitted" flags if the attempt id came back — otherwise let the checkpoint save again.
+    savedAttemptIdRef.current = s.savedAttemptId || null;
+    warmupSubmitRef.current = !!(s.warmupSubmitted && s.savedAttemptId);
+    diagnosticSubmitRef.current = !!(s.diagnosticSubmitted && s.savedAttemptId);
+
+    if (timedSeconds > 0 && typeof s.timeRemaining === 'number') {
+      setTimeRemaining(Math.max(1, Math.min(timedSeconds, s.timeRemaining)));
+    }
+    if (s.phase === 'diagnostic' && list[index]) {
+      const rec = answers[list[index].itemId];
+      timerPausedRef.current = !!(rec && !rec.unattempted);
+    }
+
+    setAnsweredMap(answers);
+    setWarmupAttempts(s.warmupAttempts || {});
+    setWarmupFirstCorrect(s.warmupFirstCorrect || {});
+    setWarmupWrongIdx(s.warmupWrongIdx || {});
+    setRecheckItems(rItems);
+    setRecheckIndex(Math.min(Math.max(0, s.recheckIndex || 0), Math.max(0, rItems.length - 1)));
+    setRecheckAnswered(s.recheckAnswered || {});
+    setRecheckSkipped(!!s.recheckSkipped);
+    setCurrentIndex(index);
+    setPhase(s.phase);
+    return true;
+  }
+
+  function queueProgressRequest(makeRequest) {
+    saveChainRef.current = saveChainRef.current
+      .then(makeRequest)
+      .catch((err) => console.error('[math bootcamp] progress request failed:', err));
+    return saveChainRef.current;
+  }
+
+  function flushProgress({ keepalive = false } = {}) {
+    if (saveTimerRef.current) {
+      clearTimeout(saveTimerRef.current);
+      saveTimerRef.current = null;
+    }
+    if (!progressReadyRef.current) return;
+    const state = buildSnapshotRef.current();
+    if (!state) return;
+    const body = JSON.stringify({ grade, chapter: chapterSlug, level: levelNum, state });
+    if (keepalive) {
+      // Page is closing: send immediately, don't wait on the queue.
+      apiFetch('/math/progress', { method: 'PUT', body, keepalive: true }).catch(() => {});
+      return;
+    }
+    queueProgressRequest(() => apiFetch('/math/progress', { method: 'PUT', body }));
+  }
+
+  function scheduleProgressSave() {
+    if (!progressReadyRef.current) return;
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = setTimeout(() => flushProgress(), 600);
+  }
+
+  function clearProgress() {
+    if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = null;
+    progressReadyRef.current = false;
+    return queueProgressRequest(() => apiFetch(`/math/progress?${progressQuery}`, { method: 'DELETE' }));
+  }
+
+  // Save after every answer / navigation. The timer itself is saved every 15 s
+  // (and on page close) rather than every tick.
+  useEffect(() => {
+    if (RESUMABLE_PHASES.has(phase)) scheduleProgressSave();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, currentIndex, answeredMap, warmupAttempts, warmupFirstCorrect, warmupWrongIdx,
+    recheckItems, recheckIndex, recheckAnswered, recheckSkipped, Math.floor(timeRemaining / 15)]);
+
+  // Bootcamp finished: nothing left to resume.
+  useEffect(() => {
+    if (phase === 'final') clearProgress();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // Leaving the page (tab close, refresh, app switch, or in-app navigation): save right away.
+  useEffect(() => {
+    const onHide = () => flushProgress({ keepalive: true });
+    const onVisibility = () => { if (document.visibilityState === 'hidden') onHide(); };
+    window.addEventListener('pagehide', onHide);
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => {
+      window.removeEventListener('pagehide', onHide);
+      document.removeEventListener('visibilitychange', onVisibility);
+      onHide();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function restart() {
+    await clearProgress();
     window.location.reload();
   }
 
@@ -907,6 +1134,17 @@ export default function MathBootcamp() {
           </div>
         )}
       </header>
+
+      {resumed && RESUMABLE_PHASES.has(phase) && (
+        <div className="mb-resume-banner" role="status">
+          <i className="bi bi-bookmark-check-fill" />
+          <span>Welcome back! You&apos;re continuing from where you left off.</span>
+          <button type="button" className="mb-resume-link" onClick={() => setShowRestartModal(true)}>Start over</button>
+          <button type="button" className="mb-resume-close" aria-label="Dismiss" onClick={() => setResumed(false)}>
+            <i className="bi bi-x-lg" />
+          </button>
+        </div>
+      )}
 
       {phase === 'warmup' && warmupItem && (
         <>

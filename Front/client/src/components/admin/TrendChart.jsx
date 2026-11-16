@@ -1,13 +1,15 @@
 import { useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
 
-// Prints each point's value above it — only used for single-line charts, where it stays readable.
+// Prints each point's value above it — on single-line charts, or on the datasets marked showLabels
+// in a multi-line chart (labelling every line would overlap).
 const pointLabels = {
   id: 'pointLabels',
   afterDatasetsDraw(chart, _args, opts) {
-    if (!opts.enabled) return;
     const { ctx } = chart;
     chart.data.datasets.forEach((dataset, i) => {
+      if (!opts.enabled && !dataset.showLabels) return;
+      if (!chart.isDatasetVisible(i)) return;
       chart.getDatasetMeta(i).data.forEach((point, idx) => {
         const value = dataset.data[idx];
         if (value === null || value === undefined) return;
@@ -35,6 +37,8 @@ export default function TrendChart({ labels, datasets, height = 280 }) {
         datasets: datasets.map((d) => ({
           label: d.label,
           data: d.data,
+          showLabels: !!d.showLabels,
+          borderDash: d.dashed ? [6, 4] : undefined,
           borderColor: d.color,
           backgroundColor: d.color,
           borderWidth: 3,
@@ -62,7 +66,13 @@ export default function TrendChart({ labels, datasets, height = 280 }) {
         },
         plugins: {
           legend: { display: !single, position: 'top', align: 'end', labels: { boxWidth: 10, usePointStyle: true } },
-          tooltip: { callbacks: { label: (c) => `${c.dataset.label}: ${c.parsed.y}%` } },
+          tooltip: {
+            callbacks: {
+              label: (c) => `${c.dataset.label}: ${c.parsed.y}%`,
+              // Optional extra lines per point: datasets[i].details[pointIndex] = ['Time: 2m 10s', ...]
+              afterLabel: (c) => datasets[c.datasetIndex]?.details?.[c.dataIndex] || []
+            }
+          },
           pointLabels: { enabled: single }
         }
       },

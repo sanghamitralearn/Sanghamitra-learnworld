@@ -348,3 +348,33 @@
     animation-duration: .01ms !important; transition-duration: .01ms !important;
   }
 }
+
+/* Resume banner — shown when a saved in-progress bootcamp is restored */
+.mb-resume-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--mb-success-border);
+  background: var(--mb-success-bg);
+  color: var(--mb-success-text);
+  border-radius: var(--mb-radius-sm);
+  font-size: 0.92rem;
+}
+.mb-resume-banner > span { flex: 1; }
+.mb-resume-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--mb-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.mb-resume-close {
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  color: var(--mb-text-muted);
+  cursor: pointer;
+}

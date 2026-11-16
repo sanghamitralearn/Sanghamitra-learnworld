@@ -88,7 +88,7 @@ function ChapterCard({ gradeKey, gradeLabel, chapter, showGrade, doneLevels }) {
 
 // One card per level on a chapter's page. Only one level is ever marked "Up next", so the learner
 // never has to decide where to start, and finished levels are ticked so progress feels real.
-function LevelCard({ gradeKey, chapter, level, state, firstStart }) {
+function LevelCard({ gradeKey, chapter, level, state, firstStart, resumable }) {
   const meta = LEVEL_META[level] || { name: `Level ${level}`, hint: 'Practice', icon: 'bi-pencil' };
   const timed = meta.hint === 'Timed';
   return (
@@ -102,8 +102,14 @@ function LevelCard({ gradeKey, chapter, level, state, firstStart }) {
           <i className={`bi ${state === 'done' ? 'bi-check-lg' : meta.icon}`}></i>
         </span>
         <span className="mx-test-lvl">Level {level}</span>
-        {state === 'next' && <span className="mx-chip next">Up next</span>}
-        {state === 'done' && <span className="mx-chip done">Done</span>}
+        {resumable ? (
+          <span className="mx-chip next">In progress</span>
+        ) : (
+          <>
+            {state === 'next' && <span className="mx-chip next">Up next</span>}
+            {state === 'done' && <span className="mx-chip done">Done</span>}
+          </>
+        )}
       </span>
       <h3>{meta.name}</h3>
       {meta.text && <span className="mx-test-text">{meta.text}</span>}
@@ -111,7 +117,9 @@ function LevelCard({ gradeKey, chapter, level, state, firstStart }) {
         <span className={`mx-chip hint${timed ? ' timed' : ''}`}>
           <i className={`bi ${timed ? 'bi-stopwatch' : 'bi-emoji-smile'}`}></i> {meta.hint}
         </span>
-        {state === 'next' ? (
+        {resumable ? (
+          <span className="mx-test-cta">Resume <i className="bi bi-arrow-right"></i></span>
+        ) : state === 'next' ? (
           <span className="mx-test-cta">{firstStart ? 'Start' : 'Continue'} <i className="bi bi-arrow-right"></i></span>
         ) : (
           <span className="mx-test-go">
@@ -182,6 +190,7 @@ function useMathCatalog() {
 // visitors (or learners with no attempts yet) simply see no ticks.
 function useMathProgress() {
   const [progress, setProgress] = useState({});
+  const [inProgress, setInProgress] = useState(() => new Set()); // "grade/slug/level" left mid-way
   const [signedIn, setSignedIn] = useState(false);
 
   useEffect(() => {
@@ -193,6 +202,12 @@ function useMathProgress() {
         const { email } = await sessionRes.json();
         if (cancelled || !email) return;
         setSignedIn(true);
+        apiFetch('/math/progress/all')
+          .then((r) => (r.ok ? r.json() : []))
+          .then((rows) => {
+            if (!cancelled) setInProgress(new Set(rows.map((p) => `${p.grade}/${p.chapter}/${p.level}`)));
+          })
+          .catch(() => {});
         const res = await apiFetch(`/math/scores?email=${encodeURIComponent(email)}`);
         if (!res.ok) return;
         const { attempts = [] } = await res.json();
@@ -208,14 +223,14 @@ function useMathProgress() {
     return () => { cancelled = true; };
   }, []);
 
-  return { progress, signedIn };
+  return { progress, inProgress, signedIn };
 }
 
 // /math/:grade/:chapterSlug — one chapter's levels as cards; a level opens the bootcamp test.
 export function MathChapterPage() {
   const { grade: gradeKey, chapterSlug } = useParams();
   const { grades, status } = useMathCatalog();
-  const { progress, signedIn } = useMathProgress();
+  const { progress, inProgress, signedIn } = useMathProgress();
 
   const grade = grades.find((g) => g.gradeKey === gradeKey);
   const chapter = grade?.chapters.find((c) => c.slug === chapterSlug);
@@ -307,6 +322,7 @@ export function MathChapterPage() {
                   chapter={chapter}
                   level={level}
                   firstStart={info.doneCount === 0}
+                  resumable={inProgress.has(`${gradeKey}/${chapterSlug}/${level}`)}
                   state={doneLevels.has(level) ? 'done' : level === info.nextLevel ? 'next' : 'later'}
                 />
               ))}
