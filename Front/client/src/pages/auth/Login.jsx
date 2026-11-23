@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
 import { useAuth } from '../../context/AuthContext';
+import AuthBrand from './AuthBrand';
 import './Login.css';
 
 function LoginIllustration() {
@@ -104,6 +105,7 @@ export default function Login() {
         </div>
 
         <div className="login-form-side">
+          <AuthBrand plain />
           <h1>User Login</h1>
           <p className="login-subtitle">Enter your details to sign in to your account</p>
 

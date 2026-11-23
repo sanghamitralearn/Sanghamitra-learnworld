@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
+import AuthBrand from './AuthBrand';
 import './authForms.css';
 
 export default function Register() {
@@ -35,6 +36,7 @@ export default function Register() {
 
   return (
     <div className="auth-page">
+      <AuthBrand />
       <h1>User Registration</h1>
       <form id="registrationForm" onSubmit={handleSubmit}>
         <div>

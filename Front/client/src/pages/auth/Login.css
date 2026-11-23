@@ -57,6 +57,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 48px 56px;
+  min-width: 0;
 }
 
 .login-form-side h1 {

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { MathScore } = require('../model/MathScore');
 const MathQuestion = require('../model/MathQuestion');
+const MathChapter = require('../model/MathChapter');
 const { VocabScore } = require('../model/vocabScoreSchema');
 const Notification = require('../model/notificationSchema');
 const { FAMILIES } = require('../model/ExamQuestion');
@@ -14,8 +15,14 @@ const { COURSE_LABELS, examPercent, mathReviewRows, examQuestionsByItem, annotat
 // ---- Competitive exams: one score collection per course (sat_scores, gre_scores, …) ----
 
 // Every student's attempts across all courses, newest last, one row per student.
-async function allExamScores() {
-    const perFamily = await Promise.all(FAMILIES.map((f) => scoresFor(f).find({}).lean()));
+// `email` limits it to one student; answers (the bulk of each document) are only loaded when asked for.
+async function allExamScores({ email, withAnswers = false } = {}) {
+    const filter = email ? { email } : {};
+    const perFamily = await Promise.all(FAMILIES.map((f) => {
+        const query = scoresFor(f).find(filter);
+        if (!withAnswers) query.select('-attempts.answers');
+        return query.lean();
+    }));
     const byEmail = new Map();
     perFamily.forEach((docs, i) => {
         const family = FAMILIES[i];
@@ -32,15 +39,43 @@ async function allExamScores() {
     return rows;
 }
 
+// Dashboards only need per-attempt totals, so answers are left out unless ?answers=1 is passed.
 router.get('/scores', async (req, res) => {
     try {
+        const withAnswers = req.query.answers === '1';
         const [math, english, exams] = await Promise.all([
-            MathScore.find({}),
-            VocabScore.find({}),
-            allExamScores()
+            MathScore.find({}).select(withAnswers ? '' : '-attempts.answers').lean(),
+            VocabScore.find({}).select('-assessments.questions').lean(),
+            allExamScores({ withAnswers })
         ]);
         res.status(200).json({ math, english, exams });
     } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+// Maths chapters with their levels and topic (cluster) names, for the chapter / gap dashboards.
+router.get('/math/catalog', async (req, res) => {
+    try {
+        const rows = await MathChapter.find({}).select('grade gradeLabel chapterSlug chapterName level clusterNames').lean();
+        const byChapter = new Map();
+        rows.forEach((r) => {
+            const key = `${r.grade}|${r.chapterSlug}`;
+            if (!byChapter.has(key)) {
+                byChapter.set(key, {
+                    key, grade: r.grade, gradeLabel: r.gradeLabel, chapterSlug: r.chapterSlug,
+                    chapterName: r.chapterName, levels: [], topics: {}
+                });
+            }
+            const chapter = byChapter.get(key);
+            if (!chapter.levels.includes(r.level)) chapter.levels.push(r.level);
+            Object.assign(chapter.topics, r.clusterNames || {});
+        });
+        const chapters = [...byChapter.values()];
+        chapters.forEach((c) => c.levels.sort((a, b) => a - b));
+        res.status(200).json({ chapters });
+    } catch (err) {
+        console.error('[admin/math/catalog] failed:', err);
         res.status(500).json({ error: 'Server error' });
     }
 });
@@ -55,7 +90,12 @@ router.get('/scores/math/:email', async (req, res) => {
         attempts.forEach((a) => {
             levels.set([a.grade, a.chapter_slug, a.level].join('|'), { grade: a.grade, chapterSlug: a.chapter_slug, level: a.level });
         });
-        const questions = levels.size ? await MathQuestion.find({ $or: [...levels.values()] }).lean() : [];
+        // Only the fields the review rows use; hint ladders, curriculum links etc. are left out.
+        const questions = levels.size
+            ? await MathQuestion.find({ $or: [...levels.values()] })
+                .select('grade chapterSlug level phase itemId order cluster clusterName question options.text options.correct options.misconceptionId misconceptions')
+                .lean()
+            : [];
 
         attempts.forEach((attempt) => {
             const bank = questions.filter((q) => q.grade === attempt.grade && q.chapterSlug === attempt.chapter_slug && q.level === attempt.level);
@@ -71,7 +111,7 @@ router.get('/scores/math/:email', async (req, res) => {
 // One student's competitive-exam attempts, with each answer's question text and correct answer.
 router.get('/scores/exams/:email', async (req, res) => {
     try {
-        const row = (await allExamScores()).find((r) => r.email === req.params.email);
+        const [row] = await allExamScores({ email: req.params.email, withAnswers: true });
         if (!row) return res.status(404).json({ message: 'User not found' });
 
         const idsByFamily = {};
@@ -120,8 +160,8 @@ function summarize(accuracies, scores) {
 router.get('/exam-performance', async (req, res) => {
     try {
         const [mathDocs, vocabDocs, examRows] = await Promise.all([
-            MathScore.find({}),
-            VocabScore.find({}),
+            MathScore.find({}).select('-attempts.answers').lean(),
+            VocabScore.find({}).select('assessments.total_score assessments.questions.is_correct').lean(),
             allExamScores()
         ]);
 
@@ -170,8 +210,8 @@ router.get('/recent-activity', async (req, res) => {
     try {
         const limit = Math.min(parseInt(req.query.limit, 10) || 15, 50);
         const [mathDocs, vocabDocs, examRows] = await Promise.all([
-            MathScore.find({}).lean(),
-            VocabScore.find({}).lean(),
+            MathScore.find({}).select('-attempts.answers').lean(),
+            VocabScore.find({}).select('username email assessments._id assessments.date assessments.questions.is_correct').lean(),
             allExamScores()
         ]);
 

@@ -6,6 +6,9 @@ import {
   entriesFor, findCourse, formatDate, fullTests, gradeNumber, isExamCourse, loadSections, moduleAttempts, percentOf, scoreTone
 } from './adminCourses';
 import { ScoreText } from './AdminCourseDashboard';
+import StudentDiagnosis from './StudentDiagnosis';
+import MistakePatterns from './MistakePatterns';
+import { loadMathCatalog } from './mathGaps';
 import './admin.css';
 
 const SECTION_COLORS = ['#15803d', '#1e40af', '#ea580c', '#0891b2', '#be185d'];
@@ -33,6 +36,8 @@ export default function AdminUserDetail() {
       setError(null);
       setReview(null);
       try {
+        // Start the topic-name catalog alongside the scores (it's cached for the diagnostic report).
+        if (key === 'maths') loadMathCatalog();
         const path = key === 'maths' ? '/admin/scores/math' : '/admin/scores/exams';
         const response = await apiFetch(`${path}/${encodeURIComponent(email)}`);
         if (response.status === 404) {
@@ -69,6 +74,9 @@ export default function AdminUserDetail() {
   const latestFull = fulls[fulls.length - 1] || null;
   const headline = latestFull || entries[entries.length - 1] || null;
   const headlinePct = headline ? percentOf(headline.correct, headline.total) ?? 0 : 0;
+  const avgPct = entries.length ? Math.round(entries.reduce((s, a) => s + (a.percent || 0), 0) / entries.length) : 0;
+  const bestPct = entries.reduce((m, a) => Math.max(m, a.percent || 0), 0);
+  const prevPct = !exam && entries.length > 1 ? entries[entries.length - 2].percent : null;
 
   return (
     <section className="adm-page">
@@ -90,12 +98,43 @@ export default function AdminUserDetail() {
               <div className="adm-detail-title">
                 Student Details: <span>{data.username}</span>
               </div>
-              <div className="adm-detail-grid">
+              <div className={`adm-detail-grid${exam ? '' : ' adm-detail-grid-3'}`}>
                 <div>
                   <div className="adm-detail-label">Student Information</div>
                   <p>Email: <strong>{data.email}</strong></p>
                   <p>Name: <strong>{data.username}</strong></p>
                 </div>
+                {!exam ? (
+                  <>
+                  <div>
+                    <div className="adm-detail-label">Performance Summary</div>
+                    <p>Total Submissions: <strong>{entries.length}</strong></p>
+                    <p>Chapters Attempted: <strong>{new Set(entries.map((a) => `${a.grade}|${a.chapter_slug}`)).size}</strong></p>
+                    <p>Average Score: <strong className={`tone-${scoreTone(avgPct)}`}>{avgPct}%</strong></p>
+                    <p>Best Score: <strong className={`tone-${scoreTone(bestPct)}`}>{bestPct}%</strong></p>
+                  </div>
+                  <div>
+                    <div className="adm-detail-label">Latest Score</div>
+                    <div className={`adm-latest-focus focus-${scoreTone(headlinePct)}`} aria-label={`Latest score ${headline.correct} out of ${headline.total}, ${headlinePct}%`}>
+                      <div className="adm-latest-big">
+                        <strong>{headline.correct}</strong>
+                        <span className="adm-latest-of">/ {headline.total}</span>
+                        <span className={`adm-pct-badge tone-${scoreTone(headlinePct)}`}>{headlinePct}%</span>
+                      </div>
+                      {prevPct !== null && (
+                        <div className={`adm-latest-change ${headlinePct - prevPct < 0 ? 'is-down' : headlinePct - prevPct > 0 ? 'is-up' : ''}`}>
+                          <i className={`bi ${headlinePct - prevPct < 0 ? 'bi-arrow-down-right' : headlinePct - prevPct > 0 ? 'bi-arrow-up-right' : 'bi-dash'}`}></i>
+                          {headlinePct - prevPct === 0 ? 'Same as' : `${Math.abs(headlinePct - prevPct)} pts ${headlinePct - prevPct < 0 ? 'lower than' : 'higher than'}`} previous attempt ({prevPct}%)
+                        </div>
+                      )}
+                      <div className="adm-latest-meta">
+                        <em><strong>{headline.chapter_name}</strong> &middot; Grade {gradeNumber(headline.grade)} &middot; Level {headline.level}</em>
+                        <span>{formatDate(headline.date)}</span>
+                      </div>
+                    </div>
+                  </div>
+                  </>
+                ) : (
                 <div>
                   <div className="adm-detail-label">Performance Summary</div>
                   <p>Total Submissions: <strong>{entries.length}</strong></p>
@@ -109,9 +148,11 @@ export default function AdminUserDetail() {
                     ) : '—'}
                   </p>
                 </div>
+                )}
               </div>
             </div>
 
+            {!exam ? <MistakePatterns entries={entries} /> : (
             <div className="adm-banner">
               <div>
                 <h2>{exam && latestFull ? 'Combined Score' : 'Latest Score'}</h2>
@@ -126,6 +167,7 @@ export default function AdminUserDetail() {
                 <div className="adm-ring-pct">{headlinePct}%</div>
               </div>
             </div>
+            )}
 
             {exam ? (
               <ExamSections
@@ -137,7 +179,7 @@ export default function AdminUserDetail() {
                 onReview={setReview}
               />
             ) : (
-              <MathSections entries={entries} onReview={setReview} />
+              <MathSections entries={entries} username={data.username} onReview={setReview} />
             )}
 
             {review && (
@@ -388,7 +430,7 @@ function ExamSections({ course, entries, fulls, latestFull, sections, onReview }
   );
 }
 
-function MathSections({ entries, onReview }) {
+function MathSections({ entries, username, onReview }) {
   const latest = entries[entries.length - 1];
   const best = entries.reduce((b, a) => (a.percent > b.percent ? a : b), entries[0]);
   const avg = Math.round(entries.reduce((sum, a) => sum + a.percent, 0) / entries.length);
@@ -509,6 +551,10 @@ function MathSections({ entries, onReview }) {
             <TrendChart labels={chart.labels} datasets={chart.datasets} />
           </div>
         </div>
+      </div>
+
+      <div className="mt-4">
+        <StudentDiagnosis entries={entries} username={username} />
       </div>
     </>
   );

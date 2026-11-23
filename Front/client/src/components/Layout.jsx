@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import Header from './Header';
@@ -18,7 +18,10 @@ export default function Layout() {
     <>
       <Header />
       <main className="main">
-        <Outlet />
+        {/* Pages are code-split; keep the header and footer while a page's code downloads. */}
+        <Suspense fallback={<div className="page-loading" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>Loading&hellip;</div>}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
       <a href="#top" id="scroll-top" className="scroll-top d-flex align-items-center justify-content-center"

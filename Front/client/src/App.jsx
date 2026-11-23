@@ -1,32 +1,39 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
-
 import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import English from './pages/English';
-import MathPage, { MathChapterPage } from './pages/Math';
-import CompetitiveExams, { CourseTests } from './pages/CompetitiveExams';
-import Grammar from './pages/Grammar';
-import Writing from './pages/Writing';
-import Vocabulary from './pages/Vocabulary';
-import VocabularyGuide from './pages/VocabularyGuide';
-import VocabularyDiagnosticTest from './pages/VocabularyDiagnosticTest';
-import VocabAnalytics from './pages/VocabAnalytics';
-import MathBootcamp from './pages/math/MathBootcamp';
-import ExamRunner, { ExamAnalysis } from './pages/exams/ExamRunner';
-import Dashboard from './pages/Dashboard';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import AdminCourseDashboard from './pages/admin/AdminCourseDashboard';
-import AdminUserDetail from './pages/admin/AdminUserDetail';
-import VocabHub from './pages/vocabulary-content/VocabHub';
-import VocabContentPage from './pages/vocabulary-content/VocabContentPage';
 
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
-import ForgetPassword from './pages/auth/ForgetPassword';
+// Every page except Home is loaded on demand, so a visit only downloads the code for the page shown.
+const named = (load, name) => lazy(() => load().then((m) => ({ default: m[name] })));
+
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const English = lazy(() => import('./pages/English'));
+const MathPage = lazy(() => import('./pages/Math'));
+const MathChapterPage = named(() => import('./pages/Math'), 'MathChapterPage');
+const CompetitiveExams = lazy(() => import('./pages/CompetitiveExams'));
+const CourseTests = named(() => import('./pages/CompetitiveExams'), 'CourseTests');
+const Grammar = lazy(() => import('./pages/Grammar'));
+const Writing = lazy(() => import('./pages/Writing'));
+const Vocabulary = lazy(() => import('./pages/Vocabulary'));
+const VocabularyGuide = lazy(() => import('./pages/VocabularyGuide'));
+const VocabularyDiagnosticTest = lazy(() => import('./pages/VocabularyDiagnosticTest'));
+const VocabAnalytics = lazy(() => import('./pages/VocabAnalytics'));
+const MathBootcamp = lazy(() => import('./pages/math/MathBootcamp'));
+const ExamRunner = lazy(() => import('./pages/exams/ExamRunner'));
+const ExamAnalysis = named(() => import('./pages/exams/ExamRunner'), 'ExamAnalysis');
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
+const AdminCourseDashboard = lazy(() => import('./pages/admin/AdminCourseDashboard'));
+const AdminUserDetail = lazy(() => import('./pages/admin/AdminUserDetail'));
+const AdminMathInsights = lazy(() => import('./pages/admin/AdminMathInsights'));
+const VocabHub = lazy(() => import('./pages/vocabulary-content/VocabHub'));
+const VocabContentPage = lazy(() => import('./pages/vocabulary-content/VocabContentPage'));
+const Login = lazy(() => import('./pages/auth/Login'));
+const Register = lazy(() => import('./pages/auth/Register'));
+const ForgetPassword = lazy(() => import('./pages/auth/ForgetPassword'));
 
 export default function App() {
   return (
@@ -61,13 +68,14 @@ export default function App() {
             </Route>
 
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/course/maths/insights" element={<AdminMathInsights />} />
             <Route path="/admin/course/:course" element={<AdminCourseDashboard />} />
             <Route path="/admin/user-detail" element={<AdminUserDetail />} />
           </Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/login" element={<Suspense fallback={null}><Login /></Suspense>} />
+          <Route path="/register" element={<Suspense fallback={null}><Register /></Suspense>} />
+          <Route path="/forget-password" element={<Suspense fallback={null}><ForgetPassword /></Suspense>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

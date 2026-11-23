@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
+import AuthBrand from './AuthBrand';
 import './authForms.css';
 
 export default function ForgetPassword() {
@@ -58,6 +59,7 @@ export default function ForgetPassword() {
 
   return (
     <div className="auth-page">
+      <AuthBrand />
       <h1>Forgot Password</h1>
 
       {stage === 'checkEmail' && (
