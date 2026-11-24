@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
 import {
-  courseStudents, findCourse, formatDate, isExamCourse, latestWhere, loadSections, percentOf, scoreTone
+  courseStudents, findCourse, formatDateTime, isExamCourse, latestWhere, loadSections, percentOf, scoreTone
 } from './adminCourses';
 import './admin.css';
 
@@ -161,7 +161,7 @@ export default function AdminCourseDashboard() {
                           </td>
                         </>
                       )}
-                      <td className="adm-muted-cell">{formatDate(latest.date)}</td>
+                      <td className="adm-muted-cell">{formatDateTime(latest.date)}</td>
                       <td>
                         <button type="button" className="adm-btn adm-btn-blue adm-btn-sm" onClick={() => openStudent(s.email)}>
                           View &rarr;

@@ -30,7 +30,7 @@ function formatDuration(totalSeconds) {
 
 function formatDate(value) {
   const d = new Date(value);
-  return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric' });
 }
 
 // Red for weak, amber for middling, green for strong — same bar as the screenshot design.

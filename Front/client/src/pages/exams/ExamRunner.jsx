@@ -495,7 +495,7 @@ function Results({ title, modules, mode, timeSpent, date, backTo, onRetake }) {
           {percent}% correct · {mode === 'timed' ? 'Timed' : 'Practice'} mode
           {timeSpent > 0 && <> · {formatTime(timeSpent)} spent</>}
           {skipped > 0 && <> · {skipped} unanswered</>}
-          {date && <> · {new Date(date).toLocaleString()}</>}
+          {date && <> · {new Date(date).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' })}</>}
         </p>
 
         {sections.length > 1 && (

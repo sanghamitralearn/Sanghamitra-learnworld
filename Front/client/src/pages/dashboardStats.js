@@ -148,7 +148,7 @@ export function overallStats(courses) {
 
 const startOfDay = (date) => new Date(date.getFullYear(), date.getMonth(), date.getDate());
 const shiftDays = (date, days) => new Date(date.getFullYear(), date.getMonth(), date.getDate() + days);
-const shortDate = (date) => date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+const shortDate = (date) => date.toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
 
 // Attempts per bucket: 'week' is the last 7 days, 'month' the last 4 seven-day spans. Both end today.
 export function buildActivity(courses, range, now = new Date()) {
@@ -162,9 +162,9 @@ export function buildActivity(courses, range, now = new Date()) {
       key: start.toISOString(),
       start,
       end: shiftDays(last, 1),
-      label: size === 1 ? start.toLocaleDateString('en-US', { weekday: 'short' }) : shortDate(start),
+      label: size === 1 ? start.toLocaleDateString('en-IN', { weekday: 'short' }) : shortDate(start),
       detail: size === 1
-        ? start.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })
+        ? start.toLocaleDateString('en-IN', { weekday: 'long', month: 'short', day: 'numeric' })
         : `${shortDate(start)} – ${shortDate(last)}`,
       value: 0
     };

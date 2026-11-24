@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
 import TrendChart from '../../components/admin/TrendChart';
 import {
-  entriesFor, findCourse, formatDate, fullTests, gradeNumber, isExamCourse, loadSections, moduleAttempts, percentOf, scoreTone
+  entriesFor, findCourse, formatDateTime, fullTests, gradeNumber, isExamCourse, loadSections, moduleAttempts, percentOf, scoreTone
 } from './adminCourses';
 import { ScoreText } from './AdminCourseDashboard';
 import StudentDiagnosis from './StudentDiagnosis';
@@ -129,7 +129,7 @@ export default function AdminUserDetail() {
                       )}
                       <div className="adm-latest-meta">
                         <em><strong>{headline.chapter_name}</strong> &middot; Grade {gradeNumber(headline.grade)} &middot; Level {headline.level}</em>
-                        <span>{formatDate(headline.date)}</span>
+                        <span>{formatDateTime(headline.date)}</span>
                       </div>
                     </div>
                   </div>
@@ -187,7 +187,7 @@ export default function AdminUserDetail() {
                 <div className="adm-panel-head">
                   <span>
                     Question Review &middot; {reviewTitle(key, review)}
-                    <small className="adm-muted-cell ms-2">{new Date(review.date).toLocaleString()}</small>
+                    <small className="adm-muted-cell ms-2">{formatDateTime(review.date)}</small>
                   </span>
                   <button type="button" className="adm-btn adm-btn-light adm-btn-sm" onClick={() => setReview(null)}>
                     Close &times;
@@ -288,7 +288,7 @@ function ExamSections({ course, entries, fulls, latestFull, sections, onReview }
               <button type="button" className="adm-btn adm-btn-purple adm-btn-block" onClick={() => onReview(latestFull)}>
                 View Full Analysis &rarr;
               </button>
-              <div className="adm-card-foot">{fulls.length} attempts &middot; {formatDate(latestFull.date)}</div>
+              <div className="adm-card-foot">{fulls.length} attempts &middot; {formatDateTime(latestFull.date)}</div>
             </>
           ) : (
             <p className="adm-muted-cell mb-0">No full-length test taken yet.</p>
@@ -354,7 +354,7 @@ function ExamSections({ course, entries, fulls, latestFull, sections, onReview }
                           return <td key={s.code}>{r ? <ScoreText correct={r.correct} total={r.total} /> : <ScoreText />}</td>;
                         })}
                         <td><ScoreText correct={a.correct} total={a.total} /></td>
-                        <td className="adm-muted-cell">{formatDate(a.date)}</td>
+                        <td className="adm-muted-cell">{formatDateTime(a.date)}</td>
                         <td>
                           <button type="button" className="adm-icon-btn" onClick={() => onReview(a)} aria-label="Review questions">
                             <i className="bi bi-bar-chart-fill"></i>
@@ -405,7 +405,7 @@ function ExamSections({ course, entries, fulls, latestFull, sections, onReview }
                         <td className="tone-high">{a.correct}</td>
                         <td className="tone-low">{a.total - a.correct - a.unattempted}</td>
                         <td className={`tone-${scoreTone(a.percent)}`}>{a.percent}%</td>
-                        <td className="adm-muted-cell">{formatDate(a.date)}</td>
+                        <td className="adm-muted-cell">{formatDateTime(a.date)}</td>
                         <td>
                           <button type="button" className="adm-icon-btn" onClick={() => onReview(a)} aria-label="Review questions">
                             <i className="bi bi-bar-chart-fill"></i>
@@ -471,7 +471,7 @@ function MathSections({ entries, username, onReview }) {
           <button type="button" className="adm-btn adm-btn-purple adm-btn-block" onClick={() => onReview(latest)}>
             View Full Analysis &rarr;
           </button>
-          <div className="adm-card-foot">{formatDate(latest.date)}</div>
+          <div className="adm-card-foot">{formatDateTime(latest.date)}</div>
         </div>
 
         <div className="adm-panel adm-panel-pad">
@@ -523,7 +523,7 @@ function MathSections({ entries, username, onReview }) {
                     <td><ScoreText correct={a.diagnostic_correct} total={a.diagnostic_total} /></td>
                     <td><ScoreText correct={a.recheck_correct} total={a.recheck_total} /></td>
                     <td>{a.total_score}</td>
-                    <td className="adm-muted-cell">{formatDate(a.date)}</td>
+                    <td className="adm-muted-cell">{formatDateTime(a.date)}</td>
                     <td>
                       <button type="button" className="adm-icon-btn" onClick={() => onReview(a)} aria-label="Review questions">
                         <i className="bi bi-bar-chart-fill"></i>
@@ -581,7 +581,7 @@ function trendDetails(metric, a) {
   const w = phaseSeconds(a, 'warmup');
   const d = phaseSeconds(a, 'diagnostic');
   const r = phaseSeconds(a, 'recheck');
-  const date = `Date: ${new Date(a.date).toLocaleString()}`;
+  const date = `Date: ${formatDateTime(a.date)}`;
   if (metric === 'warmup') return [`Correct: ${a.warmup_correct}/${a.warmup_total}`, `Time: ${timeText(w)}`, date];
   if (metric === 'diagnostic') return [`Correct: ${a.diagnostic_correct}/${a.diagnostic_total}`, `Time: ${timeText(d)}`, date];
   return [

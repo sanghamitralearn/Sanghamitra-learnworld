@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { formatDate } from './adminCourses';
+import { formatDateTime } from './adminCourses';
 import {
   DEFAULT_THRESHOLD, DIAGNOSIS_STATUS, diagnoseStudent, loadMathCatalog
 } from './mathGaps';
@@ -30,7 +30,7 @@ export default function StudentDiagnosis({ entries, username }) {
           <h3 className="dx-title">Where {firstName} needs help</h3>
           <div className="dx-sub">
             Based on {d.stats.attempts} attempts across {d.chapters.length} {d.chapters.length === 1 ? 'chapter' : 'chapters'}
-            {' · '}last active {formatDate(last.date)} · gap = topic below {DEFAULT_THRESHOLD}%
+            {' · '}last active {formatDateTime(last.date)} · gap = topic below {DEFAULT_THRESHOLD}%
           </div>
         </div>
         <span className="dx-head-right">

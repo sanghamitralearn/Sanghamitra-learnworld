@@ -38,7 +38,11 @@ export function scoreTone(pct) {
   return 'low';
 }
 
-export const formatDate = (date) => new Date(date).toLocaleDateString();
+// Indian format and time zone, e.g. "24/11/2026, 3:45 pm".
+export const formatDateTime = (date) =>
+  new Date(date).toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit', hour: 'numeric', minute: '2-digit'
+  });
 
 // Maths grades are stored as "grade-6"; shown as "6".
 export const gradeNumber = (grade) => String(grade ?? '').replace(/^grade-/, '') || '—';

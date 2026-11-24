@@ -7,7 +7,7 @@ import './Dashboard.css';
 
 const STATUS_NOTE = { new: 'Not started', completed: 'Completed' };
 
-const formatDate = (value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+const formatDate = (value) => new Date(value).toLocaleDateString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric' });
 
 const initialsOf = (name = '') => name.trim().split(/\s+/).slice(0, 2).map((word) => word[0]?.toUpperCase()).join('') || '?';
 

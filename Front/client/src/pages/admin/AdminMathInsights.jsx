@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { apiFetch } from '../../api/client';
 import ClusterHeatmap from '../../components/admin/ClusterHeatmap';
 import ClusterBars from '../../components/admin/ClusterBars';
-import { courseStudents, formatDate } from './adminCourses';
+import { courseStudents, formatDateTime } from './adminCourses';
 import {
   BANDS, DEFAULT_THRESHOLD, SEVERITIES, SEVERITY_LABEL, STATUS, bandFor, buildInsights, loadMathCatalog, ragTone
 } from './mathGaps';
@@ -445,7 +445,7 @@ function InsightsHeatmap({ insights, chapters, filters, nameMatch, layout, setLa
         `Levels done: ${ch.levelsDone} of ${ch.levelsTotal}`,
         `Attempts: ${ch.attempts}`,
         gaps.length ? `Gaps: ${gaps.slice(0, 3).map((g) => `${g.name} ${g.percent}%`).join(', ')}${gaps.length > 3 ? '…' : ''}` : 'No topic gaps',
-        `Last attempt: ${formatDate(ch.lastDate)}`
+        `Last attempt: ${formatDateTime(ch.lastDate)}`
       ]
     };
   }, [mode, insights, threshold]);

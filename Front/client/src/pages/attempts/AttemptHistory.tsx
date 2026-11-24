@@ -2,7 +2,7 @@ import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AttemptReviewDetails } from './AttemptReviewDetails';
 import { LoadError } from './LoadError';
-import { formatDate, formatDuration, scoreTone } from './format';
+import { formatDateTime, formatDuration, scoreTone } from './format';
 import { useAttemptHistory } from './useAttempts';
 import type { AttemptSummary, CourseOption } from './types';
 import './AttemptHistory.css';
@@ -20,7 +20,7 @@ function AttemptRow({ attempt }: { attempt: AttemptSummary }) {
 
   const meta = [
     attempt.detail,
-    formatDate(attempt.date),
+    formatDateTime(attempt.date),
     attempt.timeSpent ? formatDuration(attempt.timeSpent) : null,
     attempt.mode === 'timed' ? 'Timed' : null
   ].filter(Boolean).join(' · ');
